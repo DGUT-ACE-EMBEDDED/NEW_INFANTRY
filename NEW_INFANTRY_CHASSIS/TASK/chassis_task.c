@@ -88,16 +88,18 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	PidInitMode(&chassis_data_init_f->motor_Speed_Pid[2], Output_Limit, MOTOR_3508_CURRENT_LIMIT, 0);
 	PidInitMode(&chassis_data_init_f->motor_Speed_Pid[3], Output_Limit, MOTOR_3508_CURRENT_LIMIT, 0);
 
-	PidInit(&chassis_data_init_f->motor_Position_Pid[0], 0.1f, 0, 0, NONE);
-	PidInit(&chassis_data_init_f->motor_Position_Pid[1], 0.1f, 0, 0, NONE);
-	PidInit(&chassis_data_init_f->motor_Position_Pid[2], 0.1f, 0, 0, NONE);
-	PidInit(&chassis_data_init_f->motor_Position_Pid[3], 0.1f, 0, 0, NONE);
+	PidInit(&chassis_data_init_f->motor_Position_Pid[0], 0.05f, 0, 0, NONE);
+	PidInit(&chassis_data_init_f->motor_Position_Pid[1], 0.05f, 0, 0, NONE);
+	PidInit(&chassis_data_init_f->motor_Position_Pid[2], 0.05f, 0, 0, NONE);
+	PidInit(&chassis_data_init_f->motor_Position_Pid[3], 0.05f, 0, 0, NONE);
 
 	//底盘位置环pid
-	PidInit(&chassis_data_init_f->Chassis_speedX_Pid, CHASSIS_LOCATION_KP, CHASSIS_LOCATION_KI, CHASSIS_LOCATION_KD, StepIn);
-	PidInitMode(&chassis_data_init_f->Chassis_speedX_Pid, StepIn, 5.0F, 0);
-	PidInit(&chassis_data_init_f->Chassis_speedY_Pid, CHASSIS_LOCATION_KP, CHASSIS_LOCATION_KI, CHASSIS_LOCATION_KD, StepIn);
-	PidInitMode(&chassis_data_init_f->Chassis_speedY_Pid, StepIn, 5.0F, 0);
+	PidInit(&chassis_data_init_f->Chassis_speedX_Pid, CHASSIS_LOCATION_KP, CHASSIS_LOCATION_KI, CHASSIS_LOCATION_KD, StepIn | OutputFilter);
+	PidInit(&chassis_data_init_f->Chassis_speedY_Pid, CHASSIS_LOCATION_KP, CHASSIS_LOCATION_KI, CHASSIS_LOCATION_KD, StepIn | OutputFilter);
+	PidInitMode(&chassis_data_init_f->Chassis_speedX_Pid, StepIn, 3.0F, 0);
+	PidInitMode(&chassis_data_init_f->Chassis_speedY_Pid, StepIn, 3.0F, 0);
+	PidInitMode(&chassis_data_init_f->Chassis_speedX_Pid, OutputFilter, CHASSIS_FIRST_ORDER_FILTER_K, 0);
+	PidInitMode(&chassis_data_init_f->Chassis_speedY_Pid, OutputFilter, CHASSIS_FIRST_ORDER_FILTER_K, 0);
 
 	//底盘旋转跟随pid
 	PidInit(&chassis_data_init_f->chassis_rotate_pid, CHASSIS_SPIN_FOLLOW_KP, CHASSIS_SPIN_FOLLOW_KI, CHASSIS_SPIN_FOLLOW_KD, Deadzone | ChangingIntegrationRate | Integral_Limit);
@@ -154,6 +156,9 @@ void Chassis_Work(chassis_control_t *Chassis_Control_f)
 	//根据底盘模式计算x、y、yaw值
 	chassis_behaviour_react(Chassis_Control_f);
 
+			//底盘pid速度计算
+		chassis_speed_pid_calculate(Chassis_Control_f);
+	
 	//底盘状态选择
 	chassis_state_choose(Chassis_Control_f);
 
@@ -164,8 +169,7 @@ void Chassis_Work(chassis_control_t *Chassis_Control_f)
 		motor_position_speed_pid_calculate(Chassis_Control_f);
 		break;
 	case CHASSIS_SPEED:
-		//底盘pid速度计算
-		chassis_speed_pid_calculate(Chassis_Control_f);
+
 
 		//运动分解
 		chassis_motion_decomposition(Chassis_Control_f);

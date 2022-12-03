@@ -2,11 +2,14 @@
 #include "chassis_task.h"
 #include "rc.h"
 #include "maths.h"
+#include "pid.h"
 
 chassis_behaviour_e Chassis_Behaviour;
+//原始控制量
 float Chassis_x = 0.0f;
 float Chassis_y = 0.0f;
 float Chassis_yaw = 0.0f;
+
 float Chassis_x_pid_output = 0.0f;
 float Chassis_y_pid_output = 0.0f;
 float Chassis_yaw_pid_output = 0.0f;
@@ -107,7 +110,11 @@ void chassis_state_choose(chassis_control_t *chassis_state_choose_f)
     chassis_state_e last_state;
     last_state = chassis_state_choose_f->chassis_state;
     //如果没有控制量，锁死底盘
-    if (((Chassis_x < 5) && (Chassis_x > -5)) && ((Chassis_y < 5) && (Chassis_y > -5)) && ((Chassis_yaw < 5) && (Chassis_yaw > -5)))
+    // if (((Chassis_x < 5) && (Chassis_x > -5)) && ((Chassis_y < 5) && (Chassis_y > -5)) && ((Chassis_yaw < 5) && (Chassis_yaw > -5)))
+    // {
+    //     chassis_state_choose_f->chassis_state = CHASSIS_LOCK_POSITION;
+    // }
+    if ((abs(chassis_state_choose_f->Chassis_speedX_Pid.SetValue) < chassis_state_choose_f->Chassis_speedX_Pid.stepIn) && (abs(chassis_state_choose_f->Chassis_speedY_Pid.SetValue) < chassis_state_choose_f->Chassis_speedY_Pid.stepIn) && (abs(chassis_state_choose_f->chassis_rotate_pid.SetValue) < 5))
     {
         chassis_state_choose_f->chassis_state = CHASSIS_LOCK_POSITION;
     }
@@ -121,6 +128,13 @@ void chassis_state_choose(chassis_control_t *chassis_state_choose_f)
         EncoderValZero(chassis_state_choose_f->Motor_encoder[1]);
         EncoderValZero(chassis_state_choose_f->Motor_encoder[2]);
         EncoderValZero(chassis_state_choose_f->Motor_encoder[3]);
+        pid_clear(&chassis_state_choose_f->motor_Position_Pid[0]);
+        pid_clear(&chassis_state_choose_f->motor_Position_Pid[1]);
+        pid_clear(&chassis_state_choose_f->motor_Position_Pid[2]);
+        pid_clear(&chassis_state_choose_f->motor_Position_Pid[3]);
+        pid_clear(&chassis_state_choose_f->Chassis_speedX_Pid);
+        pid_clear(&chassis_state_choose_f->Chassis_speedY_Pid);
+        pid_clear(&chassis_state_choose_f->chassis_rotate_pid);
     }
 
     if (chassis_state_choose_f->Chassis_RC->rc.s[1] == RC_SW_DOWN)
