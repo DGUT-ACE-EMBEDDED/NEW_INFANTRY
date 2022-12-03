@@ -42,6 +42,43 @@ void Task_Chassis(void const *argument)
 		vTaskDelayUntil(&currentTime, 2); //绝对延时//vTaskDelay(2)
 	}
 }
+void Chassis_Work(chassis_control_t *Chassis_Control_f)
+{
+	//选择底盘模式
+	chassis_behaviour_choose(Chassis_Control_f);
+
+	//根据底盘模式计算x、y、yaw值
+	chassis_behaviour_react(Chassis_Control_f);
+
+	//底盘pid速度计算
+	chassis_speed_pid_calculate(Chassis_Control_f);
+
+	//底盘状态选择
+	chassis_state_choose(Chassis_Control_f);
+
+	switch (Chassis_Control_f->chassis_state)
+	{
+	case CHASSIS_LOCK_POSITION:
+		//位置速度环串级pid
+		motor_position_speed_pid_calculate(Chassis_Control_f);
+		break;
+	case CHASSIS_SPEED:
+
+		//运动分解
+		chassis_motion_decomposition(Chassis_Control_f);
+
+		//电机pid速度计算
+		motor_speed_pid_calculate(Chassis_Control_f);
+		break;
+	case CHASSIS_ZERO_FORCE:
+		chassis_zero_fore_react(Chassis_Control_f);
+		break;
+	default:
+		break;
+	}
+	//防止运动失真
+	chassis_prevent_motion_distortion(Chassis_Control_f);
+}
 /**
  * @brief          底盘数据初始化
  * @param[in]      *chassis_move_init_f：底盘主结构体
@@ -65,11 +102,6 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 
 	//获取底盘模式的指针
 	chassis_data_init_f->behaviour = get_chassis_behaviour_point();
-
-	/*--------------------初始化滤波--------------------*/
-	//初始化低通滤波  需要添加值,用来对遥控和键盘的值进滤波
-	first_order_filter_init(&(chassis_data_init_f->LowFilt_chassis_vx), CHASSIS_FIRST_ORDER_FILTER_K);
-	first_order_filter_init(&(chassis_data_init_f->LowFilt_chassis_vy), CHASSIS_FIRST_ORDER_FILTER_K);
 
 	/*--------------------初始化编码器--------------------*/
 	chassis_data_init_f->Motor_encoder[0] = Encoder_Init(M3508, 1);
@@ -146,43 +178,4 @@ void motor_speed_pid_calculate(chassis_control_t *Chassis_pid_calculate_f)
 	Chassis_pid_calculate_f->Chassis_Motor[1].pid_output = motor_speed_control(&Chassis_pid_calculate_f->motor_Speed_Pid[1], Chassis_pid_calculate_f->Chassis_Motor[1].Speed_Set, Chassis_pid_calculate_f->Chassis_Motor[1].chassis_motor_measure->speed);
 	Chassis_pid_calculate_f->Chassis_Motor[2].pid_output = motor_speed_control(&Chassis_pid_calculate_f->motor_Speed_Pid[2], Chassis_pid_calculate_f->Chassis_Motor[2].Speed_Set, Chassis_pid_calculate_f->Chassis_Motor[2].chassis_motor_measure->speed);
 	Chassis_pid_calculate_f->Chassis_Motor[3].pid_output = motor_speed_control(&Chassis_pid_calculate_f->motor_Speed_Pid[3], Chassis_pid_calculate_f->Chassis_Motor[3].Speed_Set, Chassis_pid_calculate_f->Chassis_Motor[3].chassis_motor_measure->speed);
-}
-
-void Chassis_Work(chassis_control_t *Chassis_Control_f)
-{
-	//选择底盘模式
-	chassis_behaviour_choose(Chassis_Control_f);
-
-	//根据底盘模式计算x、y、yaw值
-	chassis_behaviour_react(Chassis_Control_f);
-
-			//底盘pid速度计算
-		chassis_speed_pid_calculate(Chassis_Control_f);
-	
-	//底盘状态选择
-	chassis_state_choose(Chassis_Control_f);
-
-	switch (Chassis_Control_f->chassis_state)
-	{
-	case CHASSIS_LOCK_POSITION:
-		//位置速度环串级pid
-		motor_position_speed_pid_calculate(Chassis_Control_f);
-		break;
-	case CHASSIS_SPEED:
-
-
-		//运动分解
-		chassis_motion_decomposition(Chassis_Control_f);
-
-		//电机pid速度计算
-		motor_speed_pid_calculate(Chassis_Control_f);
-		break;
-	case CHASSIS_ZERO_FORCE:
-		chassis_zero_fore_react(Chassis_Control_f);
-		break;
-	default:
-		break;
-	}
-	//防止运动失真
-	chassis_prevent_motion_distortion(Chassis_Control_f);
 }

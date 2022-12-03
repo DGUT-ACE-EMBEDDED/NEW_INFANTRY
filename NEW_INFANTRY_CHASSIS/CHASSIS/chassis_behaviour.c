@@ -109,11 +109,6 @@ void chassis_state_choose(chassis_control_t *chassis_state_choose_f)
 {
     chassis_state_e last_state;
     last_state = chassis_state_choose_f->chassis_state;
-    //如果没有控制量，锁死底盘
-    // if (((Chassis_x < 5) && (Chassis_x > -5)) && ((Chassis_y < 5) && (Chassis_y > -5)) && ((Chassis_yaw < 5) && (Chassis_yaw > -5)))
-    // {
-    //     chassis_state_choose_f->chassis_state = CHASSIS_LOCK_POSITION;
-    // }
     if ((abs(chassis_state_choose_f->Chassis_speedX_Pid.SetValue) < chassis_state_choose_f->Chassis_speedX_Pid.stepIn) && (abs(chassis_state_choose_f->Chassis_speedY_Pid.SetValue) < chassis_state_choose_f->Chassis_speedY_Pid.stepIn) && (abs(chassis_state_choose_f->chassis_rotate_pid.SetValue) < 5))
     {
         chassis_state_choose_f->chassis_state = CHASSIS_LOCK_POSITION;

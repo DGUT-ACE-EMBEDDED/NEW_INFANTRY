@@ -95,14 +95,10 @@ typedef struct
 	pid_parameter_t Chassis_speedY_Pid; //底盘速度ypid
 	pid_parameter_t chassis_rotate_pid; //旋转pid
 
-	first_order_filter_type_t LowFilt_chassis_vx; //低通滤波器
-	first_order_filter_type_t LowFilt_chassis_vy; //低通滤波器
-
 	fp32 Chassis_Gimbal_Diference_Angle; //底盘与云台的差角
 
 	Supercapacitor_receive_t *super_cap_c; //超电
 	fp32 chassis_speed_gain;			   //速度因子
-	fp32 chassis_last_speed_gain;
 
 } chassis_control_t;
 

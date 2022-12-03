@@ -52,9 +52,9 @@ void Init_Task(void const *argument)
 	//		UI_TASKHandle = osThreadCreate(osThread(UI_TASK), NULL);
 
 #ifdef FIRE_WORK //火力
-	//创建火控任务
-	//		osThreadDef(SHOOT_TASK, shoot_Task, osPriorityAboveNormal, 0, 128);
-	//		ShootTask_Handler = osThreadCreate(osThread(SHOOT_TASK), NULL);
+				 //创建火控任务
+				 //		osThreadDef(SHOOT_TASK, shoot_Task, osPriorityAboveNormal, 0, 128);
+				 //		ShootTask_Handler = osThreadCreate(osThread(SHOOT_TASK), NULL);
 
 #endif
 

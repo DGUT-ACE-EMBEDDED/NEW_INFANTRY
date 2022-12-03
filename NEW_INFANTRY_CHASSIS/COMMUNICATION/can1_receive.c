@@ -7,13 +7,6 @@ extern CAN_HandleTypeDef hcan2;
 
 extern void chassis_can2_callback(CAN_HandleTypeDef *hcan);
 
-//电机数据读取
-#define get_motor_M3508(ptr, rx_message)                                                  \
-	{                                                                                     \
-		(ptr)->position = (uint16_t)((rx_message)->Data[0] << 8 | (rx_message)->Data[1]); \
-		(ptr)->speed = (uint16_t)((rx_message)->Data[2] << 8 | (rx_message)->Data[3]);    \
-	}
-
 /*--------------------变量-----------------------*/
 //申明底盘电机变量 static
 static motor_measure_t motor_chassis[4];
@@ -31,9 +24,6 @@ motor_measure_t *get_chassis_motor_measure_point(uint8_t i)
 {
 	return &motor_chassis[(i & 0x03)];
 }
-
-/**************数据接收函数*********/
-float re_capacitance_voltage(void);
 
 /**
  * @brief		CAN1滤波器配置
@@ -76,9 +66,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 	}
 }
 
-/**********************************************************************************/
 /*************************************can1接收*************************************/
-/**********************************************************************************/
 /**
  * @brief      底盘板can1接收回调函数
  * @param[in]  *rx_message: can1接收结构体

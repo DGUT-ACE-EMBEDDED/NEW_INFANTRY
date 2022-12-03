@@ -1,37 +1,11 @@
-/**
- *****************************东莞理工学院ACE实验室 *****************************
- * @file 			can2_receive.c
- *
- * @brief 		CAN2滤波器配置
-                底盘CAN2接收：
- *              云台CAN2接收：
- * @history     2022年
- *
- @verbatim
- ==============================================================================
-
-
-==============================================================================
- @endverbatim
- *****************************东莞理工学院ACE实验室 *****************************
- */
-
 #include "can2_receive.h"
 #include "can.h"
 #include "parameter.h"
 #include "struct_variables.h"
-//#include "cmsis_os.h"
 
 extern CAN_HandleTypeDef hcan2;
 
-extern chassis_control_t chassis_control;
-
 /*--------------------变量-----------------------*/
-/*static*/ motor_measure_t motor_yaw;
-extern RC_ctrl_t rc_ctrl;
-
-static uint16_t shooter_heat0_speed_limit = 0;
-static uint8_t can2_red_or_blue = 0;
 
 /**
  * @brief		can2滤波器配置
@@ -76,34 +50,6 @@ void chassis_can2_callback(CAN_HandleTypeDef *hcan)
   {
     switch (Rxmessage.StdId)
     {
-      //			case 0x201:
-      //			{
-      //				motor_yaw.position = (uint16_t)(Rx_Data[0] << 8)|Rx_Data[1];
-      //				motor_yaw.speed = (uint16_t)(Rx_Data[2] << 8)|Rx_Data[3];
-      //				break;
-      //			}
     }
   }
-}
-
-/**
- * @brief          返回can2接收回来的17mm枪管射速上限
- * @param[in]      none
- * @retval         17mm枪管射速上限
- * @attention      用于云台板
- */
-uint16_t re_can2_shooter_heat0_speed_limit(void)
-{
-  return (shooter_heat0_speed_limit);
-}
-
-/**
- * @brief          返回can2接收回来的红方 蓝方
- * @param[in]      none
- * @retval         自身是红方还是蓝方
- * @attention      用于云台板
- */
-uint8_t re_robot_red_or_blue(void)
-{
-  return can2_red_or_blue;
 }
