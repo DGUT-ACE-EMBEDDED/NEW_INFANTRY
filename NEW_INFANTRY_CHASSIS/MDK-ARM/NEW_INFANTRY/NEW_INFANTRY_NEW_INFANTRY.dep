@@ -517,7 +517,7 @@ I (..\ACE-ECF\Algorithm\inc\pid.h)(0x6388A12F)
 I (..\ACE-ECF\Algorithm\inc\filter.h)(0x6388B929)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
 I (D:\keil\core\ARM\ARMCC\include\math.h)(0x60252378)
-I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x63889EE9)
+I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x638AE0FE)
 I (..\COMMUNICATION\can1_receive.h)(0x6388A9D2)
 I (../Core/Inc/can.h)(0x6385EC2B)
 I (..\COMMUNICATION\can2_receive.h)(0x6386033A)
@@ -587,7 +587,7 @@ I (..\ACE-ECF\Algorithm\inc\pid.h)(0x6388A12F)
 I (..\ACE-ECF\Algorithm\inc\filter.h)(0x6388B929)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
 I (D:\keil\core\ARM\ARMCC\include\math.h)(0x60252378)
-I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x63889EE9)
+I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x638AE0FE)
 I (..\communication\can2_receive.h)(0x6386033A)
 F (..\communication\can2_receive.c)(0x6388AA08)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\TASK -I ..\COMMUNICATION -I ..\SYSTEM -I ..\CHASSIS -I ..\BSP -I ..\ACE-ECF\Algorithm\inc -I ..\ACE-ECF\Bsp\Inc-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\can2_receive.o --omf_browse new_infantry\can2_receive.crf --depend new_infantry\can2_receive.d)
 I (..\communication\can2_receive.h)(0x6386033A)
@@ -656,7 +656,7 @@ I (..\ACE-ECF\Algorithm\inc\pid.h)(0x6388A12F)
 I (..\ACE-ECF\Algorithm\inc\filter.h)(0x6388B929)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
 I (D:\keil\core\ARM\ARMCC\include\math.h)(0x60252378)
-I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x63889EE9)
+I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x638AE0FE)
 F (..\COMMUNICATION\can1_send.c)(0x6388A812)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\TASK -I ..\COMMUNICATION -I ..\SYSTEM -I ..\CHASSIS -I ..\BSP -I ..\ACE-ECF\Algorithm\inc -I ..\ACE-ECF\Bsp\Inc-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\can1_send.o --omf_browse new_infantry\can1_send.crf --depend new_infantry\can1_send.d)
 I (..\COMMUNICATION\can1_send.h)(0x6388A815)
 I (..\SYSTEM\struct_variables.h)(0x638A391B)
@@ -722,7 +722,7 @@ I (..\ACE-ECF\Algorithm\inc\pid.h)(0x6388A12F)
 I (..\ACE-ECF\Algorithm\inc\filter.h)(0x6388B929)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
 I (D:\keil\core\ARM\ARMCC\include\math.h)(0x60252378)
-I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x63889EE9)
+I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x638AE0FE)
 I (../Core/Inc/can.h)(0x6385EC2B)
 F (..\COMMUNICATION\can2_send.c)(0x6388A817)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\TASK -I ..\COMMUNICATION -I ..\SYSTEM -I ..\CHASSIS -I ..\BSP -I ..\ACE-ECF\Algorithm\inc -I ..\ACE-ECF\Bsp\Inc-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\can2_send.o --omf_browse new_infantry\can2_send.crf --depend new_infantry\can2_send.d)
 I (..\COMMUNICATION\can2_send.h)(0x6388A818)
@@ -789,7 +789,7 @@ I (..\ACE-ECF\Algorithm\inc\pid.h)(0x6388A12F)
 I (..\ACE-ECF\Algorithm\inc\filter.h)(0x6388B929)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
 I (D:\keil\core\ARM\ARMCC\include\math.h)(0x60252378)
-I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x63889EE9)
+I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x638AE0FE)
 I (../Core/Inc/can.h)(0x6385EC2B)
 F (..\TASK\Init_Task.c)(0x6388A884)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\TASK -I ..\COMMUNICATION -I ..\SYSTEM -I ..\CHASSIS -I ..\BSP -I ..\ACE-ECF\Algorithm\inc -I ..\ACE-ECF\Bsp\Inc-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\init_task.o --omf_browse new_infantry\init_task.crf --depend new_infantry\init_task.d)
 I (..\TASK\Init_Task.h)(0x63886933)
@@ -858,7 +858,7 @@ I (..\ACE-ECF\Algorithm\inc\pid.h)(0x6388A12F)
 I (..\ACE-ECF\Algorithm\inc\filter.h)(0x6388B929)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
 I (D:\keil\core\ARM\ARMCC\include\math.h)(0x60252378)
-I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x63889EE9)
+I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x638AE0FE)
 I (..\COMMUNICATION\can2_receive.h)(0x6386033A)
 I (..\TASK\Task_Safe.h)(0x6388592F)
 I (..\TASK\chassis_task.h)(0x638A3766)
@@ -927,7 +927,7 @@ I (..\ACE-ECF\Algorithm\inc\pid.h)(0x6388A12F)
 I (..\ACE-ECF\Algorithm\inc\filter.h)(0x6388B929)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
 I (D:\keil\core\ARM\ARMCC\include\math.h)(0x60252378)
-I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x63889EE9)
+I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x638AE0FE)
 I (..\CHASSIS\chassis_behaviour.h)(0x638A1ADA)
 I (..\COMMUNICATION\can1_receive.h)(0x6388A9D2)
 I (../Core/Inc/can.h)(0x6385EC2B)
@@ -1049,7 +1049,7 @@ I (..\ACE-ECF\Algorithm\inc\pid.h)(0x6388A12F)
 I (..\ACE-ECF\Algorithm\inc\filter.h)(0x6388B929)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
 I (D:\keil\core\ARM\ARMCC\include\math.h)(0x60252378)
-I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x63889EE9)
+I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x638AE0FE)
 I (..\TASK\chassis_task.h)(0x638A3766)
 I (..\ACE-ECF\Algorithm\inc\maths.h)(0x63896817)
 F (..\BSP\rc.c)(0x6388A8AC)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\TASK -I ..\COMMUNICATION -I ..\SYSTEM -I ..\CHASSIS -I ..\BSP -I ..\ACE-ECF\Algorithm\inc -I ..\ACE-ECF\Bsp\Inc-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\rc.o --omf_browse new_infantry\rc.crf --depend new_infantry\rc.d)
@@ -1104,9 +1104,9 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x6329AA95)
-F (..\ACE-ECF\Bsp\Src\bsp_Motor_Encoder.c)(0x63889EE9)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\TASK -I ..\COMMUNICATION -I ..\SYSTEM -I ..\CHASSIS -I ..\BSP -I ..\ACE-ECF\Algorithm\inc -I ..\ACE-ECF\Bsp\Inc-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\bsp_motor_encoder.o --omf_browse new_infantry\bsp_motor_encoder.crf --depend new_infantry\bsp_motor_encoder.d)
+F (..\ACE-ECF\Bsp\Src\bsp_Motor_Encoder.c)(0x638AE0FE)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\TASK -I ..\COMMUNICATION -I ..\SYSTEM -I ..\CHASSIS -I ..\BSP -I ..\ACE-ECF\Algorithm\inc -I ..\ACE-ECF\Bsp\Inc-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\bsp_motor_encoder.o --omf_browse new_infantry\bsp_motor_encoder.crf --depend new_infantry\bsp_motor_encoder.d)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
-I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x63889EE9)
+I (..\ACE-ECF\Bsp\Inc\bsp_Motor_Encoder.h)(0x638AE0FE)
 I (..\ACE-ECF\Algorithm\inc\struct_typedef.h)(0x5E160BD6)
 F (..\ACE-ECF\Algorithm\src\maths.c)(0x63898FAB)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ..\TASK -I ..\COMMUNICATION -I ..\SYSTEM -I ..\CHASSIS -I ..\BSP -I ..\ACE-ECF\Algorithm\inc -I ..\ACE-ECF\Bsp\Inc-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\maths.o --omf_browse new_infantry\maths.crf --depend new_infantry\maths.d)
 I (..\ACE-ECF\Algorithm\inc\maths.h)(0x63896817)

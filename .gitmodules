@@ -1,0 +1,3 @@
+[submodule "NEW_INFANTRY_CHASSIS/ACE-ECF"]
+	path = NEW_INFANTRY_CHASSIS/ACE-ECF
+	url = https://github.com/DGUT-ACE-EMBEDDED/ACE-ECF.git
