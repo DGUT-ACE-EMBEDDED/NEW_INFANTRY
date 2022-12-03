@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "init_task.h": "c",
+        "chassis_behaviour.h": "c",
+        "struct_variables.h": "c",
+        "can1_send.h": "c",
+        "can2_send.h": "c",
+        "chassis_task.h": "c",
+        "can1_receive.h": "c",
+        "pid.h": "c",
+        "string.h": "c",
+        "freertos.h": "c",
+        "rc.h": "c",
+        "stdint.h": "c",
+        "bsp_motor_encoder.h": "c",
+        "maths.h": "c"
+    }
+}

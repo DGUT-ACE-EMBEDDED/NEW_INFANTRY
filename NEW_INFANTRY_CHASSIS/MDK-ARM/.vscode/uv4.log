@@ -1,0 +1,51 @@
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\keil\core\ARM\ARMCC\Bin'
+Build target 'NEW_INFANTRY'
+compiling Init_Task.c...
+..\TASK\chassis_task.h(76): error:  #20: identifier "chassis_control_t" is undefined
+  void Chassis_Motion_Solution(chassis_control_t *Chassis_Motion_f,int16_t Ch0, int16_t Ch1, int16_t Ch2);
+..\TASK\chassis_task.h(78): error:  #20: identifier "chassis_control_t" is undefined
+  chassis_control_t *get_chassis_control_point(void);
+..\TASK\Init_Task.c: 0 warnings, 2 errors
+compiling can2_receive.c...
+..\TASK\chassis_task.h(76): error:  #20: identifier "chassis_control_t" is undefined
+  void Chassis_Motion_Solution(chassis_control_t *Chassis_Motion_f,int16_t Ch0, int16_t Ch1, int16_t Ch2);
+..\TASK\chassis_task.h(78): error:  #20: identifier "chassis_control_t" is undefined
+  chassis_control_t *get_chassis_control_point(void);
+..\communication\can2_receive.c: 0 warnings, 2 errors
+compiling can1_receive.c...
+..\TASK\chassis_task.h(76): error:  #20: identifier "chassis_control_t" is undefined
+  void Chassis_Motion_Solution(chassis_control_t *Chassis_Motion_f,int16_t Ch0, int16_t Ch1, int16_t Ch2);
+..\TASK\chassis_task.h(78): error:  #20: identifier "chassis_control_t" is undefined
+  chassis_control_t *get_chassis_control_point(void);
+..\communication\can1_receive.c: 0 warnings, 2 errors
+compiling struct_variables.c...
+..\TASK\chassis_task.h(76): error:  #20: identifier "chassis_control_t" is undefined
+  void Chassis_Motion_Solution(chassis_control_t *Chassis_Motion_f,int16_t Ch0, int16_t Ch1, int16_t Ch2);
+..\TASK\chassis_task.h(78): error:  #20: identifier "chassis_control_t" is undefined
+  chassis_control_t *get_chassis_control_point(void);
+..\SYSTEM\struct_variables.c: 0 warnings, 2 errors
+compiling can2_send.c...
+..\TASK\chassis_task.h(76): error:  #20: identifier "chassis_control_t" is undefined
+  void Chassis_Motion_Solution(chassis_control_t *Chassis_Motion_f,int16_t Ch0, int16_t Ch1, int16_t Ch2);
+..\TASK\chassis_task.h(78): error:  #20: identifier "chassis_control_t" is undefined
+  chassis_control_t *get_chassis_control_point(void);
+..\COMMUNICATION\can2_send.c: 0 warnings, 2 errors
+compiling chassis_task.c...
+..\TASK\chassis_task.c(56): error:  #513: a value of type "const chassis_behaviour_e *" cannot be assigned to an entity of type "chassis_behaviour_e"
+  	chassis_data_init_f->behaviour = get_chassis_behaviour_point();
+..\TASK\chassis_task.c: 0 warnings, 1 error
+compiling can1_send.c...
+..\TASK\chassis_task.h(76): error:  #20: identifier "chassis_control_t" is undefined
+  void Chassis_Motion_Solution(chassis_control_t *Chassis_Motion_f,int16_t Ch0, int16_t Ch1, int16_t Ch2);
+..\TASK\chassis_task.h(78): error:  #20: identifier "chassis_control_t" is undefined
+  chassis_control_t *get_chassis_control_point(void);
+..\COMMUNICATION\can1_send.c: 0 warnings, 2 errors
+compiling chassis_behaviour.c...
+..\SYSTEM\struct_variables.h(105): error:  #20: identifier "chassis_behaviour_e" is undefined
+  	chassis_behaviour_e behaviour;
+..\CHASSIS\chassis_behaviour.c(11): warning:  #1-D: last line of file ends without a newline
+  }
+..\CHASSIS\chassis_behaviour.c: 1 warning, 1 error
+"NEW_INFANTRY\NEW_INFANTRY.axf" - 14 Error(s), 1 Warning(s).
+Target not created.
+Build Time Elapsed:  00:00:19
