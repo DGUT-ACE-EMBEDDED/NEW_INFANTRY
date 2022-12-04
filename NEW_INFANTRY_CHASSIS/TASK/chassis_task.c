@@ -7,6 +7,7 @@
 #include "filter.h"
 #include "bsp_Motor_Encoder.h"
 #include "maths.h"
+
 chassis_control_t Chassis_Control;
 
 static void Chassis_Init(chassis_control_t *Chassis_Control);
@@ -14,14 +15,14 @@ static void Chassis_Work(chassis_control_t *Chassis_Control_f);
 static void motor_speed_pid_calculate(chassis_control_t *Chassis_pid_calculate_f);
 static void motor_position_speed_pid_calculate(chassis_control_t *motor_position_speed_pid_calculate_f);
 static void chassis_zero_fore_react(chassis_control_t *chassis_zero_fore_react_f);
-void chassis_prevent_motion_distortion(chassis_control_t *chassis_prevent_motion_distortion_f);
+static void chassis_state_react(chassis_control_t *chassis_state_react_f);
+static void chassis_prevent_motion_distortion(chassis_control_t *chassis_prevent_motion_distortion_f);
 
 void Task_Chassis(void const *argument)
 {
 	uint32_t currentTime;
-
 	Chassis_Init(&Chassis_Control);
-	// vTaskDelay(5);
+	vTaskDelay(5);
 
 	while (1)
 	{
@@ -56,26 +57,9 @@ void Chassis_Work(chassis_control_t *Chassis_Control_f)
 	//底盘状态选择
 	chassis_state_choose(Chassis_Control_f);
 
-	switch (Chassis_Control_f->chassis_state)
-	{
-	case CHASSIS_LOCK_POSITION:
-		//位置速度环串级pid
-		motor_position_speed_pid_calculate(Chassis_Control_f);
-		break;
-	case CHASSIS_SPEED:
+	//根据底盘状态计算电机输出量
+	chassis_state_react(Chassis_Control_f);
 
-		//运动分解
-		chassis_motion_decomposition(Chassis_Control_f);
-
-		//电机pid速度计算
-		motor_speed_pid_calculate(Chassis_Control_f);
-		break;
-	case CHASSIS_ZERO_FORCE:
-		chassis_zero_fore_react(Chassis_Control_f);
-		break;
-	default:
-		break;
-	}
 	//防止运动失真
 	chassis_prevent_motion_distortion(Chassis_Control_f);
 }
@@ -141,6 +125,29 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 
 	//速度因子
 	chassis_data_init_f->chassis_speed_gain = 1;
+}
+void chassis_state_react(chassis_control_t *chassis_state_react_f)
+{
+	switch (chassis_state_react_f->chassis_state)
+	{
+	case CHASSIS_LOCK_POSITION:
+		//位置速度环串级pid
+		motor_position_speed_pid_calculate(chassis_state_react_f);
+		break;
+	case CHASSIS_SPEED:
+
+		//运动分解
+		chassis_motion_decomposition(chassis_state_react_f);
+
+		//电机pid速度计算
+		motor_speed_pid_calculate(chassis_state_react_f);
+		break;
+	case CHASSIS_ZERO_FORCE:
+		chassis_zero_fore_react(chassis_state_react_f);
+		break;
+	default:
+		break;
+	}
 }
 void chassis_prevent_motion_distortion(chassis_control_t *chassis_prevent_motion_distortion_f)
 {
