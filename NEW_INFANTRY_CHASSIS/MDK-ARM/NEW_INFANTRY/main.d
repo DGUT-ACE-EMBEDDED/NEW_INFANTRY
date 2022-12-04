@@ -33,9 +33,6 @@ new_infantry\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 new_infantry\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 new_infantry\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 new_infantry\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-new_infantry\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h
-new_infantry\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
-new_infantry\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
 new_infantry\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 new_infantry\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 new_infantry\main.o: ../Core/Inc/FreeRTOSConfig.h
@@ -55,10 +52,4 @@ new_infantry\main.o: ../Core/Inc/dma.h
 new_infantry\main.o: ../Core/Inc/spi.h
 new_infantry\main.o: ../Core/Inc/tim.h
 new_infantry\main.o: ../Core/Inc/usart.h
-new_infantry\main.o: ../USB_DEVICE/App/usb_device.h
-new_infantry\main.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h
-new_infantry\main.o: ../USB_DEVICE/Target/usbd_conf.h
-new_infantry\main.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdio.h
-new_infantry\main.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdlib.h
-new_infantry\main.o: D:\keil\core\ARM\ARMCC\Bin\..\include\string.h
 new_infantry\main.o: ../Core/Inc/gpio.h

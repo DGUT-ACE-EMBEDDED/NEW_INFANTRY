@@ -24,7 +24,7 @@ void can2_chassis_to_gambal(const RC_ctrl_t *can2_MK_send)
 	Data[3] = can2_MK_send->mouse.y;
 	Data[4] = (can2_MK_send->kb.key_code >> 8);
 	Data[5] = can2_MK_send->kb.key_code;
-	Data[6] = (can2_MK_send->rc.s[0]) * 10 + (can2_MK_send->rc.s[1]);
+	Data[6] = (can2_MK_send->rc.s1) * 10 + (can2_MK_send->rc.s2);
 	Data[7] = ((can2_MK_send->mouse.press_l + 1) * 10 + can2_MK_send->mouse.press_r);
 
 	HAL_CAN_AddTxMessage(&hcan2, &Txmessage, Data, &send_mail_box); //将一段数据通过 CAN 总线发送

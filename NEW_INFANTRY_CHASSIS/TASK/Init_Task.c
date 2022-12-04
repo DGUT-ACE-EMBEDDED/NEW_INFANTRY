@@ -34,7 +34,7 @@ void Init_Task(void const *argument)
 	CAN2_filter_config();
 
 	//遥控器初始化
-	remote_control_init();
+	ECF_RC_Init();
 
 	//裁判系统
 	//		referee_system_init();

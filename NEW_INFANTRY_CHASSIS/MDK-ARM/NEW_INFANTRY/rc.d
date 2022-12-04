@@ -34,9 +34,6 @@ new_infantry\rc.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 new_infantry\rc.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 new_infantry\rc.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 new_infantry\rc.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-new_infantry\rc.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h
-new_infantry\rc.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
-new_infantry\rc.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
 new_infantry\rc.o: ../Core/Inc/usart.h
 new_infantry\rc.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdio.h
 new_infantry\rc.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h

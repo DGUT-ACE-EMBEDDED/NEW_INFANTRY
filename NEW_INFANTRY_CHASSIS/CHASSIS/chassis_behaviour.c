@@ -1,6 +1,6 @@
 #include "chassis_behaviour.h"
 #include "chassis_task.h"
-#include "rc.h"
+#include "bsp_dr16.h"
 #include "maths.h"
 #include "pid.h"
 
@@ -28,7 +28,7 @@ void chassis_behaviour_choose(chassis_control_t *Chassis_behaviour_f)
 
     //ÊÖ±ú
     last_behaviour = rc_behaviour;
-    switch (Chassis_behaviour_f->Chassis_RC->rc.s[0])
+    switch (Chassis_behaviour_f->Chassis_RC->rc.s1)
     {
     case RC_SW_UP:
         rc_behaviour = CHASSIS_ROTATION;
@@ -132,7 +132,7 @@ void chassis_state_choose(chassis_control_t *chassis_state_choose_f)
         pid_clear(&chassis_state_choose_f->chassis_rotate_pid);
     }
 
-    if (chassis_state_choose_f->Chassis_RC->rc.s[1] == RC_SW_DOWN)
+    if (chassis_state_choose_f->Chassis_RC->rc.s2 == RC_SW_DOWN)
     {
         chassis_state_choose_f->chassis_state = CHASSIS_ZERO_FORCE;
     }

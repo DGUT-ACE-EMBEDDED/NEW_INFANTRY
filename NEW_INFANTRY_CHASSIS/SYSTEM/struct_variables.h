@@ -20,7 +20,7 @@
 #include "cmsis_os.h"
 
 /********************CONTROL********************/
-#include "rc.h"
+#include "bsp_dr16.h"
 //#include "can1_receive.h"
 //#include "can2_receive.h"
 //#include "capacitor_control.h"

@@ -4,15 +4,11 @@
             "name": "NEW_INFANTRY",
             "includePath": [
                 "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Core\\Inc",
-                "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\USB_DEVICE\\App",
-                "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\USB_DEVICE\\Target",
                 "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Drivers\\STM32F4xx_HAL_Driver\\Inc",
                 "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Drivers\\STM32F4xx_HAL_Driver\\Inc\\Legacy",
                 "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Middlewares\\Third_Party\\FreeRTOS\\Source\\include",
                 "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Middlewares\\Third_Party\\FreeRTOS\\Source\\CMSIS_RTOS",
                 "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Middlewares\\Third_Party\\FreeRTOS\\Source\\portable\\RVDS\\ARM_CM4F",
-                "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Middlewares\\ST\\STM32_USB_Device_Library\\Core\\Inc",
-                "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Middlewares\\ST\\STM32_USB_Device_Library\\Class\\CDC\\Inc",
                 "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Drivers\\CMSIS\\Device\\ST\\STM32F4xx\\Include",
                 "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Drivers\\CMSIS\\Include",
                 "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Middlewares\\ST\\ARM\\DSP\\Inc",
@@ -33,8 +29,6 @@
                 "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Drivers\\STM32F4xx_HAL_Driver\\Src",
                 "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Middlewares\\Third_Party\\FreeRTOS\\Source",
                 "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Middlewares\\Third_Party\\FreeRTOS\\Source\\portable\\MemMang",
-                "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Middlewares\\ST\\STM32_USB_Device_Library\\Core\\Src",
-                "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Middlewares\\ST\\STM32_USB_Device_Library\\Class\\CDC\\Src",
                 "d:\\daima\\INFANTRY\\NEW_INFANTRY\\NEW_INFANTRY_CHASSIS\\Middlewares\\ST\\ARM\\DSP\\Lib"
             ],
             "defines": [

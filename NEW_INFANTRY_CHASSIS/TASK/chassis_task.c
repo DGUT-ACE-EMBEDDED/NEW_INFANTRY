@@ -73,7 +73,7 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	memset(chassis_data_init_f, 0, sizeof(chassis_control_t));
 	/*--------------------初始化指针--------------------*/
 	//获取遥控的指针
-	chassis_data_init_f->Chassis_RC = get_remote_control_point();
+	chassis_data_init_f->Chassis_RC = RC_Get_RC_Pointer();
 
 	//获取底盘四个电机的指针
 	chassis_data_init_f->Chassis_Motor[0].chassis_motor_measure = get_chassis_motor_measure_point(0);

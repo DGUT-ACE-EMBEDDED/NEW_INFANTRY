@@ -1,6 +1,6 @@
 new_infantry\filter.o: ..\ACE-ECF\Algorithm\src\filter.c
-new_infantry\filter.o: ..\ACE-ECF\Algorithm\inc\filter.h
-new_infantry\filter.o: ..\ACE-ECF\Algorithm\inc\struct_typedef.h
+new_infantry\filter.o: ../ACE-ECF/Algorithm/inc/filter.h
+new_infantry\filter.o: ../ACE-ECF/Algorithm/inc/struct_typedef.h
 new_infantry\filter.o: ../Middlewares/ST/ARM/DSP/Inc/arm_math.h
 new_infantry\filter.o: ../Drivers/CMSIS/Include/core_cm4.h
 new_infantry\filter.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdint.h
