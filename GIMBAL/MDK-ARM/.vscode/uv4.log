@@ -1,0 +1,47 @@
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\keil\core\ARM\ARMCC\Bin'
+Build target 'NEW_INFANTRY'
+compiling can1_receive.c...
+..\SYSTEM\gimbal_struct_variables.h(105): error:  #20: identifier "INS_t" is undefined
+  	const INS_t *Imu_c;
+..\SYSTEM\gimbal_struct_variables.h(106): error:  #20: identifier "fire_task_t" is undefined
+  	fire_task_t *fire_c;
+..\COMMUNICATION\can1_receive.c: 0 warnings, 2 errors
+compiling can1_send.c...
+..\SYSTEM\gimbal_struct_variables.h(105): error:  #20: identifier "INS_t" is undefined
+  	const INS_t *Imu_c;
+..\SYSTEM\gimbal_struct_variables.h(106): error:  #20: identifier "fire_task_t" is undefined
+  	fire_task_t *fire_c;
+..\COMMUNICATION\can1_send.c(5): warning:  #177-D: variable "Txmessage"  was declared but never referenced
+  static CAN_TxHeaderTypeDef Txmessage; //发送的信息
+..\COMMUNICATION\can1_send.c: 1 warning, 2 errors
+compiling can2_receive.c...
+..\SYSTEM\gimbal_struct_variables.h(105): error:  #20: identifier "INS_t" is undefined
+  	const INS_t *Imu_c;
+..\SYSTEM\gimbal_struct_variables.h(106): error:  #20: identifier "fire_task_t" is undefined
+  	fire_task_t *fire_c;
+..\COMMUNICATION\can2_receive.c: 0 warnings, 2 errors
+compiling gimbal_struct_variables.c...
+..\SYSTEM\gimbal_struct_variables.h(105): error:  #20: identifier "INS_t" is undefined
+  	const INS_t *Imu_c;
+..\SYSTEM\gimbal_struct_variables.h(106): error:  #20: identifier "fire_task_t" is undefined
+  	fire_task_t *fire_c;
+..\SYSTEM\gimbal_struct_variables.c: 0 warnings, 2 errors
+compiling can2_send.c...
+..\SYSTEM\gimbal_struct_variables.h(105): error:  #20: identifier "INS_t" is undefined
+  	const INS_t *Imu_c;
+..\SYSTEM\gimbal_struct_variables.h(106): error:  #20: identifier "fire_task_t" is undefined
+  	fire_task_t *fire_c;
+..\COMMUNICATION\can2_send.c: 0 warnings, 2 errors
+compiling Init_Task.c...
+..\SYSTEM\gimbal_struct_variables.h(105): error:  #20: identifier "INS_t" is undefined
+  	const INS_t *Imu_c;
+..\SYSTEM\gimbal_struct_variables.h(106): error:  #20: identifier "fire_task_t" is undefined
+  	fire_task_t *fire_c;
+..\TASK\gimbal_task.h(6): warning:  #1-D: last line of file ends without a newline
+  #endif 
+..\TASK\Init_Task.c(47): error:  #20: identifier "Gimbal_Task" is undefined
+  	osThreadDef(Gimbal_TASK, Gimbal_Task, osPriorityHigh, 0, 256);
+..\TASK\Init_Task.c: 1 warning, 3 errors
+"NEW_INFANTRY\NEW_INFANTRY.axf" - 13 Error(s), 2 Warning(s).
+Target not created.
+Build Time Elapsed:  00:00:17

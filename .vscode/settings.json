@@ -13,6 +13,7 @@
         "rc.h": "c",
         "stdint.h": "c",
         "bsp_motor_encoder.h": "c",
-        "maths.h": "c"
+        "maths.h": "c",
+        "gimbal_struct_variables.h": "c"
     }
 }
