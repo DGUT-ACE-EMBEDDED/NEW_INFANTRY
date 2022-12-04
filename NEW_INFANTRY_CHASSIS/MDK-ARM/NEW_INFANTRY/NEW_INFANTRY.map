@@ -124,6 +124,29 @@ Section Cross References
     stm32f4xx_hal_timebase_tim.o(i.HAL_InitTick) refers to stm32f4xx_hal.o(.data) for uwTickPrio
     stm32f4xx_hal_timebase_tim.o(i.HAL_ResumeTick) refers to stm32f4xx_hal_timebase_tim.o(.bss) for htim1
     stm32f4xx_hal_timebase_tim.o(i.HAL_SuspendTick) refers to stm32f4xx_hal_timebase_tim.o(.bss) for htim1
+    bsp_motor_encoder.o(i.CAN_DATA_Encoder_Deal) refers to bsp_motor_encoder.o(i.angle_limiting_int16) for angle_limiting_int16
+    bsp_motor_encoder.o(i.CAN_DATA_Encoder_Deal) refers to bsp_motor_encoder.o(i.Block_Detect) for Block_Detect
+    bsp_motor_encoder.o(i.CAN_DATA_Encoder_Deal) refers to bsp_motor_encoder.o(.bss) for CAN_Encoder
+    bsp_motor_encoder.o(i.Encoder_Init) refers to bsp_motor_encoder.o(i.Encoder_Struct_Zero) for Encoder_Struct_Zero
+    bsp_motor_encoder.o(i.Encoder_Init) refers to bsp_motor_encoder.o(.bss) for CAN_Encoder
+    bsp_motor_encoder.o(i.Encoder_Struct_Zero) refers to rt_memclr.o(.text) for __aeabi_memclr
+    bsp_dr16.o(i.ECF_RC_Init) refers to bsp_dr16.o(i.RC_Init) for RC_Init
+    bsp_dr16.o(i.ECF_RC_Init) refers to bsp_dr16.o(.bss) for Sbus_RX_Buffer
+    bsp_dr16.o(i.ECF_RC_Init) refers to usart.o(.bss) for huart3
+    bsp_dr16.o(i.ECF_RC_UART_Handler) refers to bsp_dr16.o(i.RC_UART_IRQHandler) for RC_UART_IRQHandler
+    bsp_dr16.o(i.ECF_RC_UART_Handler) refers to usart.o(.bss) for huart3
+    bsp_dr16.o(i.RC_Check_Data_IS_ERROR) refers to bsp_dr16.o(i.RC_abs) for RC_abs
+    bsp_dr16.o(i.RC_Check_Data_IS_ERROR) refers to bsp_dr16.o(.bss) for rc_ctl
+    bsp_dr16.o(i.RC_DataProcess) refers to bsp_dr16.o(i.rc_lost_time_refresh) for rc_lost_time_refresh
+    bsp_dr16.o(i.RC_DataProcess) refers to bsp_dr16.o(i.rc_deadline_limit) for rc_deadline_limit
+    bsp_dr16.o(i.RC_DataReload) refers to bsp_dr16.o(.bss) for rc_ctl
+    bsp_dr16.o(i.RC_Get_RC_Pointer) refers to bsp_dr16.o(.bss) for rc_ctl
+    bsp_dr16.o(i.RC_UART_IRQHandler) refers to bsp_dr16.o(i.RC_DataProcess) for RC_DataProcess
+    bsp_dr16.o(i.RC_UART_IRQHandler) refers to bsp_dr16.o(.data) for this_time_rx_len
+    bsp_dr16.o(i.RC_UART_IRQHandler) refers to bsp_dr16.o(.bss) for rc_ctl
+    bsp_dr16.o(i.chassis_rc_lost_time) refers to bsp_dr16.o(.data) for RCLostTime
+    bsp_dr16.o(i.rc_lost_time_refresh) refers to tasks.o(i.xTaskGetTickCount) for xTaskGetTickCount
+    bsp_dr16.o(i.rc_lost_time_refresh) refers to bsp_dr16.o(.data) for RCLostTime
     can1_receive.o(i.CAN1_filter_config) refers to stm32f4xx_hal_can.o(i.HAL_CAN_ConfigFilter) for HAL_CAN_ConfigFilter
     can1_receive.o(i.CAN1_filter_config) refers to stm32f4xx_hal_can.o(i.HAL_CAN_Start) for HAL_CAN_Start
     can1_receive.o(i.CAN1_filter_config) refers to stm32f4xx_hal_can.o(i.HAL_CAN_ActivateNotification) for HAL_CAN_ActivateNotification
@@ -223,29 +246,6 @@ Section Cross References
     chassis_behaviour.o(i.f_CHASSIS_ROTATION) refers to maths.o(i.cos_calculate) for cos_calculate
     chassis_behaviour.o(i.f_CHASSIS_ROTATION) refers to chassis_behaviour.o(.data) for Chassis_yaw
     chassis_behaviour.o(i.get_chassis_behaviour_point) refers to chassis_behaviour.o(.data) for Chassis_Behaviour
-    bsp_motor_encoder.o(i.CAN_DATA_Encoder_Deal) refers to bsp_motor_encoder.o(i.angle_limiting_int16) for angle_limiting_int16
-    bsp_motor_encoder.o(i.CAN_DATA_Encoder_Deal) refers to bsp_motor_encoder.o(i.Block_Detect) for Block_Detect
-    bsp_motor_encoder.o(i.CAN_DATA_Encoder_Deal) refers to bsp_motor_encoder.o(.bss) for CAN_Encoder
-    bsp_motor_encoder.o(i.Encoder_Init) refers to bsp_motor_encoder.o(i.Encoder_Struct_Zero) for Encoder_Struct_Zero
-    bsp_motor_encoder.o(i.Encoder_Init) refers to bsp_motor_encoder.o(.bss) for CAN_Encoder
-    bsp_motor_encoder.o(i.Encoder_Struct_Zero) refers to rt_memclr.o(.text) for __aeabi_memclr
-    bsp_dr16.o(i.ECF_RC_Init) refers to bsp_dr16.o(i.RC_Init) for RC_Init
-    bsp_dr16.o(i.ECF_RC_Init) refers to bsp_dr16.o(.bss) for Sbus_RX_Buffer
-    bsp_dr16.o(i.ECF_RC_Init) refers to usart.o(.bss) for huart3
-    bsp_dr16.o(i.ECF_RC_UART_Handler) refers to bsp_dr16.o(i.RC_UART_IRQHandler) for RC_UART_IRQHandler
-    bsp_dr16.o(i.ECF_RC_UART_Handler) refers to usart.o(.bss) for huart3
-    bsp_dr16.o(i.RC_Check_Data_IS_ERROR) refers to bsp_dr16.o(i.RC_abs) for RC_abs
-    bsp_dr16.o(i.RC_Check_Data_IS_ERROR) refers to bsp_dr16.o(.bss) for rc_ctl
-    bsp_dr16.o(i.RC_DataProcess) refers to bsp_dr16.o(i.rc_lost_time_refresh) for rc_lost_time_refresh
-    bsp_dr16.o(i.RC_DataProcess) refers to bsp_dr16.o(i.rc_deadline_limit) for rc_deadline_limit
-    bsp_dr16.o(i.RC_DataReload) refers to bsp_dr16.o(.bss) for rc_ctl
-    bsp_dr16.o(i.RC_Get_RC_Pointer) refers to bsp_dr16.o(.bss) for rc_ctl
-    bsp_dr16.o(i.RC_UART_IRQHandler) refers to bsp_dr16.o(i.RC_DataProcess) for RC_DataProcess
-    bsp_dr16.o(i.RC_UART_IRQHandler) refers to bsp_dr16.o(.data) for this_time_rx_len
-    bsp_dr16.o(i.RC_UART_IRQHandler) refers to bsp_dr16.o(.bss) for rc_ctl
-    bsp_dr16.o(i.chassis_rc_lost_time) refers to bsp_dr16.o(.data) for RCLostTime
-    bsp_dr16.o(i.rc_lost_time_refresh) refers to tasks.o(i.xTaskGetTickCount) for xTaskGetTickCount
-    bsp_dr16.o(i.rc_lost_time_refresh) refers to bsp_dr16.o(.data) for RCLostTime
     maths.o(i.cos_calculate) refers to maths.o(.constdata) for Trigonometric_Functions
     maths.o(i.data_accelerated_control) refers to maths.o(.data) for last_num
     maths.o(i.sin_calculate) refers to maths.o(.constdata) for Trigonometric_Functions
@@ -1417,6 +1417,15 @@ Removing Unused input sections from the image.
     Removing struct_variables.o(.rev16_text), (4 bytes).
     Removing struct_variables.o(.revsh_text), (4 bytes).
     Removing struct_variables.o(.rrx_text), (6 bytes).
+    Removing bsp_motor_encoder.o(i.check_codevalue), (44 bytes).
+    Removing bsp_dr16.o(.rev16_text), (4 bytes).
+    Removing bsp_dr16.o(.revsh_text), (4 bytes).
+    Removing bsp_dr16.o(.rrx_text), (6 bytes).
+    Removing bsp_dr16.o(i.RC_Check_Data_IS_ERROR), (144 bytes).
+    Removing bsp_dr16.o(i.RC_DataReload), (40 bytes).
+    Removing bsp_dr16.o(i.RC_Restart), (64 bytes).
+    Removing bsp_dr16.o(i.RC_abs), (16 bytes).
+    Removing bsp_dr16.o(i.chassis_rc_lost_time), (12 bytes).
     Removing can1_receive.o(.rev16_text), (4 bytes).
     Removing can1_receive.o(.revsh_text), (4 bytes).
     Removing can1_receive.o(.rrx_text), (6 bytes).
@@ -1447,15 +1456,6 @@ Removing Unused input sections from the image.
     Removing chassis_behaviour.o(.rev16_text), (4 bytes).
     Removing chassis_behaviour.o(.revsh_text), (4 bytes).
     Removing chassis_behaviour.o(.rrx_text), (6 bytes).
-    Removing bsp_motor_encoder.o(i.check_codevalue), (44 bytes).
-    Removing bsp_dr16.o(.rev16_text), (4 bytes).
-    Removing bsp_dr16.o(.revsh_text), (4 bytes).
-    Removing bsp_dr16.o(.rrx_text), (6 bytes).
-    Removing bsp_dr16.o(i.RC_Check_Data_IS_ERROR), (144 bytes).
-    Removing bsp_dr16.o(i.RC_DataReload), (40 bytes).
-    Removing bsp_dr16.o(i.RC_Restart), (64 bytes).
-    Removing bsp_dr16.o(i.RC_abs), (16 bytes).
-    Removing bsp_dr16.o(i.chassis_rc_lost_time), (12 bytes).
     Removing maths.o(.rev16_text), (4 bytes).
     Removing maths.o(.revsh_text), (4 bytes).
     Removing maths.o(.rrx_text), (6 bytes).
@@ -2154,33 +2154,33 @@ Image Symbol Table
     ../Middlewares/Third_Party/FreeRTOS/Source/tasks.c 0x00000000   Number         0  tasks.o ABSOLUTE
     ../Middlewares/Third_Party/FreeRTOS/Source/timers.c 0x00000000   Number         0  timers.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0_sigfpe.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0_sigfpe.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0.o ABSOLUTE
     ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
@@ -2188,27 +2188,27 @@ Image Symbol Table
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
     ../clib/longlong.s                       0x00000000   Number         0  lludivv7m.o ABSOLUTE
-    ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_v6.o ABSOLUTE
-    ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_w.o ABSOLUTE
-    ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr_w.o ABSOLUTE
     ../clib/memcpset.s                       0x00000000   Number         0  memset.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_w.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_v6.o ABSOLUTE
     ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr_w.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
@@ -2599,15 +2599,15 @@ Image Symbol Table
     .data                                    0x20000000   Section        8  freertos.o(.data)
     .data                                    0x20000008   Section        4  can.o(.data)
     HAL_RCC_CAN1_CLK_ENABLED                 0x20000008   Data           4  can.o(.data)
-    .data                                    0x2000000c   Section       16  init_task.o(.data)
-    .data                                    0x2000001c   Section        4  task_safe.o(.data)
-    currentTime                              0x2000001c   Data           4  task_safe.o(.data)
-    .data                                    0x20000020   Section       30  chassis_behaviour.o(.data)
-    rc_behaviour                             0x2000003c   Data           1  chassis_behaviour.o(.data)
-    kb_behaviour                             0x2000003d   Data           1  chassis_behaviour.o(.data)
-    .data                                    0x20000040   Section        6  bsp_dr16.o(.data)
-    RCLostTime                               0x20000040   Data           4  bsp_dr16.o(.data)
-    this_time_rx_len                         0x20000044   Data           2  bsp_dr16.o(.data)
+    .data                                    0x2000000c   Section        6  bsp_dr16.o(.data)
+    RCLostTime                               0x2000000c   Data           4  bsp_dr16.o(.data)
+    this_time_rx_len                         0x20000010   Data           2  bsp_dr16.o(.data)
+    .data                                    0x20000014   Section       16  init_task.o(.data)
+    .data                                    0x20000024   Section        4  task_safe.o(.data)
+    currentTime                              0x20000024   Data           4  task_safe.o(.data)
+    .data                                    0x20000028   Section       30  chassis_behaviour.o(.data)
+    rc_behaviour                             0x20000044   Data           1  chassis_behaviour.o(.data)
+    kb_behaviour                             0x20000045   Data           1  chassis_behaviour.o(.data)
     .data                                    0x20000048   Section        9  stm32f4xx_hal.o(.data)
     .data                                    0x20000054   Section        4  system_stm32f4xx.o(.data)
     .data                                    0x20000058   Section       60  tasks.o(.data)
@@ -2645,15 +2645,15 @@ Image Symbol Table
     .bss                                     0x2000047c   Section       72  tim.o(.bss)
     .bss                                     0x200004c4   Section      424  usart.o(.bss)
     .bss                                     0x2000066c   Section       72  stm32f4xx_hal_timebase_tim.o(.bss)
-    .bss                                     0x200006b4   Section       32  can1_receive.o(.bss)
-    motor_chassis                            0x200006b4   Data          16  can1_receive.o(.bss)
-    Supercap_receive                         0x200006c4   Data          16  can1_receive.o(.bss)
-    .bss                                     0x200006d4   Section       24  can1_send.o(.bss)
-    Txmessage                                0x200006d4   Data          24  can1_send.o(.bss)
-    .bss                                     0x200006ec   Section     1688  chassis_task.o(.bss)
-    .bss                                     0x20000d84   Section      540  bsp_motor_encoder.o(.bss)
-    .bss                                     0x20000fa0   Section       96  bsp_dr16.o(.bss)
-    rc_ctl                                   0x20000fa0   Data          24  bsp_dr16.o(.bss)
+    .bss                                     0x200006b4   Section      540  bsp_motor_encoder.o(.bss)
+    .bss                                     0x200008d0   Section       96  bsp_dr16.o(.bss)
+    rc_ctl                                   0x200008d0   Data          24  bsp_dr16.o(.bss)
+    .bss                                     0x20000930   Section       32  can1_receive.o(.bss)
+    motor_chassis                            0x20000930   Data          16  can1_receive.o(.bss)
+    Supercap_receive                         0x20000940   Data          16  can1_receive.o(.bss)
+    .bss                                     0x20000950   Section       24  can1_send.o(.bss)
+    Txmessage                                0x20000950   Data          24  can1_send.o(.bss)
+    .bss                                     0x20000968   Section     1688  chassis_task.o(.bss)
     .bss                                     0x20001000   Section      240  tasks.o(.bss)
     pxReadyTasksLists                        0x20001000   Data         140  tasks.o(.bss)
     xDelayedTaskList1                        0x2000108c   Data          20  tasks.o(.bss)
@@ -3040,17 +3040,17 @@ Image Symbol Table
     Region$$Table$$Limit                     0x080077e8   Number         0  anon$$obj.o(Region$$Table)
     defaultTaskHandle                        0x20000000   Data           4  freertos.o(.data)
     Init_TASKHandle                          0x20000004   Data           4  freertos.o(.data)
-    Safe_TASKHandle                          0x2000000c   Data           4  init_task.o(.data)
-    UI_TASKHandle                            0x20000010   Data           4  init_task.o(.data)
-    TASK_CHASSISHandle                       0x20000014   Data           4  init_task.o(.data)
-    ShootTask_Handler                        0x20000018   Data           4  init_task.o(.data)
-    Chassis_Behaviour                        0x20000020   Data           1  chassis_behaviour.o(.data)
-    Chassis_x                                0x20000024   Data           4  chassis_behaviour.o(.data)
-    Chassis_y                                0x20000028   Data           4  chassis_behaviour.o(.data)
-    Chassis_yaw                              0x2000002c   Data           4  chassis_behaviour.o(.data)
-    Chassis_x_pid_output                     0x20000030   Data           4  chassis_behaviour.o(.data)
-    Chassis_y_pid_output                     0x20000034   Data           4  chassis_behaviour.o(.data)
-    Chassis_yaw_pid_output                   0x20000038   Data           4  chassis_behaviour.o(.data)
+    Safe_TASKHandle                          0x20000014   Data           4  init_task.o(.data)
+    UI_TASKHandle                            0x20000018   Data           4  init_task.o(.data)
+    TASK_CHASSISHandle                       0x2000001c   Data           4  init_task.o(.data)
+    ShootTask_Handler                        0x20000020   Data           4  init_task.o(.data)
+    Chassis_Behaviour                        0x20000028   Data           1  chassis_behaviour.o(.data)
+    Chassis_x                                0x2000002c   Data           4  chassis_behaviour.o(.data)
+    Chassis_y                                0x20000030   Data           4  chassis_behaviour.o(.data)
+    Chassis_yaw                              0x20000034   Data           4  chassis_behaviour.o(.data)
+    Chassis_x_pid_output                     0x20000038   Data           4  chassis_behaviour.o(.data)
+    Chassis_y_pid_output                     0x2000003c   Data           4  chassis_behaviour.o(.data)
+    Chassis_yaw_pid_output                   0x20000040   Data           4  chassis_behaviour.o(.data)
     uwTick                                   0x20000048   Data           4  stm32f4xx_hal.o(.data)
     uwTickPrio                               0x2000004c   Data           4  stm32f4xx_hal.o(.data)
     uwTickFreq                               0x20000050   Data           1  stm32f4xx_hal.o(.data)
@@ -3068,9 +3068,9 @@ Image Symbol Table
     hdma_usart6_rx                           0x200005ac   Data          96  usart.o(.bss)
     hdma_usart6_tx                           0x2000060c   Data          96  usart.o(.bss)
     htim1                                    0x2000066c   Data          72  stm32f4xx_hal_timebase_tim.o(.bss)
-    Chassis_Control                          0x200006ec   Data        1688  chassis_task.o(.bss)
-    CAN_Encoder                              0x20000d84   Data         540  bsp_motor_encoder.o(.bss)
-    Sbus_RX_Buffer                           0x20000fb8   Data          72  bsp_dr16.o(.bss)
+    CAN_Encoder                              0x200006b4   Data         540  bsp_motor_encoder.o(.bss)
+    Sbus_RX_Buffer                           0x200008e8   Data          72  bsp_dr16.o(.bss)
+    Chassis_Control                          0x20000968   Data        1688  chassis_task.o(.bss)
     __libspace_start                         0x20004cf0   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x20004d50   Data           0  libspace.o(.bss)
 
@@ -3152,17 +3152,17 @@ Memory Map of the image
     0x08000578   0x08000578   0x0000000c   Code   RO         6158    .text               c_w.l(sys_exit.o)
     0x08000584   0x08000584   0x00000002   Code   RO         6177    .text               c_w.l(use_no_semi.o)
     0x08000586   0x08000586   0x00000000   Code   RO         6179    .text               c_w.l(indicate_semi.o)
-    0x08000586   0x08000586   0x00000058   Code   RO         1167    i.Block_Detect      bsp_motor_encoder.o
+    0x08000586   0x08000586   0x00000058   Code   RO          765    i.Block_Detect      bsp_motor_encoder.o
     0x080005de   0x080005de   0x00000004   Code   RO          500    i.BusFault_Handler  stm32f4xx_it.o
     0x080005e2   0x080005e2   0x00000002   PAD
     0x080005e4   0x080005e4   0x00000010   Code   RO          501    i.CAN1_RX0_IRQHandler  stm32f4xx_it.o
-    0x080005f4   0x080005f4   0x0000003c   Code   RO          768    i.CAN1_filter_config  can1_receive.o
+    0x080005f4   0x080005f4   0x0000003c   Code   RO          927    i.CAN1_filter_config  can1_receive.o
     0x08000630   0x08000630   0x00000010   Code   RO          502    i.CAN2_RX0_IRQHandler  stm32f4xx_it.o
-    0x08000640   0x08000640   0x00000044   Code   RO          836    i.CAN2_filter_config  can2_receive.o
-    0x08000684   0x08000684   0x000000dc   Code   RO         1168    i.CAN_DATA_Encoder_Deal  bsp_motor_encoder.o
+    0x08000640   0x08000640   0x00000044   Code   RO          995    i.CAN2_filter_config  can2_receive.o
+    0x08000684   0x08000684   0x000000dc   Code   RO          766    i.CAN_DATA_Encoder_Deal  bsp_motor_encoder.o
     0x08000760   0x08000760   0x000000cc   Code   RO         1423    i.Changing_Integration_Rate  pid.o
-    0x0800082c   0x0800082c   0x00000254   Code   RO          987    i.Chassis_Init      chassis_task.o
-    0x08000a80   0x08000a80   0x0000002a   Code   RO          988    i.Chassis_Work      chassis_task.o
+    0x0800082c   0x0800082c   0x00000254   Code   RO         1146    i.Chassis_Init      chassis_task.o
+    0x08000a80   0x08000a80   0x0000002a   Code   RO         1147    i.Chassis_Work      chassis_task.o
     0x08000aaa   0x08000aaa   0x00000002   PAD
     0x08000aac   0x08000aac   0x00000010   Code   RO          503    i.DMA1_Stream1_IRQHandler  stm32f4xx_it.o
     0x08000abc   0x08000abc   0x00000010   Code   RO          504    i.DMA2_Stream0_IRQHandler  stm32f4xx_it.o
@@ -3172,13 +3172,13 @@ Memory Map of the image
     0x08000afc   0x08000afc   0x00000034   Code   RO         2323    i.DMA_CalcBaseAndBitshift  stm32f4xx_hal_dma.o
     0x08000b30   0x08000b30   0x000000aa   Code   RO         2324    i.DMA_CheckFifoParam  stm32f4xx_hal_dma.o
     0x08000bda   0x08000bda   0x00000002   Code   RO          508    i.DebugMon_Handler  stm32f4xx_it.o
-    0x08000bdc   0x08000bdc   0x0000001c   Code   RO         1230    i.ECF_RC_Init       bsp_dr16.o
-    0x08000bf8   0x08000bf8   0x00000010   Code   RO         1231    i.ECF_RC_UART_Handler  bsp_dr16.o
+    0x08000bdc   0x08000bdc   0x0000001c   Code   RO          828    i.ECF_RC_Init       bsp_dr16.o
+    0x08000bf8   0x08000bf8   0x00000010   Code   RO          829    i.ECF_RC_UART_Handler  bsp_dr16.o
     0x08000c08   0x08000c08   0x0000000a   Code   RO          509    i.EXTI4_IRQHandler  stm32f4xx_it.o
     0x08000c12   0x08000c12   0x0000000a   Code   RO          510    i.EXTI9_5_IRQHandler  stm32f4xx_it.o
-    0x08000c1c   0x08000c1c   0x00000024   Code   RO         1169    i.EncoderValZero    bsp_motor_encoder.o
-    0x08000c40   0x08000c40   0x0000007c   Code   RO         1170    i.Encoder_Init      bsp_motor_encoder.o
-    0x08000cbc   0x08000cbc   0x0000000e   Code   RO         1171    i.Encoder_Struct_Zero  bsp_motor_encoder.o
+    0x08000c1c   0x08000c1c   0x00000024   Code   RO          767    i.EncoderValZero    bsp_motor_encoder.o
+    0x08000c40   0x08000c40   0x0000007c   Code   RO          768    i.Encoder_Init      bsp_motor_encoder.o
+    0x08000cbc   0x08000cbc   0x0000000e   Code   RO          769    i.Encoder_Struct_Zero  bsp_motor_encoder.o
     0x08000cca   0x08000cca   0x00000006   Code   RO            4    i.Error_Handler     main.o
     0x08000cd0   0x08000cd0   0x0000002a   Code   RO         1586    i.HAL_CAN_ActivateNotification  stm32f4xx_hal_can.o
     0x08000cfa   0x08000cfa   0x00000156   Code   RO         1587    i.HAL_CAN_AddTxMessage  stm32f4xx_hal_can.o
@@ -3191,7 +3191,7 @@ Memory Map of the image
     0x080014b4   0x080014b4   0x00000160   Code   RO          290    i.HAL_CAN_MspInit   can.o
     0x08001614   0x08001614   0x00000002   Code   RO         1606    i.HAL_CAN_RxFifo0FullCallback  stm32f4xx_hal_can.o
     0x08001616   0x08001616   0x00000002   PAD
-    0x08001618   0x08001618   0x00000028   Code   RO          769    i.HAL_CAN_RxFifo0MsgPendingCallback  can1_receive.o
+    0x08001618   0x08001618   0x00000028   Code   RO          928    i.HAL_CAN_RxFifo0MsgPendingCallback  can1_receive.o
     0x08001640   0x08001640   0x00000002   Code   RO         1608    i.HAL_CAN_RxFifo1FullCallback  stm32f4xx_hal_can.o
     0x08001642   0x08001642   0x00000002   Code   RO         1609    i.HAL_CAN_RxFifo1MsgPendingCallback  stm32f4xx_hal_can.o
     0x08001644   0x08001644   0x00000002   Code   RO         1610    i.HAL_CAN_SleepCallback  stm32f4xx_hal_can.o
@@ -3256,7 +3256,7 @@ Memory Map of the image
     0x0800329c   0x0800329c   0x00000002   Code   RO         4342    i.HAL_UART_RxCpltCallback  stm32f4xx_hal_uart.o
     0x0800329e   0x0800329e   0x00000002   Code   RO         4347    i.HAL_UART_TxCpltCallback  stm32f4xx_hal_uart.o
     0x080032a0   0x080032a0   0x00000004   Code   RO          511    i.HardFault_Handler  stm32f4xx_it.o
-    0x080032a4   0x080032a4   0x00000064   Code   RO          930    i.Init_Task         init_task.o
+    0x080032a4   0x080032a4   0x00000064   Code   RO         1089    i.Init_Task         init_task.o
     0x08003308   0x08003308   0x00000048   Code   RO          291    i.MX_CAN1_Init      can.o
     0x08003350   0x08003350   0x00000048   Code   RO          292    i.MX_CAN2_Init      can.o
     0x08003398   0x08003398   0x00000098   Code   RO          338    i.MX_DMA_Init       dma.o
@@ -3271,12 +3271,12 @@ Memory Map of the image
     0x08003750   0x08003750   0x000001b8   Code   RO         1424    i.PidCalculate      pid.o
     0x08003908   0x08003908   0x0000003e   Code   RO         1425    i.PidInit           pid.o
     0x08003946   0x08003946   0x0000008a   Code   RO         1426    i.PidInitMode       pid.o
-    0x080039d0   0x080039d0   0x00000106   Code   RO         1233    i.RC_DataProcess    bsp_dr16.o
+    0x080039d0   0x080039d0   0x00000106   Code   RO          831    i.RC_DataProcess    bsp_dr16.o
     0x08003ad6   0x08003ad6   0x00000002   PAD
-    0x08003ad8   0x08003ad8   0x00000008   Code   RO         1235    i.RC_Get_RC_Pointer  bsp_dr16.o
-    0x08003ae0   0x08003ae0   0x00000088   Code   RO         1236    i.RC_Init           bsp_dr16.o
-    0x08003b68   0x08003b68   0x00000110   Code   RO         1238    i.RC_UART_IRQHandler  bsp_dr16.o
-    0x08003c78   0x08003c78   0x00000018   Code   RO         1058    i.Safe_Task         task_safe.o
+    0x08003ad8   0x08003ad8   0x00000008   Code   RO          833    i.RC_Get_RC_Pointer  bsp_dr16.o
+    0x08003ae0   0x08003ae0   0x00000088   Code   RO          834    i.RC_Init           bsp_dr16.o
+    0x08003b68   0x08003b68   0x00000110   Code   RO          836    i.RC_UART_IRQHandler  bsp_dr16.o
+    0x08003c78   0x08003c78   0x00000018   Code   RO         1217    i.Safe_Task         task_safe.o
     0x08003c90   0x08003c90   0x0000000a   Code   RO          240    i.StartDefaultTask  freertos.o
     0x08003c9a   0x08003c9a   0x00000002   PAD
     0x08003c9c   0x08003c9c   0x00000034   Code   RO         5953    i.SysTick_Handler   port.o
@@ -3288,7 +3288,7 @@ Memory Map of the image
     0x08003ef8   0x08003ef8   0x0000007c   Code   RO         3432    i.TIM_OC2_SetConfig  stm32f4xx_hal_tim.o
     0x08003f74   0x08003f74   0x00000078   Code   RO         3433    i.TIM_OC3_SetConfig  stm32f4xx_hal_tim.o
     0x08003fec   0x08003fec   0x00000054   Code   RO         3434    i.TIM_OC4_SetConfig  stm32f4xx_hal_tim.o
-    0x08004040   0x08004040   0x00000048   Code   RO          989    i.Task_Chassis      chassis_task.o
+    0x08004040   0x08004040   0x00000048   Code   RO         1148    i.Task_Chassis      chassis_task.o
     0x08004088   0x08004088   0x00000014   Code   RO         4349    i.UART_DMAAbortOnError  stm32f4xx_hal_uart.o
     0x0800409c   0x0800409c   0x0000006c   Code   RO         4359    i.UART_EndRxTransfer  stm32f4xx_hal_uart.o
     0x08004108   0x08004108   0x00000020   Code   RO         4360    i.UART_EndTransmit_IT  stm32f4xx_hal_uart.o
@@ -3300,23 +3300,23 @@ Memory Map of the image
     0x080044d0   0x080044d0   0x00000004   Code   RO          517    i.UsageFault_Handler  stm32f4xx_it.o
     0x080044d4   0x080044d4   0x00000010   Code   RO         2621    i.__NVIC_GetPriorityGrouping  stm32f4xx_hal_cortex.o
     0x080044e4   0x080044e4   0x00000028   Code   RO         2622    i.__NVIC_SetPriority  stm32f4xx_hal_cortex.o
-    0x0800450c   0x0800450c   0x00000024   Code   RO         1172    i.angle_limiting_int16  bsp_motor_encoder.o
-    0x08004530   0x08004530   0x00000060   Code   RO          867    i.can1_chassis_setmsg  can1_send.o
-    0x08004590   0x08004590   0x000000a0   Code   RO         1083    i.chassis_behaviour_choose  chassis_behaviour.o
-    0x08004630   0x08004630   0x00000168   Code   RO         1084    i.chassis_behaviour_react  chassis_behaviour.o
-    0x08004798   0x08004798   0x00000190   Code   RO          770    i.chassis_can1_callback  can1_receive.o
-    0x08004928   0x08004928   0x00000020   Code   RO          837    i.chassis_can2_callback  can2_receive.o
-    0x08004948   0x08004948   0x000000c0   Code   RO         1085    i.chassis_motion_decomposition  chassis_behaviour.o
-    0x08004a08   0x08004a08   0x00000250   Code   RO          990    i.chassis_prevent_motion_distortion  chassis_task.o
-    0x08004c58   0x08004c58   0x00000070   Code   RO         1086    i.chassis_speed_pid_calculate  chassis_behaviour.o
-    0x08004cc8   0x08004cc8   0x0000010e   Code   RO         1087    i.chassis_state_choose  chassis_behaviour.o
-    0x08004dd6   0x08004dd6   0x00000036   Code   RO          991    i.chassis_state_react  chassis_task.o
-    0x08004e0c   0x08004e0c   0x00000028   Code   RO          992    i.chassis_zero_fore_react  chassis_task.o
+    0x0800450c   0x0800450c   0x00000024   Code   RO          770    i.angle_limiting_int16  bsp_motor_encoder.o
+    0x08004530   0x08004530   0x00000060   Code   RO         1026    i.can1_chassis_setmsg  can1_send.o
+    0x08004590   0x08004590   0x000000a0   Code   RO         1242    i.chassis_behaviour_choose  chassis_behaviour.o
+    0x08004630   0x08004630   0x00000168   Code   RO         1243    i.chassis_behaviour_react  chassis_behaviour.o
+    0x08004798   0x08004798   0x00000190   Code   RO          929    i.chassis_can1_callback  can1_receive.o
+    0x08004928   0x08004928   0x00000020   Code   RO          996    i.chassis_can2_callback  can2_receive.o
+    0x08004948   0x08004948   0x000000c0   Code   RO         1244    i.chassis_motion_decomposition  chassis_behaviour.o
+    0x08004a08   0x08004a08   0x00000250   Code   RO         1149    i.chassis_prevent_motion_distortion  chassis_task.o
+    0x08004c58   0x08004c58   0x00000070   Code   RO         1245    i.chassis_speed_pid_calculate  chassis_behaviour.o
+    0x08004cc8   0x08004cc8   0x0000010e   Code   RO         1246    i.chassis_state_choose  chassis_behaviour.o
+    0x08004dd6   0x08004dd6   0x00000036   Code   RO         1150    i.chassis_state_react  chassis_task.o
+    0x08004e0c   0x08004e0c   0x00000028   Code   RO         1151    i.chassis_zero_fore_react  chassis_task.o
     0x08004e34   0x08004e34   0x00000110   Code   RO         1329    i.cos_calculate     maths.o
-    0x08004f44   0x08004f44   0x00000030   Code   RO         1088    i.f_CHASSIS_BATTERY  chassis_behaviour.o
-    0x08004f74   0x08004f74   0x00000014   Code   RO         1089    i.f_CHASSIS_FOLLOW  chassis_behaviour.o
-    0x08004f88   0x08004f88   0x000000a8   Code   RO         1090    i.f_CHASSIS_NO_FOLLOW  chassis_behaviour.o
-    0x08005030   0x08005030   0x000000a8   Code   RO         1091    i.f_CHASSIS_ROTATION  chassis_behaviour.o
+    0x08004f44   0x08004f44   0x00000030   Code   RO         1247    i.f_CHASSIS_BATTERY  chassis_behaviour.o
+    0x08004f74   0x08004f74   0x00000014   Code   RO         1248    i.f_CHASSIS_FOLLOW  chassis_behaviour.o
+    0x08004f88   0x08004f88   0x000000a8   Code   RO         1249    i.f_CHASSIS_NO_FOLLOW  chassis_behaviour.o
+    0x08005030   0x08005030   0x000000a8   Code   RO         1250    i.f_CHASSIS_ROTATION  chassis_behaviour.o
     0x080050d8   0x080050d8   0x00000074   Code   RO         1428    i.f_Derivative_On_Measurement  pid.o
     0x0800514c   0x0800514c   0x00000046   Code   RO         1429    i.f_Integral_Limit  pid.o
     0x08005192   0x08005192   0x00000046   Code   RO         1430    i.f_Output_Limit    pid.o
@@ -3324,15 +3324,15 @@ Memory Map of the image
     0x08005214   0x08005214   0x000000cc   Code   RO         1432    i.f_StepIn          pid.o
     0x080052e0   0x080052e0   0x00000042   Code   RO         1433    i.first_order_filter  pid.o
     0x08005322   0x08005322   0x00000002   PAD
-    0x08005324   0x08005324   0x00000008   Code   RO         1092    i.get_chassis_behaviour_point  chassis_behaviour.o
-    0x0800532c   0x0800532c   0x00000014   Code   RO          771    i.get_chassis_motor_measure_point  can1_receive.o
-    0x08005340   0x08005340   0x00000008   Code   RO          772    i.get_supercap_control_point  can1_receive.o
+    0x08005324   0x08005324   0x00000008   Code   RO         1251    i.get_chassis_behaviour_point  chassis_behaviour.o
+    0x0800532c   0x0800532c   0x00000014   Code   RO          930    i.get_chassis_motor_measure_point  can1_receive.o
+    0x08005340   0x08005340   0x00000008   Code   RO          931    i.get_supercap_control_point  can1_receive.o
     0x08005348   0x08005348   0x00000034   Code   RO            7    i.main              main.o
     0x0800537c   0x0800537c   0x0000000e   Code   RO         5518    i.makeFreeRtosPriority  cmsis_os.o
     0x0800538a   0x0800538a   0x0000004a   Code   RO         1434    i.motor_position_speed_control  pid.o
-    0x080053d4   0x080053d4   0x00000104   Code   RO          993    i.motor_position_speed_pid_calculate  chassis_task.o
+    0x080053d4   0x080053d4   0x00000104   Code   RO         1152    i.motor_position_speed_pid_calculate  chassis_task.o
     0x080054d8   0x080054d8   0x0000002e   Code   RO         1435    i.motor_speed_control  pid.o
-    0x08005506   0x08005506   0x000000be   Code   RO          994    i.motor_speed_pid_calculate  chassis_task.o
+    0x08005506   0x08005506   0x000000be   Code   RO         1153    i.motor_speed_pid_calculate  chassis_task.o
     0x080055c4   0x080055c4   0x00000018   Code   RO         5520    i.osDelay           cmsis_os.o
     0x080055dc   0x080055dc   0x0000000a   Code   RO         5523    i.osKernelStart     cmsis_os.o
     0x080055e6   0x080055e6   0x0000005e   Code   RO         5557    i.osThreadCreate    cmsis_os.o
@@ -3350,8 +3350,8 @@ Memory Map of the image
     0x08005ad4   0x08005ad4   0x00000040   Code   RO         5954    i.prvTaskExitError  port.o
     0x08005b14   0x08005b14   0x0000014c   Code   RO         5887    i.pvPortMalloc      heap_4.o
     0x08005c60   0x08005c60   0x0000002c   Code   RO         5955    i.pxPortInitialiseStack  port.o
-    0x08005c8c   0x08005c8c   0x00000014   Code   RO         1241    i.rc_deadline_limit  bsp_dr16.o
-    0x08005ca0   0x08005ca0   0x00000014   Code   RO         1242    i.rc_lost_time_refresh  bsp_dr16.o
+    0x08005c8c   0x08005c8c   0x00000014   Code   RO          839    i.rc_deadline_limit  bsp_dr16.o
+    0x08005ca0   0x08005ca0   0x00000014   Code   RO          840    i.rc_lost_time_refresh  bsp_dr16.o
     0x08005cb4   0x08005cb4   0x000001d8   Code   RO         1338    i.sin_calculate     maths.o
     0x08005e8c   0x08005e8c   0x00000028   Code   RO         4812    i.uxListRemove      list.o
     0x08005eb4   0x08005eb4   0x00000018   Code   RO          241    i.vApplicationGetIdleTaskMemory  freertos.o
@@ -3379,12 +3379,12 @@ Memory Map of the image
     0x080068e4   0x080068e4   0x0000000a   Code   RO         6173    x$fpl$fpinit        fz_wm.l(fpinit.o)
     0x080068ee   0x080068ee   0x00000002   PAD
     0x080068f0   0x080068f0   0x00000038   Data   RO          243    .constdata          freertos.o
-    0x08006928   0x08006928   0x00000038   Data   RO          933    .constdata          init_task.o
+    0x08006928   0x08006928   0x00000038   Data   RO         1092    .constdata          init_task.o
     0x08006960   0x08006960   0x00000e14   Data   RO         1339    .constdata          maths.o
     0x08007774   0x08007774   0x00000008   Data   RO         2338    .constdata          stm32f4xx_hal_dma.o
     0x0800777c   0x0800777c   0x00000018   Data   RO         4676    .constdata          system_stm32f4xx.o
     0x08007794   0x08007794   0x00000018   Data   RO          244    .conststring        freertos.o
-    0x080077ac   0x080077ac   0x0000001a   Data   RO          934    .conststring        init_task.o
+    0x080077ac   0x080077ac   0x0000001a   Data   RO         1093    .conststring        init_task.o
     0x080077c6   0x080077c6   0x00000002   PAD
     0x080077c8   0x080077c8   0x00000020   Data   RO         6231    Region$$Table       anon$$obj.o
 
@@ -3395,11 +3395,11 @@ Memory Map of the image
 
     0x20000000   0x080077e8   0x00000008   Data   RW          245    .data               freertos.o
     0x20000008   0x080077f0   0x00000004   Data   RW          294    .data               can.o
-    0x2000000c   0x080077f4   0x00000010   Data   RW          935    .data               init_task.o
-    0x2000001c   0x08007804   0x00000004   Data   RW         1059    .data               task_safe.o
-    0x20000020   0x08007808   0x0000001e   Data   RW         1093    .data               chassis_behaviour.o
-    0x2000003e   0x08007826   0x00000002   PAD
-    0x20000040   0x08007828   0x00000006   Data   RW         1244    .data               bsp_dr16.o
+    0x2000000c   0x080077f4   0x00000006   Data   RW          842    .data               bsp_dr16.o
+    0x20000012   0x080077fa   0x00000002   PAD
+    0x20000014   0x080077fc   0x00000010   Data   RW         1094    .data               init_task.o
+    0x20000024   0x0800780c   0x00000004   Data   RW         1218    .data               task_safe.o
+    0x20000028   0x08007810   0x0000001e   Data   RW         1252    .data               chassis_behaviour.o
     0x20000046   0x0800782e   0x00000002   PAD
     0x20000048   0x08007830   0x00000009   Data   RW         2770    .data               stm32f4xx_hal.o
     0x20000051   0x08007839   0x00000003   PAD
@@ -3413,11 +3413,11 @@ Memory Map of the image
     0x2000047c        -       0x00000048   Zero   RW          408    .bss                tim.o
     0x200004c4        -       0x000001a8   Zero   RW          456    .bss                usart.o
     0x2000066c        -       0x00000048   Zero   RW          657    .bss                stm32f4xx_hal_timebase_tim.o
-    0x200006b4        -       0x00000020   Zero   RW          774    .bss                can1_receive.o
-    0x200006d4        -       0x00000018   Zero   RW          868    .bss                can1_send.o
-    0x200006ec        -       0x00000698   Zero   RW          995    .bss                chassis_task.o
-    0x20000d84        -       0x0000021c   Zero   RW         1174    .bss                bsp_motor_encoder.o
-    0x20000fa0        -       0x00000060   Zero   RW         1243    .bss                bsp_dr16.o
+    0x200006b4        -       0x0000021c   Zero   RW          772    .bss                bsp_motor_encoder.o
+    0x200008d0        -       0x00000060   Zero   RW          841    .bss                bsp_dr16.o
+    0x20000930        -       0x00000020   Zero   RW          933    .bss                can1_receive.o
+    0x20000950        -       0x00000018   Zero   RW         1027    .bss                can1_send.o
+    0x20000968        -       0x00000698   Zero   RW         1154    .bss                chassis_task.o
     0x20001000        -       0x000000f0   Zero   RW         5235    .bss                tasks.o
     0x200010f0        -       0x00003c00   Zero   RW         5893    .bss                heap_4.o
     0x20004cf0        -       0x00000060   Zero   RW         6103    .bss                c_w.l(libspace.o)
