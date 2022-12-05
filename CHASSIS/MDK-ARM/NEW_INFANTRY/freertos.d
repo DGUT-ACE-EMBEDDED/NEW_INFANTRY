@@ -1,7 +1,7 @@
 new_infantry\freertos.o: ../Core/Src/freertos.c
 new_infantry\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-new_infantry\freertos.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stddef.h
-new_infantry\freertos.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdint.h
+new_infantry\freertos.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stddef.h
+new_infantry\freertos.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stdint.h
 new_infantry\freertos.o: ../Core/Inc/FreeRTOSConfig.h
 new_infantry\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 new_infantry\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

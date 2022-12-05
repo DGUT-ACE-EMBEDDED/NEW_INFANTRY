@@ -1,9 +1,9 @@
 new_infantry\cmsis_os.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c
-new_infantry\cmsis_os.o: D:\keil\core\ARM\ARMCC\Bin\..\include\string.h
+new_infantry\cmsis_os.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\string.h
 new_infantry\cmsis_os.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 new_infantry\cmsis_os.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-new_infantry\cmsis_os.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stddef.h
-new_infantry\cmsis_os.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdint.h
+new_infantry\cmsis_os.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stddef.h
+new_infantry\cmsis_os.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stdint.h
 new_infantry\cmsis_os.o: ../Core/Inc/FreeRTOSConfig.h
 new_infantry\cmsis_os.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 new_infantry\cmsis_os.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

@@ -1,9 +1,9 @@
 new_infantry\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/queue.c
-new_infantry\queue.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdlib.h
-new_infantry\queue.o: D:\keil\core\ARM\ARMCC\Bin\..\include\string.h
+new_infantry\queue.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stdlib.h
+new_infantry\queue.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\string.h
 new_infantry\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-new_infantry\queue.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stddef.h
-new_infantry\queue.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdint.h
+new_infantry\queue.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stddef.h
+new_infantry\queue.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stdint.h
 new_infantry\queue.o: ../Core/Inc/FreeRTOSConfig.h
 new_infantry\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 new_infantry\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
