@@ -19,6 +19,7 @@
 //#include "shoot_Task.h"
 
 extern osThreadId Init_TASKHandle;
+extern osThreadId defaultTaskHandle;
 
 osThreadId Safe_TASKHandle;
 osThreadId UI_TASKHandle;
@@ -59,6 +60,7 @@ void Init_Task(void const *argument)
 #endif
 
 	vTaskDelete(Init_TASKHandle); //删除开始任务
+	vTaskDelete(defaultTaskHandle);
 	taskEXIT_CRITICAL();		  //退出临界区
 }
 

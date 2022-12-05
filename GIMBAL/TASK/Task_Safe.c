@@ -15,14 +15,15 @@
  */
 void Safe_Task(void const *argument)
 {
-	static TickType_t currentTime;
+	//	static TickType_t currentTime;
 
-	currentTime = xTaskGetTickCount(); //获取当前系统时间
+	//	currentTime = xTaskGetTickCount(); //获取当前系统时间
 
 	while (1)
 	{
 
 		//检测周期
-		vTaskDelayUntil(&currentTime, 1); //绝对延时//vTaskDelay(2)
+		// vTaskDelayUntil(&currentTime, 1); //绝对延时//vTaskDelay(2)
+		vTaskDelay(2);
 	}
 }

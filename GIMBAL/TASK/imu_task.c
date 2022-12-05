@@ -2,7 +2,6 @@
 
 INS_t INS;
 IMU_Param_t IMU_Param;
-PID_t TempCtrl = {0};
 
 const float xb[3] = {1, 0, 0};
 const float yb[3] = {0, 1, 0};
@@ -13,36 +12,22 @@ static float dt = 0, t = 0;
 uint8_t ins_debug_mode = 0;
 float RefTemp = 40;
 
-osThreadId IMUTask_Handler;
-
-extern void imu_Task(void const * argument);
+extern void imu_Task(void const *argument);
 
 static void IMU_Param_Correction(IMU_Param_t *param, float gyro[3], float accel[3]);
 
-/**
-  * @brief      创建陀螺仪任务
-  * @param[in]  none
-  * @retval     none
-  */
-void imu_app_init(void)
+void imu_Task(void const *argument)
 {
-	//创建任务
-	osThreadDef(IMU_TASK, imu_Task, osPriorityNormal, 0, 512);
-  IMUTask_Handler = osThreadCreate(osThread(IMU_TASK), NULL);
-}
+    uint32_t currentTime;
+    INS_Init();
 
-void imu_Task(void const * argument)
-{
-  uint32_t currentTime;
-	INS_Init();
-	while(1)
-	{
-		currentTime = xTaskGetTickCount();//当前系统时间
-		INS_Task();
+    currentTime = xTaskGetTickCount(); //当前系统时间
+    while (1)
+    {
+        INS_Task();
 
-	  vTaskDelayUntil(&currentTime, 1);//osDelay(1);
-	}
-
+        vTaskDelayUntil(&currentTime, 1); // osDelay(1);
+    }
 }
 
 void INS_Init(void)
@@ -55,30 +40,28 @@ void INS_Init(void)
     IMU_Param.Roll = 0;
     IMU_Param.flag = 1;
 
-    IMU_QuaternionEKF_Init(10, 0.001, 10000000,1, 0);
-    // imu heat init
-    PID_Init(&TempCtrl, 2000, 300, 0, 1000, 20, 0, 0, 0, 0, 0, 0, 0);
+    IMU_QuaternionEKF_Init(10, 0.001, 10000000, 1, 0);
     HAL_TIM_PWM_Start(&htim10, TIM_CHANNEL_1);
 
     INS.AccelLPF = 0.0085;
-//	  DWT_GetDeltaT(&INS_DWT_Count);
+    //	  DWT_GetDeltaT(&INS_DWT_Count);
 }
 
 /**
-  * @brief      返回陀螺仪句柄
-  * @param[in]  none
-  * @retval     none
-  */
-//TaskHandle_t *get_imu_task_handle(void)
+ * @brief      返回陀螺仪句柄
+ * @param[in]  none
+ * @retval     none
+ */
+// TaskHandle_t *get_imu_task_handle(void)
 //{
-//    return &IMUTask_Handler;
-//}
+//     return &IMUTask_Handler;
+// }
 
 /**
-  * @brief      返回陀螺仪结构体
-  * @param[in]  none
-  * @retval     imu_data_t *
-  */
+ * @brief      返回陀螺仪结构体
+ * @param[in]  none
+ * @retval     imu_data_t *
+ */
 const INS_t *get_imu_control_point(void)
 {
     return &INS;
@@ -133,14 +116,13 @@ void INS_Task(void)
         IMU_Temperature_Ctrl();
     }
 
-//    if ((count % 1000) == 0)
-//    {
-//        // 200hz
-//    }
+    //    if ((count % 1000) == 0)
+    //    {
+    //        // 200hz
+    //    }
 
     count++;
 }
-
 
 /**
  * @brief        Update quaternion
@@ -234,7 +216,6 @@ void EarthFrameToBodyFrame(const float *vecEF, float *vecBF, float *q)
                        (0.5f - q[1] * q[1] - q[2] * q[2]) * vecEF[2]);
 }
 
-
 static void IMU_Param_Correction(IMU_Param_t *param, float gyro[3], float accel[3])
 {
     static float lastYawOffset, lastPitchOffset, lastRollOffset;
@@ -297,11 +278,6 @@ static void IMU_Param_Correction(IMU_Param_t *param, float gyro[3], float accel[
     lastRollOffset = param->Roll;
 }
 
-
 void IMU_Temperature_Ctrl(void)
 {
-    PID_Calculate(&TempCtrl, BMI088.Temperature, RefTemp);
-
-    TIM_Set_PWM(&htim10, TIM_CHANNEL_1, float_constrain(float_rounding(TempCtrl.Output), 0, UINT32_MAX));
 }
-

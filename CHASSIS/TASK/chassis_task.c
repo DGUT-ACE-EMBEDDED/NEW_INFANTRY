@@ -4,7 +4,6 @@
 #include "can1_receive.h"
 #include "can1_send.h"
 #include "string.h"
-#include "filter.h"
 #include "bsp_Motor_Encoder.h"
 #include "maths.h"
 
@@ -40,7 +39,7 @@ void Task_Chassis(void const *argument)
 
 		taskEXIT_CRITICAL(); //退出临界区
 
-		vTaskDelayUntil(&currentTime, 2); //绝对延时//vTaskDelay(2)
+		vTaskDelayUntil(&currentTime, 1); //绝对延时//vTaskDelay(2)
 	}
 }
 void Chassis_Work(chassis_control_t *Chassis_Control_f)

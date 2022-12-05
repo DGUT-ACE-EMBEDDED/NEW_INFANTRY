@@ -53,6 +53,7 @@ extern "C" {
 #endif
 
 /* Application specific configuration options. */
+#include "SEGGER_SYSVIEW_FreeRTOS.h"
 #include "FreeRTOSConfig.h"
 
 /* Basic FreeRTOS definitions. */

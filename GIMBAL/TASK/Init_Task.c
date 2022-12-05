@@ -19,9 +19,10 @@
 //#include "shoot_Task.h"
 
 extern osThreadId Init_TASKHandle;
+extern osThreadId defaultTaskHandle;
 
 osThreadId Safe_TASKHandle;
-osThreadId UI_TASKHandle;
+osThreadId IMUTask_Handler;
 osThreadId TASK_GIMBALHandle;
 osThreadId ShootTask_Handler;
 
@@ -47,9 +48,9 @@ void Init_Task(void const *argument)
 	osThreadDef(Gimbal_TASK, Gimbal_Task, osPriorityHigh, 0, 256);
 	TASK_GIMBALHandle = osThreadCreate(osThread(Gimbal_TASK), NULL);
 
-	//创建UI任务
-	//		osThreadDef(UI_TASK, UI_Task, osPriorityLow, 0, 256);
-	//		UI_TASKHandle = osThreadCreate(osThread(UI_TASK), NULL);
+	// IMU
+	osThreadDef(IMU_TASK, imu_Task, osPriorityNormal, 0, 512);
+	IMUTask_Handler = osThreadCreate(osThread(IMU_TASK), NULL);
 
 #ifdef FIRE_WORK //火力
 				 //创建火控任务
@@ -59,7 +60,8 @@ void Init_Task(void const *argument)
 #endif
 
 	vTaskDelete(Init_TASKHandle); //删除开始任务
-	taskEXIT_CRITICAL();		  //退出临界区
+	vTaskDelete(defaultTaskHandle);
+	taskEXIT_CRITICAL(); //退出临界区
 }
 
 /**

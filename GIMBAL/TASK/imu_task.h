@@ -25,7 +25,6 @@
 
 #include "BMI088driver.h"
 #include "BMI088Middleware.h"
-#include "controller.h"
 #include "kalman_filter.h"
 #include "QuaternionEKF.h"
 #include "user_lib.h"

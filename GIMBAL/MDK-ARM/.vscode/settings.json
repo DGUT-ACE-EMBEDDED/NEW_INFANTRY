@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "gimbal_task.h": "c",
+        "gimbal_struct_variables.h": "c",
+        "can1_receive.h": "c",
+        "can2_receive.h": "c"
+    }
+}

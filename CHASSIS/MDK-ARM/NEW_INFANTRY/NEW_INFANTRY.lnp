@@ -23,7 +23,6 @@
 "new_infantry\chassis_behaviour.o"
 "new_infantry\maths.o"
 "new_infantry\pid.o"
-"new_infantry\filter.o"
 "new_infantry\startup_stm32f407xx.o"
 "new_infantry\stm32f4xx_hal_can.o"
 "new_infantry\stm32f4xx_hal_rcc.o"
@@ -55,6 +54,11 @@
 "new_infantry\heap_4.o"
 "new_infantry\port.o"
 "../Middlewares/ST/ARM/DSP/Lib/arm_cortexM4l_math.lib"
+"new_infantry\segger_rtt.o"
+"new_infantry\segger_rtt_printf.o"
+"new_infantry\segger_sysview.o"
+"new_infantry\segger_sysview_config_freertos.o"
+"new_infantry\segger_sysview_freertos.o"
 --strict --scatter "NEW_INFANTRY\NEW_INFANTRY.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
