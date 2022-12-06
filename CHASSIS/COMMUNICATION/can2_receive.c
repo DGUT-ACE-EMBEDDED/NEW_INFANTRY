@@ -3,7 +3,7 @@
 #include "chassis_struct_variables.h"
 
 extern CAN_HandleTypeDef hcan2;
-
+extern chassis_control_t Chassis_Control;
 /*--------------------±‰¡ø-----------------------*/
 
 /**
@@ -49,6 +49,9 @@ void chassis_can2_callback(CAN_HandleTypeDef *hcan)
   {
     switch (Rxmessage.StdId)
     {
+			case 0x300:
+			Chassis_Control.Chassis_Gimbal_Diference_Angle = (int16_t)((Rx_Data[0] << 8) | Rx_Data[1]);
+			break;
     }
   }
 }

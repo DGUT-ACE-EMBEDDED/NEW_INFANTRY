@@ -36,7 +36,7 @@
 #define CHASSIS_LOCATION_KD 10.8f
 
 //Ðý×ªpid
-#define CHASSIS_SPIN_FOLLOW_KP 20.0f // 9.0f//7.0f
+#define CHASSIS_SPIN_FOLLOW_KP 100.0f // 9.0f//7.0f
 #define CHASSIS_SPIN_FOLLOW_KI 0.0f  // 0.01f
 #define CHASSIS_SPIN_FOLLOW_KD 1.0f  // 0.5f//20.0f
 

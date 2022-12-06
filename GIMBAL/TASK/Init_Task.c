@@ -45,7 +45,7 @@ void Init_Task(void const *argument)
 	Safe_TASKHandle = osThreadCreate(osThread(Safe_TASK), NULL);
 
 	//创建云台任务
-	osThreadDef(Gimbal_TASK, Gimbal_Task, osPriorityHigh, 0, 256);
+	osThreadDef(Gimbal_TASK, Gimbal_Task, osPriorityHigh, 0, 512);
 	TASK_GIMBALHandle = osThreadCreate(osThread(Gimbal_TASK), NULL);
 
 	// IMU

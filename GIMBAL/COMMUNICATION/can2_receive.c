@@ -3,7 +3,7 @@
 #include "gimbal_struct_variables.h"
 
 extern CAN_HandleTypeDef hcan2;
-
+extern gimbal_control_t Gimbal_Control;
 /*--------------------±äÁ¿-----------------------*/
 
 /**
@@ -49,6 +49,9 @@ void chassis_can2_callback(CAN_HandleTypeDef *hcan)
   {
     switch (Rxmessage.StdId)
     {
+    case 0x401:
+      Gimbal_Control.Gimbal_RC->rc.ch[0] = ((Rx_Data[0] << 8) | Rx_Data[1]);
+	  	break;
     }
   }
 }

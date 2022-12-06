@@ -3,7 +3,8 @@
 
 #include "gimbal_struct_variables.h"
 
-void can1_chassis_setmsg(int16_t ESC_201, int16_t ESC_202, int16_t ESC_203, int16_t ESC_204);
-void can1_cap_setmsg(int16_t Chassis_power);
+void can1_gimbal_setmsg(int16_t pitch, int16_t yaw);
+
+void can2_gimbal_setmsg(int16_t left, int16_t right, int16_t fire);
 
 #endif

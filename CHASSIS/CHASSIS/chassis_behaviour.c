@@ -4,7 +4,6 @@
 #include "maths.h"
 #include "pid.h"
 
-chassis_behaviour_e Chassis_Behaviour;
 //原始控制量
 float Chassis_x = 0.0f;
 float Chassis_y = 0.0f;
@@ -45,7 +44,7 @@ void chassis_behaviour_choose(chassis_control_t *Chassis_behaviour_f)
     //如果挡位发生改变，设置对应的模式
     if (last_behaviour != rc_behaviour)
     {
-        *Chassis_behaviour_f->behaviour = rc_behaviour;
+        Chassis_behaviour_f->behaviour = rc_behaviour;
     }
 
     //键鼠
@@ -73,18 +72,18 @@ void chassis_behaviour_choose(chassis_control_t *Chassis_behaviour_f)
     //如果模式发生改变，设置对应的模式
     if (last_behaviour != kb_behaviour)
     {
-        *Chassis_behaviour_f->behaviour = kb_behaviour;
+        Chassis_behaviour_f->behaviour = kb_behaviour;
     }
 }
 
 void chassis_behaviour_react(chassis_control_t *Chassis_behaviour_react_f)
 {
-    Chassis_x = Chassis_behaviour_react_f->Chassis_RC->rc.ch[0] + (-Chassis_behaviour_react_f->Chassis_RC->kb.bit.A + Chassis_behaviour_react_f->Chassis_RC->kb.bit.D) * 660;
+    Chassis_x = Chassis_behaviour_react_f->Chassis_RC->rc.ch[2] + (-Chassis_behaviour_react_f->Chassis_RC->kb.bit.A + Chassis_behaviour_react_f->Chassis_RC->kb.bit.D) * 660;
     value_limit(Chassis_x, -660, 660);
-    Chassis_y = Chassis_behaviour_react_f->Chassis_RC->rc.ch[1] + (-Chassis_behaviour_react_f->Chassis_RC->kb.bit.S + Chassis_behaviour_react_f->Chassis_RC->kb.bit.W) * 660;
+    Chassis_y = Chassis_behaviour_react_f->Chassis_RC->rc.ch[3] + (-Chassis_behaviour_react_f->Chassis_RC->kb.bit.S + Chassis_behaviour_react_f->Chassis_RC->kb.bit.W) * 660;
     value_limit(Chassis_y, -660, 660);
 
-    switch (*Chassis_behaviour_react_f->behaviour)
+    switch (Chassis_behaviour_react_f->behaviour)
     {
     case CHASSIS_FOLLOW:
         f_CHASSIS_FOLLOW(Chassis_behaviour_react_f);
@@ -103,7 +102,7 @@ void chassis_behaviour_react(chassis_control_t *Chassis_behaviour_react_f)
     }
 
     //没头的时候旋转用的
-    Chassis_yaw += Chassis_behaviour_react_f->Chassis_RC->rc.ch[2];
+//    Chassis_yaw += Chassis_behaviour_react_f->Chassis_RC->rc.ch[0];
 }
 void chassis_state_choose(chassis_control_t *chassis_state_choose_f)
 {
@@ -141,7 +140,7 @@ void chassis_speed_pid_calculate(chassis_control_t *chassis_speed_pid_calculate_
 {
     Chassis_x_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->Chassis_speedX_Pid, Chassis_x, 0);
     Chassis_y_pid_output = PidCalculate(&chassis_speed_pid_calculate_f->Chassis_speedY_Pid, Chassis_y, 0);
-    Chassis_yaw_pid_output = PidCalculate(&chassis_speed_pid_calculate_f->chassis_rotate_pid, Chassis_yaw, 0);
+    Chassis_yaw_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->chassis_rotate_pid, Chassis_yaw, 0);
 }
 
 void chassis_motion_decomposition(chassis_control_t *chassis_motion_decomposition_f)
@@ -184,13 +183,4 @@ void f_CHASSIS_BATTERY(chassis_control_t *Chassis_behaviour_react_f)
     Chassis_x = 0;
     Chassis_y = 0;
     Chassis_yaw = 0;
-}
-/**
- * @brief          返回底盘模式指针
- * @param[in]      none
- * @retval
- */
-chassis_behaviour_e *get_chassis_behaviour_point(void)
-{
-    return (&Chassis_Behaviour);
 }

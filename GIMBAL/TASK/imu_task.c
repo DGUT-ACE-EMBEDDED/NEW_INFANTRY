@@ -1,8 +1,10 @@
 #include "imu_task.h"
-
+#include "pid.h"
+#include "bsp_PWM.h"
 INS_t INS;
 IMU_Param_t IMU_Param;
 
+pid_parameter_t TempCtrl = {0};
 const float xb[3] = {1, 0, 0};
 const float yb[3] = {0, 1, 0};
 const float zb[3] = {0, 0, 1};
@@ -10,7 +12,7 @@ const float zb[3] = {0, 0, 1};
 uint32_t INS_DWT_Count = 0;
 static float dt = 0, t = 0;
 uint8_t ins_debug_mode = 0;
-float RefTemp = 40;
+float RefTemp = 26;
 
 extern void imu_Task(void const *argument);
 
@@ -41,9 +43,14 @@ void INS_Init(void)
     IMU_Param.flag = 1;
 
     IMU_QuaternionEKF_Init(10, 0.001, 10000000, 1, 0);
+    
+		PidInit(&TempCtrl,1000 ,20,0,Integral_Limit | Output_Limit);
+		PidInitMode(&TempCtrl ,Output_Limit,2000 ,0);
+	PidInitMode(&TempCtrl ,Integral_Limit,300,0 );
+	
     HAL_TIM_PWM_Start(&htim10, TIM_CHANNEL_1);
-
     INS.AccelLPF = 0.0085;
+	DWT_Init(168);
     //	  DWT_GetDeltaT(&INS_DWT_Count);
 }
 
@@ -277,7 +284,10 @@ static void IMU_Param_Correction(IMU_Param_t *param, float gyro[3], float accel[
     lastPitchOffset = param->Pitch;
     lastRollOffset = param->Roll;
 }
-
+extern void TIM_Set_PWM(TIM_HandleTypeDef *tim_pwmHandle, uint8_t Channel, uint16_t value);
 void IMU_Temperature_Ctrl(void)
 {
+	  PidCalculate(&TempCtrl,RefTemp , BMI088.Temperature);
+
+    TIM_Set_PWM(&htim10, TIM_CHANNEL_1, float_constrain(float_rounding(TempCtrl.out), 0, UINT32_MAX));
 }

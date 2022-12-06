@@ -1,5 +1,6 @@
 new_infantry\gimbal_task.o: ..\TASK\gimbal_task.c
 new_infantry\gimbal_task.o: ..\TASK\gimbal_task.h
+new_infantry\gimbal_task.o: ..\GIMBAL\gimbal_behaviour.h
 new_infantry\gimbal_task.o: ..\SYSTEM\gimbal_struct_variables.h
 new_infantry\gimbal_task.o: ../Core/Inc/main.h
 new_infantry\gimbal_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h

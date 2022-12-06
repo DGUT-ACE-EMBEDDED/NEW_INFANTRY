@@ -107,6 +107,7 @@ void chassis_can1_callback(CAN_HandleTypeDef *hcan)
 			yaw_motor_measure.current = (int16_t)(Rx_Data[4] << 8 | Rx_Data[5]);
 			yaw_motor_measure.temperature = Rx_Data[6];
 			CAN_DATA_Encoder_Deal(yaw_motor_measure.position, yaw_motor_measure.speed, 2);
+
 			break;
 		}
 		case 0x201:

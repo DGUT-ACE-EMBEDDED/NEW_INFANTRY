@@ -110,7 +110,7 @@ typedef struct
 {
 	RC_ctrl_t *Chassis_RC; //底盘遥控数据
 
-	chassis_behaviour_e *behaviour; //底盘模式
+	chassis_behaviour_e behaviour; //底盘模式
 	chassis_state_e chassis_state;
 
 	Motor3508_t Chassis_Motor[4]; //底盘四个电机
@@ -122,7 +122,7 @@ typedef struct
 	pid_parameter_t Chassis_speedY_Pid; //底盘速度ypid
 	pid_parameter_t chassis_rotate_pid; //旋转pid
 
-	fp32 Chassis_Gimbal_Diference_Angle; //底盘与云台的差角
+	int16_t Chassis_Gimbal_Diference_Angle; //底盘与云台的差角
 
 	Supercapacitor_receive_t *super_cap_c; //超电
 	fp32 chassis_speed_gain;			   //速度因子

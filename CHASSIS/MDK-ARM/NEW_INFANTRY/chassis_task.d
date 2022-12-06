@@ -71,4 +71,5 @@ new_infantry\chassis_task.o: ../CHASSIS/chassis_behaviour.h
 new_infantry\chassis_task.o: ../COMMUNICATION/can1_receive.h
 new_infantry\chassis_task.o: ../Core/Inc/can.h
 new_infantry\chassis_task.o: ../COMMUNICATION/can1_send.h
+new_infantry\chassis_task.o: ../COMMUNICATION/can2_send.h
 new_infantry\chassis_task.o: ../ACE-ECF/Algorithm/inc/maths.h

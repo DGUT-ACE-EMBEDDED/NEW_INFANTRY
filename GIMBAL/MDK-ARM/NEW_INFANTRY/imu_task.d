@@ -75,3 +75,4 @@ new_infantry\imu_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/c
 new_infantry\imu_task.o: ..\IMU\bsp_dwt.h
 new_infantry\imu_task.o: ..\ACE-ECF\Bsp\Inc\bsp_pwm.h
 new_infantry\imu_task.o: ../Core/Inc/tim.h
+new_infantry\imu_task.o: ..\ACE-ECF\Algorithm\inc\pid.h

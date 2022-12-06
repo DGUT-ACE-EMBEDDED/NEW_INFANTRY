@@ -3,6 +3,7 @@
 #include "pid.h"
 #include "can1_receive.h"
 #include "can1_send.h"
+#include "can2_send.h"
 #include "string.h"
 #include "bsp_Motor_Encoder.h"
 #include "maths.h"
@@ -31,6 +32,7 @@ void Task_Chassis(void const *argument)
 
 		Chassis_Work(&Chassis_Control);
 
+		can2_chassis_to_gambal(Chassis_Control.Chassis_RC);
 		//		Chassis_TO_Gimbal(&Chassis_Control);
 		can1_chassis_setmsg(Chassis_Control.Chassis_Motor[0].give_current,
 							Chassis_Control.Chassis_Motor[1].give_current,
@@ -83,8 +85,6 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	//获取超级电容的指针
 	chassis_data_init_f->super_cap_c = get_supercap_control_point();
 
-	//获取底盘模式的指针
-	chassis_data_init_f->behaviour = get_chassis_behaviour_point();
 
 	/*--------------------初始化编码器--------------------*/
 	chassis_data_init_f->Motor_encoder[0] = Encoder_Init(M3508, 1);

@@ -3,7 +3,6 @@
 
 #include "gimbal_struct_variables.h"
 
-
-void can2_chassis_to_gambal(const RC_ctrl_t *can2_MK_send);
+void can2_gambal_to_chassis(void);
 
 #endif
