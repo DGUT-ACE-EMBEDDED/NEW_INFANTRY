@@ -32,7 +32,7 @@ void Gimbal_Task(void const *argument)
 
         can1_gimbal_setmsg(Gimbal_Control.Pitch_c.pitch_motor.set_voltage, Gimbal_Control.Yaw_c.yaw_motor.set_voltage);
         can2_gimbal_setmsg(Gimbal_Control.fire_c.left_motor.set_current, Gimbal_Control.fire_c.right_motor.set_current, Gimbal_Control.fire_c.fire_motor.set_current);
-        can2_gambal_to_chassis();
+        can2_gimbal_to_chassis();
         taskEXIT_CRITICAL();              //退出临界区
         vTaskDelayUntil(&currentTime, 1); //绝对延时//vTaskDelay(2);
     }

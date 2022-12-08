@@ -10,6 +10,9 @@
         "random": "c",
         "maths.h": "c",
         "can1_send.h": "c",
-        "can2_send.h": "c"
+        "can2_send.h": "c",
+        "stm32f4xx_hal.h": "c",
+        "stm32f4xx_hal_conf.h": "c",
+        "stm32f4xx_hal_can.h": "c"
     }
 }

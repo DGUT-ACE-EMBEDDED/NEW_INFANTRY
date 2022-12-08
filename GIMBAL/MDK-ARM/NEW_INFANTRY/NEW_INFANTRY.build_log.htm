@@ -27,14 +27,12 @@ Project File Date:  12/06/2022
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\keil\core\ARM\ARMCC\Bin'
 Build target 'NEW_INFANTRY'
-compiling Init_Task.c...
-compiling gimbal_behaviour.c...
-compiling gimbal_task.c...
-..\TASK\gimbal_task.c(35): warning:  #223-D: function "can2_gambal_to_chassis" declared implicitly
-          can2_gambal_to_chassis();
-..\TASK\gimbal_task.c: 1 warning, 0 errors
+compiling can2_send.c...
+..\COMMUNICATION\can2_send.c(25): warning:  #1267-D: Implicit physical register R5 should be defined as a variable
+  		"LDR R5 , [&Gimbal_Control.chassis_gimbal_angel] \n"
+..\COMMUNICATION\can2_send.c: 1 warning, 0 errors
 linking...
-Program Size: Code=58736 RO-data=3032 RW-data=696 ZI-data=41016  
+Program Size: Code=58716 RO-data=3032 RW-data=696 ZI-data=41016  
 FromELF: creating hex file...
 "NEW_INFANTRY\NEW_INFANTRY.axf" - 0 Error(s), 1 Warning(s).
 
@@ -60,7 +58,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.5.0
       Include file:  CMSIS\Core\Include\tz_context.h
-Build Time Elapsed:  00:00:06
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>

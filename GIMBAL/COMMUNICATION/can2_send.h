@@ -3,6 +3,6 @@
 
 #include "gimbal_struct_variables.h"
 
-void can2_gambal_to_chassis(void);
+extern void can2_gimbal_to_chassis(void);
 
 #endif

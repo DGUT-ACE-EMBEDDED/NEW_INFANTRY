@@ -8,7 +8,7 @@ static CAN_TxHeaderTypeDef Txmessage; //发送的信息
  * @param		none
  *	@retval		none
  */
-void can2_chassis_to_gambal(const RC_ctrl_t *can2_MK_send)
+void can2_chassis_to_gimbal(const RC_ctrl_t *can2_MK_send)
 {
 	uint32_t send_mail_box; //发送邮箱
 	uint8_t Data[8];		//发送数据的数组
@@ -20,8 +20,8 @@ void can2_chassis_to_gambal(const RC_ctrl_t *can2_MK_send)
 
 	Data[0] = (can2_MK_send->rc.ch[0] >> 8);
 	Data[1] = can2_MK_send->rc.ch[0];
-	Data[2] = 0;
-	Data[3] = 0;
+	Data[2] = (can2_MK_send->rc.ch[1] >> 8);
+	Data[3] = can2_MK_send->rc.ch[1];
 	Data[4] = 0;
 	Data[5] = 0;
 	Data[6] = 0;

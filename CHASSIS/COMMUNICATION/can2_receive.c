@@ -50,7 +50,11 @@ void chassis_can2_callback(CAN_HandleTypeDef *hcan)
     switch (Rxmessage.StdId)
     {
 			case 0x300:
-			Chassis_Control.Chassis_Gimbal_Diference_Angle = (int16_t)((Rx_Data[0] << 8) | Rx_Data[1]);
+								__asm__ 
+								(
+									"LDR r7 , [Rx_Data] \n"
+									"STR r7 , [&Chassis_Control.Chassis_Gimbal_Diference_Angle] \n"
+								);
 			break;
     }
   }
