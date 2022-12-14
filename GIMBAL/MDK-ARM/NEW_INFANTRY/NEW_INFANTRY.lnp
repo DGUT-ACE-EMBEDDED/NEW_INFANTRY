@@ -32,6 +32,7 @@
 "new_infantry\fifo.o"
 "new_infantry\maths.o"
 "new_infantry\pid.o"
+"new_infantry\filter.o"
 "new_infantry\startup_stm32f407xx.o"
 "new_infantry\usb_device.o"
 "new_infantry\usbd_desc.o"
@@ -73,12 +74,12 @@
 "new_infantry\usbd_ctlreq.o"
 "new_infantry\usbd_ioreq.o"
 "new_infantry\usbd_cdc.o"
-"../Middlewares/ST/ARM/DSP/Lib/arm_cortexM4l_math.lib"
 "new_infantry\segger_rtt.o"
 "new_infantry\segger_rtt_printf.o"
 "new_infantry\segger_sysview.o"
 "new_infantry\segger_sysview_config_freertos.o"
 "new_infantry\segger_sysview_freertos.o"
+"../Middlewares/ST/ARM/DSP/Lib/arm_cortexM4l_math.lib"
 --strict --scatter "NEW_INFANTRY\NEW_INFANTRY.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

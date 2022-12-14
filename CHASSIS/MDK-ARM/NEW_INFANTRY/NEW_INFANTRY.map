@@ -1824,7 +1824,7 @@ Removing Unused input sections from the image.
     Removing bsp_motor_encoder.o(.rev16_text), (4 bytes).
     Removing bsp_motor_encoder.o(.revsh_text), (4 bytes).
     Removing bsp_motor_encoder.o(.rrx_text), (6 bytes).
-    Removing bsp_motor_encoder.o(i.Briter_Encoder_Code_Set), (332 bytes).
+    Removing bsp_motor_encoder.o(i.Briter_Encoder_Code_Set), (324 bytes).
     Removing bsp_motor_encoder.o(i.check_codevalue), (44 bytes).
     Removing bsp_motor_encoder.o(.data), (8 bytes).
     Removing bsp_dr16.o(.rev16_text), (4 bytes).
@@ -2583,7 +2583,7 @@ Removing Unused input sections from the image.
     Removing segger_sysview.o(i._VPrintTarget), (564 bytes).
     Removing segger_sysview_freertos.o(i.SYSVIEW_UpdateTask), (168 bytes).
 
-803 unused section(s) (total 72851 bytes) removed from the image.
+803 unused section(s) (total 72843 bytes) removed from the image.
 
 ==============================================================================
 

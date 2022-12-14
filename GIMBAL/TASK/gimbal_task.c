@@ -4,6 +4,7 @@
 #include "pid.h"
 #include "can1_receive.h"
 #include "can1_send.h"
+#include "can2_send.h"
 #include "string.h"
 #include "bsp_Motor_Encoder.h"
 #include "maths.h"
@@ -17,7 +18,7 @@ static void Gimbal_Init(gimbal_control_t *Gimbal_Init_f);
 /**
  * @brief  云台主任务
  * @param
- * @retval void
+ * @retval void	
  */
 void Gimbal_Task(void const *argument)
 {

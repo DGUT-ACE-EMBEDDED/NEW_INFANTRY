@@ -27,7 +27,6 @@ void imu_Task(void const *argument)
     while (1)
     {
         INS_Task();
-
         vTaskDelayUntil(&currentTime, 1); // osDelay(1);
     }
 }
@@ -78,9 +77,10 @@ void INS_Task(void)
 {
     static uint32_t count = 0;
     const float gravity[3] = {0, 0, 9.81f};
+		
     dt = DWT_GetDeltaT(&INS_DWT_Count);
     t += dt;
-
+		
     // ins update
     if ((count % 1) == 0)
     {
