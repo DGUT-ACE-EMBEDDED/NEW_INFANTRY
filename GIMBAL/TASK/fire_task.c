@@ -15,7 +15,7 @@
 #include "semphr.h"
 #include "timers.h"
 
-gimbal_fire_control_t *fire_control_p= NULL;
+gimbal_fire_control_t *fire_control_p = NULL;
 
 static gimbal_fire_control_t *fire_task_init(void);
 static void fire_pid_calculate(gimbal_fire_control_t *fire_pid_calculate_f, RC_ctrl_t *fire_pid_calculate_rc_f);
@@ -62,9 +62,9 @@ void fire_behaviour_choose(gimbal_fire_control_t *fire_behaviour_choose_f, RC_ct
 	//  switch()
 	//  {
 	//  	case :
-	//  	fire_behaviour_choose_f->left_motor = fire_behaviour_choose_f->right_motor = fire_speed_15;
+	//  	fire_behaviour_choose_f->left_motor.Speed_Set = fire_behaviour_choose_f->right_motor.Speed_Set = fire_speed_15;
 	//  }
-
+	fire_behaviour_choose_f->left_motor.Speed_Set = fire_behaviour_choose_f->right_motor.Speed_Set = 100;
 	// 弹舱舵机控制 TODO:
 }
 
@@ -91,7 +91,7 @@ gimbal_fire_control_t *fire_task_init(void)
 	PidInitMode(&fire_task_init_p->fire_motor_speed_pid, Output_Limit, 16000, 0);
 	PidInitMode(&fire_task_init_p->fire_motor_position_pid, Output_Limit, 10000, 0);
 	PidInitMode(&fire_task_init_p->fire_motor_position_pid, Integral_Limit, 100, 0);
-	
+
 	fire_task_init_p->full_automatic = true;
 	fire_task_init_p->feed_buttle = false;
 
@@ -99,7 +99,7 @@ gimbal_fire_control_t *fire_task_init(void)
 }
 void fire_pid_calculate(gimbal_fire_control_t *fire_pid_calculate_f, RC_ctrl_t *fire_pid_calculate_rc_f)
 {
-	if (fire_pid_calculate_rc_f->mouse.press_l)
+	if ((fire_pid_calculate_rc_f->mouse.press_l > 0) || (fire_pid_calculate_rc_f->rc.ch[4] > 0))
 	{
 		if (fire_pid_calculate_f->full_automatic) // 全自动开环控制
 		{
@@ -132,9 +132,9 @@ void fire_pid_calculate(gimbal_fire_control_t *fire_pid_calculate_f, RC_ctrl_t *
 
 gimbal_fire_control_t *get_fire_control_point(void)
 {
-	#ifdef FIRE_WORK
-	while(fire_control_p == NULL)
+#ifdef FIRE_WORK
+	while (fire_control_p == NULL)
 		vTaskDelay(1);
-	#endif
+#endif
 	return fire_control_p;
 }
