@@ -1,6 +1,8 @@
 #ifndef __GIMBAL_TASK_H
 #define __GIMBAL_TASK_H
 
+#include "gimbal_struct_variables.h"
+
 /**********************pitch轴PID参数**********************/
 #define GIMBAL_PITCH_P_P 3.0f
 #define GIMBAL_PITCH_P_I 0.0f
@@ -30,5 +32,5 @@
 #define RC_PITCH_SPEED 0.0005f   //遥控器pitch轴速度增益
 
 void Gimbal_Task(void const *argument);
-
+gimbal_control_t* Get_Gimbal_Control_point(void);
 #endif

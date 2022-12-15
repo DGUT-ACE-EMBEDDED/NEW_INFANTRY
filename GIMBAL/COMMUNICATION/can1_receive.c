@@ -43,8 +43,8 @@ void CAN1_filter_config(void)
 {
 	CAN_FilterTypeDef CAN1_FIilter_InitStruct;
 
-	CAN1_FIilter_InitStruct.FilterActivation = ENABLE;			 //开启滤波器
-	CAN1_FIilter_InitStruct.FilterMode = CAN_FILTERMODE_IDMASK;	 //掩码模式
+	CAN1_FIilter_InitStruct.FilterActivation = ENABLE;			 // 开启滤波器
+	CAN1_FIilter_InitStruct.FilterMode = CAN_FILTERMODE_IDMASK;	 // 掩码模式
 	CAN1_FIilter_InitStruct.FilterScale = CAN_FILTERSCALE_32BIT; // 32位工作
 	CAN1_FIilter_InitStruct.FilterIdHigh = 0x0000;
 	CAN1_FIilter_InitStruct.FilterIdLow = 0x0000;
@@ -52,10 +52,10 @@ void CAN1_filter_config(void)
 	CAN1_FIilter_InitStruct.FilterMaskIdLow = 0x0000;
 	CAN1_FIilter_InitStruct.FilterBank = 0;
 	//	CAN1_FIilter_InitStruct.SlaveStartFilterBank = 14;
-	CAN1_FIilter_InitStruct.FilterFIFOAssignment = CAN_RX_FIFO0;	   //指定接收邮箱
-	HAL_CAN_ConfigFilter(&hcan1, &CAN1_FIilter_InitStruct);			   //根据指定配置CAN接收过滤器
-	HAL_CAN_Start(&hcan1);											   //开启can1
-	HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING); //启动中断
+	CAN1_FIilter_InitStruct.FilterFIFOAssignment = CAN_RX_FIFO0;	   // 指定接收邮箱
+	HAL_CAN_ConfigFilter(&hcan1, &CAN1_FIilter_InitStruct);			   // 根据指定配置CAN接收过滤器
+	HAL_CAN_Start(&hcan1);											   // 开启can1
+	HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING); // 启动中断
 }
 
 /**
@@ -84,10 +84,10 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
  */
 void chassis_can1_callback(CAN_HandleTypeDef *hcan)
 {
-	CAN_RxHeaderTypeDef Rxmessage; //接收信息结构体
-	uint8_t Rx_Data[8];			   //接收的信息缓存的数组
+	CAN_RxHeaderTypeDef Rxmessage; // 接收信息结构体
+	uint8_t Rx_Data[8];			   // 接收的信息缓存的数组
 
-	if (HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &Rxmessage, Rx_Data) == HAL_OK) //读取接收的信息
+	if (HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &Rxmessage, Rx_Data) == HAL_OK) // 读取接收的信息
 	{
 		switch (Rxmessage.StdId)
 		{
@@ -126,6 +126,7 @@ void chassis_can1_callback(CAN_HandleTypeDef *hcan)
 		{
 			fire_motor.position = (uint16_t)(Rx_Data[0] << 8 | Rx_Data[1]);
 			fire_motor.speed = (uint16_t)(Rx_Data[2] << 8 | Rx_Data[3]);
+			CAN_DATA_Encoder_Deal(fire_motor.position, fire_motor.speed, 3);
 			break;
 		}
 		default:

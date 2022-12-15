@@ -25,6 +25,7 @@ new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/que
 new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 new_infantry\init_task.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+new_infantry\init_task.o: ../SYSTEM/gimbal_config.h
 new_infantry\init_task.o: ../COMMUNICATION/can1_receive.h
 new_infantry\init_task.o: ../Core/Inc/can.h
 new_infantry\init_task.o: ../Core/Inc/main.h
@@ -91,3 +92,4 @@ new_infantry\init_task.o: ../Core/Inc/tim.h
 new_infantry\init_task.o: ../COMMUNICATION/can2_receive.h
 new_infantry\init_task.o: ..\TASK\Task_Safe.h
 new_infantry\init_task.o: ..\TASK\gimbal_task.h
+new_infantry\init_task.o: ..\TASK\fire_Task.h

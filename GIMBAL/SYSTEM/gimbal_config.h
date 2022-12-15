@@ -19,6 +19,12 @@
  *¡¡¡¡¡¡
  */
 
-#include "gimbal_struct_variables.h"
+// #include "gimbal_config.h"
+#ifndef __GIMBAL_CONFIG_H
+#define __GIMBAL_CONFIG_H
+
+#define FIRE_WORK
 
 
+
+#endif

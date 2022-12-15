@@ -449,9 +449,14 @@
           <GroupName>SYSTEM</GroupName>
           <Files>
             <File>
-              <FileName>gimbal_struct_variables.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SYSTEM\gimbal_struct_variables.c</FilePath>
+              <FileName>gimbal_config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\SYSTEM\gimbal_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>gimbal_struct_variables.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\SYSTEM\gimbal_struct_variables.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -517,6 +522,11 @@
               <FileName>imu_task.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TASK\imu_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>fire_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\fire_task.c</FilePath>
             </File>
           </Files>
         </Group>

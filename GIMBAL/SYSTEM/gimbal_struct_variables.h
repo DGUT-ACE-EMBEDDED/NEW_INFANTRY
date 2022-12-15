@@ -21,6 +21,8 @@ ___`. .' /--.--\ `. . __
 		 .............................................
 		  佛曰：bug泛滥，我已瘫痪！
 */
+
+//  #include "gimbal_struct_variables.h"
 #ifndef __GIMBAL_STRUCT_VARIABLES_H
 #define __GIMBAL_STRUCT_VARIABLES_H
 
@@ -43,36 +45,36 @@ ___`. .' /--.--\ `. . __
 
 /********************CONTROL********************/
 #include "bsp_dr16.h"
-//#include "imu_task.h"
-//#include "can1_receive.h"
-//#include "can2_receive.h"
-//#include "capacitor_control.h"
-//#include "upper_machine.h"
-//#include "visual.h"
+// #include "imu_task.h"
+// #include "can1_receive.h"
+// #include "can2_receive.h"
+// #include "capacitor_control.h"
+// #include "upper_machine.h"
+// #include "visual.h"
 
 /********************ALGORITHM********************/
-//#include "fifo_buff.h"
+// #include "fifo_buff.h"
 #include "pid.h"
-//#include "maths.h"
-//#include "rm_motor.h"
+// #include "maths.h"
+// #include "rm_motor.h"
 
 /********************REFEREE********************/
-//#include "crc.h"
-//#include "referee_deal.h"
+// #include "crc.h"
+// #include "referee_deal.h"
 
 #include "bsp_Motor_Encoder.h"
 #include "imu_task.h"
 typedef enum
 {
-	GIMBAL_MANUAL,		 //手动状态
-	GIMBAL_AUTOATTACK,	 //自瞄状态
-	GIMBAL_AUTOBUFF,	 //打符状态
-	GIMBAL_REPLENISHMEN, //补给状态
+	GIMBAL_MANUAL,		 // 手动状态
+	GIMBAL_AUTOATTACK,	 // 自瞄状态
+	GIMBAL_AUTOBUFF,	 // 打符状态
+	GIMBAL_REPLENISHMEN, // 补给状态
 } gimbal_behaviour_e;
 
 typedef enum
 {
-	GIMBAL_ZERO_FORCE, //云台无力
+	GIMBAL_ZERO_FORCE, // 云台无力
 	GIMBAL_NORMAL,	   //
 } gimbal_state_e;
 
@@ -86,16 +88,16 @@ typedef struct
 } motor_measure_t;
 typedef struct
 {
-	motor_measure_t *motor_measure; //接收电机的数据
+	motor_measure_t *motor_measure; // 接收电机的数据
 	fp32 actPositon_360;
-	fp32 Speed_Set; //设置速度
+	fp32 Speed_Set; // 设置速度
 	int16_t set_voltage;
 } Motor6020_t;
 
 typedef struct
 {
-	motor_measure_t *motor_measure; //接收电机的数据
-	fp32 Speed_Set;					//设置速度
+	motor_measure_t *motor_measure; // 接收电机的数据
+	fp32 Speed_Set;					// 设置速度
 	fp32 set_current;				//
 } Motor3508_t;
 
@@ -123,11 +125,13 @@ typedef struct
 	Motor3508_t right_motor;
 	Motor3508_t left_motor;
 	Motor3508_t fire_motor;
+	Encoder_t *fire_motor_encoder;
 	pid_parameter_t right_motor_speed_pid;
 	pid_parameter_t left_motor_speed_pid;
 	pid_parameter_t fire_motor_speed_pid;
 	pid_parameter_t fire_motor_position_pid;
 	bool full_automatic;
+	bool feed_buttle;
 } gimbal_fire_control_t;
 
 typedef struct
@@ -137,9 +141,9 @@ typedef struct
 	RC_ctrl_t *Gimbal_RC;
 	gimbal_pitch_control_t Pitch_c;
 	gimbal_yaw_control_t Yaw_c;
-	gimbal_fire_control_t fire_c;
+	gimbal_fire_control_t *fire_c;
 	const INS_t *Imu_c;
-	float chassis_gimbal_angel; //云台和底盘差角
+	float chassis_gimbal_angel; // 云台和底盘差角
 } gimbal_control_t;
 
 #endif

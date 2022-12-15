@@ -1,7 +1,7 @@
 #include "Init_Task.h"
 #include "cmsis_os.h"
 #include "cmsis_armcc.h"
-
+#include "gimbal_config.h"
 /************************* hardware ************************/
 #include "can1_receive.h"
 #include "can2_receive.h"
@@ -9,6 +9,7 @@
 /************************* Task ************************/
 #include "Task_Safe.h"
 #include "gimbal_task.h"
+#include "fire_Task.h"
 /* ************************freertos******************** */
 #include "freertos.h"
 #include "task.h"
@@ -16,7 +17,7 @@
 #include "semphr.h"
 #include "timers.h"
 
-//#include "shoot_Task.h"
+
 
 extern osThreadId Init_TASKHandle;
 extern osThreadId defaultTaskHandle;
@@ -54,8 +55,8 @@ void Init_Task(void const *argument)
 
 #ifdef FIRE_WORK //火力
 				 //创建火控任务
-				 //		osThreadDef(SHOOT_TASK, shoot_Task, osPriorityAboveNormal, 0, 128);
-				 //		ShootTask_Handler = osThreadCreate(osThread(SHOOT_TASK), NULL);
+				 		osThreadDef(FIRE_TASK, fire_Task, osPriorityAboveNormal, 0, 128);
+				 		ShootTask_Handler = osThreadCreate(osThread(FIRE_TASK), NULL);
 
 #endif
 
