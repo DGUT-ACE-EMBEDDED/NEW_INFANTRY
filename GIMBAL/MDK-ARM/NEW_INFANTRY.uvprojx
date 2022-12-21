@@ -384,6 +384,11 @@
           <GroupName>Application/User/Core</GroupName>
           <Files>
             <File>
+              <FileName>NEW_INFANTRY.map</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\NEW_INFANTRY\NEW_INFANTRY.map</FilePath>
+            </File>
+            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/main.c</FilePath>
@@ -437,11 +442,6 @@
               <FileName>stm32f4xx_hal_timebase_tim.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f4xx_hal_timebase_tim.c</FilePath>
-            </File>
-            <File>
-              <FileName>NEW_INFANTRY.map</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\NEW_INFANTRY\NEW_INFANTRY.map</FilePath>
             </File>
           </Files>
         </Group>
@@ -528,6 +528,11 @@
               <FileType>1</FileType>
               <FilePath>..\TASK\fire_task.c</FilePath>
             </File>
+            <File>
+              <FileName>virtual_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\virtual_task.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -537,6 +542,11 @@
               <FileName>gimbal_behaviour.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\GIMBAL\gimbal_behaviour.c</FilePath>
+            </File>
+            <File>
+              <FileName>gimbal_auto.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\GIMBAL\gimbal_auto.c</FilePath>
             </File>
           </Files>
         </Group>

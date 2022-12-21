@@ -73,6 +73,13 @@
 /* USER CODE BEGIN MESSAGE_BUFFER_LENGTH_TYPE */
 /* Defaults to size_t for backward compatibility, but can be changed
    if lengths will always be less than the number of bytes in a size_t. */
+//#define configGENERATE_RUN_TIME_STATS 1 
+//#define configUSE_TRACE_FACILITY 1 
+//#define configUSE_STATS_FORMATTING_FUNCTIONS 1
+//extern volatile uint32_t CPU_RunTime; 
+//#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() (CPU_RunTime = 0ul) 
+//#define portGET_RUN_TIME_COUNTER_VALUE() CPU_RunTime
+
 #define configMESSAGE_BUFFER_LENGTH_TYPE         size_t
 /* USER CODE END MESSAGE_BUFFER_LENGTH_TYPE */
 

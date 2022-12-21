@@ -10,6 +10,7 @@
 #include "Task_Safe.h"
 #include "gimbal_task.h"
 #include "fire_Task.h"
+#include "virtual_task.h"
 /* ************************freertos******************** */
 #include "freertos.h"
 #include "task.h"
@@ -26,6 +27,7 @@ osThreadId Safe_TASKHandle;
 osThreadId IMUTask_Handler;
 osThreadId TASK_GIMBALHandle;
 osThreadId ShootTask_Handler;
+osThreadId Virtual_TASKHandle;
 
 void Init_Task(void const *argument)
 {
@@ -53,13 +55,14 @@ void Init_Task(void const *argument)
 	osThreadDef(IMU_TASK, imu_Task, osPriorityNormal, 0, 512);
 	IMUTask_Handler = osThreadCreate(osThread(IMU_TASK), NULL);
 
-#ifdef FIRE_WORK //火力
-				 //创建火控任务
-				 		osThreadDef(FIRE_TASK, fire_Task, osPriorityAboveNormal, 0, 128);
-				 		ShootTask_Handler = osThreadCreate(osThread(FIRE_TASK), NULL);
-
-#endif
-
+	#ifdef FIRE_WORK //火力
+	//创建火控任务
+	osThreadDef(FIRE_TASK, fire_Task, osPriorityAboveNormal, 0, 128);
+	ShootTask_Handler = osThreadCreate(osThread(FIRE_TASK), NULL);
+	#endif
+	osThreadDef(Virtual_TASK, Virtual_Task, osPriorityAboveNormal , 0, 128);
+  Virtual_TASKHandle = osThreadCreate(osThread(Virtual_TASK), NULL);
+	
 	vTaskDelete(Init_TASKHandle); //删除开始任务
 	vTaskDelete(defaultTaskHandle);
 	taskEXIT_CRITICAL(); //退出临界区

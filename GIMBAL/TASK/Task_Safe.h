@@ -22,7 +22,7 @@
 #define LED_CONTROL_TIME   5	
 
 void Safe_Task(void const * argument);
-void TIM2_IRQ_safe(void);
+
 #endif
 
 

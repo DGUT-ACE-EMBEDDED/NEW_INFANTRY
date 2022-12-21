@@ -2,12 +2,23 @@
 #include "gimbal_task.h"
 #include "maths.h"
 
+
 float Gimbal_pitch = 0.0f;
 float Gimbal_yaw = 0.0f;
 
 static void f_GIMBAL_MANUAL(gimbal_control_t *f_GIMBAL_MANUAL_f);
 static void f_GIMBAL_AUTOATTACK(gimbal_control_t *f_GIMBAL_AUTOATTACK_f);
 static void f_GIMBAL_AUTOBUFF(gimbal_control_t *f_GIMBAL_AUTOBUFF_f);
+
+float* get_Gimbal_pitch_point(void)
+{
+	return &Gimbal_pitch;
+}
+
+float* get_Gimbal_yaw_point(void)
+{
+	return &Gimbal_yaw;
+}
 
 void gimbal_behaviour_choose(gimbal_control_t *gimbal_behaviour_choose_f)
 {

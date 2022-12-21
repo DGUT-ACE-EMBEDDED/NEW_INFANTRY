@@ -15,7 +15,7 @@
 #include "semphr.h"
 #include "timers.h"
 
-gimbal_fire_control_t *fire_control_p = NULL;
+gimbal_fire_control_t *fire_control_p;
 
 static gimbal_fire_control_t *fire_task_init(void);
 static void fire_pid_calculate(gimbal_fire_control_t *fire_pid_calculate_f, RC_ctrl_t *fire_pid_calculate_rc_f);
@@ -129,12 +129,7 @@ void fire_pid_calculate(gimbal_fire_control_t *fire_pid_calculate_f, RC_ctrl_t *
 																		fire_pid_calculate_f->right_motor.Speed_Set,
 																		fire_pid_calculate_f->right_motor.motor_measure->speed);
 }
-
-gimbal_fire_control_t *get_fire_control_point(void)
+const gimbal_fire_control_t **get_fire_control_point(void)
 {
-#ifdef FIRE_WORK
-	while (fire_control_p == NULL)
-		vTaskDelay(1);
-#endif
-	return fire_control_p;
+	return (const gimbal_fire_control_t**)&fire_control_p;
 }

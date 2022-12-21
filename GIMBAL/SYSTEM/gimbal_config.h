@@ -25,6 +25,4 @@
 
 #define FIRE_WORK
 
-
-
 #endif

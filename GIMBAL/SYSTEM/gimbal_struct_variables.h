@@ -30,40 +30,32 @@ ___`. .' /--.--\ `. . __
 #include "struct_typedef.h"
 
 /*  系统头文件 */
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+// #include <stdlib.h>
+// #include <stdio.h>
+// #include <string.h>
 #include <stdbool.h>
-#include "stdint.h"
+// #include "stdint.h"
 
-/* ************************FreeRTOS******************** */
-#include "freertos.h"
-#include "task.h"
-#include "queue.h"
-#include "semphr.h"
-#include "cmsis_os.h"
+///* ************************FreeRTOS******************** */
+// #include "freertos.h"
+// #include "task.h"
+// #include "queue.h"
+// #include "semphr.h"
+// #include "cmsis_os.h"
 
-/********************CONTROL********************/
+/******************** BSP ********************/
 #include "bsp_dr16.h"
-// #include "imu_task.h"
-// #include "can1_receive.h"
-// #include "can2_receive.h"
-// #include "capacitor_control.h"
-// #include "upper_machine.h"
-// #include "visual.h"
+#include "bsp_Motor_Encoder.h"
 
 /********************ALGORITHM********************/
-// #include "fifo_buff.h"
 #include "pid.h"
-// #include "maths.h"
-// #include "rm_motor.h"
-
+#include "fifo.h"
 /********************REFEREE********************/
 // #include "crc.h"
 // #include "referee_deal.h"
 
-#include "bsp_Motor_Encoder.h"
 #include "imu_task.h"
+
 typedef enum
 {
 	GIMBAL_MANUAL,		 // 手动状态
@@ -136,13 +128,28 @@ typedef struct
 
 typedef struct
 {
+	uint8_t visual_buff_send[29];
+	fifo_s_t *usb_fifo;
+	float auto_yaw;
+	float auto_pitch;
+	float auto_pitch_speed;
+	
+	const float *gimbal_yaw;
+	const float *gimbal_pitch;
+} gimbal_auto_control_t;
+
+typedef struct
+{
 	gimbal_behaviour_e gimbal_behaviour;
 	gimbal_state_e gimbal_state;
+
 	RC_ctrl_t *Gimbal_RC;
 	gimbal_pitch_control_t Pitch_c;
 	gimbal_yaw_control_t Yaw_c;
-	gimbal_fire_control_t *fire_c;
+	const gimbal_fire_control_t **fire_c;
+	const gimbal_auto_control_t **auto_c;
 	const INS_t *Imu_c;
+
 	float chassis_gimbal_angel; // 云台和底盘差角
 } gimbal_control_t;
 
