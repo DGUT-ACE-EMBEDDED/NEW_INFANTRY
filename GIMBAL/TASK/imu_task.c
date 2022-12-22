@@ -20,15 +20,12 @@ static void IMU_Param_Correction(IMU_Param_t *param, float gyro[3], float accel[
 
 void imu_Task(void const *argument)
 {
-//    uint32_t currentTime;
-    INS_Init();
-
-//    currentTime = xTaskGetTickCount(); //当前系统时间
-    while (1)
-    {
-        INS_Task();
-        vTaskDelay(1); // osDelay(1);
-    }
+	INS_Init();
+	while (1)
+	{
+			INS_Task();
+			vTaskDelay(1);
+	}
 }
 
 void INS_Init(void)

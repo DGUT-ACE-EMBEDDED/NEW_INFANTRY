@@ -54,9 +54,8 @@ void Safe_Task(void const *argument)
 		stack_now = __get_MSP();
 		stack_free = 0x2000 - (stack_base - stack_now);
 		heap_free = heap_free_size();
-		//检测周期
-		// vTaskDelayUntil(&currentTime, 1); //绝对延时//vTaskDelay(2)		
-		vTaskDelay(2);
+
+		vTaskDelay(1);
 	}
 }
 

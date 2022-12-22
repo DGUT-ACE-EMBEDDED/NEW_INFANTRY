@@ -1,9 +1,10 @@
 #include "can2_receive.h"
 #include "can.h"
 #include "gimbal_struct_variables.h"
-
+#include "bsp_dr16.h"
 extern CAN_HandleTypeDef hcan2;
 extern gimbal_control_t Gimbal_Control;
+
 /*--------------------变量-----------------------*/
 
 /**
@@ -42,6 +43,8 @@ void CAN2_filter_config(void)
  */
 void chassis_can2_callback(CAN_HandleTypeDef *hcan)
 {
+	static RC_ctrl_t *rc_ctl ;
+	rc_ctl = RC_Get_RC_Pointer();
   CAN_RxHeaderTypeDef Rxmessage; //接收信息结构体
   uint8_t Rx_Data[8];            //接收的信息缓存的数组
 
@@ -50,7 +53,7 @@ void chassis_can2_callback(CAN_HandleTypeDef *hcan)
     switch (Rxmessage.StdId)
     {
     case 0x401:
-      Gimbal_Control.Gimbal_RC->rc.ch[0] = ((Rx_Data[0] << 8) | Rx_Data[1]);
+      rc_ctl->rc.ch[0] = ((Rx_Data[0] << 8) | Rx_Data[1]);
 	  	break;
     }
   }

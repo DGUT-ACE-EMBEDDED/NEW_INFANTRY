@@ -32,5 +32,5 @@
 #define RC_PITCH_SPEED 0.0005f   //遥控器pitch轴速度增益
 
 void Gimbal_Task(void const *argument);
-gimbal_control_t* Get_Gimbal_Control_point(void);
+gimbal_behaviour_e *get_gimbal_behaviour_point(void);
 #endif

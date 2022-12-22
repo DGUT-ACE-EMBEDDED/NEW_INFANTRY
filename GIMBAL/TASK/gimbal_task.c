@@ -49,8 +49,7 @@ void Gimbal_Task(void const *argument)
 			can1_gimbal_setmsg(Gimbal_Control.Pitch_c.pitch_motor.set_voltage, Gimbal_Control.Yaw_c.yaw_motor.set_voltage);
 			can2_gimbal_to_chassis();
 		
-//				visual_send_data(1U,2U,3U,1.0f,2.0f);	
-        vTaskDelay(1); // 绝对延时//vTaskDelay(2);
+      vTaskDelay(1); // 绝对延时//vTaskDelay(2);
     }
 }
 
@@ -106,7 +105,7 @@ void Gimbal_Work(gimbal_control_t *Gimbal_Work_f)
     gimbal_pid_calculate(Gimbal_Work_f);
 }
 
-gimbal_control_t *Get_Gimbal_Control_point(void)
+gimbal_behaviour_e *get_gimbal_behaviour_point(void)
 {
-    return &Gimbal_Control;
+    return &Gimbal_Control.gimbal_behaviour;
 }

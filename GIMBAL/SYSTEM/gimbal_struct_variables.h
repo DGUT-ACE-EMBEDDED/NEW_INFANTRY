@@ -124,6 +124,8 @@ typedef struct
 	pid_parameter_t fire_motor_position_pid;
 	bool full_automatic;
 	bool feed_buttle;
+	
+	const RC_ctrl_t *fire_rc;
 } gimbal_fire_control_t;
 
 typedef struct
@@ -134,6 +136,7 @@ typedef struct
 	float auto_pitch;
 	float auto_pitch_speed;
 	
+	const gimbal_behaviour_e *gimbal_behaviour;
 	const float *gimbal_yaw;
 	const float *gimbal_pitch;
 } gimbal_auto_control_t;
@@ -142,15 +145,14 @@ typedef struct
 {
 	gimbal_behaviour_e gimbal_behaviour;
 	gimbal_state_e gimbal_state;
-
-	RC_ctrl_t *Gimbal_RC;
 	gimbal_pitch_control_t Pitch_c;
 	gimbal_yaw_control_t Yaw_c;
+	float chassis_gimbal_angel;
+	
+	const RC_ctrl_t *Gimbal_RC;
 	const gimbal_fire_control_t **fire_c;
 	const gimbal_auto_control_t **auto_c;
 	const INS_t *Imu_c;
-
-	float chassis_gimbal_angel; // ÔÆÌ¨ºÍµ×ÅÌ²î½Ç
 } gimbal_control_t;
 
 #endif

@@ -90,6 +90,7 @@ new_infantry\virtual_task.o: ../IMU/bsp_dwt.h
 new_infantry\virtual_task.o: ../ACE-ECF/Bsp/Inc/bsp_pwm.h
 new_infantry\virtual_task.o: ../Core/Inc/tim.h
 new_infantry\virtual_task.o: ..\TASK\virtual_task.h
+new_infantry\virtual_task.o: ..\TASK\gimbal_task.h
 new_infantry\virtual_task.o: ../USB_DEVICE/App/usbd_cdc_if.h
 new_infantry\virtual_task.o: ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h
 new_infantry\virtual_task.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h
