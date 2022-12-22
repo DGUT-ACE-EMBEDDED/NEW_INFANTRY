@@ -3624,9 +3624,9 @@
       </Doc>
       <Doc>
         <Name>..\SYSTEM\gimbal_struct_variables.h</Name>
-        <ColumnNumber>26</ColumnNumber>
-        <TopLine>120</TopLine>
-        <CurrentLine>140</CurrentLine>
+        <ColumnNumber>17</ColumnNumber>
+        <TopLine>123</TopLine>
+        <CurrentLine>142</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
