@@ -47,7 +47,7 @@ gimbal_fire_control_t *fire_task_init(void)
 	
 	fire_task_init_p->fire_rc  = RC_Get_RC_Pointer();
 	
-	fire_task_init_p->fire_motor_encoder = Encoder_Init(GM6020, 3); // 这个应该是2006 TODO:
+	fire_task_init_p->fire_motor_encoder = Encoder_Init(M2006, 3); 
 
 	// fire
 	PidInit(&fire_task_init_p->left_motor_speed_pid, 10, 0, 0, Output_Limit);

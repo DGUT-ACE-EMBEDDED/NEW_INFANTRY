@@ -1,7 +1,7 @@
 #include "gimbal_behaviour.h"
 #include "gimbal_task.h"
 #include "maths.h"
-
+#include "gimbal_config.h"
 
 float Gimbal_pitch = 0.0f;
 float Gimbal_yaw = 0.0f;
@@ -100,12 +100,10 @@ void f_GIMBAL_AUTOBUFF(gimbal_control_t *f_GIMBAL_AUTOBUFF_f)
 
 void gimbal_pid_calculate(gimbal_control_t *gimbal_pid_calculate_f)
 {
-
-    gimbal_pid_calculate_f->Pitch_c.pitch_motor.actPositon_360 = ((float)gimbal_pid_calculate_f->Pitch_c.pitch_motor_encoder->Encode_Record_Val * 360.0f / 8192.0f);
-    gimbal_pid_calculate_f->Yaw_c.yaw_motor.actPositon_360 = ((float)gimbal_pid_calculate_f->Yaw_c.yaw_motor_encoder->Encode_Record_Val * 360.0f / 8192.0f);
-    gimbal_pid_calculate_f->Yaw_c.yaw_motor.actPositon_360 = loop_fp32_constrain(gimbal_pid_calculate_f->Yaw_c.yaw_motor.actPositon_360, -180.0f, 180.0f);
-    gimbal_pid_calculate_f->chassis_gimbal_angel = gimbal_pid_calculate_f->Yaw_c.yaw_motor.actPositon_360;
-
+    gimbal_pid_calculate_f->Pitch_c.pitch_motor.actPositon_360 = ((float)gimbal_pid_calculate_f->Pitch_c.pitch_motor_encoder->Encode_Actual_Val * 360.0f / 8192.0f - PITCH_ZERO_OFFSET);
+    gimbal_pid_calculate_f->Yaw_c.yaw_motor.actPositon_360 = ((float)(gimbal_pid_calculate_f->Yaw_c.yaw_motor_encoder->Encode_Actual_Val - YAW_ZERO_OFFSET)* 360.0f / 8192.0f);
+    gimbal_pid_calculate_f->Yaw_c.yaw_motor.actPositon_360 = loop_fp32_constrain(gimbal_pid_calculate_f->Yaw_c.yaw_motor.actPositon_360,0.0f, 360.0f);
+		Gimbal_yaw = loop_fp32_constrain(Gimbal_yaw , 0.0f ,360.0f);
     gimbal_pid_calculate_f->Pitch_c.pitch_motor.set_voltage = motor_position_speed_control(&gimbal_pid_calculate_f->Pitch_c.pitch_motor_speed_pid,
                                                                                            &gimbal_pid_calculate_f->Pitch_c.pitch_motor_position_pid,
                                                                                            Gimbal_pitch,
@@ -113,7 +111,8 @@ void gimbal_pid_calculate(gimbal_control_t *gimbal_pid_calculate_f)
                                                                                            gimbal_pid_calculate_f->Pitch_c.pitch_motor.motor_measure->speed);
     gimbal_pid_calculate_f->Yaw_c.yaw_motor.set_voltage = motor_position_speed_control(&gimbal_pid_calculate_f->Yaw_c.yaw_motor_speed_pid,
                                                                                        &gimbal_pid_calculate_f->Yaw_c.yaw_motor_position_pid,
-                                                                                       Gimbal_yaw,
-                                                                                       gimbal_pid_calculate_f->Imu_c->YawTotalAngle,
+                                                                                       user_abs(Gimbal_yaw - gimbal_pid_calculate_f->Imu_c->Yaw) > 180 ?  ((Gimbal_yaw - gimbal_pid_calculate_f->Imu_c->Yaw) > 0 ? ((Gimbal_yaw - gimbal_pid_calculate_f->Imu_c->Yaw) - 360.0f) : (360.0f - (Gimbal_yaw - gimbal_pid_calculate_f->Imu_c->Yaw))) : (Gimbal_yaw - gimbal_pid_calculate_f->Imu_c->Yaw),
+																																											 0,
+//                                                                                       gimbal_pid_calculate_f->Imu_c->YawTotalAngle,
                                                                                        gimbal_pid_calculate_f->Yaw_c.yaw_motor.motor_measure->speed);
 }

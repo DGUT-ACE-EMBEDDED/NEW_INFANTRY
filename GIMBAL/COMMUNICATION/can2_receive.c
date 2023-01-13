@@ -1,12 +1,19 @@
 #include "can2_receive.h"
 #include "can.h"
 #include "gimbal_struct_variables.h"
+#include "bsp_Motor_Encoder.h"
 #include "bsp_dr16.h"
 extern CAN_HandleTypeDef hcan2;
 extern gimbal_control_t Gimbal_Control;
 
 /*--------------------±äÁ¿-----------------------*/
+static motor_measure_t yaw_motor_measure;
 
+
+motor_measure_t *get_yaw_motor_measure_point(void)
+{
+	return &yaw_motor_measure;
+}
 /**
  * @brief		can2ÂË²¨Æ÷ÅäÖÃ
  * @param		none
@@ -53,8 +60,31 @@ void chassis_can2_callback(CAN_HandleTypeDef *hcan)
     switch (Rxmessage.StdId)
     {
     case 0x401:
-      rc_ctl->rc.ch[0] = ((Rx_Data[0] << 8) | Rx_Data[1]);
+			if(Rx_Data[7] == 0xFF)
+			{
+				rc_ctl->rc.ch[0] = ((Rx_Data[0] << 8) | Rx_Data[1]);
+				rc_ctl->rc.ch[1] = ((Rx_Data[2] << 8) | Rx_Data[3]);
+				rc_ctl->rc.s2 = Rx_Data[4];
+				rc_ctl->kb.key_code = ((Rx_Data[5] << 8) | Rx_Data[6]);
+			}
+			else
+			{
+				rc_ctl->mouse.x = ((Rx_Data[0] << 8) | Rx_Data[1]);
+				rc_ctl->mouse.y = ((Rx_Data[2] << 8) | Rx_Data[3]);
+				rc_ctl->mouse.press_l = Rx_Data[4];
+				rc_ctl->mouse.press_r = Rx_Data[5];
+				rc_ctl->rc.ch[4] = ((Rx_Data[7] << 8) | Rx_Data[6]);
+			}
 	  	break;
+		case 0x206: // YÖá
+		{
+			yaw_motor_measure.position = (int16_t)(Rx_Data[0] << 8 | Rx_Data[1]);
+			yaw_motor_measure.speed = (int16_t)(Rx_Data[2] << 8 | Rx_Data[3]);
+			yaw_motor_measure.current = (int16_t)(Rx_Data[4] << 8 | Rx_Data[5]);
+			yaw_motor_measure.temperature = Rx_Data[6];
+			CAN_DATA_Encoder_Deal(yaw_motor_measure.position, yaw_motor_measure.speed, 2);
+			break;
+		}
     }
   }
 }

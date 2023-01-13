@@ -22,8 +22,8 @@ void chassis_behaviour_choose(chassis_control_t *Chassis_behaviour_f)
 {
     //用于记录上一次数据
     chassis_behaviour_e last_behaviour;
-    static chassis_behaviour_e rc_behaviour = CHASSIS_FOLLOW;
-    static chassis_behaviour_e kb_behaviour = CHASSIS_FOLLOW;
+    static chassis_behaviour_e rc_behaviour = CHASSIS_NO_FOLLOW;
+    static chassis_behaviour_e kb_behaviour = CHASSIS_NO_FOLLOW;
 
     //手柄
     last_behaviour = rc_behaviour;
@@ -108,7 +108,7 @@ void chassis_state_choose(chassis_control_t *chassis_state_choose_f)
 {
     chassis_state_e last_state;
     last_state = chassis_state_choose_f->chassis_state;
-    if ((abs(chassis_state_choose_f->Chassis_speedX_Pid.SetValue) < chassis_state_choose_f->Chassis_speedX_Pid.stepIn) && (abs(chassis_state_choose_f->Chassis_speedY_Pid.SetValue) < chassis_state_choose_f->Chassis_speedY_Pid.stepIn) && (abs(chassis_state_choose_f->chassis_rotate_pid.SetValue) < 5))
+    if ((user_abs(chassis_state_choose_f->Chassis_speedX_Pid.SetValue) < chassis_state_choose_f->Chassis_speedX_Pid.stepIn) && (user_abs(chassis_state_choose_f->Chassis_speedY_Pid.SetValue) < chassis_state_choose_f->Chassis_speedY_Pid.stepIn) && (user_abs(chassis_state_choose_f->chassis_rotate_pid.SetValue) < 5))
     {
         chassis_state_choose_f->chassis_state = CHASSIS_LOCK_POSITION;
     }

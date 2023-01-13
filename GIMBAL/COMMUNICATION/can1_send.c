@@ -4,7 +4,7 @@
 
 static CAN_TxHeaderTypeDef Txmessage; //发送的信息
 
-void can1_gimbal_setmsg(int16_t pitch, int16_t yaw)
+void can1_gimbal_setmsg_to_pitch(int16_t pitch)
 {
     uint32_t send_mail_box;
     uint8_t Data[8]; //发送数据的数组
@@ -15,8 +15,8 @@ void can1_gimbal_setmsg(int16_t pitch, int16_t yaw)
     Txmessage.DLC = 0x08;
     Data[0] = pitch >> 8;
     Data[1] = pitch;
-    Data[2] = yaw >> 8;
-    Data[3] = yaw;
+    Data[2] = 0;
+    Data[3] = 0;
     Data[4] = 0;
     Data[5] = 0;
     Data[6] = 0;

@@ -97,12 +97,13 @@ new_infantry\gimbal_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTO
 new_infantry\gimbal_task.o: ../IMU/bsp_dwt.h
 new_infantry\gimbal_task.o: ../ACE-ECF/Bsp/Inc/bsp_pwm.h
 new_infantry\gimbal_task.o: ../Core/Inc/tim.h
+new_infantry\gimbal_task.o: ../SYSTEM/gimbal_config.h
 new_infantry\gimbal_task.o: ..\TASK\fire_Task.h
 new_infantry\gimbal_task.o: ..\TASK\virtual_task.h
 new_infantry\gimbal_task.o: ../COMMUNICATION/can1_receive.h
 new_infantry\gimbal_task.o: ../Core/Inc/can.h
+new_infantry\gimbal_task.o: ../COMMUNICATION/can2_receive.h
 new_infantry\gimbal_task.o: ../COMMUNICATION/can1_send.h
 new_infantry\gimbal_task.o: ../COMMUNICATION/can2_send.h
 new_infantry\gimbal_task.o: ../GIMBAL/gimbal_behaviour.h
 new_infantry\gimbal_task.o: ../GIMBAL/gimbal_auto.h
-new_infantry\gimbal_task.o: ../SYSTEM/gimbal_config.h

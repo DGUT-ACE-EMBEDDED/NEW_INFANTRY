@@ -3,7 +3,7 @@
 <title>Static Call Graph - [NEW_INFANTRY\NEW_INFANTRY.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image NEW_INFANTRY\NEW_INFANTRY.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu Dec 22 14:35:04 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Jan 13 14:36:23 2023
 <BR><P>
 <H3>Maximum Stack Usage =        500 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1022,7 +1022,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
 <P><STRONG><a name="[3c]"></a>CAN1_RX0_IRQHandler</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.CAN1_RX0_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = CAN1_RX0_IRQHandler &rArr; HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo0MsgPendingCallback &rArr; chassis_can1_callback &rArr; CAN_DATA_Encoder_Deal
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = CAN1_RX0_IRQHandler &rArr; HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo0MsgPendingCallback &rArr; chassis_can2_callback &rArr; CAN_DATA_Encoder_Deal
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_IRQHandler
 </UL>
@@ -1039,7 +1039,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[68]"></a>CAN2_RX0_IRQHandler</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.CAN2_RX0_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = CAN2_RX0_IRQHandler &rArr; HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo0MsgPendingCallback &rArr; chassis_can1_callback &rArr; CAN_DATA_Encoder_Deal
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = CAN2_RX0_IRQHandler &rArr; HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo0MsgPendingCallback &rArr; chassis_can2_callback &rArr; CAN_DATA_Encoder_Deal
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_IRQHandler
 </UL>
@@ -1061,7 +1061,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angle_limiting_int16
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Block_Detect
 </UL>
-<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_can1_callback
+<BR>[Called By]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_can2_callback
+<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_can1_callback
 </UL>
 
 <P><STRONG><a name="[e8]"></a>CDC_Transmit_FS</STRONG> (Thumb, 50 bytes, Stack size 24 bytes, usbd_cdc_if.o(i.CDC_Transmit_FS))
@@ -1216,7 +1217,7 @@ Global Symbols
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_ResetCallback
 </UL>
 
-<P><STRONG><a name="[87]"></a>Gimbal_Task</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, gimbal_task.o(i.Gimbal_Task))
+<P><STRONG><a name="[87]"></a>Gimbal_Task</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, gimbal_task.o(i.Gimbal_Task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 204<LI>Call Chain = Gimbal_Task &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; SEGGER_SYSVIEW_OnTaskStartReady &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
@@ -1224,8 +1225,8 @@ Global Symbols
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gimbal_Work
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gimbal_Init
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can2_gimbal_to_chassis
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can1_gimbal_setmsg
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can2_gimbal_setmsg_to_yaw
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can1_gimbal_setmsg_to_pitch
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> init_task.o(.constdata)
 </UL>
@@ -1239,9 +1240,9 @@ Global Symbols
 <P><STRONG><a name="[245]"></a>HAL_CAN_AddTxMessage</STRONG> (Thumb, 342 bytes, Stack size 20 bytes, stm32f4xx_hal_can.o(i.HAL_CAN_AddTxMessage))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = HAL_CAN_AddTxMessage
 </UL>
-<BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can2_gimbal_to_chassis
+<BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can2_gimbal_setmsg_to_yaw
 <LI><a href="#[246]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can2_gimbal_setmsg
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can1_gimbal_setmsg
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can1_gimbal_setmsg_to_pitch
 </UL>
 
 <P><STRONG><a name="[dd]"></a>HAL_CAN_ConfigFilter</STRONG> (Thumb, 286 bytes, Stack size 20 bytes, stm32f4xx_hal_can.o(i.HAL_CAN_ConfigFilter))
@@ -1263,7 +1264,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[db]"></a>HAL_CAN_IRQHandler</STRONG> (Thumb, 590 bytes, Stack size 40 bytes, stm32f4xx_hal_can.o(i.HAL_CAN_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo0MsgPendingCallback &rArr; chassis_can1_callback &rArr; CAN_DATA_Encoder_Deal
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo0MsgPendingCallback &rArr; chassis_can2_callback &rArr; CAN_DATA_Encoder_Deal
 </UL>
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo0MsgPendingCallback
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_WakeUpFromRxMsgCallback
@@ -1309,7 +1310,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[116]"></a>HAL_CAN_RxFifo0MsgPendingCallback</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, can1_receive.o(i.HAL_CAN_RxFifo0MsgPendingCallback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = HAL_CAN_RxFifo0MsgPendingCallback &rArr; chassis_can1_callback &rArr; CAN_DATA_Encoder_Deal
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = HAL_CAN_RxFifo0MsgPendingCallback &rArr; chassis_can2_callback &rArr; CAN_DATA_Encoder_Deal
 </UL>
 <BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_can2_callback
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_can1_callback
@@ -3434,10 +3435,10 @@ Global Symbols
 <P><STRONG><a name="[1ae]"></a>__hardfp_acosf</STRONG> (Thumb, 234 bytes, Stack size 16 bytes, acosf.o(i.__hardfp_acosf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __hardfp_acosf &rArr; sqrtf &rArr; __set_errno
 </UL>
-<BR>[Calls]<UL><LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_invalid
-<LI><a href="#[23f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 <LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrtf
+<LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_invalid
+<LI><a href="#[23f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMU_QuaternionEKF_xhatUpdate
 </UL>
@@ -3445,12 +3446,12 @@ Global Symbols
 <P><STRONG><a name="[1ac]"></a>__hardfp_asinf</STRONG> (Thumb, 258 bytes, Stack size 16 bytes, asinf.o(i.__hardfp_asinf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __hardfp_asinf &rArr; sqrtf &rArr; __set_errno
 </UL>
-<BR>[Calls]<UL><LI><a href="#[242]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_underflow
-<LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_invalid
-<LI><a href="#[23f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan
-<LI><a href="#[241]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
+<BR>[Calls]<UL><LI><a href="#[241]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 <LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrtf
+<LI><a href="#[242]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_underflow
+<LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_invalid
+<LI><a href="#[23f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMU_QuaternionEKF_Update
 </UL>
@@ -3458,10 +3459,10 @@ Global Symbols
 <P><STRONG><a name="[1ab]"></a>__hardfp_atan2f</STRONG> (Thumb, 594 bytes, Stack size 32 bytes, atan2f.o(i.__hardfp_atan2f))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __hardfp_atan2f &rArr; __set_errno
 </UL>
-<BR>[Calls]<UL><LI><a href="#[242]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_underflow
-<LI><a href="#[243]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan2
-<LI><a href="#[241]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
+<BR>[Calls]<UL><LI><a href="#[241]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+<LI><a href="#[242]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_underflow
+<LI><a href="#[243]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan2
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMU_QuaternionEKF_Update
 <LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INS_Task
@@ -3522,8 +3523,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_init
 </UL>
 
-<P><STRONG><a name="[109]"></a>can1_gimbal_setmsg</STRONG> (Thumb, 78 bytes, Stack size 24 bytes, can1_send.o(i.can1_gimbal_setmsg))
-<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = can1_gimbal_setmsg &rArr; HAL_CAN_AddTxMessage
+<P><STRONG><a name="[109]"></a>can1_gimbal_setmsg_to_pitch</STRONG> (Thumb, 72 bytes, Stack size 24 bytes, can1_send.o(i.can1_gimbal_setmsg_to_pitch))
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = can1_gimbal_setmsg_to_pitch &rArr; HAL_CAN_AddTxMessage
 </UL>
 <BR>[Calls]<UL><LI><a href="#[245]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_AddTxMessage
 </UL>
@@ -3538,15 +3539,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fire_Task
 </UL>
 
-<P><STRONG><a name="[10a]"></a>can2_gimbal_to_chassis</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, can2_send.o(i.can2_gimbal_to_chassis))
-<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = can2_gimbal_to_chassis &rArr; HAL_CAN_AddTxMessage
+<P><STRONG><a name="[10a]"></a>can2_gimbal_setmsg_to_yaw</STRONG> (Thumb, 74 bytes, Stack size 24 bytes, can2_send.o(i.can2_gimbal_setmsg_to_yaw))
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = can2_gimbal_setmsg_to_yaw &rArr; HAL_CAN_AddTxMessage
 </UL>
 <BR>[Calls]<UL><LI><a href="#[245]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_AddTxMessage
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gimbal_Task
 </UL>
 
-<P><STRONG><a name="[122]"></a>chassis_can1_callback</STRONG> (Thumb, 330 bytes, Stack size 48 bytes, can1_receive.o(i.chassis_can1_callback))
+<P><STRONG><a name="[122]"></a>chassis_can1_callback</STRONG> (Thumb, 250 bytes, Stack size 48 bytes, can1_receive.o(i.chassis_can1_callback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = chassis_can1_callback &rArr; CAN_DATA_Encoder_Deal
 </UL>
 <BR>[Calls]<UL><LI><a href="#[247]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_GetRxMessage
@@ -3555,10 +3556,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo0MsgPendingCallback
 </UL>
 
-<P><STRONG><a name="[123]"></a>chassis_can2_callback</STRONG> (Thumb, 64 bytes, Stack size 48 bytes, can2_receive.o(i.chassis_can2_callback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = chassis_can2_callback &rArr; HAL_CAN_GetRxMessage
+<P><STRONG><a name="[123]"></a>chassis_can2_callback</STRONG> (Thumb, 294 bytes, Stack size 48 bytes, can2_receive.o(i.chassis_can2_callback))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = chassis_can2_callback &rArr; CAN_DATA_Encoder_Deal
 </UL>
 <BR>[Calls]<UL><LI><a href="#[247]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_GetRxMessage
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_DATA_Encoder_Deal
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_Get_RC_Pointer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo0MsgPendingCallback
@@ -3657,7 +3659,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fire_task_init
 </UL>
 
-<P><STRONG><a name="[ff]"></a>get_yaw_motor_measure_point</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, can1_receive.o(i.get_yaw_motor_measure_point))
+<P><STRONG><a name="[ff]"></a>get_yaw_motor_measure_point</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, can2_receive.o(i.get_yaw_motor_measure_point))
 <BR><BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gimbal_Init
 </UL>
 
@@ -3675,7 +3677,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gimbal_Work
 </UL>
 
-<P><STRONG><a name="[10e]"></a>gimbal_pid_calculate</STRONG> (Thumb, 208 bytes, Stack size 8 bytes, gimbal_behaviour.o(i.gimbal_pid_calculate))
+<P><STRONG><a name="[10e]"></a>gimbal_pid_calculate</STRONG> (Thumb, 414 bytes, Stack size 8 bytes, gimbal_behaviour.o(i.gimbal_pid_calculate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = gimbal_pid_calculate &rArr; motor_position_speed_control &rArr; PidCalculate
 </UL>
 <BR>[Calls]<UL><LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain

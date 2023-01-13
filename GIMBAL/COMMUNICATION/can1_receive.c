@@ -8,7 +8,6 @@ extern CAN_HandleTypeDef hcan2;
 extern void chassis_can2_callback(CAN_HandleTypeDef *hcan);
 
 static motor_measure_t pitch_motor_measure;
-static motor_measure_t yaw_motor_measure;
 static motor_measure_t right_motor;
 static motor_measure_t left_motor;
 static motor_measure_t fire_motor;
@@ -16,10 +15,6 @@ static motor_measure_t fire_motor;
 motor_measure_t *get_pitch_motor_measure_point(void)
 {
 	return &pitch_motor_measure;
-}
-motor_measure_t *get_yaw_motor_measure_point(void)
-{
-	return &yaw_motor_measure;
 }
 motor_measure_t *get_right_motor_measure_point(void)
 {
@@ -98,16 +93,6 @@ void chassis_can1_callback(CAN_HandleTypeDef *hcan)
 			pitch_motor_measure.current = (int16_t)(Rx_Data[4] << 8 | Rx_Data[5]);
 			pitch_motor_measure.temperature = Rx_Data[6];
 			CAN_DATA_Encoder_Deal(pitch_motor_measure.position, pitch_motor_measure.speed, 1);
-			break;
-		}
-		case 0x206: // YÖá
-		{
-			yaw_motor_measure.position = (int16_t)(Rx_Data[0] << 8 | Rx_Data[1]);
-			yaw_motor_measure.speed = (int16_t)(Rx_Data[2] << 8 | Rx_Data[3]);
-			yaw_motor_measure.current = (int16_t)(Rx_Data[4] << 8 | Rx_Data[5]);
-			yaw_motor_measure.temperature = Rx_Data[6];
-			CAN_DATA_Encoder_Deal(yaw_motor_measure.position, yaw_motor_measure.speed, 2);
-
 			break;
 		}
 		case 0x201:

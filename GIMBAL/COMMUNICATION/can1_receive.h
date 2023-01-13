@@ -5,7 +5,6 @@
 #include "gimbal_struct_variables.h"
 
 motor_measure_t *get_pitch_motor_measure_point(void);
-motor_measure_t *get_yaw_motor_measure_point(void);
 motor_measure_t *get_right_motor_measure_point(void);
 motor_measure_t *get_left_motor_measure_point(void);
 motor_measure_t *get_fire_motor_measure_point(void);

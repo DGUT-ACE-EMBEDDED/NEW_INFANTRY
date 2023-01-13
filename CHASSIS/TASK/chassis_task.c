@@ -2,11 +2,13 @@
 #include "chassis_behaviour.h"
 #include "pid.h"
 #include "can1_receive.h"
+#include "can2_receive.h"
 #include "can1_send.h"
 #include "can2_send.h"
 #include "string.h"
 #include "bsp_Motor_Encoder.h"
 #include "maths.h"
+#include "chassis_config.h"
 
 chassis_control_t Chassis_Control;
 
@@ -46,6 +48,8 @@ void Task_Chassis(void const *argument)
 }
 void Chassis_Work(chassis_control_t *Chassis_Control_f)
 {
+	Chassis_Control_f->Chassis_Gimbal_Diference_Angle = ((float)(Chassis_Control_f->yaw_motor_encoder->Encode_Actual_Val - YAW_ZERO_OFFSET)* 360.0f / 8192.0f);
+  Chassis_Control_f->Chassis_Gimbal_Diference_Angle = loop_fp32_constrain(Chassis_Control_f->Chassis_Gimbal_Diference_Angle, -180.0f, 180.0f);
 	//选择底盘模式
 	chassis_behaviour_choose(Chassis_Control_f);
 
@@ -82,6 +86,7 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	chassis_data_init_f->Chassis_Motor[2].chassis_motor_measure = get_chassis_motor_measure_point(2);
 	chassis_data_init_f->Chassis_Motor[3].chassis_motor_measure = get_chassis_motor_measure_point(3);
 
+	chassis_data_init_f->yaw_motor = get_yaw_motor_measure_point();
 	//获取超级电容的指针
 	chassis_data_init_f->super_cap_c = get_supercap_control_point();
 
@@ -91,6 +96,7 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	chassis_data_init_f->Motor_encoder[1] = Encoder_Init(M3508, 2);
 	chassis_data_init_f->Motor_encoder[2] = Encoder_Init(M3508, 3);
 	chassis_data_init_f->Motor_encoder[3] = Encoder_Init(M3508, 4);
+	chassis_data_init_f->yaw_motor_encoder = Encoder_Init(GM6020, 5);//YAW
 
 	/*--------------------初始化pid--------------------*/
 	/*底盘pid初始化*/
@@ -122,6 +128,7 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, ChangingIntegrationRate, 180.0f, 0.5f);
 	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, Integral_Limit, 1000, 0);
 
+	chassis_data_init_f->behaviour = CHASSIS_NO_FOLLOW;
 	//速度因子
 	chassis_data_init_f->chassis_speed_gain = 1;
 }
@@ -156,7 +163,7 @@ void chassis_prevent_motion_distortion(chassis_control_t *chassis_prevent_motion
 		chassis_prevent_motion_distortion_f->Chassis_Motor[2].pid_output > MOTOR_3508_CURRENT_LIMIT ||
 		chassis_prevent_motion_distortion_f->Chassis_Motor[3].pid_output > MOTOR_3508_CURRENT_LIMIT)
 	{
-		divisor = abs(MOTOR_3508_CURRENT_LIMIT / max(max(chassis_prevent_motion_distortion_f->Chassis_Motor[0].pid_output, chassis_prevent_motion_distortion_f->Chassis_Motor[1].pid_output), max(chassis_prevent_motion_distortion_f->Chassis_Motor[2].pid_output, chassis_prevent_motion_distortion_f->Chassis_Motor[3].pid_output)));
+		divisor = user_abs(MOTOR_3508_CURRENT_LIMIT / max(max(chassis_prevent_motion_distortion_f->Chassis_Motor[0].pid_output, chassis_prevent_motion_distortion_f->Chassis_Motor[1].pid_output), max(chassis_prevent_motion_distortion_f->Chassis_Motor[2].pid_output, chassis_prevent_motion_distortion_f->Chassis_Motor[3].pid_output)));
 	}
 	chassis_prevent_motion_distortion_f->Chassis_Motor[0].give_current = chassis_prevent_motion_distortion_f->Chassis_Motor[0].pid_output * divisor;
 	chassis_prevent_motion_distortion_f->Chassis_Motor[1].give_current = chassis_prevent_motion_distortion_f->Chassis_Motor[1].pid_output * divisor;

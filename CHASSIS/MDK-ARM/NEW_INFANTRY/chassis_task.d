@@ -70,6 +70,8 @@ new_infantry\chassis_task.o: ../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h
 new_infantry\chassis_task.o: ../CHASSIS/chassis_behaviour.h
 new_infantry\chassis_task.o: ../COMMUNICATION/can1_receive.h
 new_infantry\chassis_task.o: ../Core/Inc/can.h
+new_infantry\chassis_task.o: ../COMMUNICATION/can2_receive.h
 new_infantry\chassis_task.o: ../COMMUNICATION/can1_send.h
 new_infantry\chassis_task.o: ../COMMUNICATION/can2_send.h
 new_infantry\chassis_task.o: ../ACE-ECF/Algorithm/inc/maths.h
+new_infantry\chassis_task.o: ../SYSTEM/chassis_config.h

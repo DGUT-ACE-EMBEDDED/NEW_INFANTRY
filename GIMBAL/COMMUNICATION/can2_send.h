@@ -4,5 +4,5 @@
 #include "gimbal_struct_variables.h"
 
 extern void can2_gimbal_to_chassis(void);
-
+extern void can2_gimbal_setmsg_to_yaw(int16_t yaw);
 #endif

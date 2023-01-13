@@ -444,9 +444,14 @@
           <GroupName>SYSTEM</GroupName>
           <Files>
             <File>
-              <FileName>chassis_struct_variables.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SYSTEM\chassis_struct_variables.c</FilePath>
+              <FileName>chassis_config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\SYSTEM\chassis_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>chassis_struct_variables.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\SYSTEM\chassis_struct_variables.h</FilePath>
             </File>
           </Files>
         </Group>

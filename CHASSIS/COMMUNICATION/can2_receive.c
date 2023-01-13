@@ -1,11 +1,16 @@
 #include "can2_receive.h"
 #include "can.h"
 #include "chassis_struct_variables.h"
-
+#include "bsp_Motor_Encoder.h"
 extern CAN_HandleTypeDef hcan2;
 extern chassis_control_t Chassis_Control;
 /*--------------------变量-----------------------*/
+static motor6020_measure_t yaw_motor_measure;
 
+motor6020_measure_t *get_yaw_motor_measure_point(void)
+{
+	return &yaw_motor_measure;
+}
 /**
  * @brief		can2滤波器配置
  * @param		none
@@ -44,18 +49,31 @@ void chassis_can2_callback(CAN_HandleTypeDef *hcan)
 {
   CAN_RxHeaderTypeDef Rxmessage; //接收信息结构体
   uint8_t Rx_Data[8];            //接收的信息缓存的数组
-
+	int Register;
   if (HAL_CAN_GetRxMessage(&hcan2, CAN_RX_FIFO0, &Rxmessage, Rx_Data) == HAL_OK) //读取接收的信息
   {
     switch (Rxmessage.StdId)
     {
 			case 0x300:
+			{
 								__asm__ 
 								(
-									"LDR r7 , [Rx_Data] \n"
-									"STR r7 , [&Chassis_Control.Chassis_Gimbal_Diference_Angle] \n"
+									"LDR Register , [Rx_Data] \n"
+									"STR Register , [&Chassis_Control.Chassis_Gimbal_Diference_Angle] \n"
 								);
-			break;
-    }
+								break;
+			}
+			case 0x206: // Y轴
+			{
+				yaw_motor_measure.position = (int16_t)(Rx_Data[0] << 8 | Rx_Data[1]);
+				yaw_motor_measure.speed = (int16_t)(Rx_Data[2] << 8 | Rx_Data[3]);
+				yaw_motor_measure.current = (int16_t)(Rx_Data[4] << 8 | Rx_Data[5]);
+				yaw_motor_measure.temperature = Rx_Data[6];
+				CAN_DATA_Encoder_Deal(yaw_motor_measure.position, yaw_motor_measure.speed, 5);
+				break;
+			}
+			default :
+								break;
+		}
   }
 }

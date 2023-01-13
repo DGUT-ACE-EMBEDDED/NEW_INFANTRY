@@ -8,6 +8,7 @@
 #include "virtual_task.h"
 /*--------------------- COMMUINICATE --------------------*/
 #include "can1_receive.h"
+#include "can2_receive.h"
 #include "can1_send.h"
 #include "can2_send.h"
 
@@ -46,8 +47,8 @@ void Gimbal_Task(void const *argument)
 			taskENTER_CRITICAL();         // 进入临界区
 			Gimbal_Work(&Gimbal_Control); // 云台状态控制    //云台工作
 			taskEXIT_CRITICAL();              // 退出临界区
-			can1_gimbal_setmsg(Gimbal_Control.Pitch_c.pitch_motor.set_voltage, Gimbal_Control.Yaw_c.yaw_motor.set_voltage);
-			can2_gimbal_to_chassis();
+			can1_gimbal_setmsg_to_pitch(Gimbal_Control.Pitch_c.pitch_motor.set_voltage);
+			can2_gimbal_setmsg_to_yaw(Gimbal_Control.Yaw_c.yaw_motor.set_voltage);
 		
       vTaskDelay(1); // 绝对延时//vTaskDelay(2);
     }
@@ -76,10 +77,11 @@ void Gimbal_Init(gimbal_control_t *Gimbal_Init_f)
     /*--------------------pid--------------------*/
     // P轴
     PidInit(&Gimbal_Init_f->Pitch_c.pitch_motor_speed_pid, GIMBAL_PITCH_S_P, GIMBAL_PITCH_S_I, GIMBAL_PITCH_S_D, Integral_Limit | Output_Limit);
-    PidInit(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, GIMBAL_PITCH_P_P, GIMBAL_PITCH_P_I, GIMBAL_PITCH_P_D, ChangingIntegrationRate | Output_Limit | StepIn);
+    PidInit(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, GIMBAL_PITCH_P_P, GIMBAL_PITCH_P_I, GIMBAL_PITCH_P_D, Integral_Limit | Output_Limit | StepIn);
     PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_speed_pid, Output_Limit, 30000, 0);
     PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_speed_pid, Integral_Limit, 10000, 0);
-    PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, ChangingIntegrationRate, 20.0f, 0.5f);
+//    PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, ChangingIntegrationRate, 20.0f, 0.5f);
+    PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, Integral_Limit, 1000, 0);
     PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, Output_Limit, 10000, 0);
     PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, StepIn, 30, 0);
 

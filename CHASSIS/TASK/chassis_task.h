@@ -53,13 +53,13 @@
 #define TRANSLATION_ACCELERAD 5.5f //平移底盘加速度限制
 #define ROTATING_ACCELERAD 19.0f   //旋转底盘加速度限制
 
-#define CHASSIS_ROTATION_SPEED_1 (600)
-#define CHASSIS_ROTATION_SPEED_2 (750)
-#define CHASSIS_ROTATION_SPEED_3 (1200) // 900
+//#define CHASSIS_ROTATION_SPEED_1 (600)
+//#define CHASSIS_ROTATION_SPEED_2 (750)
+//#define CHASSIS_ROTATION_SPEED_3 (1200) // 900
 
-#define CHASSIS_ROTATION_SPEED 100               //小陀螺的旋转速度  2000
-#define CHASSIS_ROTATION_MOVE_SPEED (800 * 0.8f) //小陀螺移动时为防止轨迹失真减转速   1700
-#define CHASSIS_TWIST_SPEED 600                  //扭腰速度  1600
+#define CHASSIS_ROTATION_SPEED 30               //小陀螺的旋转速度  2000
+//#define CHASSIS_ROTATION_MOVE_SPEED (800 * 0.8f) //小陀螺移动时为防止轨迹失真减转速   1700
+//#define CHASSIS_TWIST_SPEED 600                  //扭腰速度  1600
 
 #define MOTOR_3508_CURRENT_LIMIT 15000
 void Task_Chassis(void const *argument);

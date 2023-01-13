@@ -51,11 +51,13 @@ void Init_Task(void const *argument)
 	osThreadDef(Gimbal_TASK, Gimbal_Task, osPriorityHigh, 0, 512);
 	TASK_GIMBALHandle = osThreadCreate(osThread(Gimbal_TASK), NULL);
 
+//	#ifdef IMU
 	// IMU
 	osThreadDef(IMU_TASK, imu_Task, osPriorityNormal, 0, 512);
 	IMUTask_Handler = osThreadCreate(osThread(IMU_TASK), NULL);
+//	#endif
 
-	#ifdef FIRE_WORK //火力
+	#ifdef FIRE_WORK
 	//创建火控任务
 	osThreadDef(FIRE_TASK, fire_Task, osPriorityAboveNormal, 0, 128);
 	ShootTask_Handler = osThreadCreate(osThread(FIRE_TASK), NULL);

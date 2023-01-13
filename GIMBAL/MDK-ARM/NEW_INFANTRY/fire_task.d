@@ -90,7 +90,7 @@ new_infantry\fire_task.o: ../IMU/bsp_dwt.h
 new_infantry\fire_task.o: ../ACE-ECF/Bsp/Inc/bsp_pwm.h
 new_infantry\fire_task.o: ../Core/Inc/tim.h
 new_infantry\fire_task.o: ..\TASK\gimbal_task.h
+new_infantry\fire_task.o: ../SYSTEM/gimbal_config.h
 new_infantry\fire_task.o: ../COMMUNICATION/can1_receive.h
 new_infantry\fire_task.o: ../Core/Inc/can.h
 new_infantry\fire_task.o: ../COMMUNICATION/can1_send.h
-new_infantry\fire_task.o: ../SYSTEM/gimbal_config.h

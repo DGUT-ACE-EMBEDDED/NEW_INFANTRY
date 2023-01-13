@@ -90,3 +90,4 @@ new_infantry\gimbal_behaviour.o: ../IMU/bsp_dwt.h
 new_infantry\gimbal_behaviour.o: ../ACE-ECF/Bsp/Inc/bsp_pwm.h
 new_infantry\gimbal_behaviour.o: ../Core/Inc/tim.h
 new_infantry\gimbal_behaviour.o: ../TASK/gimbal_task.h
+new_infantry\gimbal_behaviour.o: ../SYSTEM/gimbal_config.h

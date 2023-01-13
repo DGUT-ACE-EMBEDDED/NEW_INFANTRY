@@ -88,7 +88,13 @@ typedef struct
 	uint16_t position;
 	int16_t speed;
 } motor_measure_t;
-
+typedef struct
+{
+	uint16_t position;
+	int16_t speed;
+	int16_t current;
+	uint8_t temperature;
+} motor6020_measure_t;
 //超级电容
 typedef struct
 {
@@ -112,7 +118,9 @@ typedef struct
 
 	chassis_behaviour_e behaviour; //底盘模式
 	chassis_state_e chassis_state;
-
+	
+	motor6020_measure_t *yaw_motor;
+	Encoder_t *yaw_motor_encoder;
 	Motor3508_t Chassis_Motor[4]; //底盘四个电机
 	Encoder_t *Motor_encoder[4];
 	pid_parameter_t motor_Speed_Pid[4]; //电机速度pid

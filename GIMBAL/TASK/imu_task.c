@@ -24,7 +24,7 @@ void imu_Task(void const *argument)
 	while (1)
 	{
 			INS_Task();
-			vTaskDelay(1);
+			vTaskDelay(2);
 	}
 }
 

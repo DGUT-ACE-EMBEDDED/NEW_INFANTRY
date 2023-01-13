@@ -18,7 +18,11 @@
  *¡¡¡¡¡¡©»©ß©¿¡¡©»©ß©¿
  *¡¡¡¡¡¡
  */
+#ifndef __CHASSIS_CONFIG_H
+#define __CHASSIS_CONFIG_H
 
-#include "chassis_struct_variables.h"
+
+#define YAW_ZERO_OFFSET 6617
 
 
+#endif
