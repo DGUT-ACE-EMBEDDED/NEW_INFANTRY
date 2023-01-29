@@ -12,7 +12,7 @@ const float zb[3] = {0, 0, 1};
 uint32_t INS_DWT_Count = 0;
 static float dt = 0, t = 0;
 uint8_t ins_debug_mode = 0;
-float RefTemp = 26;
+float RefTemp = 0;
 
 extern void imu_Task(void const *argument);
 

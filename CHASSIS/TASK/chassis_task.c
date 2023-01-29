@@ -19,17 +19,17 @@ static void motor_position_speed_pid_calculate(chassis_control_t *motor_position
 static void chassis_zero_fore_react(chassis_control_t *chassis_zero_fore_react_f);
 static void chassis_state_react(chassis_control_t *chassis_state_react_f);
 static void chassis_prevent_motion_distortion(chassis_control_t *chassis_prevent_motion_distortion_f);
+static void chassis_get_gimbal_differece_angle(chassis_control_t *chassis_get_gimbal_differece_angle_f);
+
 
 void Task_Chassis(void const *argument)
 {
-	uint32_t currentTime;
+	
 	Chassis_Init(&Chassis_Control);
 	vTaskDelay(5);
 
 	while (1)
 	{
-		currentTime = xTaskGetTickCount(); //当前系统时间
-
 		taskENTER_CRITICAL(); //进入临界区
 
 		Chassis_Work(&Chassis_Control);
@@ -43,13 +43,16 @@ void Task_Chassis(void const *argument)
 
 		taskEXIT_CRITICAL(); //退出临界区
 
-		vTaskDelayUntil(&currentTime, 1); //绝对延时//vTaskDelay(2)
+		//vTaskDelayUntil(&currentTime, 1); //绝对延时//vTaskDelay(2)
+		vTaskDelay(1);
 	}
 }
+
 void Chassis_Work(chassis_control_t *Chassis_Control_f)
 {
-	Chassis_Control_f->Chassis_Gimbal_Diference_Angle = ((float)(Chassis_Control_f->yaw_motor_encoder->Encode_Actual_Val - YAW_ZERO_OFFSET)* 360.0f / 8192.0f);
-  Chassis_Control_f->Chassis_Gimbal_Diference_Angle = loop_fp32_constrain(Chassis_Control_f->Chassis_Gimbal_Diference_Angle, -180.0f, 180.0f);
+	//底盘云台角度计算
+	chassis_get_gimbal_differece_angle(Chassis_Control_f);
+
 	//选择底盘模式
 	chassis_behaviour_choose(Chassis_Control_f);
 
@@ -191,4 +194,9 @@ void motor_speed_pid_calculate(chassis_control_t *Chassis_pid_calculate_f)
 	Chassis_pid_calculate_f->Chassis_Motor[1].pid_output = motor_speed_control(&Chassis_pid_calculate_f->motor_Speed_Pid[1], Chassis_pid_calculate_f->Chassis_Motor[1].Speed_Set, Chassis_pid_calculate_f->Chassis_Motor[1].chassis_motor_measure->speed);
 	Chassis_pid_calculate_f->Chassis_Motor[2].pid_output = motor_speed_control(&Chassis_pid_calculate_f->motor_Speed_Pid[2], Chassis_pid_calculate_f->Chassis_Motor[2].Speed_Set, Chassis_pid_calculate_f->Chassis_Motor[2].chassis_motor_measure->speed);
 	Chassis_pid_calculate_f->Chassis_Motor[3].pid_output = motor_speed_control(&Chassis_pid_calculate_f->motor_Speed_Pid[3], Chassis_pid_calculate_f->Chassis_Motor[3].Speed_Set, Chassis_pid_calculate_f->Chassis_Motor[3].chassis_motor_measure->speed);
+}
+void chassis_get_gimbal_differece_angle(chassis_control_t *chassis_get_gimbal_differece_angle_f)
+{
+	chassis_get_gimbal_differece_angle_f->Chassis_Gimbal_Diference_Angle = ((float)(chassis_get_gimbal_differece_angle_f->yaw_motor_encoder->Encode_Actual_Val - YAW_ZERO_OFFSET)* 360.0f / 8192.0f);
+  chassis_get_gimbal_differece_angle_f->Chassis_Gimbal_Diference_Angle = loop_fp32_constrain(chassis_get_gimbal_differece_angle_f->Chassis_Gimbal_Diference_Angle, -180.0f, 180.0f);
 }

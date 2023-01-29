@@ -108,7 +108,7 @@ void chassis_state_choose(chassis_control_t *chassis_state_choose_f)
 {
     chassis_state_e last_state;
     last_state = chassis_state_choose_f->chassis_state;
-    if ((user_abs(chassis_state_choose_f->Chassis_speedX_Pid.SetValue) < chassis_state_choose_f->Chassis_speedX_Pid.stepIn) && (user_abs(chassis_state_choose_f->Chassis_speedY_Pid.SetValue) < chassis_state_choose_f->Chassis_speedY_Pid.stepIn) && (user_abs(chassis_state_choose_f->chassis_rotate_pid.SetValue) < 5))
+    if ((user_abs(chassis_state_choose_f->Chassis_speedX_Pid.SetValue) < chassis_state_choose_f->Chassis_speedX_Pid.stepIn) && (user_abs(chassis_state_choose_f->Chassis_speedY_Pid.SetValue) < chassis_state_choose_f->Chassis_speedY_Pid.stepIn) && (user_abs(chassis_state_choose_f->chassis_rotate_pid.SetValue) < 3))
     {
         chassis_state_choose_f->chassis_state = CHASSIS_LOCK_POSITION;
     }

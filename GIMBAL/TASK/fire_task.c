@@ -93,18 +93,19 @@ void fire_behaviour_choose(gimbal_fire_control_t *fire_behaviour_choose_f)
 	//  	case :
 	//  	fire_behaviour_choose_f->left_motor.Speed_Set = fire_behaviour_choose_f->right_motor.Speed_Set = fire_speed_15;
 	//  }
-	fire_behaviour_choose_f->left_motor.Speed_Set = fire_behaviour_choose_f->right_motor.Speed_Set = 100;
+	fire_behaviour_choose_f->left_motor.Speed_Set = -2000;
+	fire_behaviour_choose_f->right_motor.Speed_Set = 2000;
 	// 弹舱舵机控制 TODO:
 }
 
 
 void fire_pid_calculate(gimbal_fire_control_t *fire_pid_calculate_f)
 {
-	if ((fire_pid_calculate_f->fire_rc->mouse.press_l > 0) || (fire_pid_calculate_f->fire_rc->rc.ch[4] > 0))
+	if ((fire_pid_calculate_f->fire_rc->mouse.press_l != 0) || (fire_pid_calculate_f->fire_rc->rc.ch[4] > 0))
 	{
 		if (fire_pid_calculate_f->full_automatic) // 全自动开环控制
 		{
-			fire_pid_calculate_f->fire_motor.Speed_Set = 100; // TODO:
+			fire_pid_calculate_f->fire_motor.Speed_Set = 5000; // TODO:
 			fire_pid_calculate_f->fire_motor.set_current = motor_speed_control(&fire_pid_calculate_f->fire_motor_speed_pid,
 																			   fire_pid_calculate_f->fire_motor.Speed_Set,
 																			   fire_pid_calculate_f->fire_motor.motor_measure->speed);
