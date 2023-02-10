@@ -23,9 +23,9 @@
 #ifndef __GIMBAL_CONFIG_H
 #define __GIMBAL_CONFIG_H
 
-#define FIRE_WORK
+//#define FIRE_WORK
 #define PITCH_ZERO_OFFSET 100.0f 
-#define YAW_ZERO_OFFSET 6617
+
 /**********************pitch÷·PID≤Œ ˝**********************/
 #define GIMBAL_PITCH_P_P 20.0f
 #define GIMBAL_PITCH_P_I 0.10f
