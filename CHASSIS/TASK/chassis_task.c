@@ -35,7 +35,6 @@ void Task_Chassis(void const *argument)
 		Chassis_Work(&Chassis_Control);
 
 		can2_chassis_to_gimbal(Chassis_Control.Chassis_RC);
-		//		Chassis_TO_Gimbal(&Chassis_Control);
 		can1_chassis_setmsg(Chassis_Control.Chassis_Motor[0].give_current,
 							Chassis_Control.Chassis_Motor[1].give_current,
 							Chassis_Control.Chassis_Motor[2].give_current,

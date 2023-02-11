@@ -69,3 +69,4 @@ new_infantry\chassis_behaviour.o: ../ACE-ECF/Algorithm/inc/pid.h
 new_infantry\chassis_behaviour.o: ../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h
 new_infantry\chassis_behaviour.o: ../TASK/chassis_task.h
 new_infantry\chassis_behaviour.o: ../ACE-ECF/Algorithm/inc/maths.h
+new_infantry\chassis_behaviour.o: ../SYSTEM/chassis_config.h

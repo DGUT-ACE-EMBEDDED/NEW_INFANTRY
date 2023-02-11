@@ -49,20 +49,20 @@ void chassis_can2_callback(CAN_HandleTypeDef *hcan)
 {
   CAN_RxHeaderTypeDef Rxmessage; //接收信息结构体
   uint8_t Rx_Data[8];            //接收的信息缓存的数组
-	int Register;
+//	int Register;
   if (HAL_CAN_GetRxMessage(&hcan2, CAN_RX_FIFO0, &Rxmessage, Rx_Data) == HAL_OK) //读取接收的信息
   {
     switch (Rxmessage.StdId)
     {
-			case 0x300:
-			{
-								__asm__ 
-								(
-									"LDR Register , [Rx_Data] \n"
-									"STR Register , [&Chassis_Control.Chassis_Gimbal_Diference_Angle] \n"
-								);
-								break;
-			}
+//			case 0x300:
+//			{
+//				__asm__ 
+//				(
+//					"LDR Register , [Rx_Data] \n"
+//					"STR Register , [&Chassis_Control.Chassis_Gimbal_Diference_Angle] \n"
+//				);
+//				break;
+//			}
 			case 0x206: // Y轴
 			{
 				yaw_motor_measure.position = (int16_t)(Rx_Data[0] << 8 | Rx_Data[1]);

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [NEW_INFANTRY\NEW_INFANTRY.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image NEW_INFANTRY\NEW_INFANTRY.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Feb 10 13:37:09 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Feb 10 15:09:01 2023
 <BR><P>
 <H3>Maximum Stack Usage =        468 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -593,8 +593,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1e1]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[239]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fifo_s_gets
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fifo_s_puts
+<BR><BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fifo_s_puts
+<LI><a href="#[239]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fifo_s_gets
 <LI><a href="#[1e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_RTT_WriteSkipNoLock
 <LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_RTT_ReadNoLock
 </UL>
@@ -608,7 +608,8 @@ Global Symbols
 <P><STRONG><a name="[a7]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_memcpy4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
+<BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_Init
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 <LI><a href="#[1c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMU_QuaternionEKF_xhatUpdate
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMU_QuaternionEKF_Observe
@@ -617,7 +618,6 @@ Global Symbols
 <LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;H_K_R_Adjustment
 <LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMU_QuaternionEKF_Update
 <LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMU_QuaternionEKF_Init
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_Init
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memcpy
 </UL>
 
@@ -642,7 +642,8 @@ Global Symbols
 <P><STRONG><a name="[c3]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = __aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_MspInit
+<LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
 <LI><a href="#[18d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_MspPostInit
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
@@ -656,7 +657,6 @@ Global Symbols
 <LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Kalman_Filter_Init
 <LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;H_K_R_Adjustment
 <LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;virtual_task_init
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_MspInit
 <LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSVIEW_DeleteTask
 <LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CDC_Init
 <LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSVIEW_SendTaskInfo
@@ -1198,7 +1198,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[16a]"></a>Error_Handler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, main.o(i.Error_Handler))
-<BR><BR>[Called By]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<BR><BR>[Called By]<UL><LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_LL_Init
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_ResetCallback
+<LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
 <LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USB_DEVICE_Init
 <LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART6_UART_Init
@@ -1209,8 +1211,6 @@ Global Symbols
 <LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN2_Init
 <LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN1_Init
 <LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
-<LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_LL_Init
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_ResetCallback
 </UL>
 
 <P><STRONG><a name="[87]"></a>Gimbal_Task</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, gimbal_task.o(i.Gimbal_Task))
@@ -1400,9 +1400,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bmi088_gyro_init
+<BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetCurrentMode
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bmi088_gyro_init
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bmi088_accel_init
-<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetCurrentMode
 </UL>
 
 <P><STRONG><a name="[128]"></a>HAL_GPIO_EXTI_Callback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_hal_gpio.o(i.HAL_GPIO_EXTI_Callback))
@@ -1421,12 +1421,12 @@ Global Symbols
 <P><STRONG><a name="[11e]"></a>HAL_GPIO_Init</STRONG> (Thumb, 454 bytes, Stack size 24 bytes, stm32f4xx_hal_gpio.o(i.HAL_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_MspInit
+<LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
 <LI><a href="#[18d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_MspPostInit
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
 <LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_MspInit
 </UL>
 
 <P><STRONG><a name="[cc]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_hal_gpio.o(i.HAL_GPIO_WritePin))
@@ -1486,13 +1486,13 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[120]"></a>HAL_NVIC_EnableIRQ</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, stm32f4xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ))
-<BR><BR>[Called By]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<BR><BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_MspInit
+<LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
 <LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_MspInit
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
 <LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_MspInit
 </UL>
 
 <P><STRONG><a name="[11f]"></a>HAL_NVIC_SetPriority</STRONG> (Thumb, 124 bytes, Stack size 40 bytes, stm32f4xx_hal_cortex.o(i.HAL_NVIC_SetPriority))
@@ -1501,14 +1501,14 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
 <LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_GetPriorityGrouping
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_MspInit
+<LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
 <LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_MspInit
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
 <LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_MspInit
 </UL>
 
 <P><STRONG><a name="[12a]"></a>HAL_NVIC_SetPriorityGrouping</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, stm32f4xx_hal_cortex.o(i.HAL_NVIC_SetPriorityGrouping))
@@ -1702,9 +1702,9 @@ Global Symbols
 <P><STRONG><a name="[15f]"></a>HAL_PCD_ResetCallback</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, usbd_conf.o(i.HAL_PCD_ResetCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = HAL_PCD_ResetCallback &rArr; USBD_LL_Reset &rArr; USBD_LL_OpenEP &rArr; HAL_PCD_EP_Open &rArr; USB_ActivateEndpoint
 </UL>
-<BR>[Calls]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
-<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_LL_SetSpeed
+<BR>[Calls]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_LL_SetSpeed
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_LL_Reset
+<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_IRQHandler
 </UL>
@@ -2289,11 +2289,11 @@ Global Symbols
 <P><STRONG><a name="[1cc]"></a>MX_USB_DEVICE_Init</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, usb_device.o(i.MX_USB_DEVICE_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = MX_USB_DEVICE_Init &rArr; USBD_Init &rArr; USBD_LL_Init &rArr; HAL_PCD_Init &rArr; HAL_PCD_MspInit &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
-<LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_Start
+<BR>[Calls]<UL><LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_Start
 <LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_RegisterClass
 <LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_Init
 <LI><a href="#[1cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CDC_RegisterInterface
+<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartDefaultTask
 </UL>
@@ -2760,8 +2760,8 @@ Global Symbols
 <P><STRONG><a name="[e3]"></a>USBD_CDC_SetTxBuffer</STRONG> (Thumb, 36 bytes, Stack size 12 bytes, usbd_cdc.o(i.USBD_CDC_SetTxBuffer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = USBD_CDC_SetTxBuffer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDC_Transmit_FS
-<LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDC_Init_FS
+<BR>[Called By]<UL><LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDC_Init_FS
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDC_Transmit_FS
 </UL>
 
 <P><STRONG><a name="[e8]"></a>USBD_CDC_TransmitPacket</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, usbd_cdc.o(i.USBD_CDC_TransmitPacket))
@@ -3016,10 +3016,10 @@ Global Symbols
 <P><STRONG><a name="[21c]"></a>USBD_LL_Init</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, usbd_conf.o(i.USBD_LL_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = USBD_LL_Init &rArr; HAL_PCD_Init &rArr; HAL_PCD_MspInit &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_Init
+<BR>[Calls]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_Init
 <LI><a href="#[224]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCDEx_SetTxFiFo
 <LI><a href="#[223]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCDEx_SetRxFiFo
+<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_Init
 </UL>
@@ -3282,10 +3282,10 @@ Global Symbols
 <P><STRONG><a name="[148]"></a>USB_EP0_OutStart</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, stm32f4xx_ll_usb.o(i.USB_EP0_OutStart))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = USB_EP0_OutStart
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_IRQHandler
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PCD_EP_OutXfrComplete_int
+<BR>[Called By]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PCD_EP_OutXfrComplete_int
 <LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PCD_EP_OutSetupPacket_int
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_EP_SetStall
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_IRQHandler
 </UL>
 
 <P><STRONG><a name="[140]"></a>USB_EPClearStall</STRONG> (Thumb, 142 bytes, Stack size 12 bytes, stm32f4xx_ll_usb.o(i.USB_EPClearStall))
@@ -3328,8 +3328,8 @@ Global Symbols
 <P><STRONG><a name="[155]"></a>USB_FlushTxFifo</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, stm32f4xx_ll_usb.o(i.USB_FlushTxFifo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USB_FlushTxFifo
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_IRQHandler
-<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_DevInit
+<BR>[Called By]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_DevInit
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_IRQHandler
 </UL>
 
 <P><STRONG><a name="[15c]"></a>USB_GetDevSpeed</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, stm32f4xx_ll_usb.o(i.USB_GetDevSpeed))
@@ -3339,8 +3339,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[14b]"></a>USB_GetMode</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_ll_usb.o(i.USB_GetMode))
-<BR><BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_IRQHandler
-<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetCurrentMode
+<BR><BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SetCurrentMode
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_IRQHandler
 </UL>
 
 <P><STRONG><a name="[153]"></a>USB_ReadDevAllInEpInterrupt</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_ll_usb.o(i.USB_ReadDevAllInEpInterrupt))
@@ -3376,8 +3376,8 @@ Global Symbols
 <P><STRONG><a name="[167]"></a>USB_SetCurrentMode</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, stm32f4xx_ll_usb.o(i.USB_SetCurrentMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = USB_SetCurrentMode &rArr; HAL_Delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetMode
+<BR>[Calls]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetMode
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_Init
 </UL>
@@ -3884,8 +3884,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[260]"></a>vTaskSuspendAll</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, tasks.o(i.vTaskSuspendAll))
-<BR><BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<BR><BR>[Called By]<UL><LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 </UL>
 
@@ -3964,8 +3964,8 @@ Global Symbols
 <LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 <LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<BR>[Called By]<UL><LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 </UL>
 

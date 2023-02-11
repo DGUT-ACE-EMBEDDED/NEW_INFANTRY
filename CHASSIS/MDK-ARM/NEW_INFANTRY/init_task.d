@@ -25,9 +25,9 @@ new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/que
 new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 new_infantry\init_task.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
-new_infantry\init_task.o: ../COMMUNICATION/can1_receive.h
-new_infantry\init_task.o: ../Core/Inc/can.h
-new_infantry\init_task.o: ../Core/Inc/main.h
+new_infantry\init_task.o: ../ACE-ECF/Bsp/Inc/bsp_referee.h
+new_infantry\init_task.o: ../ACE-ECF/Bsp/Inc/CRC.h
+new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\string.h
 new_infantry\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 new_infantry\init_task.o: ../Core/Inc/stm32f4xx_hal_conf.h
 new_infantry\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
@@ -58,11 +58,13 @@ new_infantry\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.
 new_infantry\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 new_infantry\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 new_infantry\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+new_infantry\init_task.o: ../COMMUNICATION/can1_receive.h
+new_infantry\init_task.o: ../Core/Inc/can.h
+new_infantry\init_task.o: ../Core/Inc/main.h
 new_infantry\init_task.o: ../SYSTEM/chassis_struct_variables.h
 new_infantry\init_task.o: ../ACE-ECF/Algorithm/inc/struct_typedef.h
 new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdlib.h
 new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdio.h
-new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\string.h
 new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdbool.h
 new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 new_infantry\init_task.o: ../ACE-ECF/Bsp/Inc/bsp_dr16.h

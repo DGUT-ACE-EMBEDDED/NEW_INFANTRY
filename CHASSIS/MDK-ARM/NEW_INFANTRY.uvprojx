@@ -468,6 +468,16 @@
               <FileType>1</FileType>
               <FilePath>..\ACE-ECF\Bsp\Src\bsp_dr16.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_referee.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ACE-ECF\Bsp\Src\bsp_referee.c</FilePath>
+            </File>
+            <File>
+              <FileName>CRC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ACE-ECF\Bsp\Src\CRC.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

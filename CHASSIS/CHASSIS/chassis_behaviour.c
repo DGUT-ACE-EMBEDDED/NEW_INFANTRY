@@ -3,7 +3,7 @@
 #include "bsp_dr16.h"
 #include "maths.h"
 #include "pid.h"
-
+#include "chassis_config.h"
 //原始控制量
 float Chassis_x = 0.0f;
 float Chassis_y = 0.0f;
@@ -141,6 +141,7 @@ void chassis_speed_pid_calculate(chassis_control_t *chassis_speed_pid_calculate_
     Chassis_x_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->Chassis_speedX_Pid, Chassis_x, 0);
     Chassis_y_pid_output = PidCalculate(&chassis_speed_pid_calculate_f->Chassis_speedY_Pid, Chassis_y, 0);
     Chassis_yaw_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->chassis_rotate_pid, Chassis_yaw, 0);
+	
 }
 
 void chassis_motion_decomposition(chassis_control_t *chassis_motion_decomposition_f)

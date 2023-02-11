@@ -24,6 +24,7 @@
 #define __GIMBAL_CONFIG_H
 
 //#define FIRE_WORK
+//p轴中位偏移值
 #define PITCH_ZERO_OFFSET 100.0f 
 
 /**********************pitch轴PID参数**********************/

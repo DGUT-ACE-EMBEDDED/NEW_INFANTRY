@@ -42,6 +42,7 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 extern void ECF_RC_UART_Handler(void);
+extern void REFEREE_UART_IRQHandler(UART_HandleTypeDef *huart);
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -260,7 +261,7 @@ void USART3_IRQHandler(void)
 void DMA2_Stream0_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream0_IRQn 0 */
-
+	
   /* USER CODE END DMA2_Stream0_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_spi1_rx);
   /* USER CODE BEGIN DMA2_Stream0_IRQn 1 */
@@ -330,7 +331,7 @@ void DMA2_Stream6_IRQHandler(void)
 void USART6_IRQHandler(void)
 {
   /* USER CODE BEGIN USART6_IRQn 0 */
-
+REFEREE_UART_IRQHandler(&huart6);
   /* USER CODE END USART6_IRQn 0 */
   HAL_UART_IRQHandler(&huart6);
   /* USER CODE BEGIN USART6_IRQn 1 */

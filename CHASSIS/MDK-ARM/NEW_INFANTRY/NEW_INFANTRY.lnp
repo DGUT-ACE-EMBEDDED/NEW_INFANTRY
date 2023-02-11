@@ -12,6 +12,8 @@
 "new_infantry\stm32f4xx_hal_timebase_tim.o"
 "new_infantry\bsp_motor_encoder.o"
 "new_infantry\bsp_dr16.o"
+"new_infantry\bsp_referee.o"
+"new_infantry\crc.o"
 "new_infantry\can1_receive.o"
 "new_infantry\can2_receive.o"
 "new_infantry\can1_send.o"
