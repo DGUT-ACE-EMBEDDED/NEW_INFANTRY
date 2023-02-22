@@ -42,7 +42,6 @@ new_infantry\bsp_dr16.o: ../Core/Inc/main.h
 new_infantry\bsp_dr16.o: ../ACE-ECF/Algorithm/inc/struct_typedef.h
 new_infantry\bsp_dr16.o: ../ACE-ECF/Bsp/Inc/ECF_BspConfig.h
 new_infantry\bsp_dr16.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h
-new_infantry\bsp_dr16.o: ../Core/Inc/FreeRTOSConfig.h
 new_infantry\bsp_dr16.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_FreeRTOS.h
 new_infantry\bsp_dr16.o: ../SYSTEMVIEW/SEGGER_SYSVIEW.h
 new_infantry\bsp_dr16.o: ../SYSTEMVIEW/SEGGER.h
@@ -51,6 +50,7 @@ new_infantry\bsp_dr16.o: ../SYSTEMVIEW/Global.h
 new_infantry\bsp_dr16.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_ConfDefaults.h
 new_infantry\bsp_dr16.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_Conf.h
 new_infantry\bsp_dr16.o: ../SYSTEMVIEW/SEGGER_RTT_Conf.h
+new_infantry\bsp_dr16.o: ../Core/Inc/FreeRTOSConfig.h
 new_infantry\bsp_dr16.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 new_infantry\bsp_dr16.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
 new_infantry\bsp_dr16.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h

@@ -63,6 +63,7 @@ new_infantry\init_task.o: ../Core/Inc/can.h
 new_infantry\init_task.o: ../Core/Inc/main.h
 new_infantry\init_task.o: ../SYSTEM/chassis_struct_variables.h
 new_infantry\init_task.o: ../ACE-ECF/Algorithm/inc/struct_typedef.h
+new_infantry\init_task.o: ../SYSTEM/chassis_config.h
 new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdlib.h
 new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdio.h
 new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdbool.h

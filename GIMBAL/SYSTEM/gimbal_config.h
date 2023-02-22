@@ -23,7 +23,7 @@
 #ifndef __GIMBAL_CONFIG_H
 #define __GIMBAL_CONFIG_H
 
-//#define FIRE_WORK
+#define FIRE_WORK
 //pÖáÖÐÎ»Æ«ÒÆÖµ
 #define PITCH_ZERO_OFFSET 100.0f 
 

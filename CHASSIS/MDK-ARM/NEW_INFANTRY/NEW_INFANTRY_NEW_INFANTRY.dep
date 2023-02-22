@@ -35,7 +35,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x638DF29E)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW.h)(0x62693214)
 I (..\SYSTEMVIEW\SEGGER.h)(0x62693214)
@@ -98,7 +98,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 F (../Core/Src/freertos.c)(0x638E1DA6)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\freertos.o --omf_browse new_infantry\freertos.crf --depend new_infantry\freertos.d)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (D:\keil\core\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
@@ -430,8 +430,8 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
-F (..\SYSTEM\chassis_config.h)(0x63E73EA3)()
-F (..\SYSTEM\chassis_struct_variables.h)(0x63C0CA46)()
+F (..\SYSTEM\chassis_config.h)(0x63EF432C)()
+F (..\SYSTEM\chassis_struct_variables.h)(0x63E87BED)()
 F (..\ACE-ECF\Bsp\Src\bsp_Motor_Encoder.c)(0x63A402AE)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\bsp_motor_encoder.o --omf_browse new_infantry\bsp_motor_encoder.crf --depend new_infantry\bsp_motor_encoder.d)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
 I (../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h)(0x63A402AE)
@@ -509,7 +509,7 @@ I (../Core/Inc/usart.h)(0x638DF29D)
 I (../Core/Inc/main.h)(0x638DF29D)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
 I (../ACE-ECF/Bsp/Inc/ECF_BspConfig.h)(0x639207F5)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x63ECA856)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW.h)(0x62693214)
 I (..\SYSTEMVIEW\SEGGER.h)(0x62693214)
@@ -567,7 +567,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 F (..\ACE-ECF\Bsp\Src\CRC.c)(0x63E64E1D)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\crc.o --omf_browse new_infantry\crc.crf --depend new_infantry\crc.d)
 I (../ACE-ECF/Bsp/Inc/CRC.h)(0x63E64E1D)
-F (..\communication\can1_receive.c)(0x638DF29D)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\can1_receive.o --omf_browse new_infantry\can1_receive.crf --depend new_infantry\can1_receive.d)
+F (..\communication\can1_receive.c)(0x63EF415B)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\can1_receive.o --omf_browse new_infantry\can1_receive.crf --depend new_infantry\can1_receive.d)
 I (..\communication\can1_receive.h)(0x638DF29D)
 I (../Core/Inc/can.h)(0x638DF29D)
 I (../Core/Inc/main.h)(0x638DF29D)
@@ -603,13 +603,14 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
-I (../SYSTEM/chassis_struct_variables.h)(0x63C0CA46)
+I (../SYSTEM/chassis_struct_variables.h)(0x63E87BED)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
+I (../SYSTEM/chassis_config.h)(0x63EF432C)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdbool.h)(0x6025237C)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x63ECA856)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW.h)(0x62693214)
 I (..\SYSTEMVIEW\SEGGER.h)(0x62693214)
@@ -634,6 +635,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x638DF29E
 I (../ACE-ECF/Bsp/Inc/bsp_dr16.h)(0x638DF2AA)
 I (../Core/Inc/usart.h)(0x638DF29D)
 I (../ACE-ECF/Bsp/Inc/ECF_BspConfig.h)(0x639207F5)
+I (../ACE-ECF/Bsp/Inc/bsp_referee.h)(0x63E6544D)
+I (../ACE-ECF/Bsp/Inc/CRC.h)(0x63E64E1D)
 I (../ACE-ECF/Algorithm/inc/pid.h)(0x638DF2A9)
 I (../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h)(0x63A402AE)
 I (..\communication\can2_receive.h)(0x63C0CA46)
@@ -674,13 +677,14 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
-I (../SYSTEM/chassis_struct_variables.h)(0x63C0CA46)
+I (../SYSTEM/chassis_struct_variables.h)(0x63E87BED)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
+I (../SYSTEM/chassis_config.h)(0x63EF432C)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdbool.h)(0x6025237C)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x63ECA856)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW.h)(0x62693214)
 I (..\SYSTEMVIEW\SEGGER.h)(0x62693214)
@@ -705,11 +709,13 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x638DF29E
 I (../ACE-ECF/Bsp/Inc/bsp_dr16.h)(0x638DF2AA)
 I (../Core/Inc/usart.h)(0x638DF29D)
 I (../ACE-ECF/Bsp/Inc/ECF_BspConfig.h)(0x639207F5)
+I (../ACE-ECF/Bsp/Inc/bsp_referee.h)(0x63E6544D)
+I (../ACE-ECF/Bsp/Inc/CRC.h)(0x63E64E1D)
 I (../ACE-ECF/Algorithm/inc/pid.h)(0x638DF2A9)
 I (../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h)(0x63A402AE)
-F (..\COMMUNICATION\can1_send.c)(0x638DF29D)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\can1_send.o --omf_browse new_infantry\can1_send.crf --depend new_infantry\can1_send.d)
+F (..\COMMUNICATION\can1_send.c)(0x63EF3BFA)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\can1_send.o --omf_browse new_infantry\can1_send.crf --depend new_infantry\can1_send.d)
 I (..\COMMUNICATION\can1_send.h)(0x638DF29D)
-I (../SYSTEM/chassis_struct_variables.h)(0x63C0CA46)
+I (../SYSTEM/chassis_struct_variables.h)(0x63E87BED)
 I (../Core/Inc/main.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x638DF29D)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x638DF29D)
@@ -744,11 +750,12 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
+I (../SYSTEM/chassis_config.h)(0x63EF432C)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdbool.h)(0x6025237C)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x63ECA856)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW.h)(0x62693214)
 I (..\SYSTEMVIEW\SEGGER.h)(0x62693214)
@@ -773,12 +780,14 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x638DF29E
 I (../ACE-ECF/Bsp/Inc/bsp_dr16.h)(0x638DF2AA)
 I (../Core/Inc/usart.h)(0x638DF29D)
 I (../ACE-ECF/Bsp/Inc/ECF_BspConfig.h)(0x639207F5)
+I (../ACE-ECF/Bsp/Inc/bsp_referee.h)(0x63E6544D)
+I (../ACE-ECF/Bsp/Inc/CRC.h)(0x63E64E1D)
 I (../ACE-ECF/Algorithm/inc/pid.h)(0x638DF2A9)
 I (../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h)(0x63A402AE)
 I (../Core/Inc/can.h)(0x638DF29D)
-F (..\COMMUNICATION\can2_send.c)(0x63B51817)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\can2_send.o --omf_browse new_infantry\can2_send.crf --depend new_infantry\can2_send.d)
-I (..\COMMUNICATION\can2_send.h)(0x6390CA60)
-I (../SYSTEM/chassis_struct_variables.h)(0x63C0CA46)
+F (..\COMMUNICATION\can2_send.c)(0x63F4D07A)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\can2_send.o --omf_browse new_infantry\can2_send.crf --depend new_infantry\can2_send.d)
+I (..\COMMUNICATION\can2_send.h)(0x63F4D06B)
+I (../SYSTEM/chassis_struct_variables.h)(0x63E87BED)
 I (../Core/Inc/main.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x638DF29D)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x638DF29D)
@@ -813,11 +822,12 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
+I (../SYSTEM/chassis_config.h)(0x63EF432C)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdbool.h)(0x6025237C)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x63ECA856)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW.h)(0x62693214)
 I (..\SYSTEMVIEW\SEGGER.h)(0x62693214)
@@ -842,13 +852,15 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x638DF29E
 I (../ACE-ECF/Bsp/Inc/bsp_dr16.h)(0x638DF2AA)
 I (../Core/Inc/usart.h)(0x638DF29D)
 I (../ACE-ECF/Bsp/Inc/ECF_BspConfig.h)(0x639207F5)
+I (../ACE-ECF/Bsp/Inc/bsp_referee.h)(0x63E6544D)
+I (../ACE-ECF/Bsp/Inc/CRC.h)(0x63E64E1D)
 I (../ACE-ECF/Algorithm/inc/pid.h)(0x638DF2A9)
 I (../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h)(0x63A402AE)
 I (../Core/Inc/can.h)(0x638DF29D)
 F (..\TASK\Init_Task.c)(0x63E654DC)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\init_task.o --omf_browse new_infantry\init_task.crf --depend new_infantry\init_task.d)
 I (..\TASK\Init_Task.h)(0x638DF29E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x638DF29E)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (D:\keil\core\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
@@ -907,8 +919,9 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 I (../COMMUNICATION/can1_receive.h)(0x638DF29D)
 I (../Core/Inc/can.h)(0x638DF29D)
 I (../Core/Inc/main.h)(0x638DF29D)
-I (../SYSTEM/chassis_struct_variables.h)(0x63C0CA46)
+I (../SYSTEM/chassis_struct_variables.h)(0x63E87BED)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
+I (../SYSTEM/chassis_config.h)(0x63EF432C)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\core\ARM\ARMCC\include\stdbool.h)(0x6025237C)
@@ -920,9 +933,9 @@ I (../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h)(0x63A402AE)
 I (../COMMUNICATION/can2_receive.h)(0x63C0CA46)
 I (..\TASK\Task_Safe.h)(0x638DF29E)
 I (..\TASK\chassis_task.h)(0x63E73EA2)
-F (..\TASK\chassis_task.c)(0x63E5E943)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\chassis_task.o --omf_browse new_infantry\chassis_task.crf --depend new_infantry\chassis_task.d)
+F (..\TASK\chassis_task.c)(0x63F4D06B)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\chassis_task.o --omf_browse new_infantry\chassis_task.crf --depend new_infantry\chassis_task.d)
 I (..\TASK\chassis_task.h)(0x63E73EA2)
-I (../SYSTEM/chassis_struct_variables.h)(0x63C0CA46)
+I (../SYSTEM/chassis_struct_variables.h)(0x63E87BED)
 I (../Core/Inc/main.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x638DF29D)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x638DF29D)
@@ -957,11 +970,12 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
+I (../SYSTEM/chassis_config.h)(0x63EF432C)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdbool.h)(0x6025237C)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x63ECA856)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW.h)(0x62693214)
 I (..\SYSTEMVIEW\SEGGER.h)(0x62693214)
@@ -986,6 +1000,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x638DF29E
 I (../ACE-ECF/Bsp/Inc/bsp_dr16.h)(0x638DF2AA)
 I (../Core/Inc/usart.h)(0x638DF29D)
 I (../ACE-ECF/Bsp/Inc/ECF_BspConfig.h)(0x639207F5)
+I (../ACE-ECF/Bsp/Inc/bsp_referee.h)(0x63E6544D)
+I (../ACE-ECF/Bsp/Inc/CRC.h)(0x63E64E1D)
 I (../ACE-ECF/Algorithm/inc/pid.h)(0x638DF2A9)
 I (../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h)(0x63A402AE)
 I (../CHASSIS/chassis_behaviour.h)(0x638DF29D)
@@ -993,9 +1009,8 @@ I (../COMMUNICATION/can1_receive.h)(0x638DF29D)
 I (../Core/Inc/can.h)(0x638DF29D)
 I (../COMMUNICATION/can2_receive.h)(0x63C0CA46)
 I (../COMMUNICATION/can1_send.h)(0x638DF29D)
-I (../COMMUNICATION/can2_send.h)(0x6390CA60)
+I (../COMMUNICATION/can2_send.h)(0x63F4D06B)
 I (../ACE-ECF/Algorithm/inc/maths.h)(0x639207F2)
-I (../SYSTEM/chassis_config.h)(0x63E73EA3)
 F (..\TASK\Task_Safe.c)(0x638DF29E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\task_safe.o --omf_browse new_infantry\task_safe.crf --depend new_infantry\task_safe.d)
 I (..\TASK\Task_Safe.h)(0x638DF29E)
 I (../Core/Inc/main.h)(0x638DF29D)
@@ -1032,7 +1047,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 I (..\TASK\Init_Task.h)(0x638DF29E)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x63ECA856)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW.h)(0x62693214)
 I (..\SYSTEMVIEW\SEGGER.h)(0x62693214)
@@ -1052,9 +1067,9 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x638DF29E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x638DF29E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x638DF29E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x638DF29E)
-F (..\CHASSIS\chassis_behaviour.c)(0x63E740CE)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\chassis_behaviour.o --omf_browse new_infantry\chassis_behaviour.crf --depend new_infantry\chassis_behaviour.d)
+F (..\CHASSIS\chassis_behaviour.c)(0x63E87CAA)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\chassis_behaviour.o --omf_browse new_infantry\chassis_behaviour.crf --depend new_infantry\chassis_behaviour.d)
 I (..\CHASSIS\chassis_behaviour.h)(0x638DF29D)
-I (../SYSTEM/chassis_struct_variables.h)(0x63C0CA46)
+I (../SYSTEM/chassis_struct_variables.h)(0x63E87BED)
 I (../Core/Inc/main.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x638DF29D)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x638DF29D)
@@ -1089,11 +1104,12 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
+I (../SYSTEM/chassis_config.h)(0x63EF432C)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdbool.h)(0x6025237C)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x63ECA856)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW.h)(0x62693214)
 I (..\SYSTEMVIEW\SEGGER.h)(0x62693214)
@@ -1118,11 +1134,12 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x638DF29E
 I (../ACE-ECF/Bsp/Inc/bsp_dr16.h)(0x638DF2AA)
 I (../Core/Inc/usart.h)(0x638DF29D)
 I (../ACE-ECF/Bsp/Inc/ECF_BspConfig.h)(0x639207F5)
+I (../ACE-ECF/Bsp/Inc/bsp_referee.h)(0x63E6544D)
+I (../ACE-ECF/Bsp/Inc/CRC.h)(0x63E64E1D)
 I (../ACE-ECF/Algorithm/inc/pid.h)(0x638DF2A9)
 I (../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h)(0x63A402AE)
 I (../TASK/chassis_task.h)(0x63E73EA2)
 I (../ACE-ECF/Algorithm/inc/maths.h)(0x639207F2)
-I (../SYSTEM/chassis_config.h)(0x63E73EA3)
 F (..\ACE-ECF\Algorithm\src\maths.c)(0x639207F2)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\maths.o --omf_browse new_infantry\maths.crf --depend new_infantry\maths.d)
 I (../ACE-ECF/Algorithm/inc/maths.h)(0x639207F2)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
@@ -1769,7 +1786,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 F (../Middlewares/Third_Party/FreeRTOS/Source/croutine.c)(0x638DF29E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\croutine.o --omf_browse new_infantry\croutine.crf --depend new_infantry\croutine.d)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (D:\keil\core\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
@@ -1791,7 +1808,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x638DF29E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h)(0x638DF29E)
 F (../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c)(0x638DF29E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\event_groups.o --omf_browse new_infantry\event_groups.crf --depend new_infantry\event_groups.d)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (D:\keil\core\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
@@ -1814,7 +1831,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x638DF29E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x638DF29E)
 F (../Middlewares/Third_Party/FreeRTOS/Source/list.c)(0x638DF29E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\list.o --omf_browse new_infantry\list.crf --depend new_infantry\list.d)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (D:\keil\core\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
@@ -1835,7 +1852,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x638DF29E)
 F (../Middlewares/Third_Party/FreeRTOS/Source/queue.c)(0x638DF29E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\queue.o --omf_browse new_infantry\queue.crf --depend new_infantry\queue.d)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (D:\keil\core\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
@@ -1858,7 +1875,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x638DF29E)
 F (../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c)(0x638DF29E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\stream_buffer.o --omf_browse new_infantry\stream_buffer.crf --depend new_infantry\stream_buffer.d)
 I (D:\keil\core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (D:\keil\core\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW.h)(0x62693214)
@@ -1880,7 +1897,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h)(0x638DF29
 F (../Middlewares/Third_Party/FreeRTOS/Source/tasks.c)(0x638DF29E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\tasks.o --omf_browse new_infantry\tasks.crf --depend new_infantry\tasks.d)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (D:\keil\core\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
@@ -1903,7 +1920,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x638DF29E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/stack_macros.h)(0x638DF29E)
 F (../Middlewares/Third_Party/FreeRTOS/Source/timers.c)(0x638DF29E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\timers.o --omf_browse new_infantry\timers.crf --depend new_infantry\timers.d)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (D:\keil\core\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
@@ -1927,7 +1944,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x638DF29E)
 F (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c)(0x638DF29E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\cmsis_os.o --omf_browse new_infantry\cmsis_os.crf --depend new_infantry\cmsis_os.d)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x638DF29E)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (D:\keil\core\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
@@ -1953,7 +1970,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x638DF29E
 I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x638DF29D)
 F (../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c)(0x638DF29E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\heap_4.o --omf_browse new_infantry\heap_4.crf --depend new_infantry\heap_4.d)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (D:\keil\core\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
@@ -1973,7 +1990,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x638DF29E
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x638DF29E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x638DF29E)
 F (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/port.c)(0x638DF29E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\port.o --omf_browse new_infantry\port.crf --depend new_infantry\port.d)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (D:\keil\core\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
@@ -2017,7 +2034,7 @@ I (..\SYSTEMVIEW\SEGGER_SYSVIEW_Conf.h)(0x62693210)
 I (..\SYSTEMVIEW\SEGGER_RTT_Conf.h)(0x62693210)
 I (..\SYSTEMVIEW\SEGGER_RTT.h)(0x638E1717)
 F (..\SYSTEMVIEW\SEGGER_SYSVIEW_Config_FreeRTOS.c)(0x62693212)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\segger_sysview_config_freertos.o --omf_browse new_infantry\segger_sysview_config_freertos.crf --depend new_infantry\segger_sysview_config_freertos.d)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (D:\keil\core\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)
@@ -2035,7 +2052,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(
 I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x638DF29E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x638DF29E)
 F (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.c)(0x62693212)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U"-o new_infantry\segger_sysview_freertos.o --omf_browse new_infantry\segger_sysview_freertos.crf --depend new_infantry\segger_sysview_freertos.d)
-I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x638E166A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x63ECA856)
 I (D:\keil\core\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h)(0x62693212)

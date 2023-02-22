@@ -136,12 +136,28 @@ void chassis_state_choose(chassis_control_t *chassis_state_choose_f)
         chassis_state_choose_f->chassis_state = CHASSIS_ZERO_FORCE;
     }
 }
+
 void chassis_speed_pid_calculate(chassis_control_t *chassis_speed_pid_calculate_f)
 {
-    Chassis_x_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->Chassis_speedX_Pid, Chassis_x, 0);
-    Chassis_y_pid_output = PidCalculate(&chassis_speed_pid_calculate_f->Chassis_speedY_Pid, Chassis_y, 0);
-    Chassis_yaw_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->chassis_rotate_pid, Chassis_yaw, 0);
+		#ifdef POWER_CONTROL
+		static int count=0;
+		#endif
+		Chassis_x_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->Chassis_speedX_Pid, Chassis_x, 0);
+		Chassis_y_pid_output = PidCalculate(&chassis_speed_pid_calculate_f->Chassis_speedY_Pid, Chassis_y, 0);
+		Chassis_yaw_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->chassis_rotate_pid, Chassis_yaw, 0);
 	
+		#ifdef POWER_CONTROL
+	//FIXME:还不能完全控制住功耗，起步打滑。
+		count++;
+		if(count == 50)
+		{
+			chassis_speed_pid_calculate_f->chassis_speed_gain = PidCalculate(&chassis_speed_pid_calculate_f->power_pid,chassis_speed_pid_calculate_f->referee_p->Robot_Status.chassis_power_limit,chassis_speed_pid_calculate_f->referee_p->Power_Heat.chassis_power) + 1.0f;
+			chassis_speed_pid_calculate_f->chassis_speed_gain -= PidCalculate(&chassis_speed_pid_calculate_f->powerbuff_pid,60,chassis_speed_pid_calculate_f->referee_p->Power_Heat.chassis_power_buffer);
+			if(chassis_speed_pid_calculate_f->chassis_speed_gain<=0)chassis_speed_pid_calculate_f->chassis_speed_gain = 0.0;
+			count = 0;
+		}
+		#endif
+		
 }
 
 void chassis_motion_decomposition(chassis_control_t *chassis_motion_decomposition_f)

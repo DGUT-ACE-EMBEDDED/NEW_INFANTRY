@@ -113,10 +113,10 @@ void chassis_can1_callback(CAN_HandleTypeDef *hcan)
 		}
 		case 0x211: //超级电容接收
 		{
-			Supercap_receive.input_voltage = (float)(Rx_Data[0] / 100.0f);
-			Supercap_receive.Capacitance_voltage = (float)(Rx_Data[1] / 100.0f);
-			Supercap_receive.Input_current = (float)(Rx_Data[2] / 100.0f);
-			Supercap_receive.Set_power = (float)(Rx_Data[3] / 100.0f);
+			Supercap_receive.input_voltage = (float)((Rx_Data[1] << 8 | Rx_Data[0])/ 100.0f);
+			Supercap_receive.Capacitance_voltage = (float)((Rx_Data[3] << 8 | Rx_Data[2])/ 100.0f);
+			Supercap_receive.Input_current = (float)((Rx_Data[5] << 8 | Rx_Data[4])/ 100.0f);
+			Supercap_receive.Set_power = (float)((Rx_Data[7] << 8 | Rx_Data[6])/ 100.0f);
 			break;
 		}
 		default:

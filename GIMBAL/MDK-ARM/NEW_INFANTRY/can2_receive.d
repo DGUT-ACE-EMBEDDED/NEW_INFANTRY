@@ -47,16 +47,17 @@ new_infantry\can2_receive.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdio.h
 new_infantry\can2_receive.o: ../Core/Inc/usart.h
 new_infantry\can2_receive.o: ../ACE-ECF/Bsp/Inc/ECF_BspConfig.h
 new_infantry\can2_receive.o: ../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h
+new_infantry\can2_receive.o: ../ACE-ECF/Bsp/Inc/bsp_referee.h
+new_infantry\can2_receive.o: ../ACE-ECF/Bsp/Inc/CRC.h
+new_infantry\can2_receive.o: D:\keil\core\ARM\ARMCC\Bin\..\include\string.h
 new_infantry\can2_receive.o: ../ACE-ECF/Algorithm/inc/pid.h
 new_infantry\can2_receive.o: ../ACE-ECF/Algorithm/inc/fifo.h
-new_infantry\can2_receive.o: D:\keil\core\ARM\ARMCC\Bin\..\include\string.h
 new_infantry\can2_receive.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdlib.h
 new_infantry\can2_receive.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdarg.h
 new_infantry\can2_receive.o: D:\keil\core\ARM\ARMCC\Bin\..\include\math.h
 new_infantry\can2_receive.o: D:\keil\core\ARM\ARMCC\Bin\..\include\errno.h
 new_infantry\can2_receive.o: ../ACE-ECF/Algorithm/inc/linux_list.h
 new_infantry\can2_receive.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-new_infantry\can2_receive.o: ../Core/Inc/FreeRTOSConfig.h
 new_infantry\can2_receive.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_FreeRTOS.h
 new_infantry\can2_receive.o: ../SYSTEMVIEW/SEGGER_SYSVIEW.h
 new_infantry\can2_receive.o: ../SYSTEMVIEW/SEGGER.h
@@ -64,6 +65,7 @@ new_infantry\can2_receive.o: ../SYSTEMVIEW/Global.h
 new_infantry\can2_receive.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_ConfDefaults.h
 new_infantry\can2_receive.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_Conf.h
 new_infantry\can2_receive.o: ../SYSTEMVIEW/SEGGER_RTT_Conf.h
+new_infantry\can2_receive.o: ../Core/Inc/FreeRTOSConfig.h
 new_infantry\can2_receive.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 new_infantry\can2_receive.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
 new_infantry\can2_receive.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h

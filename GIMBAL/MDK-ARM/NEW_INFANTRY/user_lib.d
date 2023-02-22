@@ -41,7 +41,6 @@ new_infantry\user_lib.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
 new_infantry\user_lib.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
 new_infantry\user_lib.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 new_infantry\user_lib.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-new_infantry\user_lib.o: ../Core/Inc/FreeRTOSConfig.h
 new_infantry\user_lib.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_FreeRTOS.h
 new_infantry\user_lib.o: ../SYSTEMVIEW/SEGGER_SYSVIEW.h
 new_infantry\user_lib.o: ../SYSTEMVIEW/SEGGER.h
@@ -50,6 +49,7 @@ new_infantry\user_lib.o: ../SYSTEMVIEW/Global.h
 new_infantry\user_lib.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_ConfDefaults.h
 new_infantry\user_lib.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_Conf.h
 new_infantry\user_lib.o: ../SYSTEMVIEW/SEGGER_RTT_Conf.h
+new_infantry\user_lib.o: ../Core/Inc/FreeRTOSConfig.h
 new_infantry\user_lib.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 new_infantry\user_lib.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
 new_infantry\user_lib.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h

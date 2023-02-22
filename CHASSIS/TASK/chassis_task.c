@@ -9,7 +9,7 @@
 #include "bsp_Motor_Encoder.h"
 #include "maths.h"
 #include "chassis_config.h"
-
+#include "bsp_referee.h"
 chassis_control_t Chassis_Control;
 
 static void Chassis_Init(chassis_control_t *Chassis_Control);
@@ -31,7 +31,7 @@ void Task_Chassis(void const *argument)
 	while (1)
 	{
 		taskENTER_CRITICAL(); //进入临界区
-
+		can2_chassis_to_gimbal_referee(Chassis_Control.referee_p);
 		Chassis_Work(&Chassis_Control);
 
 		can2_chassis_to_gimbal(Chassis_Control.Chassis_RC);
@@ -39,7 +39,7 @@ void Task_Chassis(void const *argument)
 							Chassis_Control.Chassis_Motor[1].give_current,
 							Chassis_Control.Chassis_Motor[2].give_current,
 							Chassis_Control.Chassis_Motor[3].give_current);
-
+		can1_cap_setmsg(50);
 		taskEXIT_CRITICAL(); //退出临界区
 
 		//vTaskDelayUntil(&currentTime, 1); //绝对延时//vTaskDelay(2)
@@ -81,17 +81,18 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	/*--------------------初始化指针--------------------*/
 	//获取遥控的指针
 	chassis_data_init_f->Chassis_RC = RC_Get_RC_Pointer();
-
+	
 	//获取底盘四个电机的指针
 	chassis_data_init_f->Chassis_Motor[0].chassis_motor_measure = get_chassis_motor_measure_point(0);
 	chassis_data_init_f->Chassis_Motor[1].chassis_motor_measure = get_chassis_motor_measure_point(1);
 	chassis_data_init_f->Chassis_Motor[2].chassis_motor_measure = get_chassis_motor_measure_point(2);
 	chassis_data_init_f->Chassis_Motor[3].chassis_motor_measure = get_chassis_motor_measure_point(3);
-
+	//获取底盘YAW电机的指针
 	chassis_data_init_f->yaw_motor = get_yaw_motor_measure_point();
 	//获取超级电容的指针
 	chassis_data_init_f->super_cap_c = get_supercap_control_point();
-
+	//获取裁判系统的指针
+	chassis_data_init_f->referee_p = Get_referee_Address();
 
 	/*--------------------初始化编码器--------------------*/
 	chassis_data_init_f->Motor_encoder[0] = Encoder_Init(M3508, 1);
@@ -123,7 +124,16 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	PidInitMode(&chassis_data_init_f->Chassis_speedY_Pid, StepIn, 3.0F, 0);
 	PidInitMode(&chassis_data_init_f->Chassis_speedX_Pid, OutputFilter, CHASSIS_FIRST_ORDER_FILTER_K, 0);
 	PidInitMode(&chassis_data_init_f->Chassis_speedY_Pid, OutputFilter, CHASSIS_FIRST_ORDER_FILTER_K, 0);
+	
+	#ifdef POWER_CONTROL
+	PidInit(&chassis_data_init_f->power_pid, 0.03, 0.005, 0.0, Output_Limit | Integral_Limit | OutputFilter );
+	PidInitMode(&chassis_data_init_f->power_pid , Output_Limit , 3.0,0);
+	PidInitMode(&chassis_data_init_f->power_pid , Integral_Limit , 200,0);
+	PidInitMode(&chassis_data_init_f->power_pid , OutputFilter , 0.04,0);
 
+	PidInit(&chassis_data_init_f->powerbuff_pid, 1.0/55.0, 0.0, 0.0, NULL);
+	#endif
+	
 	//底盘旋转跟随pid
 	PidInit(&chassis_data_init_f->chassis_rotate_pid, CHASSIS_SPIN_FOLLOW_KP, CHASSIS_SPIN_FOLLOW_KI, CHASSIS_SPIN_FOLLOW_KD, Deadzone | ChangingIntegrationRate | Integral_Limit);
 	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, Deadzone, 0.0f, 0);

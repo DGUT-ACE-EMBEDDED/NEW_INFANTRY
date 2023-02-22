@@ -55,6 +55,8 @@ new_infantry\gimbal_task.o: ../ACE-ECF/Bsp/Inc/bsp_dr16.h
 new_infantry\gimbal_task.o: ../Core/Inc/usart.h
 new_infantry\gimbal_task.o: ../ACE-ECF/Bsp/Inc/ECF_BspConfig.h
 new_infantry\gimbal_task.o: ../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h
+new_infantry\gimbal_task.o: ../ACE-ECF/Bsp/Inc/bsp_referee.h
+new_infantry\gimbal_task.o: ../ACE-ECF/Bsp/Inc/CRC.h
 new_infantry\gimbal_task.o: ../ACE-ECF/Algorithm/inc/pid.h
 new_infantry\gimbal_task.o: ../ACE-ECF/Algorithm/inc/fifo.h
 new_infantry\gimbal_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdarg.h
@@ -62,7 +64,6 @@ new_infantry\gimbal_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\math.h
 new_infantry\gimbal_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\errno.h
 new_infantry\gimbal_task.o: ../ACE-ECF/Algorithm/inc/linux_list.h
 new_infantry\gimbal_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-new_infantry\gimbal_task.o: ../Core/Inc/FreeRTOSConfig.h
 new_infantry\gimbal_task.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_FreeRTOS.h
 new_infantry\gimbal_task.o: ../SYSTEMVIEW/SEGGER_SYSVIEW.h
 new_infantry\gimbal_task.o: ../SYSTEMVIEW/SEGGER.h
@@ -70,6 +71,7 @@ new_infantry\gimbal_task.o: ../SYSTEMVIEW/Global.h
 new_infantry\gimbal_task.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_ConfDefaults.h
 new_infantry\gimbal_task.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_Conf.h
 new_infantry\gimbal_task.o: ../SYSTEMVIEW/SEGGER_RTT_Conf.h
+new_infantry\gimbal_task.o: ../Core/Inc/FreeRTOSConfig.h
 new_infantry\gimbal_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 new_infantry\gimbal_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
 new_infantry\gimbal_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h

@@ -36,6 +36,7 @@ new_infantry\can2_send.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.
 new_infantry\can2_send.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 new_infantry\can2_send.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 new_infantry\can2_send.o: ../ACE-ECF/Algorithm/inc/struct_typedef.h
+new_infantry\can2_send.o: ../SYSTEM/chassis_config.h
 new_infantry\can2_send.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdlib.h
 new_infantry\can2_send.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdio.h
 new_infantry\can2_send.o: D:\keil\core\ARM\ARMCC\Bin\..\include\string.h
@@ -65,6 +66,8 @@ new_infantry\can2_send.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/eve
 new_infantry\can2_send.o: ../ACE-ECF/Bsp/Inc/bsp_dr16.h
 new_infantry\can2_send.o: ../Core/Inc/usart.h
 new_infantry\can2_send.o: ../ACE-ECF/Bsp/Inc/ECF_BspConfig.h
+new_infantry\can2_send.o: ../ACE-ECF/Bsp/Inc/bsp_referee.h
+new_infantry\can2_send.o: ../ACE-ECF/Bsp/Inc/CRC.h
 new_infantry\can2_send.o: ../ACE-ECF/Algorithm/inc/pid.h
 new_infantry\can2_send.o: ../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h
 new_infantry\can2_send.o: ../Core/Inc/can.h

@@ -46,7 +46,7 @@ ___`. .' /--.--\ `. . __
 /******************** BSP ********************/
 #include "bsp_dr16.h"
 #include "bsp_Motor_Encoder.h"
-
+#include "bsp_referee.h"
 /********************ALGORITHM********************/
 #include "pid.h"
 #include "fifo.h"
@@ -126,6 +126,7 @@ typedef struct
 	bool feed_buttle;
 	
 	const RC_ctrl_t *fire_rc;
+	const REFEREE_t *referee;
 } gimbal_fire_control_t;
 
 typedef struct
@@ -153,6 +154,7 @@ typedef struct
 	const gimbal_fire_control_t **fire_c;
 	const gimbal_auto_control_t **auto_c;
 	const INS_t *Imu_c;
+	const REFEREE_t *referee;
 } gimbal_control_t;
 
 #endif

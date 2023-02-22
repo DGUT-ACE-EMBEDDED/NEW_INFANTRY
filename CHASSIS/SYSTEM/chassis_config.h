@@ -21,9 +21,11 @@
 #ifndef __CHASSIS_CONFIG_H
 #define __CHASSIS_CONFIG_H
 
+//功耗控制，依赖于裁判系统 还有bug
+//#define POWER_CONTROL
 
 //yaw归中编码值
-#define YAW_ZERO_OFFSET 6617
+#define YAW_ZERO_OFFSET 8015
 
 //3508最大电流值
 #define MOTOR_3508_CURRENT_LIMIT 15000

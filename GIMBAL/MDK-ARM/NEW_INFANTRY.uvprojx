@@ -473,6 +473,16 @@
               <FileType>1</FileType>
               <FilePath>..\ACE-ECF\Bsp\Src\bsp_Motor_Encoder.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_referee.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ACE-ECF\Bsp\Src\bsp_referee.c</FilePath>
+            </File>
+            <File>
+              <FileName>CRC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ACE-ECF\Bsp\Src\CRC.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -953,28 +963,9 @@
           </GroupOption>
           <Files>
             <File>
-              <FileName>arm_cortexM4l_math.lib</FileName>
+              <FileName>arm_cortexM4lf_math.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>../Middlewares/ST/ARM/DSP/Lib/arm_cortexM4l_math.lib</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>1</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds/>
-              </FileOption>
+              <FilePath>..\Drivers\CMSIS\Lib\ARM\arm_cortexM4lf_math.lib</FilePath>
             </File>
           </Files>
         </Group>

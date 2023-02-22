@@ -26,7 +26,7 @@ ___`. .' /--.--\ `. . __
 
 #include "main.h"
 #include "struct_typedef.h"
-
+#include "chassis_config.h"
 /*  系统头文件 */
 #include <stdlib.h>
 #include <stdio.h>
@@ -48,7 +48,7 @@ ___`. .' /--.--\ `. . __
 //#include "capacitor_control.h"
 //#include "upper_machine.h"
 //#include "visual.h"
-
+#include "bsp_referee.h"
 /********************ALGORITHM********************/
 //#include "fifo_buff.h"
 #include "pid.h"
@@ -129,11 +129,16 @@ typedef struct
 	pid_parameter_t Chassis_speedX_Pid; //底盘速度xpid
 	pid_parameter_t Chassis_speedY_Pid; //底盘速度ypid
 	pid_parameter_t chassis_rotate_pid; //旋转pid
+	#ifdef POWER_CONTROL
+	pid_parameter_t power_pid; //功率
+	pid_parameter_t powerbuff_pid; //功率
+	#endif
 
 	fp32 Chassis_Gimbal_Diference_Angle; //底盘与云台的差角
 
 	Supercapacitor_receive_t *super_cap_c; //超电
 	fp32 chassis_speed_gain;			   //速度因子
+	REFEREE_t *referee_p;
 
 } chassis_control_t;
 

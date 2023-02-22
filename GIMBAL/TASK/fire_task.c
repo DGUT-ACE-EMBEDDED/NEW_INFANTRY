@@ -8,12 +8,14 @@
 #include "bsp_dr16.h"
 #include "bsp_Motor_Encoder.h"
 #include "gimbal_config.h"
+#include "bsp_referee.h"
 /* ************************freertos******************** */
 #include "freertos.h"
 #include "task.h"
 #include "queue.h"
 #include "semphr.h"
 #include "timers.h"
+
 
 gimbal_fire_control_t *fire_control_p;
 
@@ -44,7 +46,7 @@ gimbal_fire_control_t *fire_task_init(void)
 	fire_task_init_p->right_motor.motor_measure = get_right_motor_measure_point();
 	fire_task_init_p->left_motor.motor_measure = get_left_motor_measure_point();
 	fire_task_init_p->fire_motor.motor_measure = get_fire_motor_measure_point();
-	
+	fire_task_init_p->referee = Get_referee_Address();
 	fire_task_init_p->fire_rc  = RC_Get_RC_Pointer();
 	
 	fire_task_init_p->fire_motor_encoder = Encoder_Init(M2006, 3); 
@@ -65,6 +67,7 @@ gimbal_fire_control_t *fire_task_init(void)
 
 	return fire_task_init_p;
 }
+int speedtest=FIRE_SPEED_15;
 void fire_behaviour_choose(gimbal_fire_control_t *fire_behaviour_choose_f)
 {
 	static uint16_t last_B = 0;
@@ -93,15 +96,15 @@ void fire_behaviour_choose(gimbal_fire_control_t *fire_behaviour_choose_f)
 	//  	case :
 	//  	fire_behaviour_choose_f->left_motor.Speed_Set = fire_behaviour_choose_f->right_motor.Speed_Set = fire_speed_15;
 	//  }
-	fire_behaviour_choose_f->left_motor.Speed_Set = -2000;
-	fire_behaviour_choose_f->right_motor.Speed_Set = 2000;
+	fire_behaviour_choose_f->left_motor.Speed_Set = -speedtest;
+	fire_behaviour_choose_f->right_motor.Speed_Set = speedtest;
 	// 弹舱舵机控制 TODO:
 }
 
 
 void fire_pid_calculate(gimbal_fire_control_t *fire_pid_calculate_f)
 {
-	if ((fire_pid_calculate_f->fire_rc->mouse.press_l != 0) || (fire_pid_calculate_f->fire_rc->rc.ch[4] > 0))
+	if (((fire_pid_calculate_f->fire_rc->mouse.press_l != 0) || (fire_pid_calculate_f->fire_rc->rc.ch[4] > 0) )&& (fire_pid_calculate_f->referee->Power_Heat.shooter_id1_17mm_cooling_heat +25 <= fire_pid_calculate_f->referee->Robot_Status.shooter_id1_17mm_cooling_limit))
 	{
 		if (fire_pid_calculate_f->full_automatic) // 全自动开环控制
 		{

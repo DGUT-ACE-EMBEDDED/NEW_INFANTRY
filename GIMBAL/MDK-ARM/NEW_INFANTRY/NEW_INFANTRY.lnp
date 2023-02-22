@@ -12,6 +12,8 @@
 "new_infantry\stm32f4xx_hal_timebase_tim.o"
 "new_infantry\bsp_dr16.o"
 "new_infantry\bsp_motor_encoder.o"
+"new_infantry\bsp_referee.o"
+"new_infantry\crc.o"
 "new_infantry\can1_receive.o"
 "new_infantry\can1_send.o"
 "new_infantry\can2_receive.o"
@@ -80,7 +82,7 @@
 "new_infantry\segger_sysview.o"
 "new_infantry\segger_sysview_config_freertos.o"
 "new_infantry\segger_sysview_freertos.o"
-"../Middlewares/ST/ARM/DSP/Lib/arm_cortexM4l_math.lib"
+"..\Drivers\CMSIS\Lib\ARM\arm_cortexM4lf_math.lib"
 --strict --scatter "NEW_INFANTRY\NEW_INFANTRY.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
