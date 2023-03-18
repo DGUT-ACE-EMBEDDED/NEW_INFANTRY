@@ -16,7 +16,6 @@
 #include "semphr.h"
 #include "timers.h"
 
-
 gimbal_fire_control_t *fire_control_p;
 
 static gimbal_fire_control_t *fire_task_init(void);
@@ -46,10 +45,11 @@ gimbal_fire_control_t *fire_task_init(void)
 	fire_task_init_p->right_motor.motor_measure = get_right_motor_measure_point();
 	fire_task_init_p->left_motor.motor_measure = get_left_motor_measure_point();
 	fire_task_init_p->fire_motor.motor_measure = get_fire_motor_measure_point();
-	fire_task_init_p->referee = Get_referee_Address();
-	fire_task_init_p->fire_rc  = RC_Get_RC_Pointer();
 	
-	fire_task_init_p->fire_motor_encoder = Encoder_Init(M2006, 3); 
+	fire_task_init_p->referee = Get_referee_Address();
+	fire_task_init_p->fire_rc = RC_Get_RC_Pointer();
+
+	fire_task_init_p->fire_motor_encoder = Encoder_Init(M2006, 3);
 
 	// fire
 	PidInit(&fire_task_init_p->left_motor_speed_pid, 10, 0, 0, Output_Limit);
@@ -67,7 +67,7 @@ gimbal_fire_control_t *fire_task_init(void)
 
 	return fire_task_init_p;
 }
-int speedtest=FIRE_SPEED_15;
+
 void fire_behaviour_choose(gimbal_fire_control_t *fire_behaviour_choose_f)
 {
 	static uint16_t last_B = 0;
@@ -90,25 +90,41 @@ void fire_behaviour_choose(gimbal_fire_control_t *fire_behaviour_choose_f)
 	// 	fire_behaviour_choose_f->feed_buttle = !fire_behaviour_choose_f->feed_buttle;
 	// }
 
-	// 裁判系统弹速设置 TODO:
-	//  switch()
-	//  {
-	//  	case :
-	//  	fire_behaviour_choose_f->left_motor.Speed_Set = fire_behaviour_choose_f->right_motor.Speed_Set = fire_speed_15;
-	//  }
-	fire_behaviour_choose_f->left_motor.Speed_Set = -speedtest;
-	fire_behaviour_choose_f->right_motor.Speed_Set = speedtest;
+	// 裁判系统弹速设置
+	switch (fire_behaviour_choose_f->referee->Robot_Status.shooter_id1_17mm_speed_limit)
+	{
+	case 15:
+		fire_behaviour_choose_f->left_motor.Speed_Set = -FIRE_SPEED_15;
+		fire_behaviour_choose_f->right_motor.Speed_Set = FIRE_SPEED_15;
+		break;
+	case 18:
+		fire_behaviour_choose_f->left_motor.Speed_Set = -FIRE_SPEED_18;
+		fire_behaviour_choose_f->right_motor.Speed_Set = FIRE_SPEED_18;
+		break;
+	case 22:
+		fire_behaviour_choose_f->left_motor.Speed_Set = -FIRE_SPEED_22;
+		fire_behaviour_choose_f->right_motor.Speed_Set = FIRE_SPEED_22;
+		break;
+	case 30:
+		fire_behaviour_choose_f->left_motor.Speed_Set = -FIRE_SPEED_30;
+		fire_behaviour_choose_f->right_motor.Speed_Set = FIRE_SPEED_30;
+		break;
+	default:
+		fire_behaviour_choose_f->left_motor.Speed_Set = -FIRE_SPEED_15;
+		fire_behaviour_choose_f->right_motor.Speed_Set = FIRE_SPEED_15;
+		break;
+	}
+
 	// 弹舱舵机控制 TODO:
 }
 
-
 void fire_pid_calculate(gimbal_fire_control_t *fire_pid_calculate_f)
 {
-	if (((fire_pid_calculate_f->fire_rc->mouse.press_l != 0) || (fire_pid_calculate_f->fire_rc->rc.ch[4] > 0) )&& (fire_pid_calculate_f->referee->Power_Heat.shooter_id1_17mm_cooling_heat +25 <= fire_pid_calculate_f->referee->Robot_Status.shooter_id1_17mm_cooling_limit))
+	if (((fire_pid_calculate_f->fire_rc->mouse.press_l != 0) || (fire_pid_calculate_f->fire_rc->rc.ch[4] > 0)) && (fire_pid_calculate_f->referee->Power_Heat.shooter_id1_17mm_cooling_heat + 25 <= fire_pid_calculate_f->referee->Robot_Status.shooter_id1_17mm_cooling_limit))
 	{
 		if (fire_pid_calculate_f->full_automatic) // 全自动开环控制
 		{
-			fire_pid_calculate_f->fire_motor.Speed_Set = 5000; // TODO:
+			fire_pid_calculate_f->fire_motor.Speed_Set = 8000; // TODO:5000
 			fire_pid_calculate_f->fire_motor.set_current = motor_speed_control(&fire_pid_calculate_f->fire_motor_speed_pid,
 																			   fire_pid_calculate_f->fire_motor.Speed_Set,
 																			   fire_pid_calculate_f->fire_motor.motor_measure->speed);
@@ -136,5 +152,5 @@ void fire_pid_calculate(gimbal_fire_control_t *fire_pid_calculate_f)
 }
 const gimbal_fire_control_t **get_fire_control_point(void)
 {
-	return (const gimbal_fire_control_t**)&fire_control_p;
+	return (const gimbal_fire_control_t **)&fire_control_p;
 }

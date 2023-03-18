@@ -93,3 +93,6 @@ new_infantry\can2_receive.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RT
 new_infantry\can2_receive.o: ../IMU/bsp_dwt.h
 new_infantry\can2_receive.o: ../ACE-ECF/Bsp/Inc/bsp_pwm.h
 new_infantry\can2_receive.o: ../Core/Inc/tim.h
+new_infantry\can2_receive.o: ../TASK/Task_Safe.h
+new_infantry\can2_receive.o: ../TASK/Init_Task.h
+new_infantry\can2_receive.o: ../SYSTEM/safe_check.h

@@ -2,6 +2,7 @@
 #include "cmsis_os.h"
 #include "cmsis_armcc.h"
 #include "bsp_referee.h"
+
 /************************* hardware ************************/
 #include "can1_receive.h"
 #include "can2_receive.h"
@@ -9,6 +10,7 @@
 /************************* Task ************************/
 #include "Task_Safe.h"
 #include "chassis_task.h"
+#include "imu_task.h"
 /* ************************freertos******************** */
 #include "freertos.h"
 #include "task.h"
@@ -25,6 +27,7 @@ osThreadId Safe_TASKHandle;
 osThreadId UI_TASKHandle;
 osThreadId TASK_CHASSISHandle;
 osThreadId ShootTask_Handler;
+osThreadId IMUTask_Handler;
 
 void Init_Task(void const *argument)
 {
@@ -33,7 +36,7 @@ void Init_Task(void const *argument)
 	// CAN滤波器初始化
 	CAN1_filter_config();
 	CAN2_filter_config();
-
+	
 	//遥控器初始化
 	ECF_RC_Init();
 
@@ -51,13 +54,11 @@ void Init_Task(void const *argument)
 	//创建UI任务
 	//		osThreadDef(UI_TASK, UI_Task, osPriorityLow, 0, 256);
 	//		UI_TASKHandle = osThreadCreate(osThread(UI_TASK), NULL);
-
-#ifdef FIRE_WORK //火力
-				 //创建火控任务
-				 //		osThreadDef(SHOOT_TASK, shoot_Task, osPriorityAboveNormal, 0, 128);
-				 //		ShootTask_Handler = osThreadCreate(osThread(SHOOT_TASK), NULL);
-
-#endif
+	
+	#ifdef USE_IMU
+	osThreadDef(IMU_TASK, imu_Task, osPriorityNormal, 0, 512);
+	IMUTask_Handler = osThreadCreate(osThread(IMU_TASK), NULL);
+	#endif
 
 	vTaskDelete(Init_TASKHandle); //删除开始任务
 	vTaskDelete(defaultTaskHandle);

@@ -21,28 +21,52 @@ static void chassis_state_react(chassis_control_t *chassis_state_react_f);
 static void chassis_prevent_motion_distortion(chassis_control_t *chassis_prevent_motion_distortion_f);
 static void chassis_get_gimbal_differece_angle(chassis_control_t *chassis_get_gimbal_differece_angle_f);
 
-
 void Task_Chassis(void const *argument)
 {
-	
 	Chassis_Init(&Chassis_Control);
 	vTaskDelay(5);
 
 	while (1)
 	{
-		taskENTER_CRITICAL(); //进入临界区
-		can2_chassis_to_gimbal_referee(Chassis_Control.referee_p);
-		Chassis_Work(&Chassis_Control);
-
 		can2_chassis_to_gimbal(Chassis_Control.Chassis_RC);
-		can1_chassis_setmsg(Chassis_Control.Chassis_Motor[0].give_current,
-							Chassis_Control.Chassis_Motor[1].give_current,
-							Chassis_Control.Chassis_Motor[2].give_current,
-							Chassis_Control.Chassis_Motor[3].give_current);
-		can1_cap_setmsg(50);
-		taskEXIT_CRITICAL(); //退出临界区
+		can2_chassis_to_gimbal_referee(Chassis_Control.referee_p);
+		
+		taskENTER_CRITICAL(); //进入临界区
+		
+		Chassis_Control.chassis_accel_control.motor_accel[0] = (Chassis_Control.Chassis_Motor[0].chassis_motor_measure->speed - Chassis_Control.chassis_accel_control.last_motor_speed[0]) == 0 ? 0 :((Chassis_Control.Chassis_Motor[0].chassis_motor_measure->speed - Chassis_Control.chassis_accel_control.last_motor_speed[0]) / 0.001f /19.0f/60.0f*2.0f*3.14f*0.087f);
+		Chassis_Control.chassis_accel_control.motor_accel[1] = (Chassis_Control.Chassis_Motor[0].chassis_motor_measure->speed - Chassis_Control.chassis_accel_control.last_motor_speed[1]) == 0 ? 0 :((Chassis_Control.Chassis_Motor[1].chassis_motor_measure->speed - Chassis_Control.chassis_accel_control.last_motor_speed[1]) / 0.001f /19.0f/60.0f*2.0f*3.14f*0.087f);
+		Chassis_Control.chassis_accel_control.motor_accel[2] = (Chassis_Control.Chassis_Motor[0].chassis_motor_measure->speed - Chassis_Control.chassis_accel_control.last_motor_speed[2]) == 0 ? 0 :((Chassis_Control.Chassis_Motor[2].chassis_motor_measure->speed - Chassis_Control.chassis_accel_control.last_motor_speed[2]) / 0.001f /19.0f/60.0f*2.0f*3.14f*0.087f);
+		Chassis_Control.chassis_accel_control.motor_accel[3] = (Chassis_Control.Chassis_Motor[0].chassis_motor_measure->speed - Chassis_Control.chassis_accel_control.last_motor_speed[3]) == 0 ? 0 :((Chassis_Control.Chassis_Motor[3].chassis_motor_measure->speed - Chassis_Control.chassis_accel_control.last_motor_speed[3]) / 0.001f /19.0f/60.0f*2.0f*3.14f*0.087f);
+		Chassis_Control.chassis_accel_control.motor_accel[0] = first_order_filter(&Chassis_Control.chassis_accel_control.motor_accel_filter_fliter[0],Chassis_Control.chassis_accel_control.motor_accel[0]);
+		Chassis_Control.chassis_accel_control.motor_accel[1] = first_order_filter(&Chassis_Control.chassis_accel_control.motor_accel_filter_fliter[1],Chassis_Control.chassis_accel_control.motor_accel[1]);
+		Chassis_Control.chassis_accel_control.motor_accel[2] = first_order_filter(&Chassis_Control.chassis_accel_control.motor_accel_filter_fliter[2],Chassis_Control.chassis_accel_control.motor_accel[2]);
+		Chassis_Control.chassis_accel_control.motor_accel[3] = first_order_filter(&Chassis_Control.chassis_accel_control.motor_accel_filter_fliter[3],Chassis_Control.chassis_accel_control.motor_accel[3]);
+		Chassis_Control.chassis_accel_control.motor_accel[0] = sliding_mean_filter(&Chassis_Control.chassis_accel_control.motor_accel_sliding_fliter[0],Chassis_Control.chassis_accel_control.motor_accel[0],50);
+		Chassis_Control.chassis_accel_control.motor_accel[1] = sliding_mean_filter(&Chassis_Control.chassis_accel_control.motor_accel_sliding_fliter[1],Chassis_Control.chassis_accel_control.motor_accel[1],50);
+		Chassis_Control.chassis_accel_control.motor_accel[2] = sliding_mean_filter(&Chassis_Control.chassis_accel_control.motor_accel_sliding_fliter[2],Chassis_Control.chassis_accel_control.motor_accel[2],50);
+		Chassis_Control.chassis_accel_control.motor_accel[3] = sliding_mean_filter(&Chassis_Control.chassis_accel_control.motor_accel_sliding_fliter[3],Chassis_Control.chassis_accel_control.motor_accel[3],50);
+		Chassis_Control.chassis_accel_control.last_motor_speed[0]  = Chassis_Control.Chassis_Motor[0].chassis_motor_measure->speed;  
+		Chassis_Control.chassis_accel_control.last_motor_speed[1]  = Chassis_Control.Chassis_Motor[1].chassis_motor_measure->speed;  
+		Chassis_Control.chassis_accel_control.last_motor_speed[2]  = Chassis_Control.Chassis_Motor[2].chassis_motor_measure->speed;  
+		Chassis_Control.chassis_accel_control.last_motor_speed[3]  = Chassis_Control.Chassis_Motor[3].chassis_motor_measure->speed;  
+		
+		
 
-		//vTaskDelayUntil(&currentTime, 1); //绝对延时//vTaskDelay(2)
+		Chassis_Control.chassis_accel_control.accel_x = sliding_mean_filter(&Chassis_Control.chassis_accel_control.accel_x_sliding_filter,Chassis_Control.Imu_c->E_Accel[0],50);
+		Chassis_Control.chassis_accel_control.accel_y = sliding_mean_filter(&Chassis_Control.chassis_accel_control.accel_y_sliding_filter,Chassis_Control.Imu_c->E_Accel[1],50);
+		
+		Chassis_Work(&Chassis_Control);
+		taskEXIT_CRITICAL(); //退出临界区
+		can1_cap_setmsg(50);
+		can1_chassis_setmsg(Chassis_Control.Chassis_Motor[0].give_current,
+												Chassis_Control.Chassis_Motor[1].give_current,
+												Chassis_Control.Chassis_Motor[2].give_current,
+												Chassis_Control.Chassis_Motor[3].give_current);
+		
+		
+		
+
+		//vTaskDelayUntil(&currentTime, 1);//绝对延时 vTaskDelay(2)
 		vTaskDelay(1);
 	}
 }
@@ -94,6 +118,9 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	//获取裁判系统的指针
 	chassis_data_init_f->referee_p = Get_referee_Address();
 
+	#ifdef USE_IMU
+	chassis_data_init_f->Imu_c = get_imu_control_point();
+	#endif
 	/*--------------------初始化编码器--------------------*/
 	chassis_data_init_f->Motor_encoder[0] = Encoder_Init(M3508, 1);
 	chassis_data_init_f->Motor_encoder[1] = Encoder_Init(M3508, 2);
@@ -136,13 +163,32 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	
 	//底盘旋转跟随pid
 	PidInit(&chassis_data_init_f->chassis_rotate_pid, CHASSIS_SPIN_FOLLOW_KP, CHASSIS_SPIN_FOLLOW_KI, CHASSIS_SPIN_FOLLOW_KD, Deadzone | ChangingIntegrationRate | Integral_Limit);
-	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, Deadzone, 0.0f, 0);
+	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, Deadzone, 5.0f, 0);
 	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, ChangingIntegrationRate, 180.0f, 0.5f);
 	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, Integral_Limit, 1000, 0);
 
+
+	first_order_filter_init(&chassis_data_init_f->Chassis_speedX_filter,0.9);
+	first_order_filter_init(&chassis_data_init_f->Chassis_speedY_filter,0.9);
+	
+	first_order_filter_init(&chassis_data_init_f->chassis_accel_control.motor_accel_filter_fliter[0],0.05);
+	first_order_filter_init(&chassis_data_init_f->chassis_accel_control.motor_accel_filter_fliter[1],0.05);
+	first_order_filter_init(&chassis_data_init_f->chassis_accel_control.motor_accel_filter_fliter[2],0.05);
+	first_order_filter_init(&chassis_data_init_f->chassis_accel_control.motor_accel_filter_fliter[3],0.05);
+	sliding_mean_filter_init(&chassis_data_init_f->chassis_accel_control.accel_x_sliding_filter);
+	sliding_mean_filter_init(&chassis_data_init_f->chassis_accel_control.accel_y_sliding_filter);
+	sliding_mean_filter_init(&chassis_data_init_f->chassis_accel_control.motor_accel_sliding_fliter[0]);
+	sliding_mean_filter_init(&chassis_data_init_f->chassis_accel_control.motor_accel_sliding_fliter[1]);
+	sliding_mean_filter_init(&chassis_data_init_f->chassis_accel_control.motor_accel_sliding_fliter[2]);
+	sliding_mean_filter_init(&chassis_data_init_f->chassis_accel_control.motor_accel_sliding_fliter[3]);
+	
 	chassis_data_init_f->behaviour = CHASSIS_NO_FOLLOW;
+	
 	//速度因子
-	chassis_data_init_f->chassis_speed_gain = 1;
+	chassis_data_init_f->chassis_speed_gain = 1.0f;
+	
+	chassis_data_init_f->chassis_accel_control.accel_x = 0;
+	chassis_data_init_f->chassis_accel_control.accel_y = 0;
 }
 void chassis_state_react(chassis_control_t *chassis_state_react_f)
 {

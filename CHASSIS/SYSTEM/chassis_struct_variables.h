@@ -54,6 +54,7 @@ ___`. .' /--.--\ `. . __
 #include "pid.h"
 //#include "maths.h"
 //#include "rm_motor.h"
+#include "filter.h"
 
 
 /********************REFEREE********************/
@@ -61,6 +62,7 @@ ___`. .' /--.--\ `. . __
 //#include "referee_deal.h"
 
 #include "bsp_Motor_Encoder.h"
+#include "imu_task.h"
 
 /*模块工作属性*/
 //#define WATCH_DOG                //启动看门狗
@@ -112,6 +114,20 @@ typedef struct
 	int16_t give_current;
 } Motor3508_t;
 
+#ifdef ACCEL_CONTROL
+typedef struct
+{
+	float accel_x;
+	float accel_y;
+	sliding_mean_filter_type_t accel_x_sliding_filter;
+	sliding_mean_filter_type_t accel_y_sliding_filter;
+	int last_motor_speed[4];
+	float motor_accel[4];
+	first_order_filter_type_t motor_accel_filter_fliter[4];
+	sliding_mean_filter_type_t motor_accel_sliding_fliter[4];
+}Chassis_accel_control_t;
+#endif
+
 typedef struct
 {
 	RC_ctrl_t *Chassis_RC; //底盘遥控数据
@@ -129,6 +145,10 @@ typedef struct
 	pid_parameter_t Chassis_speedX_Pid; //底盘速度xpid
 	pid_parameter_t Chassis_speedY_Pid; //底盘速度ypid
 	pid_parameter_t chassis_rotate_pid; //旋转pid
+	
+	first_order_filter_type_t Chassis_speedX_filter;
+	first_order_filter_type_t Chassis_speedY_filter;
+	
 	#ifdef POWER_CONTROL
 	pid_parameter_t power_pid; //功率
 	pid_parameter_t powerbuff_pid; //功率
@@ -139,7 +159,14 @@ typedef struct
 	Supercapacitor_receive_t *super_cap_c; //超电
 	fp32 chassis_speed_gain;			   //速度因子
 	REFEREE_t *referee_p;
-
+	
+	#ifdef USE_IMU
+	const INS_t *Imu_c;
+	#endif
+	
+	#ifdef ACCEL_CONTROL
+	Chassis_accel_control_t chassis_accel_control;
+	#endif
 } chassis_control_t;
 
 #endif

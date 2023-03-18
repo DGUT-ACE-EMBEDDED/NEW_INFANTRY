@@ -27,7 +27,7 @@ void can1_chassis_setmsg(int16_t ESC_201, int16_t ESC_202, int16_t ESC_203, int1
 	Data[5] = (unsigned char)ESC_203;
 	Data[6] = (unsigned char)(ESC_204 >> 8);
 	Data[7] = (unsigned char)ESC_204;
-
+	while ((HAL_CAN_GetTxMailboxesFreeLevel(&hcan1)==0));
 	HAL_CAN_AddTxMessage(&hcan1, &Txmessage, Data, &send_mail_box); //将一段数据通过 CAN 总线发送
 }
 
@@ -50,7 +50,7 @@ void can1_cap_setmsg(int16_t Chassis_power)
 
 	Data[0] = (Chassis_power >> 8);
 	Data[1] = Chassis_power;
-
+	while ((HAL_CAN_GetTxMailboxesFreeLevel(&hcan1)==0));
 	HAL_CAN_AddTxMessage(&hcan1, &Txmessage, Data, &send_mail_box); //将一段数据通过 CAN 总线发送
 }
 

@@ -2,8 +2,6 @@ new_infantry\init_task.o: ..\TASK\Init_Task.c
 new_infantry\init_task.o: ..\TASK\Init_Task.h
 new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stddef.h
-new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdint.h
 new_infantry\init_task.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_FreeRTOS.h
 new_infantry\init_task.o: ../SYSTEMVIEW/SEGGER_SYSVIEW.h
 new_infantry\init_task.o: ../SYSTEMVIEW/SEGGER.h
@@ -12,6 +10,8 @@ new_infantry\init_task.o: ../SYSTEMVIEW/Global.h
 new_infantry\init_task.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_ConfDefaults.h
 new_infantry\init_task.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_Conf.h
 new_infantry\init_task.o: ../SYSTEMVIEW/SEGGER_RTT_Conf.h
+new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stddef.h
+new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdint.h
 new_infantry\init_task.o: ../Core/Inc/FreeRTOSConfig.h
 new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -97,6 +97,7 @@ new_infantry\init_task.o: ../ACE-ECF/Bsp/Inc/bsp_pwm.h
 new_infantry\init_task.o: ../Core/Inc/tim.h
 new_infantry\init_task.o: ../COMMUNICATION/can2_receive.h
 new_infantry\init_task.o: ..\TASK\Task_Safe.h
+new_infantry\init_task.o: ../SYSTEM/safe_check.h
 new_infantry\init_task.o: ..\TASK\gimbal_task.h
 new_infantry\init_task.o: ..\TASK\fire_Task.h
 new_infantry\init_task.o: ..\TASK\virtual_task.h

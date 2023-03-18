@@ -61,3 +61,5 @@ new_infantry\main.o: ../Core/Inc/spi.h
 new_infantry\main.o: ../Core/Inc/tim.h
 new_infantry\main.o: ../Core/Inc/usart.h
 new_infantry\main.o: ../Core/Inc/gpio.h
+new_infantry\main.o: ..\IMU\bsp_dwt.h
+new_infantry\main.o: ..\IMU\BMI088driver.h

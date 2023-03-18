@@ -28,23 +28,30 @@
 #define PITCH_ZERO_OFFSET 100.0f 
 
 /**********************pitch轴PID参数**********************/
-#define GIMBAL_PITCH_P_P 20.0f
-#define GIMBAL_PITCH_P_I 0.10f
-#define GIMBAL_PITCH_P_D 50.0f
+#define GIMBAL_PITCH_P_P 120.0f
+#define GIMBAL_PITCH_P_I 5.0f
+#define GIMBAL_PITCH_P_D 500.0f
 
-#define GIMBAL_PITCH_S_P 75.0f
+#define GIMBAL_PITCH_S_P 20.0f
 #define GIMBAL_PITCH_S_I 0.0f
-#define GIMBAL_PITCH_S_D 100.0f
+#define GIMBAL_PITCH_S_D 0.0f
 
 /**********************Yaw轴PID参数**********************/
-#define GIMBAL_YAW_P_P 15.0f
+#define GIMBAL_YAW_P_P 15.0f //200/ //15
 #define GIMBAL_YAW_P_I 0.0f
 #define GIMBAL_YAW_P_D 5.0f
 
-#define GIMBAL_YAW_S_P 75.0f
+#define GIMBAL_YAW_S_P 75.0f //15 //75
 #define GIMBAL_YAW_S_I 0.0f
 #define GIMBAL_YAW_S_D 0.0f
 
+#define GIMBAL_YAW_visual_P_P 150.0f
+#define GIMBAL_YAW_visual_P_I 1.0f
+#define GIMBAL_YAW_visual_P_D 2000.0f
+
+#define GIMBAL_YAW_visual_S_P 20.0f
+#define GIMBAL_YAW_visual_S_I 0.0f
+#define GIMBAL_YAW_visual_S_D 0.0f
 /**********************云台pitch角度限制**********************/
 #define PITCH_ANGLE_LIMIT_UP 39.0f
 #define PITCH_ANGLE_LIMIT_DOWN -29.0f

@@ -28,6 +28,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "bsp_dwt.h"
+#include "spi.h"
+#include "BMI088driver.h"
 #include "SEGGER_SYSVIEW.h"
 /* USER CODE END Includes */
 
@@ -99,9 +102,12 @@ int main(void)
   MX_USART6_UART_Init();
   MX_TIM10_Init();
   /* USER CODE BEGIN 2 */
-/* systemview 初始化 */
-SEGGER_SYSVIEW_Conf();
-
+	/* systemview 初始化 */
+	SEGGER_SYSVIEW_Conf();
+	
+  DWT_Init(168);
+  while (BMI088_init(&hspi1, 1) != BMI088_NO_ERROR)
+    ;
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

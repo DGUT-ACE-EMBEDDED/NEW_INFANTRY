@@ -2,9 +2,12 @@
 #include "can2_receive.h"
 #include "chassis_struct_variables.h"
 #include "bsp_Motor_Encoder.h"
+#include "bsp_can.h"
+
 extern CAN_HandleTypeDef hcan1;
 extern CAN_HandleTypeDef hcan2;
-
+extern can_manage_obj can1_manage;
+extern can_manage_obj can2_manage;
 extern void chassis_can2_callback(CAN_HandleTypeDef *hcan);
 
 /*--------------------变量-----------------------*/
@@ -48,6 +51,7 @@ void CAN1_filter_config(void)
 	HAL_CAN_Start(&hcan1);											   //开启can1
 	HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING); //启动中断
 }
+
 
 /**
  * @brief		HAl库can1的回调函数

@@ -4,6 +4,7 @@
 #include "maths.h"
 #include "pid.h"
 #include "chassis_config.h"
+#include "filter.h"
 //原始控制量
 float Chassis_x = 0.0f;
 float Chassis_y = 0.0f;
@@ -142,6 +143,9 @@ void chassis_speed_pid_calculate(chassis_control_t *chassis_speed_pid_calculate_
 		#ifdef POWER_CONTROL
 		static int count=0;
 		#endif
+		Chassis_x = first_order_filter(&chassis_speed_pid_calculate_f->Chassis_speedX_filter,Chassis_x);
+		Chassis_y = first_order_filter(&chassis_speed_pid_calculate_f->Chassis_speedY_filter,Chassis_y);
+	
 		Chassis_x_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->Chassis_speedX_Pid, Chassis_x, 0);
 		Chassis_y_pid_output = PidCalculate(&chassis_speed_pid_calculate_f->Chassis_speedY_Pid, Chassis_y, 0);
 		Chassis_yaw_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->chassis_rotate_pid, Chassis_yaw, 0);

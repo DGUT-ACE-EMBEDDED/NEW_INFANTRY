@@ -1,6 +1,6 @@
 new_infantry\bsp_buzzer.o: ..\ACE-ECF\Bsp\Src\bsp_buzzer.c
-new_infantry\bsp_buzzer.o: ..\ACE-ECF\Bsp\Inc\bsp_buzzer.h
-new_infantry\bsp_buzzer.o: ..\ACE-ECF\Algorithm\inc\struct_typedef.h
+new_infantry\bsp_buzzer.o: ../ACE-ECF/Bsp/Inc/bsp_buzzer.h
+new_infantry\bsp_buzzer.o: ../ACE-ECF/Algorithm/inc/struct_typedef.h
 new_infantry\bsp_buzzer.o: ../Core/Inc/main.h
 new_infantry\bsp_buzzer.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 new_infantry\bsp_buzzer.o: ../Core/Inc/stm32f4xx_hal_conf.h

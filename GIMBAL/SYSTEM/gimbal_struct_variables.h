@@ -109,6 +109,8 @@ typedef struct
 	Encoder_t *yaw_motor_encoder;
 	pid_parameter_t yaw_motor_speed_pid;
 	pid_parameter_t yaw_motor_position_pid;
+	pid_parameter_t yaw_motor_visual_speed_pid;
+	pid_parameter_t yaw_motor_visual_position_pid;
 } gimbal_yaw_control_t;
 
 // »ð¿Ø

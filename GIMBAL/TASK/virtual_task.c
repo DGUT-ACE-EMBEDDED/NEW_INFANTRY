@@ -37,9 +37,9 @@ void Virtual_recive(gimbal_auto_control_t *Virtual_recive_p)
 		fifo_s_gets(Virtual_recive_p->usb_fifo,(char*)read_buff,8);
 		if(read_buff[0] == 0xFF && read_buff[7] == 0xFE)
 		{
-			Virtual_recive_p->auto_yaw = (read_buff[1]<<8 | read_buff[2]) / 100;        //自动打击的y轴角度计算/100
-			Virtual_recive_p->auto_pitch = (read_buff[3]<<8 | read_buff[4]) / 100;      //自动打击的p轴角度计算
-			Virtual_recive_p->auto_pitch_speed = (read_buff[5]<<8 | read_buff[6]) / 10000; //自动打击的p轴角度计算/100
+			Virtual_recive_p->auto_yaw = -(((float)((int16_t)(read_buff[2]<<8 | read_buff[1]))) / 100.0f);        //自动打击的y轴角度计算/100
+			Virtual_recive_p->auto_pitch = -(((float)((int16_t)(read_buff[4]<<8 | read_buff[3]))) / 100.0f);      //自动打击的p轴角度计算
+//			Virtual_recive_p->auto_pitch_speed = (read_buff[5]<<8 | read_buff[6]) / 10000; //自动打击的p轴角度计算/100
 		}
 	}
 }
@@ -68,9 +68,10 @@ void Virtual_send(gimbal_auto_control_t *Virtual_send_p)
 	}
 //		//裁判系统接收 阵营，射速。
 //		//阵营
-//		Virtual_send_p->visual_buff_send[1] = ;
+		Virtual_send_p->visual_buff_send[1] = 1;
 //		//射速
-//		Virtual_send_p->visual_buff_send[3] = ;
+
+		Virtual_send_p->visual_buff_send[3] = 15;
 		//浮点转字节
 		{
 			float register *Register1 = INS.q;
@@ -111,7 +112,15 @@ gimbal_auto_control_t *virtual_task_init(void)
 	
 	return virtual_task_init_p;
 }
-
+void gimbal_clear_virtual_recive(void)
+{
+	if(auto_control_p == NULL)
+	{
+		return;
+	}
+	auto_control_p->auto_pitch = 0;
+	auto_control_p->auto_yaw = 0;
+}
 const gimbal_auto_control_t **get_auto_control_point(void)
 {
 	return (const gimbal_auto_control_t**)&auto_control_p;

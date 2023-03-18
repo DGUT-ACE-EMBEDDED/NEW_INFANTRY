@@ -38,9 +38,9 @@ new_infantry\task_safe.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.
 new_infantry\task_safe.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
 new_infantry\task_safe.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
 new_infantry\task_safe.o: ..\TASK\Init_Task.h
+new_infantry\task_safe.o: ../SYSTEM/safe_check.h
 new_infantry\task_safe.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdlib.h
 new_infantry\task_safe.o: D:\keil\core\ARM\ARMCC\Bin\..\include\string.h
-new_infantry\task_safe.o: ../Core/Inc/tim.h
 new_infantry\task_safe.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h
 new_infantry\task_safe.o: ../SYSTEMVIEW/SEGGER_SYSVIEW_FreeRTOS.h
 new_infantry\task_safe.o: ../SYSTEMVIEW/SEGGER_SYSVIEW.h
@@ -61,3 +61,6 @@ new_infantry\task_safe.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/lis
 new_infantry\task_safe.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 new_infantry\task_safe.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 new_infantry\task_safe.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
+new_infantry\task_safe.o: ../Core/Inc/tim.h
+new_infantry\task_safe.o: ../ACE-ECF/Bsp/Inc/bsp_buzzer.h
+new_infantry\task_safe.o: ../ACE-ECF/Algorithm/inc/struct_typedef.h

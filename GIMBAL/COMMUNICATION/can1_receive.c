@@ -2,6 +2,7 @@
 #include "can2_receive.h"
 #include "gimbal_struct_variables.h"
 #include "bsp_Motor_Encoder.h"
+#include "Task_Safe.h"
 extern CAN_HandleTypeDef hcan1;
 extern CAN_HandleTypeDef hcan2;
 
@@ -88,6 +89,7 @@ void chassis_can1_callback(CAN_HandleTypeDef *hcan)
 		{
 		case 0x205: // P÷·
 		{
+//			Lost_time_fresh_by_name("p÷·");
 			pitch_motor_measure.position = (int16_t)(Rx_Data[0] << 8 | Rx_Data[1]);
 			pitch_motor_measure.speed = (int16_t)(Rx_Data[2] << 8 | Rx_Data[3]);
 			pitch_motor_measure.current = (int16_t)(Rx_Data[4] << 8 | Rx_Data[5]);
@@ -111,6 +113,8 @@ void chassis_can1_callback(CAN_HandleTypeDef *hcan)
 		{
 			fire_motor.position = (uint16_t)(Rx_Data[0] << 8 | Rx_Data[1]);
 			fire_motor.speed = (uint16_t)(Rx_Data[2] << 8 | Rx_Data[3]);
+			fire_motor.current = (int16_t)(Rx_Data[4] << 8 | Rx_Data[5]);
+			fire_motor.temperature = Rx_Data[6];
 			CAN_DATA_Encoder_Deal(fire_motor.position, fire_motor.speed, 3);
 			break;
 		}

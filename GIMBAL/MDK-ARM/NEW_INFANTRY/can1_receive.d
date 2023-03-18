@@ -93,3 +93,6 @@ new_infantry\can1_receive.o: ../IMU/bsp_dwt.h
 new_infantry\can1_receive.o: ../ACE-ECF/Bsp/Inc/bsp_pwm.h
 new_infantry\can1_receive.o: ../Core/Inc/tim.h
 new_infantry\can1_receive.o: ..\COMMUNICATION\can2_receive.h
+new_infantry\can1_receive.o: ../TASK/Task_Safe.h
+new_infantry\can1_receive.o: ../TASK/Init_Task.h
+new_infantry\can1_receive.o: ../SYSTEM/safe_check.h

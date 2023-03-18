@@ -20,11 +20,11 @@
 /*--------------------- ALGORITHM --------------------*/
 #include "pid.h"
 #include "maths.h"
-
+#include "filter.h"
 /*--------------------- BSP --------------------*/
 #include "bsp_dr16.h"
 #include "bsp_Motor_Encoder.h"
-
+#include "bsp_referee.h"
 
 gimbal_control_t Gimbal_Control;
 
@@ -53,7 +53,7 @@ void Gimbal_Task(void const *argument)
       vTaskDelay(1); // 绝对延时//vTaskDelay(2);
     }
 }
-
+extern first_order_filter_type_t auto_filter;
 void Gimbal_Init(gimbal_control_t *Gimbal_Init_f)
 {
     memset(Gimbal_Init_f, 0, sizeof(gimbal_control_t));
@@ -69,30 +69,43 @@ void Gimbal_Init(gimbal_control_t *Gimbal_Init_f)
 		Gimbal_Init_f->auto_c = get_auto_control_point();
     // 获取陀螺仪指针
     Gimbal_Init_f->Imu_c = get_imu_control_point();
-
+		// 获取裁判系统指针
+		Gimbal_Init_f->referee = Get_referee_Address();
     /*--------------------初始化编码器--------------------*/
     Gimbal_Init_f->Pitch_c.pitch_motor_encoder = Encoder_Init(GM6020, 1);
     Gimbal_Init_f->Yaw_c.yaw_motor_encoder = Encoder_Init(GM6020, 2);
 
     /*--------------------pid--------------------*/
     // P轴
-    PidInit(&Gimbal_Init_f->Pitch_c.pitch_motor_speed_pid, GIMBAL_PITCH_S_P, GIMBAL_PITCH_S_I, GIMBAL_PITCH_S_D, Integral_Limit | Output_Limit);
+    PidInit(&Gimbal_Init_f->Pitch_c.pitch_motor_speed_pid, GIMBAL_PITCH_S_P, GIMBAL_PITCH_S_I, GIMBAL_PITCH_S_D, Integral_Limit | Output_Limit | OutputFilter);
     PidInit(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, GIMBAL_PITCH_P_P, GIMBAL_PITCH_P_I, GIMBAL_PITCH_P_D, Integral_Limit | Output_Limit | StepIn);
     PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_speed_pid, Output_Limit, 30000, 0);
     PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_speed_pid, Integral_Limit, 10000, 0);
+		PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_speed_pid, OutputFilter, 0.9, 0);
 //    PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, ChangingIntegrationRate, 20.0f, 0.5f);
-    PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, Integral_Limit, 1000, 0);
+    PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, Integral_Limit, 5, 0);
     PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, Output_Limit, 10000, 0);
     PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, StepIn, 30, 0);
 
     // Y轴
     PidInit(&Gimbal_Init_f->Yaw_c.yaw_motor_speed_pid, GIMBAL_YAW_S_P, GIMBAL_YAW_S_I, GIMBAL_YAW_S_D, Output_Limit | Integral_Limit);
-    PidInit(&Gimbal_Init_f->Yaw_c.yaw_motor_position_pid, GIMBAL_YAW_P_P, GIMBAL_YAW_P_I, GIMBAL_YAW_P_D, Integral_Limit | Output_Limit | StepIn);
+    PidInit(&Gimbal_Init_f->Yaw_c.yaw_motor_position_pid, GIMBAL_YAW_P_P,GIMBAL_YAW_P_I, GIMBAL_YAW_P_D, Integral_Limit | Output_Limit | StepIn);
     PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_motor_speed_pid, Output_Limit, 30000, 0);
     PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_motor_speed_pid, Integral_Limit, 10000, 0);
     PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_motor_position_pid, StepIn, 60, 0);
     PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_motor_position_pid, Integral_Limit, 300, 0);
-    PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_motor_position_pid, Output_Limit, 10000, 0);
+    PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_motor_position_pid, Output_Limit, 30000, 0);
+		
+		//自瞄
+		PidInit(&Gimbal_Init_f->Yaw_c.yaw_motor_visual_speed_pid, GIMBAL_YAW_visual_S_P, GIMBAL_YAW_visual_S_I, GIMBAL_YAW_visual_S_D, Output_Limit | Integral_Limit );
+    PidInit(&Gimbal_Init_f->Yaw_c.yaw_motor_visual_position_pid, GIMBAL_YAW_visual_P_P, GIMBAL_YAW_visual_P_I, GIMBAL_YAW_visual_P_D, Integral_Limit | Output_Limit );		
+		PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_motor_visual_speed_pid, Output_Limit, 30000, 0);
+    PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_motor_visual_speed_pid, Integral_Limit, 10000, 0);
+    
+    PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_motor_visual_position_pid, Integral_Limit, 5, 0);
+    PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_motor_visual_position_pid, Output_Limit, 30000, 0);
+		
+		first_order_filter_init(&auto_filter,0.03);
 		
     EncoderValZero(Gimbal_Init_f->Yaw_c.yaw_motor_encoder);
     Gimbal_Init_f->chassis_gimbal_angel = 0;

@@ -109,3 +109,4 @@ new_infantry\gimbal_task.o: ../COMMUNICATION/can1_send.h
 new_infantry\gimbal_task.o: ../COMMUNICATION/can2_send.h
 new_infantry\gimbal_task.o: ../GIMBAL/gimbal_behaviour.h
 new_infantry\gimbal_task.o: ../GIMBAL/gimbal_auto.h
+new_infantry\gimbal_task.o: ../ACE-ECF/Algorithm/inc/filter.h

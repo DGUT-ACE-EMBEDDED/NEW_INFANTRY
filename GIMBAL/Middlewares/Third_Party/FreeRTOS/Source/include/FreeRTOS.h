@@ -27,7 +27,7 @@
 
 #ifndef INC_FREERTOS_H
 #define INC_FREERTOS_H
-
+#include "SEGGER_SYSVIEW_FreeRTOS.h"
 /*
  * Include the generic headers required for the FreeRTOS port being used.
  */
@@ -53,8 +53,8 @@ extern "C" {
 #endif
 
 /* Application specific configuration options. */
-#include "SEGGER_SYSVIEW_FreeRTOS.h"
 #include "FreeRTOSConfig.h"
+
 /* Basic FreeRTOS definitions. */
 #include "projdefs.h"
 
