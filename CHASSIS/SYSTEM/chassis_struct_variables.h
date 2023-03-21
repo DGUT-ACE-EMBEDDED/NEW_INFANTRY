@@ -119,12 +119,19 @@ typedef struct
 {
 	float accel_x;
 	float accel_y;
+	float motor_accel[4];
+	float theory_accel_x;
+	float theory_accel_y;
+	float error_accel_x;
+	float error_accel_y;
+	int last_motor_speed[4];
 	sliding_mean_filter_type_t accel_x_sliding_filter;
 	sliding_mean_filter_type_t accel_y_sliding_filter;
-	int last_motor_speed[4];
-	float motor_accel[4];
 	first_order_filter_type_t motor_accel_filter_fliter[4];
 	sliding_mean_filter_type_t motor_accel_sliding_fliter[4];
+	pid_parameter_t Chassis_accel_x_pid;
+	pid_parameter_t Chassis_accel_y_pid;
+	
 }Chassis_accel_control_t;
 #endif
 
@@ -145,6 +152,9 @@ typedef struct
 	pid_parameter_t Chassis_speedX_Pid; //底盘速度xpid
 	pid_parameter_t Chassis_speedY_Pid; //底盘速度ypid
 	pid_parameter_t chassis_rotate_pid; //旋转pid
+	#ifdef GIMBAL_MOTION_PREDICT
+	pid_parameter_t gimbal_yaw_pid;
+	#endif
 	
 	first_order_filter_type_t Chassis_speedX_filter;
 	first_order_filter_type_t Chassis_speedY_filter;
@@ -162,6 +172,7 @@ typedef struct
 	
 	#ifdef USE_IMU
 	const INS_t *Imu_c;
+	float chassis_no_follow_yaw;
 	#endif
 	
 	#ifdef ACCEL_CONTROL

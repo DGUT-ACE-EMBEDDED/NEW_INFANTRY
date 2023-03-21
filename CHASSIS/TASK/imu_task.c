@@ -114,6 +114,11 @@ void INS_Task(void)
         INS.YawTotalAngle = QEKF_INS.YawTotalAngle;
 				
 				BodyFrameToEarthFrame(INS.Accel,INS.E_Accel,INS.q);
+				
+				float accelx = INS.E_Accel[X];
+				float accely = INS.E_Accel[Y];
+				INS.E_Accel[X] = accely * sin_calculate(INS.Yaw) + accelx * cos_calculate(INS.Yaw);
+				INS.E_Accel[Y] = accely * cos_calculate(INS.Yaw) - accelx * sin_calculate(INS.Yaw);
     }
 
     // temperature control

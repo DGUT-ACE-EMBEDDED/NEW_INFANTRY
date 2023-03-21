@@ -117,14 +117,16 @@ void fire_behaviour_choose(gimbal_fire_control_t *fire_behaviour_choose_f)
 
 	// 弹舱舵机控制 TODO:
 }
-
+int test = 5000;
 void fire_pid_calculate(gimbal_fire_control_t *fire_pid_calculate_f)
 {
-	if (((fire_pid_calculate_f->fire_rc->mouse.press_l != 0) || (fire_pid_calculate_f->fire_rc->rc.ch[4] > 0)) && (fire_pid_calculate_f->referee->Power_Heat.shooter_id1_17mm_cooling_heat + 25 <= fire_pid_calculate_f->referee->Robot_Status.shooter_id1_17mm_cooling_limit))
+	if (((fire_pid_calculate_f->fire_rc->mouse.press_l != 0) || (fire_pid_calculate_f->fire_rc->rc.ch[4] > 0)) 
+		&& ((fire_pid_calculate_f->referee->Power_Heat.shooter_id1_17mm_cooling_heat + 25 <= fire_pid_calculate_f->referee->Robot_Status.shooter_id1_17mm_cooling_limit)
+		|| (fire_pid_calculate_f->referee->Robot_Status.shooter_id1_17mm_cooling_limit == 0)))
 	{
 		if (fire_pid_calculate_f->full_automatic) // 全自动开环控制
 		{
-			fire_pid_calculate_f->fire_motor.Speed_Set = 8000; // TODO:5000
+			fire_pid_calculate_f->fire_motor.Speed_Set = test; // TODO:5000
 			fire_pid_calculate_f->fire_motor.set_current = motor_speed_control(&fire_pid_calculate_f->fire_motor_speed_pid,
 																			   fire_pid_calculate_f->fire_motor.Speed_Set,
 																			   fire_pid_calculate_f->fire_motor.motor_measure->speed);

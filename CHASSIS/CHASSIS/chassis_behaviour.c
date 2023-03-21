@@ -9,6 +9,7 @@
 float Chassis_x = 0.0f;
 float Chassis_y = 0.0f;
 float Chassis_yaw = 0.0f;
+float Gimbal_yaw = 0;
 
 float Chassis_x_pid_output = 0.0f;
 float Chassis_y_pid_output = 0.0f;
@@ -45,7 +46,15 @@ void chassis_behaviour_choose(chassis_control_t *Chassis_behaviour_f)
     //如果挡位发生改变，设置对应的模式
     if (last_behaviour != rc_behaviour)
     {
-        Chassis_behaviour_f->behaviour = rc_behaviour;
+			if(rc_behaviour == CHASSIS_NO_FOLLOW)
+			{
+				Chassis_behaviour_f->chassis_no_follow_yaw = Chassis_behaviour_f->Imu_c->Yaw;
+			}
+			else if(rc_behaviour == CHASSIS_FOLLOW)
+			{
+				Gimbal_yaw = Chassis_behaviour_f->Imu_c->Yaw;
+			}
+       Chassis_behaviour_f->behaviour = rc_behaviour;
     }
 
     //键鼠
@@ -73,7 +82,15 @@ void chassis_behaviour_choose(chassis_control_t *Chassis_behaviour_f)
     //如果模式发生改变，设置对应的模式
     if (last_behaviour != kb_behaviour)
     {
-        Chassis_behaviour_f->behaviour = kb_behaviour;
+			if(kb_behaviour == CHASSIS_NO_FOLLOW)
+			{
+				Chassis_behaviour_f->chassis_no_follow_yaw = Chassis_behaviour_f->Imu_c->Yaw;
+			}
+			else if(kb_behaviour == CHASSIS_FOLLOW)
+			{
+				Gimbal_yaw = Chassis_behaviour_f->Imu_c->Yaw;
+			}
+      Chassis_behaviour_f->behaviour = kb_behaviour;
     }
 }
 
@@ -119,17 +136,17 @@ void chassis_state_choose(chassis_control_t *chassis_state_choose_f)
     }
     if (last_state != chassis_state_choose_f->chassis_state)
     {
-        EncoderValZero(chassis_state_choose_f->Motor_encoder[0]);
-        EncoderValZero(chassis_state_choose_f->Motor_encoder[1]);
-        EncoderValZero(chassis_state_choose_f->Motor_encoder[2]);
-        EncoderValZero(chassis_state_choose_f->Motor_encoder[3]);
-        pid_clear(&chassis_state_choose_f->motor_Position_Pid[0]);
-        pid_clear(&chassis_state_choose_f->motor_Position_Pid[1]);
-        pid_clear(&chassis_state_choose_f->motor_Position_Pid[2]);
-        pid_clear(&chassis_state_choose_f->motor_Position_Pid[3]);
-        pid_clear(&chassis_state_choose_f->Chassis_speedX_Pid);
-        pid_clear(&chassis_state_choose_f->Chassis_speedY_Pid);
-        pid_clear(&chassis_state_choose_f->chassis_rotate_pid);
+//        EncoderValZero(chassis_state_choose_f->Motor_encoder[0]);
+//        EncoderValZero(chassis_state_choose_f->Motor_encoder[1]);
+//        EncoderValZero(chassis_state_choose_f->Motor_encoder[2]);
+//        EncoderValZero(chassis_state_choose_f->Motor_encoder[3]);
+//        pid_clear(&chassis_state_choose_f->motor_Position_Pid[0]);
+//        pid_clear(&chassis_state_choose_f->motor_Position_Pid[1]);
+//        pid_clear(&chassis_state_choose_f->motor_Position_Pid[2]);
+//        pid_clear(&chassis_state_choose_f->motor_Position_Pid[3]);
+//        pid_clear(&chassis_state_choose_f->Chassis_speedX_Pid);
+//        pid_clear(&chassis_state_choose_f->Chassis_speedY_Pid);
+//        pid_clear(&chassis_state_choose_f->chassis_rotate_pid);
     }
 
     if (chassis_state_choose_f->Chassis_RC->rc.s2 == RC_SW_DOWN)
@@ -149,6 +166,14 @@ void chassis_speed_pid_calculate(chassis_control_t *chassis_speed_pid_calculate_
 		Chassis_x_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->Chassis_speedX_Pid, Chassis_x, 0);
 		Chassis_y_pid_output = PidCalculate(&chassis_speed_pid_calculate_f->Chassis_speedY_Pid, Chassis_y, 0);
 		Chassis_yaw_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->chassis_rotate_pid, Chassis_yaw, 0);
+		#ifdef GIMBAL_MOTION_PREDICT
+		if(chassis_speed_pid_calculate_f->behaviour == CHASSIS_FOLLOW)
+		{
+			float temporary_Gimbal_yaw = Gimbal_yaw + chassis_speed_pid_calculate_f->Chassis_Gimbal_Diference_Angle;
+			temporary_Gimbal_yaw = loop_fp32_constrain(temporary_Gimbal_yaw, 0.0f, 360.0f);
+			Chassis_yaw_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->chassis_rotate_pid, user_abs(temporary_Gimbal_yaw - chassis_speed_pid_calculate_f->Imu_c->Yaw) > 180 ? ((temporary_Gimbal_yaw - chassis_speed_pid_calculate_f->Imu_c->Yaw) > 0 ? ((temporary_Gimbal_yaw - chassis_speed_pid_calculate_f->Imu_c->Yaw) - 360.0f) : (360.0f - (temporary_Gimbal_yaw - chassis_speed_pid_calculate_f->Imu_c->Yaw))) : (temporary_Gimbal_yaw - chassis_speed_pid_calculate_f->Imu_c->Yaw),0);
+		}
+		#endif
 	
 		#ifdef POWER_CONTROL
 	//FIXME:还不能完全控制住功耗，起步打滑。
@@ -174,7 +199,15 @@ void chassis_motion_decomposition(chassis_control_t *chassis_motion_decompositio
 
 void f_CHASSIS_FOLLOW(chassis_control_t *CHASSIS_FOLLOW_f)
 {
-    Chassis_yaw = CHASSIS_FOLLOW_f->Chassis_Gimbal_Diference_Angle;
+	
+	
+	#ifdef GIMBAL_MOTION_PREDICT
+	  Gimbal_yaw -= CHASSIS_FOLLOW_f->Chassis_RC->mouse.x * MOUSE_YAW_SPEED;
+    Gimbal_yaw -= CHASSIS_FOLLOW_f->Chassis_RC->rc.ch[0] * RC_YAW_SPEED;
+		Gimbal_yaw = loop_fp32_constrain(Gimbal_yaw, 0.0f, 360.0f);
+	#endif
+		Chassis_yaw = CHASSIS_FOLLOW_f->Chassis_Gimbal_Diference_Angle;
+    
 }
 
 void f_CHASSIS_NO_FOLLOW(chassis_control_t *Chassis_behaviour_react_f)
@@ -186,7 +219,7 @@ void f_CHASSIS_NO_FOLLOW(chassis_control_t *Chassis_behaviour_react_f)
     Chassis_x = Gimbal_y * sin_calculate(Chassis_behaviour_react_f->Chassis_Gimbal_Diference_Angle) - Gimbal_x * cos_calculate(Chassis_behaviour_react_f->Chassis_Gimbal_Diference_Angle);
     Chassis_y = Gimbal_y * cos_calculate(Chassis_behaviour_react_f->Chassis_Gimbal_Diference_Angle) + Gimbal_x * sin_calculate(Chassis_behaviour_react_f->Chassis_Gimbal_Diference_Angle);
     Chassis_x = -Chassis_x;
-    Chassis_yaw = 0;
+		Chassis_yaw =  Chassis_behaviour_react_f->chassis_no_follow_yaw - Chassis_behaviour_react_f->Imu_c->Yaw;
 }
 void f_CHASSIS_ROTATION(chassis_control_t *Chassis_behaviour_react_f)
 {
