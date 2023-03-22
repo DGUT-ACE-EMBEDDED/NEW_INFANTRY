@@ -26,7 +26,7 @@
 #define CHASSIS_MOTOR_REDUCATION_RATIO 19.0f
 
 //云台运动控制,在跟随模式yaw轴运动时,底盘会先于云台转动,减少云台与地盘之间的相互干扰
-//#define GIMBAL_MOTION_PREDICT 
+#define GIMBAL_MOTION_PREDICT 
 #define MOUSE_YAW_SPEED 0.011f   //鼠标yaw轴速度增益
 #define RC_YAW_SPEED 0.0003f     //遥控器yaw轴速度增益
 
