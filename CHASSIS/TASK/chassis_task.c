@@ -141,13 +141,7 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	PidInit(&chassis_data_init_f->chassis_rotate_pid, CHASSIS_SPIN_FOLLOW_KP, CHASSIS_SPIN_FOLLOW_KI, CHASSIS_SPIN_FOLLOW_KD, Deadzone | ChangingIntegrationRate | Integral_Limit);
 	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, Deadzone, 5.0f, 0);
 	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, ChangingIntegrationRate, 180.0f, 0.5f);
-	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, Integral_Limit, 1000, 0);
-	#ifdef GIMBAL_MOTION_PREDICT
-	PidInit(&chassis_data_init_f->gimbal_yaw_pid, CHASSIS_SPIN_FOLLOW_KP, CHASSIS_SPIN_FOLLOW_KI, CHASSIS_SPIN_FOLLOW_KD, Deadzone | ChangingIntegrationRate | Integral_Limit);
-	PidInitMode(&chassis_data_init_f->gimbal_yaw_pid, Deadzone, 1.0f, 0);
-	PidInitMode(&chassis_data_init_f->gimbal_yaw_pid, ChangingIntegrationRate, 180.0f, 0.5f);
-	PidInitMode(&chassis_data_init_f->gimbal_yaw_pid, Integral_Limit, 1000, 0);
-	#endif
+	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, Integral_Limit, 1000, 0);	
 	
 #ifdef POWER_CONTROL
 	PidInit(&chassis_data_init_f->power_pid, 0.03, 0.005, 0.0, Output_Limit | Integral_Limit | OutputFilter);

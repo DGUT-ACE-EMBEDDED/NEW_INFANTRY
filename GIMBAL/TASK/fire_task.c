@@ -30,7 +30,15 @@ void fire_Task(void const *argument)
 		fire_behaviour_choose(fire_control_p); // 还差裁判系统 TODO:
 
 		fire_pid_calculate(fire_control_p);
-
+		
+		/*暂用，右遥感打下关闭*/
+		if(fire_control_p->fire_rc->rc.s2 == RC_SW_DOWN)
+		{
+			fire_control_p->fire_motor.set_current =0;
+			fire_control_p->left_motor.set_current =0;
+			fire_control_p->right_motor.set_current =0;
+		}
+		
 		can2_gimbal_setmsg(fire_control_p->left_motor.set_current, fire_control_p->right_motor.set_current, fire_control_p->fire_motor.set_current);
 		vTaskDelay(1);
 	}
@@ -62,7 +70,7 @@ gimbal_fire_control_t *fire_task_init(void)
 	PidInitMode(&fire_task_init_p->fire_motor_position_pid, Output_Limit, 10000, 0);
 	PidInitMode(&fire_task_init_p->fire_motor_position_pid, Integral_Limit, 100, 0);
 
-	fire_task_init_p->full_automatic = true;
+	fire_task_init_p->fire_behaviour = FIRE_FULL_AUTO;
 	fire_task_init_p->feed_buttle = false;
 
 	return fire_task_init_p;
@@ -70,17 +78,17 @@ gimbal_fire_control_t *fire_task_init(void)
 
 void fire_behaviour_choose(gimbal_fire_control_t *fire_behaviour_choose_f)
 {
-	static uint16_t last_B = 0;
+//	static uint16_t last_B = 0;
 	// static uint16_t last_C = 0;
-	uint16_t last_press;
+//	uint16_t last_press;
 
 	// B	单发全自动切换
-	last_press = last_B;
-	last_B = fire_behaviour_choose_f->fire_rc->kb.bit.B;
-	if ((last_press == false) && (last_B == true)) // 上升沿触发
-	{
-		fire_behaviour_choose_f->full_automatic = !fire_behaviour_choose_f->full_automatic;
-	}
+//	last_press = last_B;
+//	last_B = fire_behaviour_choose_f->fire_rc->kb.bit.B;
+//	if ((last_press == false) && (last_B == true)) // 上升沿触发
+//	{
+//		fire_behaviour_choose_f->full_automatic = !fire_behaviour_choose_f->full_automatic;
+//	}
 
 	// 待定	补弹 TODO:
 	// last_press = last_C;
@@ -114,31 +122,35 @@ void fire_behaviour_choose(gimbal_fire_control_t *fire_behaviour_choose_f)
 		fire_behaviour_choose_f->right_motor.Speed_Set = FIRE_SPEED_15;
 		break;
 	}
+	if(fire_behaviour_choose_f->fire_rc->rc.s2 == RC_SW_DOWN)
+	{
+		fire_behaviour_choose_f->left_motor.Speed_Set = FIRE_SPEED_0;
+		fire_behaviour_choose_f->right_motor.Speed_Set = FIRE_SPEED_0;
+	}
 
 	// 弹舱舵机控制 TODO:
 }
-int test = 5000;
 void fire_pid_calculate(gimbal_fire_control_t *fire_pid_calculate_f)
 {
 	if (((fire_pid_calculate_f->fire_rc->mouse.press_l != 0) || (fire_pid_calculate_f->fire_rc->rc.ch[4] > 0)) 
 		&& ((fire_pid_calculate_f->referee->Power_Heat.shooter_id1_17mm_cooling_heat + 25 <= fire_pid_calculate_f->referee->Robot_Status.shooter_id1_17mm_cooling_limit)
 		|| (fire_pid_calculate_f->referee->Robot_Status.shooter_id1_17mm_cooling_limit == 0)))
 	{
-		if (fire_pid_calculate_f->full_automatic) // 全自动开环控制
-		{
-			fire_pid_calculate_f->fire_motor.Speed_Set = test; // TODO:5000
+//		if (fire_pid_calculate_f->full_automatic) // 全自动开环控制
+//		{
+			fire_pid_calculate_f->fire_motor.Speed_Set = 5000; // TODO:5000
 			fire_pid_calculate_f->fire_motor.set_current = motor_speed_control(&fire_pid_calculate_f->fire_motor_speed_pid,
 																			   fire_pid_calculate_f->fire_motor.Speed_Set,
 																			   fire_pid_calculate_f->fire_motor.motor_measure->speed);
-		}
-		else // 非全自动使用闭环控制
-		{
-			fire_pid_calculate_f->fire_motor.set_current = motor_position_speed_control(&fire_pid_calculate_f->fire_motor_speed_pid,
-																						&fire_pid_calculate_f->fire_motor_position_pid,
-																						(fire_pid_calculate_f->fire_motor_encoder->Encode_Record_Val + 1000),
-																						fire_pid_calculate_f->fire_motor_encoder->Encode_Record_Val,
-																						fire_pid_calculate_f->fire_motor.motor_measure->speed);
-		}
+//		}
+//		else // 非全自动使用闭环控制
+//		{
+//			fire_pid_calculate_f->fire_motor.set_current = motor_position_speed_control(&fire_pid_calculate_f->fire_motor_speed_pid,
+//																						&fire_pid_calculate_f->fire_motor_position_pid,
+//																						(fire_pid_calculate_f->fire_motor_encoder->Encode_Record_Val + 1000),
+//																						fire_pid_calculate_f->fire_motor_encoder->Encode_Record_Val,
+//																						fire_pid_calculate_f->fire_motor.motor_measure->speed);
+//		}
 	}
 	else
 	{

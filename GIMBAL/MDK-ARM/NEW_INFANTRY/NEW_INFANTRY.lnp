@@ -38,6 +38,7 @@
 "new_infantry\maths.o"
 "new_infantry\pid.o"
 "new_infantry\filter.o"
+"new_infantry\lqr.o"
 "new_infantry\startup_stm32f407xx.o"
 "new_infantry\usb_device.o"
 "new_infantry\usbd_desc.o"

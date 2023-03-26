@@ -8,12 +8,12 @@
 //原始控制量
 float Chassis_x = 0.0f;
 float Chassis_y = 0.0f;
-float Chassis_yaw = 0.0f;
+float Chassis_yaw_speed = 0.0f;
 float Gimbal_yaw = 0;
 
 float Chassis_x_pid_output = 0.0f;
 float Chassis_y_pid_output = 0.0f;
-float Chassis_yaw_pid_output = 0.0f;
+float Chassis_yaw_speed_pid_output = 0.0f;
 /********************函数声明********************/
 void f_CHASSIS_FOLLOW(chassis_control_t *Chassis_behaviour_react_f);
 void f_CHASSIS_NO_FOLLOW(chassis_control_t *Chassis_behaviour_react_f);
@@ -120,7 +120,7 @@ void chassis_behaviour_react(chassis_control_t *Chassis_behaviour_react_f)
     }
 
     //没头的时候旋转用的
-//    Chassis_yaw += Chassis_behaviour_react_f->Chassis_RC->rc.ch[0];
+//    Chassis_yaw_speed += Chassis_behaviour_react_f->Chassis_RC->rc.ch[0];
 }
 void chassis_state_choose(chassis_control_t *chassis_state_choose_f)
 {
@@ -165,15 +165,7 @@ void chassis_speed_pid_calculate(chassis_control_t *chassis_speed_pid_calculate_
 	
 		Chassis_x_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->Chassis_speedX_Pid, Chassis_x, 0);
 		Chassis_y_pid_output = PidCalculate(&chassis_speed_pid_calculate_f->Chassis_speedY_Pid, Chassis_y, 0);
-		Chassis_yaw_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->chassis_rotate_pid, Chassis_yaw, 0);
-		#ifdef GIMBAL_MOTION_PREDICT
-		if(chassis_speed_pid_calculate_f->behaviour == CHASSIS_FOLLOW)
-		{
-			float temporary_Gimbal_yaw = Gimbal_yaw + chassis_speed_pid_calculate_f->Chassis_Gimbal_Diference_Angle;
-			temporary_Gimbal_yaw = loop_fp32_constrain(temporary_Gimbal_yaw, 0.0f, 360.0f);
-			Chassis_yaw_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->chassis_rotate_pid, user_abs(temporary_Gimbal_yaw - chassis_speed_pid_calculate_f->Imu_c->Yaw) > 180 ? ((temporary_Gimbal_yaw - chassis_speed_pid_calculate_f->Imu_c->Yaw) > 0 ? ((temporary_Gimbal_yaw - chassis_speed_pid_calculate_f->Imu_c->Yaw) - 360.0f) : (360.0f - (temporary_Gimbal_yaw - chassis_speed_pid_calculate_f->Imu_c->Yaw))) : (temporary_Gimbal_yaw - chassis_speed_pid_calculate_f->Imu_c->Yaw),0);
-		}
-		#endif
+		Chassis_yaw_speed_pid_output = -PidCalculate(&chassis_speed_pid_calculate_f->chassis_rotate_pid, Chassis_yaw_speed, 0);
 	
 		#ifdef POWER_CONTROL
 	//FIXME:还不能完全控制住功耗，起步打滑。
@@ -191,23 +183,26 @@ void chassis_speed_pid_calculate(chassis_control_t *chassis_speed_pid_calculate_
 
 void chassis_motion_decomposition(chassis_control_t *chassis_motion_decomposition_f)
 {
-    chassis_motion_decomposition_f->Chassis_Motor[0].Speed_Set = (-Chassis_y_pid_output - Chassis_x_pid_output + Chassis_yaw_pid_output) * chassis_motion_decomposition_f->chassis_speed_gain;
-    chassis_motion_decomposition_f->Chassis_Motor[1].Speed_Set = (Chassis_y_pid_output - Chassis_x_pid_output + Chassis_yaw_pid_output) * chassis_motion_decomposition_f->chassis_speed_gain;
-    chassis_motion_decomposition_f->Chassis_Motor[2].Speed_Set = (-Chassis_y_pid_output + Chassis_x_pid_output + Chassis_yaw_pid_output) * chassis_motion_decomposition_f->chassis_speed_gain;
-    chassis_motion_decomposition_f->Chassis_Motor[3].Speed_Set = (Chassis_y_pid_output + Chassis_x_pid_output + Chassis_yaw_pid_output) * chassis_motion_decomposition_f->chassis_speed_gain;
+    chassis_motion_decomposition_f->Chassis_Motor[0].Speed_Set = (-Chassis_y_pid_output - Chassis_x_pid_output + Chassis_yaw_speed_pid_output) * chassis_motion_decomposition_f->chassis_speed_gain;
+    chassis_motion_decomposition_f->Chassis_Motor[1].Speed_Set = (Chassis_y_pid_output - Chassis_x_pid_output + Chassis_yaw_speed_pid_output) * chassis_motion_decomposition_f->chassis_speed_gain;
+    chassis_motion_decomposition_f->Chassis_Motor[2].Speed_Set = (-Chassis_y_pid_output + Chassis_x_pid_output + Chassis_yaw_speed_pid_output) * chassis_motion_decomposition_f->chassis_speed_gain;
+    chassis_motion_decomposition_f->Chassis_Motor[3].Speed_Set = (Chassis_y_pid_output + Chassis_x_pid_output + Chassis_yaw_speed_pid_output) * chassis_motion_decomposition_f->chassis_speed_gain;
 }
 
 void f_CHASSIS_FOLLOW(chassis_control_t *CHASSIS_FOLLOW_f)
 {
-	
-	
+	static float last_chassis_yaw = 0;
+	Chassis_yaw_speed = CHASSIS_FOLLOW_f->Chassis_Gimbal_Diference_Angle;
 	#ifdef GIMBAL_MOTION_PREDICT
 	  Gimbal_yaw -= CHASSIS_FOLLOW_f->Chassis_RC->mouse.x * MOUSE_YAW_SPEED;
     Gimbal_yaw -= CHASSIS_FOLLOW_f->Chassis_RC->rc.ch[0] * RC_YAW_SPEED;
+	
+		Gimbal_yaw -= (last_chassis_yaw - CHASSIS_FOLLOW_f->Imu_c->Yaw);
+		last_chassis_yaw = CHASSIS_FOLLOW_f->Imu_c->Yaw;
+	
 		Gimbal_yaw = loop_fp32_constrain(Gimbal_yaw, 0.0f, 360.0f);
+		Chassis_yaw_speed += Gimbal_yaw;
 	#endif
-		Chassis_yaw = CHASSIS_FOLLOW_f->Chassis_Gimbal_Diference_Angle;
-    
 }
 
 void f_CHASSIS_NO_FOLLOW(chassis_control_t *Chassis_behaviour_react_f)
@@ -219,11 +214,11 @@ void f_CHASSIS_NO_FOLLOW(chassis_control_t *Chassis_behaviour_react_f)
     Chassis_x = Gimbal_y * sin_calculate(Chassis_behaviour_react_f->Chassis_Gimbal_Diference_Angle) - Gimbal_x * cos_calculate(Chassis_behaviour_react_f->Chassis_Gimbal_Diference_Angle);
     Chassis_y = Gimbal_y * cos_calculate(Chassis_behaviour_react_f->Chassis_Gimbal_Diference_Angle) + Gimbal_x * sin_calculate(Chassis_behaviour_react_f->Chassis_Gimbal_Diference_Angle);
     Chassis_x = -Chassis_x;
-		Chassis_yaw =  Chassis_behaviour_react_f->chassis_no_follow_yaw - Chassis_behaviour_react_f->Imu_c->Yaw;
+		Chassis_yaw_speed =  Chassis_behaviour_react_f->chassis_no_follow_yaw - Chassis_behaviour_react_f->Imu_c->Yaw;
 }
 void f_CHASSIS_ROTATION(chassis_control_t *Chassis_behaviour_react_f)
 {
-    Chassis_yaw = CHASSIS_ROTATION_SPEED;
+    Chassis_yaw_speed = CHASSIS_ROTATION_SPEED;
     //以云台为主，将底盘数值设置为云台
     float Gimbal_x = Chassis_x;
     float Gimbal_y = Chassis_y;
@@ -236,5 +231,5 @@ void f_CHASSIS_BATTERY(chassis_control_t *Chassis_behaviour_react_f)
 {
     Chassis_x = 0;
     Chassis_y = 0;
-    Chassis_yaw = 0;
+    Chassis_yaw_speed = 0;
 }

@@ -152,9 +152,6 @@ typedef struct
 	pid_parameter_t Chassis_speedX_Pid; //底盘速度xpid
 	pid_parameter_t Chassis_speedY_Pid; //底盘速度ypid
 	pid_parameter_t chassis_rotate_pid; //旋转pid
-	#ifdef GIMBAL_MOTION_PREDICT
-	pid_parameter_t gimbal_yaw_pid;
-	#endif
 	
 	first_order_filter_type_t Chassis_speedX_filter;
 	first_order_filter_type_t Chassis_speedY_filter;

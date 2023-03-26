@@ -24,8 +24,17 @@
 #define __GIMBAL_CONFIG_H
 
 #define FIRE_WORK
-//p轴中位偏移值
-#define PITCH_ZERO_OFFSET 100.0f 
+
+#define PITCH_USE_PID 			0
+#define PITCH_USE_LQR 			1
+#define PITCH_CONTROLER 		PITCH_USE_LQR
+
+#define YAW_USE_PID 			0
+#define YAW_USE_LQR 			1
+#define YAW_CONTROLER 		YAW_USE_PID
+
+#define PITCH_ZERO_OFFSET 100.0f //p轴中位偏移值
+
 
 /**********************pitch轴PID参数**********************/
 #define GIMBAL_PITCH_P_P 120.0f

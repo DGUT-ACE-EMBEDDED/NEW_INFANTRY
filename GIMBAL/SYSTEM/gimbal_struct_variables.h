@@ -50,6 +50,8 @@ ___`. .' /--.--\ `. . __
 /********************ALGORITHM********************/
 #include "pid.h"
 #include "fifo.h"
+#include "lqr.h"
+#include "filter.h"
 /********************REFEREE********************/
 // #include "crc.h"
 // #include "referee_deal.h"
@@ -63,7 +65,11 @@ typedef enum
 	GIMBAL_AUTOBUFF,	 // ´ò·û×´Ì¬
 	GIMBAL_REPLENISHMEN, // ²¹¸ø×´Ì¬
 } gimbal_behaviour_e;
-
+typedef enum
+{
+	FIRE_OFF,		 
+	FIRE_FULL_AUTO,
+} fire_behaviour_e;
 typedef enum
 {
 	GIMBAL_ZERO_FORCE, // ÔÆÌ¨ÎÞÁ¦
@@ -100,6 +106,15 @@ typedef struct
 	Encoder_t *pitch_motor_encoder;
 	pid_parameter_t pitch_motor_speed_pid;
 	pid_parameter_t pitch_motor_position_pid;
+	first_order_filter_type_t visual_pitch__first_order_filter;
+	#if(PITCH_CONTROLER == PITCH_UES_LQR)
+	LQR_t motor_lqr;
+	pid_parameter_t qitch_lqr_only_i_pid;
+	sliding_mean_filter_type_t motor_filter;
+	
+	float motor_target;
+	float motor_output;
+	#endif
 } gimbal_pitch_control_t;
 
 // yÖá
@@ -111,11 +126,20 @@ typedef struct
 	pid_parameter_t yaw_motor_position_pid;
 	pid_parameter_t yaw_motor_visual_speed_pid;
 	pid_parameter_t yaw_motor_visual_position_pid;
+	#if(YAW_CONTROLER == YAW_UES_LQR)
+	LQR_t motor_lqr;
+	pid_parameter_t yaw_lqr_only_i_pid;
+	sliding_mean_filter_type_t motor_filter;
+	
+	float motor_target;
+	float motor_output;
+	#endif
 } gimbal_yaw_control_t;
 
 // »ð¿Ø
 typedef struct
 {
+	fire_behaviour_e fire_behaviour;
 	Motor3508_t right_motor;
 	Motor3508_t left_motor;
 	Motor3508_t fire_motor;
@@ -124,7 +148,8 @@ typedef struct
 	pid_parameter_t left_motor_speed_pid;
 	pid_parameter_t fire_motor_speed_pid;
 	pid_parameter_t fire_motor_position_pid;
-	bool full_automatic;
+	
+//	bool full_automatic;
 	bool feed_buttle;
 	
 	const RC_ctrl_t *fire_rc;

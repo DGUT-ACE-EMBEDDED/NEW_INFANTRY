@@ -87,9 +87,9 @@ void Virtual_send(gimbal_auto_control_t *Virtual_send_p)
 				STR	Register3 , [Register2],#4
 				LDR Register3 , [Register1],#4
 				STR	Register3 , [Register2],#4
-				LDR Register3 , [Virtual_send_p->gimbal_yaw]
+				LDR Register3 , [&INS.Yaw]
 				STR Register3 , [Register2],#4
-				LDR Register3 , [Virtual_send_p->gimbal_pitch]
+				LDR Register3 , [&INS.Pitch]
 				STR Register3 , [Register2]
 			}
 		}

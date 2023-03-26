@@ -21,6 +21,7 @@
 #include "pid.h"
 #include "maths.h"
 #include "filter.h"
+#include "lqr.h"
 /*--------------------- BSP --------------------*/
 #include "bsp_dr16.h"
 #include "bsp_Motor_Encoder.h"
@@ -30,7 +31,12 @@ gimbal_control_t Gimbal_Control;
 
 static void Gimbal_Work(gimbal_control_t *Gimbal_Work_f);
 static void Gimbal_Init(gimbal_control_t *Gimbal_Init_f);
-
+#if(PITCH_CONTROLER == PITCH_USE_LQR)
+double k_pitch_lqr[2] = {-5.94183025734807, -0.3};
+#endif
+#if(YAW_CONTROLER == YAW_USE_LQR)
+double k_yaw_lqr[2] = {-7.96227766016838, -0.33467065322830};
+#endif
 /**
  * @brief  云台主任务
  * @param
@@ -53,7 +59,7 @@ void Gimbal_Task(void const *argument)
       vTaskDelay(1); // 绝对延时//vTaskDelay(2);
     }
 }
-extern first_order_filter_type_t auto_filter;
+
 void Gimbal_Init(gimbal_control_t *Gimbal_Init_f)
 {
     memset(Gimbal_Init_f, 0, sizeof(gimbal_control_t));
@@ -75,6 +81,11 @@ void Gimbal_Init(gimbal_control_t *Gimbal_Init_f)
     Gimbal_Init_f->Pitch_c.pitch_motor_encoder = Encoder_Init(GM6020, 1);
     Gimbal_Init_f->Yaw_c.yaw_motor_encoder = Encoder_Init(GM6020, 2);
 
+		#if(PITCH_CONTROLER == PITCH_USE_LQR)
+		PidInit(&Gimbal_Init_f->Pitch_c.qitch_lqr_only_i_pid, 0, 0.15f, 0, Integral_Limit );
+    PidInitMode(&Gimbal_Init_f->Pitch_c.qitch_lqr_only_i_pid, Integral_Limit, 1000, 0);
+		LQR_Init(&Gimbal_Init_f->Pitch_c.motor_lqr, 2, 1, k_pitch_lqr);
+		#elif(PITCH_CONTROLER == PITCH_USE_PID)
     /*--------------------pid--------------------*/
     // P轴
     PidInit(&Gimbal_Init_f->Pitch_c.pitch_motor_speed_pid, GIMBAL_PITCH_S_P, GIMBAL_PITCH_S_I, GIMBAL_PITCH_S_D, Integral_Limit | Output_Limit | OutputFilter);
@@ -86,7 +97,12 @@ void Gimbal_Init(gimbal_control_t *Gimbal_Init_f)
     PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, Integral_Limit, 5, 0);
     PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, Output_Limit, 10000, 0);
     PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, StepIn, 30, 0);
-
+		#endif
+		#if(YAW_CONTROLER == YAW_USE_LQR)
+		PidInit(&Gimbal_Init_f->Yaw_c.yaw_lqr_only_i_pid, 0, 0.15f, 0, Integral_Limit );
+    PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_lqr_only_i_pid, Integral_Limit, 1000, 0);
+		LQR_Init(&Gimbal_Init_f->Yaw_c.motor_lqr, 2, 1, k_yaw_lqr);
+		#elif(YAW_CONTROLER == YAW_USE_PID)
     // Y轴
     PidInit(&Gimbal_Init_f->Yaw_c.yaw_motor_speed_pid, GIMBAL_YAW_S_P, GIMBAL_YAW_S_I, GIMBAL_YAW_S_D, Output_Limit | Integral_Limit);
     PidInit(&Gimbal_Init_f->Yaw_c.yaw_motor_position_pid, GIMBAL_YAW_P_P,GIMBAL_YAW_P_I, GIMBAL_YAW_P_D, Integral_Limit | Output_Limit | StepIn);
@@ -104,8 +120,16 @@ void Gimbal_Init(gimbal_control_t *Gimbal_Init_f)
     
     PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_motor_visual_position_pid, Integral_Limit, 5, 0);
     PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_motor_visual_position_pid, Output_Limit, 30000, 0);
+		#endif
 		
-		first_order_filter_init(&auto_filter,0.03);
+		/*--------------------filter--------------------*/
+		#if(PITCH_CONTROLER == PITCH_USE_LQR)
+		sliding_mean_filter_init(&Gimbal_Init_f->Pitch_c.motor_filter);
+		#endif
+		#if(YAW_CONTROLER == YAW_USE_LQR)
+		sliding_mean_filter_init(&Gimbal_Init_f->Yaw_c.motor_filter);
+		#endif
+		first_order_filter_init(&Gimbal_Init_f->Pitch_c.visual_pitch__first_order_filter,0.03);
 		
     EncoderValZero(Gimbal_Init_f->Yaw_c.yaw_motor_encoder);
     Gimbal_Init_f->chassis_gimbal_angel = 0;

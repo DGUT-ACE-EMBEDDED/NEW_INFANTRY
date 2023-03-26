@@ -628,6 +628,11 @@
               <FileType>1</FileType>
               <FilePath>..\ACE-ECF\Algorithm\src\filter.c</FilePath>
             </File>
+            <File>
+              <FileName>lqr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ACE-ECF\Algorithm\src\lqr.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
