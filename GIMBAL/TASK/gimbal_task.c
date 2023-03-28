@@ -35,7 +35,8 @@ static void Gimbal_Init(gimbal_control_t *Gimbal_Init_f);
 double k_pitch_lqr[2] = {-5.94183025734807, -0.3};
 #endif
 #if(YAW_CONTROLER == YAW_USE_LQR)
-double k_yaw_lqr[2] = {-7.96227766016838, -0.33467065322830};
+//double k_yaw_lqr[2] = {-7.96227766016838, -0.33467065322830};
+double k_yaw_lqr[2] = {-7.96227766016838, -0.55467065322830};
 #endif
 /**
  * @brief  云台主任务
@@ -82,8 +83,10 @@ void Gimbal_Init(gimbal_control_t *Gimbal_Init_f)
     Gimbal_Init_f->Yaw_c.yaw_motor_encoder = Encoder_Init(GM6020, 2);
 
 		#if(PITCH_CONTROLER == PITCH_USE_LQR)
-		PidInit(&Gimbal_Init_f->Pitch_c.qitch_lqr_only_i_pid, 0, 0.15f, 0, Integral_Limit );
-    PidInitMode(&Gimbal_Init_f->Pitch_c.qitch_lqr_only_i_pid, Integral_Limit, 1000, 0);
+		PidInit(&Gimbal_Init_f->Pitch_c.qitch_lqr_only_i_pid, 0, 15.0f, 0, Integral_Limit | ChangingIntegrationRate);
+    PidInitMode(&Gimbal_Init_f->Pitch_c.qitch_lqr_only_i_pid, Integral_Limit, 250, 0);
+		PidInitMode(&Gimbal_Init_f->Pitch_c.qitch_lqr_only_i_pid, ChangingIntegrationRate, 5, 0);
+		
 		LQR_Init(&Gimbal_Init_f->Pitch_c.motor_lqr, 2, 1, k_pitch_lqr);
 		#elif(PITCH_CONTROLER == PITCH_USE_PID)
     /*--------------------pid--------------------*/
@@ -99,8 +102,8 @@ void Gimbal_Init(gimbal_control_t *Gimbal_Init_f)
     PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, StepIn, 30, 0);
 		#endif
 		#if(YAW_CONTROLER == YAW_USE_LQR)
-		PidInit(&Gimbal_Init_f->Yaw_c.yaw_lqr_only_i_pid, 0, 0.15f, 0, Integral_Limit );
-    PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_lqr_only_i_pid, Integral_Limit, 1000, 0);
+		PidInit(&Gimbal_Init_f->Yaw_c.yaw_lqr_only_i_pid, 0, 7.5f, 0, Integral_Limit );
+    PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_lqr_only_i_pid, Integral_Limit, 250, 0);
 		LQR_Init(&Gimbal_Init_f->Yaw_c.motor_lqr, 2, 1, k_yaw_lqr);
 		#elif(YAW_CONTROLER == YAW_USE_PID)
     // Y轴

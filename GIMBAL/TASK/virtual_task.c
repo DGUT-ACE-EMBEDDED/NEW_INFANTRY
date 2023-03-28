@@ -5,6 +5,7 @@
 /*--------------------- TASK --------------------*/
 #include "virtual_task.h"
 #include "gimbal_task.h"
+#include "imu_task.h"
 /*--------------------- FIRMWARE --------------------*/
 #include "usbd_cdc_if.h"
 
@@ -12,12 +13,13 @@
 #include "string.h"
 
 #include "fifo.h"
-
+#include "bsp_referee.h"
 gimbal_auto_control_t *auto_control_p;
 
 static gimbal_auto_control_t *virtual_task_init(void);
 static void Virtual_send(gimbal_auto_control_t *Virtual_send_p);
 static void Virtual_recive(gimbal_auto_control_t *Virtual_recive_p);
+static void gimbal_data_log(gimbal_auto_control_t *gimbal_data_log_p);
 
 void Virtual_Task(void const * argument)
 {
@@ -40,6 +42,12 @@ void Virtual_recive(gimbal_auto_control_t *Virtual_recive_p)
 			Virtual_recive_p->auto_yaw = -(((float)((int16_t)(read_buff[2]<<8 | read_buff[1]))) / 100.0f);        //自动打击的y轴角度计算/100
 			Virtual_recive_p->auto_pitch = -(((float)((int16_t)(read_buff[4]<<8 | read_buff[3]))) / 100.0f);      //自动打击的p轴角度计算
 //			Virtual_recive_p->auto_pitch_speed = (read_buff[5]<<8 | read_buff[6]) / 10000; //自动打击的p轴角度计算/100
+			
+			#ifdef VIRTUAL_DELAY_COMPENSATE
+			Virtual_recive_p->gimbal_use_control[0] = Virtual_recive_p->history_gimbal_data[0] + Virtual_recive_p->auto_pitch;
+			Virtual_recive_p->gimbal_use_control[1] = Virtual_recive_p->history_gimbal_data[1] + Virtual_recive_p->auto_yaw;
+			gimbal_data_log(auto_control_p);
+			#endif
 		}
 	}
 }
@@ -56,7 +64,10 @@ void Virtual_send(gimbal_auto_control_t *Virtual_send_p)
 	switch (*Virtual_send_p->gimbal_behaviour)
 	{
     case GIMBAL_MANUAL:
-				return;
+			  //暂用
+				Virtual_send_p->visual_buff_send[2] = 0;
+        break;
+//				return;
     case GIMBAL_AUTOATTACK:
 				Virtual_send_p->visual_buff_send[2] = 0;
         break;
@@ -70,8 +81,7 @@ void Virtual_send(gimbal_auto_control_t *Virtual_send_p)
 //		//阵营
 		Virtual_send_p->visual_buff_send[1] = 1;
 //		//射速
-
-		Virtual_send_p->visual_buff_send[3] = 15;
+		Virtual_send_p->visual_buff_send[3] = Virtual_send_p->referee->Robot_Status.shooter_id1_17mm_speed_limit;
 		//浮点转字节
 		{
 			float register *Register1 = INS.q;
@@ -95,13 +105,25 @@ void Virtual_send(gimbal_auto_control_t *Virtual_send_p)
 		}
 		CDC_Transmit_FS(Virtual_send_p->visual_buff_send, sizeof(Virtual_send_p->visual_buff_send));
 }
-
+void gimbal_data_log(gimbal_auto_control_t *gimbal_data_log_p)
+{
+	#if(PITCH_ANGLE_SENSOR == PITCH_USE_IMU)
+	gimbal_data_log_p->history_gimbal_data[0] = gimbal_data_log_p->Imu_c->Roll;
+	#elif(PITCH_ANGLE_SENSOR == PITCH_USE_ENCODER)
+	gimbal_data_log_p->Pitch_c.pitch_motor.actPositon_360 = ((float)gimbal_pid_calculate_f->Pitch_c.pitch_motor_encoder->Encode_Actual_Val * 360.0f / 8192.0f - PITCH_ZERO_OFFSET);
+	gimbal_data_log_p->history_gimbal_data[0] = gimbal_data_log_p->Pitch_c.pitch_motor.actPositon_360;
+	#endif
+	gimbal_data_log_p->history_gimbal_data[1] = gimbal_data_log_p->Imu_c->Yaw;
+}
 gimbal_auto_control_t *virtual_task_init(void)
 {
 	gimbal_auto_control_t *virtual_task_init_p;
 	virtual_task_init_p = malloc(sizeof(gimbal_auto_control_t));
 	memset(virtual_task_init_p, 0, sizeof(gimbal_auto_control_t));
-	
+
+	// 获取陀螺仪指针
+  virtual_task_init_p->Imu_c = get_imu_control_point();
+	virtual_task_init_p->referee = Get_referee_Address();
 	virtual_task_init_p->usb_fifo = fifo_s_create(48);
 	virtual_task_init_p->gimbal_pitch = get_Gimbal_pitch_point();
 	virtual_task_init_p->gimbal_yaw = get_Gimbal_yaw_point();

@@ -12,7 +12,7 @@ const float zb[3] = {0, 0, 1};
 uint32_t INS_DWT_Count = 0;
 static float dt = 0, t = 0;
 uint8_t ins_debug_mode = 0;
-float RefTemp = 0;
+float RefTemp = 40;
 
 extern void imu_Task(void const *argument);
 
@@ -40,9 +40,9 @@ void INS_Init(void)
 
     IMU_QuaternionEKF_Init(10, 0.001, 10000000, 1, 0);
     
-		PidInit(&TempCtrl,1000 ,20,0,Integral_Limit | Output_Limit);
+		PidInit(&TempCtrl,500 ,30,0,Integral_Limit | Output_Limit);
 		PidInitMode(&TempCtrl ,Output_Limit,2000 ,0);
-	PidInitMode(&TempCtrl ,Integral_Limit,300,0 );
+		PidInitMode(&TempCtrl ,Integral_Limit,10,0 );
 	
     HAL_TIM_PWM_Start(&htim10, TIM_CHANNEL_1);
     INS.AccelLPF = 0.0085;

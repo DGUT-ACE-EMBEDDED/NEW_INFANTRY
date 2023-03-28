@@ -56,7 +56,7 @@
 #define CHASSIS_LB_MOTOR_KD 0.5f
 
 //µ×ÅÌËÙ¶Èpid
-#define CHASSIS_PSEED_X_KP 4.0f
+#define CHASSIS_PSEED_X_KP 6.0f
 #define CHASSIS_PSEED_X_KI 0.0f
 #define CHASSIS_PSEED_X_KD 10.8f
 

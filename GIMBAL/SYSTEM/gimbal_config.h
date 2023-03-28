@@ -23,15 +23,21 @@
 #ifndef __GIMBAL_CONFIG_H
 #define __GIMBAL_CONFIG_H
 
-#define FIRE_WORK
+//#define FIRE_WORK
+
+#define VIRTUAL_DELAY_COMPENSATE
 
 #define PITCH_USE_PID 			0
 #define PITCH_USE_LQR 			1
 #define PITCH_CONTROLER 		PITCH_USE_LQR
 
+#define PITCH_USE_ENCODER   0
+#define PITCH_USE_IMU       1
+#define PITCH_ANGLE_SENSOR  PITCH_USE_IMU
+
 #define YAW_USE_PID 			0
 #define YAW_USE_LQR 			1
-#define YAW_CONTROLER 		YAW_USE_PID
+#define YAW_CONTROLER 		YAW_USE_LQR
 
 #define PITCH_ZERO_OFFSET 100.0f //p÷·÷–Œª∆´“∆÷µ
 

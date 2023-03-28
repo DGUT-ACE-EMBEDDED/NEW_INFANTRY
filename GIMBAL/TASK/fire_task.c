@@ -122,11 +122,6 @@ void fire_behaviour_choose(gimbal_fire_control_t *fire_behaviour_choose_f)
 		fire_behaviour_choose_f->right_motor.Speed_Set = FIRE_SPEED_15;
 		break;
 	}
-	if(fire_behaviour_choose_f->fire_rc->rc.s2 == RC_SW_DOWN)
-	{
-		fire_behaviour_choose_f->left_motor.Speed_Set = FIRE_SPEED_0;
-		fire_behaviour_choose_f->right_motor.Speed_Set = FIRE_SPEED_0;
-	}
 
 	// µ¯²Õ¶æ»ú¿ØÖÆ TODO:
 }

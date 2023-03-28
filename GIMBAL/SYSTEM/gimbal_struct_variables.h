@@ -164,9 +164,14 @@ typedef struct
 	float auto_pitch;
 	float auto_pitch_speed;
 	
+	float history_gimbal_data[2]; //第一个pitch，第二个yaw
+	float gimbal_use_control[2];
+
 	const gimbal_behaviour_e *gimbal_behaviour;
+	const INS_t *Imu_c;
 	const float *gimbal_yaw;
 	const float *gimbal_pitch;
+	const REFEREE_t *referee;
 } gimbal_auto_control_t;
 
 typedef struct

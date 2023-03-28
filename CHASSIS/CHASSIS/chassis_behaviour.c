@@ -19,7 +19,7 @@ void f_CHASSIS_FOLLOW(chassis_control_t *Chassis_behaviour_react_f);
 void f_CHASSIS_NO_FOLLOW(chassis_control_t *Chassis_behaviour_react_f);
 void f_CHASSIS_ROTATION(chassis_control_t *Chassis_behaviour_react_f);
 void f_CHASSIS_BATTERY(chassis_control_t *Chassis_behaviour_react_f);
-
+static float float_min_distance(float target, float actual, float minValue, float maxValue);
 void chassis_behaviour_choose(chassis_control_t *Chassis_behaviour_f)
 {
     //用于记录上一次数据
@@ -191,6 +191,13 @@ void chassis_motion_decomposition(chassis_control_t *chassis_motion_decompositio
 
 void f_CHASSIS_FOLLOW(chassis_control_t *CHASSIS_FOLLOW_f)
 {
+	//以云台为主，将底盘数值设置为云台
+  float Gimbal_x = Chassis_x;
+  float Gimbal_y = Chassis_y;
+  //将云台速度分解到底盘
+  Chassis_x -= Gimbal_y * sin_calculate(CHASSIS_FOLLOW_f->Chassis_Gimbal_Diference_Angle) - Gimbal_x * cos_calculate(CHASSIS_FOLLOW_f->Chassis_Gimbal_Diference_Angle);
+  Chassis_y += Gimbal_y * cos_calculate(CHASSIS_FOLLOW_f->Chassis_Gimbal_Diference_Angle) + Gimbal_x * sin_calculate(CHASSIS_FOLLOW_f->Chassis_Gimbal_Diference_Angle);
+	
 	static float last_chassis_yaw = 0;
 	Chassis_yaw_speed = CHASSIS_FOLLOW_f->Chassis_Gimbal_Diference_Angle;
 	#ifdef GIMBAL_MOTION_PREDICT
@@ -214,7 +221,11 @@ void f_CHASSIS_NO_FOLLOW(chassis_control_t *Chassis_behaviour_react_f)
     Chassis_x = Gimbal_y * sin_calculate(Chassis_behaviour_react_f->Chassis_Gimbal_Diference_Angle) - Gimbal_x * cos_calculate(Chassis_behaviour_react_f->Chassis_Gimbal_Diference_Angle);
     Chassis_y = Gimbal_y * cos_calculate(Chassis_behaviour_react_f->Chassis_Gimbal_Diference_Angle) + Gimbal_x * sin_calculate(Chassis_behaviour_react_f->Chassis_Gimbal_Diference_Angle);
     Chassis_x = -Chassis_x;
-		Chassis_yaw_speed =  Chassis_behaviour_react_f->chassis_no_follow_yaw - Chassis_behaviour_react_f->Imu_c->Yaw;
+		#ifdef USE_IMU
+		Chassis_yaw_speed =  float_min_distance(loop_fp32_constrain(Chassis_behaviour_react_f->chassis_no_follow_yaw,-180.0f,180.0f),loop_fp32_constrain(Chassis_behaviour_react_f->Imu_c->Yaw,-180.0f,180.0f),-180.0f,180.0f);
+		#else
+		Chassis_yaw_speed =0
+		#endif
 }
 void f_CHASSIS_ROTATION(chassis_control_t *Chassis_behaviour_react_f)
 {
@@ -232,4 +243,31 @@ void f_CHASSIS_BATTERY(chassis_control_t *Chassis_behaviour_react_f)
     Chassis_x = 0;
     Chassis_y = 0;
     Chassis_yaw_speed = 0;
+}
+
+float float_min_distance(float target, float actual, float minValue, float maxValue)
+{
+	if (maxValue < minValue)
+    {
+        return 0;
+    }
+	
+	target = loop_float_constrain(target, minValue,maxValue);
+	
+	if (user_abs(target - actual) > (maxValue - minValue) / 2.0f)
+	{
+		if(maxValue - actual < (maxValue - minValue) / 2.0f)
+		{
+			return maxValue - actual + target - minValue;
+		}
+		else
+		{
+			return minValue - actual + target - maxValue;
+		}
+	}
+	else 
+	{
+		return target - actual;
+	}
+	
 }

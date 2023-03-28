@@ -432,7 +432,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
-F (..\SYSTEM\chassis_config.h)(0x641DB722)()
+F (..\SYSTEM\chassis_config.h)(0x642043E1)()
 F (..\SYSTEM\chassis_struct_variables.h)(0x641AC901)()
 F (..\ACE-ECF\Bsp\Src\bsp_Motor_Encoder.c)(0x63A402AE)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW -I ..\IMU-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U" -Dmath4-o new_infantry\bsp_motor_encoder.o --omf_browse new_infantry\bsp_motor_encoder.crf --depend new_infantry\bsp_motor_encoder.d)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -607,7 +607,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 I (../SYSTEM/chassis_struct_variables.h)(0x641AC901)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
-I (../SYSTEM/chassis_config.h)(0x641DB722)
+I (../SYSTEM/chassis_config.h)(0x642043E1)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -698,7 +698,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 I (../SYSTEM/chassis_struct_variables.h)(0x641AC901)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
-I (../SYSTEM/chassis_config.h)(0x641DB722)
+I (../SYSTEM/chassis_config.h)(0x642043E1)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -782,7 +782,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
-I (../SYSTEM/chassis_config.h)(0x641DB722)
+I (../SYSTEM/chassis_config.h)(0x642043E1)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -867,7 +867,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
-I (../SYSTEM/chassis_config.h)(0x641DB722)
+I (../SYSTEM/chassis_config.h)(0x642043E1)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -979,7 +979,7 @@ I (../Core/Inc/can.h)(0x638DF29D)
 I (../Core/Inc/main.h)(0x638DF29D)
 I (../SYSTEM/chassis_struct_variables.h)(0x641AC901)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
-I (../SYSTEM/chassis_config.h)(0x641DB722)
+I (../SYSTEM/chassis_config.h)(0x642043E1)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\core\ARM\ARMCC\include\stdbool.h)(0x6025237C)
@@ -1041,7 +1041,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
-I (../SYSTEM/chassis_config.h)(0x641DB722)
+I (../SYSTEM/chassis_config.h)(0x642043E1)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1222,7 +1222,7 @@ I (..\IMU\bsp_dwt.h)(0x638DF29E)
 I (../ACE-ECF/Bsp/Inc/bsp_pwm.h)(0x638DF2AA)
 I (../Core/Inc/tim.h)(0x638DF29D)
 I (../ACE-ECF/Algorithm/inc/pid.h)(0x641689FD)
-F (..\CHASSIS\chassis_behaviour.c)(0x641AC917)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW -I ..\IMU-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U" -Dmath4-o new_infantry\chassis_behaviour.o --omf_browse new_infantry\chassis_behaviour.crf --depend new_infantry\chassis_behaviour.d)
+F (..\CHASSIS\chassis_behaviour.c)(0x64204A8E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../TASK -I ../COMMUNICATION -I ../SYSTEM -I ../CHASSIS -I ../BSP -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ..\SYSTEMVIEW -I ..\IMU-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1U" -Dmath4-o new_infantry\chassis_behaviour.o --omf_browse new_infantry\chassis_behaviour.crf --depend new_infantry\chassis_behaviour.d)
 I (..\CHASSIS\chassis_behaviour.h)(0x638DF29D)
 I (../SYSTEM/chassis_struct_variables.h)(0x641AC901)
 I (../Core/Inc/main.h)(0x638DF29D)
@@ -1259,7 +1259,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x638DF29D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x638DF29D)
 I (../ACE-ECF/Algorithm/inc/struct_typedef.h)(0x638DF2A9)
-I (../SYSTEM/chassis_config.h)(0x641DB722)
+I (../SYSTEM/chassis_config.h)(0x642043E1)
 I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
