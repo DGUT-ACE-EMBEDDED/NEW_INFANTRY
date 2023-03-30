@@ -110,8 +110,9 @@ void gimbal_data_log(gimbal_auto_control_t *gimbal_data_log_p)
 	#if(PITCH_ANGLE_SENSOR == PITCH_USE_IMU)
 	gimbal_data_log_p->history_gimbal_data[0] = gimbal_data_log_p->Imu_c->Roll;
 	#elif(PITCH_ANGLE_SENSOR == PITCH_USE_ENCODER)
-	gimbal_data_log_p->Pitch_c.pitch_motor.actPositon_360 = ((float)gimbal_pid_calculate_f->Pitch_c.pitch_motor_encoder->Encode_Actual_Val * 360.0f / 8192.0f - PITCH_ZERO_OFFSET);
-	gimbal_data_log_p->history_gimbal_data[0] = gimbal_data_log_p->Pitch_c.pitch_motor.actPositon_360;
+	//有问题，勿用
+//	gimbal_data_log_p->Pitch_c.pitch_motor.actPositon_360 = ((float)gimbal_pid_calculate_f->Pitch_c.pitch_motor_encoder->Encode_Actual_Val * 360.0f / 8192.0f - PITCH_ZERO_OFFSET);
+//	gimbal_data_log_p->history_gimbal_data[0] = gimbal_data_log_p->Pitch_c.pitch_motor.actPositon_360;
 	#endif
 	gimbal_data_log_p->history_gimbal_data[1] = gimbal_data_log_p->Imu_c->Yaw;
 }

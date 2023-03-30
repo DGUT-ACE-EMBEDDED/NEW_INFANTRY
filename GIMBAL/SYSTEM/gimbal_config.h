@@ -25,7 +25,7 @@
 
 //#define FIRE_WORK
 
-#define VIRTUAL_DELAY_COMPENSATE
+//#define VIRTUAL_DELAY_COMPENSATE
 
 #define PITCH_USE_PID 			0
 #define PITCH_USE_LQR 			1

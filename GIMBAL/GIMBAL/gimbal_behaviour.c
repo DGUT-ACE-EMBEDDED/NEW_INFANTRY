@@ -76,6 +76,11 @@ void gimbal_behaviour_choose(gimbal_control_t *gimbal_behaviour_choose_f)
 
 void gimbal_behaviour_react(gimbal_control_t *gimbal_behaviour_react_f)
 {
+		Gimbal_pitch -= gimbal_behaviour_react_f->Gimbal_RC->mouse.y * MOUSE_PITCH_SPEED;
+    Gimbal_pitch += gimbal_behaviour_react_f->Gimbal_RC->rc.ch[1] * RC_PITCH_SPEED;
+
+    Gimbal_yaw -= gimbal_behaviour_react_f->Gimbal_RC->mouse.x * MOUSE_YAW_SPEED;
+    Gimbal_yaw -= gimbal_behaviour_react_f->Gimbal_RC->rc.ch[0] * RC_YAW_SPEED;
     switch (gimbal_behaviour_react_f->gimbal_behaviour)
     {
     case GIMBAL_MANUAL:
@@ -90,11 +95,6 @@ void gimbal_behaviour_react(gimbal_control_t *gimbal_behaviour_react_f)
     default:
         break;
     }
-		Gimbal_pitch -= gimbal_behaviour_react_f->Gimbal_RC->mouse.y * MOUSE_PITCH_SPEED;
-    Gimbal_pitch += gimbal_behaviour_react_f->Gimbal_RC->rc.ch[1] * RC_PITCH_SPEED;
-
-    Gimbal_yaw -= gimbal_behaviour_react_f->Gimbal_RC->mouse.x * MOUSE_YAW_SPEED;
-    Gimbal_yaw -= gimbal_behaviour_react_f->Gimbal_RC->rc.ch[0] * RC_YAW_SPEED;
 		
 		value_limit(Gimbal_pitch, PITCH_ANGLE_LIMIT_DOWN, PITCH_ANGLE_LIMIT_UP);
 		#if(YAW_CONTROLER == YAW_USE_PID)
@@ -122,7 +122,7 @@ void f_GIMBAL_AUTOATTACK(gimbal_control_t *f_GIMBAL_AUTOATTACK_f)
 					f_GIMBAL_AUTOATTACK_f->Pitch_c.pitch_motor.actPositon_360 = ((float)f_GIMBAL_AUTOATTACK_f->Pitch_c.pitch_motor_encoder->Encode_Actual_Val * 360.0f / 8192.0f - PITCH_ZERO_OFFSET);
 					Gimbal_pitch = f_GIMBAL_AUTOATTACK_f->Pitch_c.pitch_motor.actPositon_360 + (*f_GIMBAL_AUTOATTACK_f->auto_c)->auto_pitch;
 					#elif(PITCH_ANGLE_SENSOR == PITCH_USE_IMU)
-					Gimbal_pitch = f_GIMBAL_AUTOATTACK_f->Imu_c->Pitch + (*f_GIMBAL_AUTOATTACK_f->auto_c)->auto_pitch;
+					Gimbal_pitch = f_GIMBAL_AUTOATTACK_f->Imu_c->Roll + (*f_GIMBAL_AUTOATTACK_f->auto_c)->auto_pitch;
 					#endif
 					Gimbal_yaw = f_GIMBAL_AUTOATTACK_f->Imu_c->Yaw + (*f_GIMBAL_AUTOATTACK_f->auto_c)->auto_yaw;
 					Gimbal_pitch = first_order_filter(&f_GIMBAL_AUTOATTACK_f->Pitch_c.visual_pitch__first_order_filter,Gimbal_pitch);
@@ -163,18 +163,28 @@ void gimbal_pid_calculate(gimbal_control_t *gimbal_pid_calculate_f)
 			
 						double pitch_system_state[2] = {((-gimbal_pid_calculate_f->Pitch_c.motor_target) / 57.295779513f), gimbal_pid_calculate_f->Imu_c->Gyro[1]};
 						LQR_Data_Update(&gimbal_pid_calculate_f->Pitch_c.motor_lqr, pitch_system_state);
-						LQR_Calculate(&gimbal_pid_calculate_f->Pitch_c.motor_lqr);
 						if(gimbal_pid_calculate_f->gimbal_behaviour == GIMBAL_AUTOATTACK || gimbal_pid_calculate_f->gimbal_behaviour == GIMBAL_AUTOBUFF)//自瞄时使用i
 						{
+							//TODO:注意安全
+							double *k = gimbal_pid_calculate_f->Pitch_c.motor_lqr.k;
+							*k = -12.96227766016838;
+							k++;
+							*k = -0.66667065322830;
 				#if(PITCH_ANGLE_SENSOR == PITCH_USE_ENCODER)
 							PidCalculate(&gimbal_pid_calculate_f->Pitch_c.qitch_lqr_only_i_pid, Gimbal_pitch, gimbal_pid_calculate_f->Pitch_c.pitch_motor.actPositon_360 );
+						}
 				#elif(PITCH_ANGLE_SENSOR == PITCH_USE_IMU)
 							PidCalculate(&gimbal_pid_calculate_f->Pitch_c.qitch_lqr_only_i_pid, Gimbal_pitch, gimbal_pid_calculate_f->Imu_c->Roll );
 						}
 						else
 						{
+							double *k = gimbal_pid_calculate_f->Pitch_c.motor_lqr.k;
+							*k = -7.96227766016838;
+							k++;
+							*k = -0.50467065322830;
 							pid_clear(&gimbal_pid_calculate_f->Pitch_c.qitch_lqr_only_i_pid);
 						}
+						LQR_Calculate(&gimbal_pid_calculate_f->Pitch_c.motor_lqr);
 				#endif
 						gimbal_pid_calculate_f->Pitch_c.motor_lqr.Output[0] = sliding_mean_filter(&gimbal_pid_calculate_f->Pitch_c.motor_filter, gimbal_pid_calculate_f->Pitch_c.motor_lqr.Output[0],10);
 						gimbal_pid_calculate_f->Pitch_c.motor_output = torque_to_voltage_6020(gimbal_pid_calculate_f->Pitch_c.motor_lqr.Output[0]) + gimbal_pid_calculate_f->Pitch_c.qitch_lqr_only_i_pid.out;
