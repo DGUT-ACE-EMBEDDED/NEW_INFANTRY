@@ -27,7 +27,7 @@ void fire_Task(void const *argument)
 	fire_control_p = fire_task_init();
 	while (1)
 	{
-		fire_behaviour_choose(fire_control_p); // ªπ≤Ó≤√≈–œµÕ≥ TODO:
+		fire_behaviour_choose(fire_control_p);
 
 		fire_pid_calculate(fire_control_p);
 		

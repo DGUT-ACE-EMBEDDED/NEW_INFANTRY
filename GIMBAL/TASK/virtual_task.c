@@ -19,8 +19,9 @@ gimbal_auto_control_t *auto_control_p;
 static gimbal_auto_control_t *virtual_task_init(void);
 static void Virtual_send(gimbal_auto_control_t *Virtual_send_p);
 static void Virtual_recive(gimbal_auto_control_t *Virtual_recive_p);
-static void gimbal_data_log(gimbal_auto_control_t *gimbal_data_log_p);
-
+#ifdef VIRTUAL_DELAY_COMPENSATE
+void gimbal_data_log(gimbal_auto_control_t *gimbal_data_log_p);
+#endif
 void Virtual_Task(void const * argument)
 {
   auto_control_p = virtual_task_init();
@@ -105,17 +106,20 @@ void Virtual_send(gimbal_auto_control_t *Virtual_send_p)
 		}
 		CDC_Transmit_FS(Virtual_send_p->visual_buff_send, sizeof(Virtual_send_p->visual_buff_send));
 }
+#ifdef VIRTUAL_DELAY_COMPENSATE
 void gimbal_data_log(gimbal_auto_control_t *gimbal_data_log_p)
 {
 	#if(PITCH_ANGLE_SENSOR == PITCH_USE_IMU)
 	gimbal_data_log_p->history_gimbal_data[0] = gimbal_data_log_p->Imu_c->Roll;
 	#elif(PITCH_ANGLE_SENSOR == PITCH_USE_ENCODER)
-	//有问题，勿用
-//	gimbal_data_log_p->Pitch_c.pitch_motor.actPositon_360 = ((float)gimbal_pid_calculate_f->Pitch_c.pitch_motor_encoder->Encode_Actual_Val * 360.0f / 8192.0f - PITCH_ZERO_OFFSET);
-//	gimbal_data_log_p->history_gimbal_data[0] = gimbal_data_log_p->Pitch_c.pitch_motor.actPositon_360;
+	//TODO:未测试
+//	gimbal_data_log_p->Pitch_c->pitch_motor.actPositon_360 = ((float)gimbal_data_log_p->Pitch_c->pitch_motor_encoder->Encode_Actual_Val * 360.0f / 8192.0f - PITCH_ZERO_OFFSET);
+	Gimbal_pitch_positon360_update();
+	gimbal_data_log_p->history_gimbal_data[0] = gimbal_data_log_p->Pitch_c->pitch_motor.actPositon_360;
 	#endif
 	gimbal_data_log_p->history_gimbal_data[1] = gimbal_data_log_p->Imu_c->Yaw;
 }
+#endif
 gimbal_auto_control_t *virtual_task_init(void)
 {
 	gimbal_auto_control_t *virtual_task_init_p;
@@ -132,7 +136,7 @@ gimbal_auto_control_t *virtual_task_init(void)
 	
 	virtual_task_init_p->visual_buff_send[0]  = 0xFF;
 	virtual_task_init_p->visual_buff_send[28] = 0xFE;
-	
+	virtual_task_init_p->Pitch_c = get_gimbal_pitch_point();
 	return virtual_task_init_p;
 }
 void gimbal_clear_virtual_recive(void)

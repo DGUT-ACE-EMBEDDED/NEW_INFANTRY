@@ -13,7 +13,7 @@ static void f_GIMBAL_MANUAL(gimbal_control_t *f_GIMBAL_MANUAL_f);
 static void f_GIMBAL_AUTOATTACK(gimbal_control_t *f_GIMBAL_AUTOATTACK_f);
 static void f_GIMBAL_AUTOBUFF(gimbal_control_t *f_GIMBAL_AUTOBUFF_f);
 static float torque_to_voltage_6020(float torque);
-static float float_min_distance(float target, float actual, float minValue, float maxValue);
+
 float *get_Gimbal_pitch_point(void)
 {
     return &Gimbal_pitch;
@@ -219,32 +219,7 @@ void gimbal_pid_calculate(gimbal_control_t *gimbal_pid_calculate_f)
 				gimbal_pid_calculate_f->Yaw_c.yaw_motor.set_voltage = abs_limit(gimbal_pid_calculate_f->Yaw_c.motor_output, 25000);
 		#endif
 }
-float float_min_distance(float target, float actual, float minValue, float maxValue)
-{
-	if (maxValue < minValue)
-    {
-        return 0;
-    }
-	
-	target = loop_float_constrain(target, minValue,maxValue);
-	
-	if (abs(target - actual) > (maxValue - minValue) / 2.0f)
-	{
-		if(maxValue - actual < (maxValue - minValue) / 2.0f)
-		{
-			return maxValue - actual + target - minValue;
-		}
-		else
-		{
-			return minValue - actual + target - maxValue;
-		}
-	}
-	else 
-	{
-		return target - actual;
-	}
-	
-}
+
 float torque_to_voltage_6020(float torque)
 {
 	float voltage = 0.0f;

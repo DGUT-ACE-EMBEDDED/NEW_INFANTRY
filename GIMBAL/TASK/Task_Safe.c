@@ -39,9 +39,9 @@ int heap_free_size()
  */
 void Safe_Task(void const *argument)
 {
-    uint8_t error_object_flag = 0;
+//    uint8_t error_object_flag = 0;
     stack_base = *stack_base_p;
-    safe_message_queue rec_message;
+//    safe_message_queue rec_message;
     //	static TickType_t currentTime;
     safe_task_queue = xQueueCreate(10, sizeof(safe_message_queue));
 

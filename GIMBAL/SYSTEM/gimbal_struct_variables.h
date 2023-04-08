@@ -172,6 +172,7 @@ typedef struct
 	const float *gimbal_yaw;
 	const float *gimbal_pitch;
 	const REFEREE_t *referee;
+	const gimbal_pitch_control_t *Pitch_c;
 } gimbal_auto_control_t;
 
 typedef struct

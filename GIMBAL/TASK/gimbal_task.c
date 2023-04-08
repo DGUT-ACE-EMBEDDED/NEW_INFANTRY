@@ -146,8 +146,15 @@ void Gimbal_Work(gimbal_control_t *Gimbal_Work_f)
 
     gimbal_pid_calculate(Gimbal_Work_f);
 }
-
+void Gimbal_pitch_positon360_update(void)
+{
+	Gimbal_Control.Pitch_c.pitch_motor.actPositon_360 = ((float)Gimbal_Control.Pitch_c.pitch_motor_encoder->Encode_Actual_Val * 360.0f / 8192.0f - PITCH_ZERO_OFFSET);
+}
 gimbal_behaviour_e *get_gimbal_behaviour_point(void)
 {
     return &Gimbal_Control.gimbal_behaviour;
+}
+gimbal_pitch_control_t *get_gimbal_pitch_point(void)
+{
+    return &Gimbal_Control.Pitch_c;
 }

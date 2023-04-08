@@ -20,7 +20,7 @@ void f_CHASSIS_FOLLOW(chassis_control_t *Chassis_behaviour_react_f);
 void f_CHASSIS_NO_FOLLOW(chassis_control_t *Chassis_behaviour_react_f);
 void f_CHASSIS_ROTATION(chassis_control_t *Chassis_behaviour_react_f);
 void f_CHASSIS_BATTERY(chassis_control_t *Chassis_behaviour_react_f);
-static float float_min_distance(float target, float actual, float minValue, float maxValue);
+
 void chassis_behaviour_choose(chassis_control_t *Chassis_behaviour_f)
 {
     //用于记录上一次数据
@@ -239,31 +239,4 @@ void f_CHASSIS_BATTERY(chassis_control_t *Chassis_behaviour_react_f)
     Chassis_x = 0;
     Chassis_y = 0;
     Chassis_yaw_speed = 0;
-}
-
-float float_min_distance(float target, float actual, float minValue, float maxValue)
-{
-	if (maxValue < minValue)
-    {
-        return 0;
-    }
-	
-	target = loop_float_constrain(target, minValue,maxValue);
-	
-	if (user_abs(target - actual) > (maxValue - minValue) / 2.0f)
-	{
-		if(maxValue - actual < (maxValue - minValue) / 2.0f)
-		{
-			return maxValue - actual + target - minValue;
-		}
-		else
-		{
-			return minValue - actual + target - maxValue;
-		}
-	}
-	else 
-	{
-		return target - actual;
-	}
-	
 }

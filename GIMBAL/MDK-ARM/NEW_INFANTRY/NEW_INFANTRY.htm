@@ -3,7 +3,7 @@
 <title>Static Call Graph - [NEW_INFANTRY\NEW_INFANTRY.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image NEW_INFANTRY\NEW_INFANTRY.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Mar 29 22:52:04 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Apr 08 20:56:20 2023
 <BR><P>
 <H3>Maximum Stack Usage =        468 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -268,8 +268,8 @@ Global Symbols
 <P><STRONG><a name="[2b7]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E))
 
 <P><STRONG><a name="[8e]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
-<BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
+<BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 </UL>
 
 <P><STRONG><a name="[2b8]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
@@ -315,11 +315,11 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
 <P><STRONG><a name="[27c]"></a>__asm___6_port_c_39a90d8d__prvStartFirstTask</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, port.o(.emb_text))
-<BR><BR>[Called By]<UL><LI><a href="#[276]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<BR><BR>[Called By]<UL><LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 </UL>
 
 <P><STRONG><a name="[27b]"></a>__asm___6_port_c_39a90d8d__prvEnableVFP</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, port.o(.emb_text))
-<BR><BR>[Called By]<UL><LI><a href="#[276]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<BR><BR>[Called By]<UL><LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 </UL>
 
 <P><STRONG><a name="[26]"></a>PendSV_Handler</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, port.o(.emb_text))
@@ -329,8 +329,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[272]"></a>vPortGetIPSR</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, port.o(.emb_text))
-<BR><BR>[Called By]<UL><LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortValidateInterruptPriority
+<P><STRONG><a name="[271]"></a>vPortGetIPSR</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, port.o(.emb_text))
+<BR><BR>[Called By]<UL><LI><a href="#[270]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortValidateInterruptPriority
 </UL>
 
 <P><STRONG><a name="[1e]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f407xx.o(.text))
@@ -639,8 +639,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = __aeabi_uldivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_SysTimeUpdate
-<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
 <LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
+<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
 </UL>
 
 <P><STRONG><a name="[2bd]"></a>_ll_udiv</STRONG> (Thumb, 238 bytes, Stack size 48 bytes, lludivv7m.o(.text), UNUSED)
@@ -650,7 +650,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSVIEW_AddTask
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSwitchContext
-<LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 
 <P><STRONG><a name="[1df]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
@@ -963,12 +963,12 @@ Global Symbols
 <P><STRONG><a name="[c0]"></a>BMI088_Read</STRONG> (Thumb, 620 bytes, Stack size 16 bytes, bmi088driver.o(i.BMI088_Read))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = BMI088_Read &rArr; BMI088_read_muli_reg &rArr; BMI088_read_write_byte &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_GYRO_NS_L
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_read_write_byte
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_GYRO_NS_L
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_GYRO_NS_H
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_ACCEL_NS_L
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_ACCEL_NS_H
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_read_muli_reg
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_read_write_byte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INS_Task
 </UL>
@@ -1041,7 +1041,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 </UL>
 
-<P><STRONG><a name="[d0]"></a>CAN_DATA_Encoder_Deal</STRONG> (Thumb, 216 bytes, Stack size 24 bytes, bsp_motor_encoder.o(i.CAN_DATA_Encoder_Deal))
+<P><STRONG><a name="[d0]"></a>CAN_DATA_Encoder_Deal</STRONG> (Thumb, 202 bytes, Stack size 24 bytes, bsp_motor_encoder.o(i.CAN_DATA_Encoder_Deal))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = CAN_DATA_Encoder_Deal
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angle_limiting_int16
@@ -1166,11 +1166,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;INS_Task
 </UL>
 
-<P><STRONG><a name="[f9]"></a>EncoderValZero</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, bsp_motor_encoder.o(i.EncoderValZero))
+<P><STRONG><a name="[f9]"></a>EncoderValZero</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, bsp_motor_encoder.o(i.EncoderValZero))
 <BR><BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gimbal_Init
 </UL>
 
-<P><STRONG><a name="[e6]"></a>Encoder_Init</STRONG> (Thumb, 120 bytes, Stack size 16 bytes, bsp_motor_encoder.o(i.Encoder_Init))
+<P><STRONG><a name="[e6]"></a>Encoder_Init</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, bsp_motor_encoder.o(i.Encoder_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Encoder_Init &rArr; Encoder_Struct_Zero
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Struct_Zero
@@ -1437,8 +1437,8 @@ Global Symbols
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Start
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TransmitReceive
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TransmitReceive
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort
 <LI><a href="#[1f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFlagStateUntilTimeout
 </UL>
@@ -1876,12 +1876,12 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[175]"></a>HAL_TIM_ConfigClockSource</STRONG> (Thumb, 268 bytes, Stack size 24 bytes, stm32f4xx_hal_tim.o(i.HAL_TIM_ConfigClockSource))
-<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = HAL_TIM_ConfigClockSource &rArr; TIM_TI2_ConfigInputStage
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = HAL_TIM_ConfigClockSource &rArr; TIM_ETR_SetConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TI2_ConfigInputStage
+<BR>[Calls]<UL><LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ETR_SetConfig
+<LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TI2_ConfigInputStage
 <LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TI1_ConfigInputStage
 <LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITRx_SetConfig
-<LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ETR_SetConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM4_Init
 </UL>
@@ -1919,12 +1919,12 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[183]"></a>HAL_TIM_PWM_ConfigChannel</STRONG> (Thumb, 260 bytes, Stack size 24 bytes, stm32f4xx_hal_tim.o(i.HAL_TIM_PWM_ConfigChannel))
-<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = HAL_TIM_PWM_ConfigChannel &rArr; TIM_OC4_SetConfig
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = HAL_TIM_PWM_ConfigChannel &rArr; TIM_OC2_SetConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4_SetConfig
+<BR>[Calls]<UL><LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2_SetConfig
+<LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4_SetConfig
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC3_SetConfig
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1_SetConfig
-<LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2_SetConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM4_Init
 <LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM10_Init
@@ -1982,14 +1982,14 @@ Global Symbols
 <P><STRONG><a name="[18d]"></a>HAL_UART_IRQHandler</STRONG> (Thumb, 732 bytes, Stack size 40 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = HAL_UART_IRQHandler &rArr; UART_Receive_IT
 </UL>
-<BR>[Calls]<UL><LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort_IT
-<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort
-<LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
+<BR>[Calls]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Transmit_IT
 <LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Receive_IT
 <LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndTransmit_IT
 <LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndRxTransfer
+<LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort_IT
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART6_IRQHandler
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_IRQHandler
@@ -2197,7 +2197,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gimbal_pid_calculate
 </UL>
 
-<P><STRONG><a name="[252]"></a>LQR_Data_Update</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, lqr.o(i.LQR_Data_Update))
+<P><STRONG><a name="[251]"></a>LQR_Data_Update</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, lqr.o(i.LQR_Data_Update))
 <BR><BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gimbal_pid_calculate
 </UL>
 
@@ -2465,7 +2465,7 @@ Global Symbols
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_PreparePacket
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSwitchContext
-<LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 
 <P><STRONG><a name="[1e8]"></a>SEGGER_SYSVIEW_OnTaskCreate</STRONG> (Thumb, 90 bytes, Stack size 24 bytes, segger_sysview.o(i.SEGGER_SYSVIEW_OnTaskCreate))
@@ -2474,7 +2474,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_SendPacket
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_PreparePacket
 </UL>
-<BR>[Called By]<UL><LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<BR>[Called By]<UL><LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 
 <P><STRONG><a name="[1e9]"></a>SEGGER_SYSVIEW_OnTaskStartExec</STRONG> (Thumb, 90 bytes, Stack size 24 bytes, segger_sysview.o(i.SEGGER_SYSVIEW_OnTaskStartExec))
@@ -2484,7 +2484,7 @@ Global Symbols
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_PreparePacket
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSwitchContext
-<LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 
 <P><STRONG><a name="[1ea]"></a>SEGGER_SYSVIEW_OnTaskStartReady</STRONG> (Thumb, 90 bytes, Stack size 24 bytes, segger_sysview.o(i.SEGGER_SYSVIEW_OnTaskStartReady))
@@ -2493,10 +2493,10 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_SendPacket
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_PreparePacket
 </UL>
-<BR>[Called By]<UL><LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<BR>[Called By]<UL><LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 
 <P><STRONG><a name="[1eb]"></a>SEGGER_SYSVIEW_RecordSystime</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, segger_sysview.o(i.SEGGER_SYSVIEW_RecordSystime))
@@ -2537,7 +2537,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_SendPacket
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_PreparePacket
 </UL>
-<BR>[Called By]<UL><LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewQueue
+<BR>[Called By]<UL><LI><a href="#[265]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewQueue
 </UL>
 
 <P><STRONG><a name="[1ef]"></a>SEGGER_SYSVIEW_RecordVoid</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, segger_sysview.o(i.SEGGER_SYSVIEW_RecordVoid))
@@ -2609,7 +2609,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_Conf
 </UL>
 
-<P><STRONG><a name="[273]"></a>SEGGER_SYSVIEW_ShrinkId</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, segger_sysview.o(i.SEGGER_SYSVIEW_ShrinkId))
+<P><STRONG><a name="[272]"></a>SEGGER_SYSVIEW_ShrinkId</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, segger_sysview.o(i.SEGGER_SYSVIEW_ShrinkId))
 <BR><BR>[Called By]<UL><LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
 </UL>
 
@@ -2655,7 +2655,7 @@ Global Symbols
 <LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSVIEW_SendTaskInfo
 <LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_Warn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<BR>[Called By]<UL><LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 
 <P><STRONG><a name="[1fd]"></a>SYSVIEW_DeleteTask</STRONG> (Thumb, 262 bytes, Stack size 16 bytes, segger_sysview_freertos.o(i.SYSVIEW_DeleteTask))
@@ -2676,7 +2676,7 @@ Global Symbols
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbSendTaskList
 </UL>
 
-<P><STRONG><a name="[86]"></a>Safe_Task</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, task_safe.o(i.Safe_Task))
+<P><STRONG><a name="[86]"></a>Safe_Task</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, task_safe.o(i.Safe_Task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 244<LI>Call Chain = Safe_Task &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; SEGGER_SYSVIEW_OnTaskStartReady &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
@@ -3518,8 +3518,8 @@ Global Symbols
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asinf
 </UL>
 
-<P><STRONG><a name="[257]"></a>abs_limit</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, user_lib.o(i.abs_limit))
-<BR><BR>[Called By]<UL><LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;torque_to_voltage_6020
+<P><STRONG><a name="[256]"></a>abs_limit</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, user_lib.o(i.abs_limit))
+<BR><BR>[Called By]<UL><LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;torque_to_voltage_6020
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gimbal_pid_calculate
 </UL>
 
@@ -3530,11 +3530,11 @@ Global Symbols
 <P><STRONG><a name="[c4]"></a>bmi088_accel_init</STRONG> (Thumb, 348 bytes, Stack size 8 bytes, bmi088driver.o(i.bmi088_accel_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = bmi088_accel_init &rArr; BMI088_write_single_reg &rArr; BMI088_read_write_byte &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_ACCEL_NS_L
+<BR>[Calls]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_read_write_byte
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_ACCEL_NS_L
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_ACCEL_NS_H
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_write_single_reg
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_read_write_byte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_init
 </UL>
@@ -3542,11 +3542,11 @@ Global Symbols
 <P><STRONG><a name="[c5]"></a>bmi088_gyro_init</STRONG> (Thumb, 284 bytes, Stack size 8 bytes, bmi088driver.o(i.bmi088_gyro_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = bmi088_gyro_init &rArr; BMI088_write_single_reg &rArr; BMI088_read_write_byte &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_GYRO_NS_L
+<BR>[Calls]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_GYRO_NS_L
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_GYRO_NS_H
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_write_single_reg
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_read_single_reg
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_init
 </UL>
@@ -3632,15 +3632,23 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMU_Temperature_Ctrl
 </UL>
 
+<P><STRONG><a name="[24c]"></a>float_min_distance</STRONG> (Thumb, 164 bytes, Stack size 4 bytes, maths.o(i.float_min_distance))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = float_min_distance
+</UL>
+<BR>[Calls]<UL><LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain
+</UL>
+<BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gimbal_pid_calculate
+</UL>
+
 <P><STRONG><a name="[1ab]"></a>float_rounding</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, user_lib.o(i.float_rounding))
 <BR><BR>[Called By]<UL><LI><a href="#[1a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMU_Temperature_Ctrl
 </UL>
 
-<P><STRONG><a name="[277]"></a>get_Gimbal_pitch_point</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, gimbal_behaviour.o(i.get_Gimbal_pitch_point))
+<P><STRONG><a name="[276]"></a>get_Gimbal_pitch_point</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, gimbal_behaviour.o(i.get_Gimbal_pitch_point))
 <BR><BR>[Called By]<UL><LI><a href="#[236]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;virtual_task_init
 </UL>
 
-<P><STRONG><a name="[278]"></a>get_Gimbal_yaw_point</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, gimbal_behaviour.o(i.get_Gimbal_yaw_point))
+<P><STRONG><a name="[277]"></a>get_Gimbal_yaw_point</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, gimbal_behaviour.o(i.get_Gimbal_yaw_point))
 <BR><BR>[Called By]<UL><LI><a href="#[236]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;virtual_task_init
 </UL>
 
@@ -3652,7 +3660,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gimbal_Init
 </UL>
 
-<P><STRONG><a name="[279]"></a>get_gimbal_behaviour_point</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, gimbal_task.o(i.get_gimbal_behaviour_point))
+<P><STRONG><a name="[278]"></a>get_gimbal_behaviour_point</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, gimbal_task.o(i.get_gimbal_behaviour_point))
+<BR><BR>[Called By]<UL><LI><a href="#[236]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;virtual_task_init
+</UL>
+
+<P><STRONG><a name="[279]"></a>get_gimbal_pitch_point</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, gimbal_task.o(i.get_gimbal_pitch_point))
 <BR><BR>[Called By]<UL><LI><a href="#[236]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;virtual_task_init
 </UL>
 
@@ -3676,7 +3688,7 @@ Global Symbols
 <P><STRONG><a name="[101]"></a>gimbal_behaviour_react</STRONG> (Thumb, 282 bytes, Stack size 8 bytes, gimbal_behaviour.o(i.gimbal_behaviour_react))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = gimbal_behaviour_react &rArr; f_GIMBAL_AUTOATTACK
 </UL>
-<BR>[Calls]<UL><LI><a href="#[250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain
+<BR>[Calls]<UL><LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain
 <LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_GIMBAL_MANUAL
 <LI><a href="#[24f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_GIMBAL_AUTOBUFF
 <LI><a href="#[247]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_GIMBAL_AUTOATTACK
@@ -3691,16 +3703,16 @@ Global Symbols
 <P><STRONG><a name="[102]"></a>gimbal_pid_calculate</STRONG> (Thumb, 668 bytes, Stack size 56 bytes, gimbal_behaviour.o(i.gimbal_pid_calculate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = gimbal_pid_calculate &rArr; LQR_Calculate &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sliding_mean_filter
-<LI><a href="#[253]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_clear
-<LI><a href="#[257]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;abs_limit
-<LI><a href="#[252]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LQR_Data_Update
-<LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LQR_Calculate
-<LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;torque_to_voltage_6020
+<BR>[Calls]<UL><LI><a href="#[254]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sliding_mean_filter
+<LI><a href="#[252]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_clear
 <LI><a href="#[24c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;float_min_distance
+<LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;abs_limit
+<LI><a href="#[251]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LQR_Data_Update
+<LI><a href="#[1bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LQR_Calculate
+<LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;torque_to_voltage_6020
 <LI><a href="#[1aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PidCalculate
-<LI><a href="#[251]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[254]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[253]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gimbal_Work
 </UL>
@@ -3722,18 +3734,15 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> init_task.o(.constdata)
 </UL>
-<P><STRONG><a name="[24d]"></a>loop_float_constrain</STRONG> (Thumb, 96 bytes, Stack size 0 bytes, user_lib.o(i.loop_float_constrain))
+<P><STRONG><a name="[24d]"></a>loop_fp32_constrain</STRONG> (Thumb, 96 bytes, Stack size 0 bytes, maths.o(i.loop_fp32_constrain))
 <BR><BR>[Called By]<UL><LI><a href="#[24c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;float_min_distance
-</UL>
-
-<P><STRONG><a name="[250]"></a>loop_fp32_constrain</STRONG> (Thumb, 96 bytes, Stack size 0 bytes, maths.o(i.loop_fp32_constrain))
-<BR><BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gimbal_behaviour_react
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gimbal_behaviour_react
 </UL>
 
 <P><STRONG><a name="[99]"></a>main</STRONG> (Thumb, 80 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 412<LI>Call Chain = main &rArr; MX_FREERTOS_Init &rArr; osThreadCreate &rArr; xTaskCreate &rArr; prvAddNewTaskToReadyList &rArr; SYSVIEW_AddTask &rArr; SYSVIEW_SendTaskInfo &rArr; SEGGER_SYSVIEW_SendTaskInfo &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
+<BR>[Calls]<UL><LI><a href="#[257]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_Conf
 <LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART6_UART_Init
 <LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
@@ -3761,10 +3770,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartDefaultTask
 </UL>
 
-<P><STRONG><a name="[258]"></a>osKernelStart</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, cmsis_os.o(i.osKernelStart))
+<P><STRONG><a name="[257]"></a>osKernelStart</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, cmsis_os.o(i.osKernelStart))
 <BR><BR>[Stack]<UL><LI>Max Depth = 340<LI>Call Chain = osKernelStart &rArr; vTaskStartScheduler &rArr; xTaskCreateStatic &rArr; prvAddNewTaskToReadyList &rArr; SYSVIEW_AddTask &rArr; SYSVIEW_SendTaskInfo &rArr; SEGGER_SYSVIEW_SendTaskInfo &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<BR>[Calls]<UL><LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -3772,33 +3781,33 @@ Global Symbols
 <P><STRONG><a name="[1b3]"></a>osThreadCreate</STRONG> (Thumb, 94 bytes, Stack size 32 bytes, cmsis_os.o(i.osThreadCreate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 348<LI>Call Chain = osThreadCreate &rArr; xTaskCreate &rArr; prvAddNewTaskToReadyList &rArr; SYSVIEW_AddTask &rArr; SYSVIEW_SendTaskInfo &rArr; SEGGER_SYSVIEW_SendTaskInfo &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;makeFreeRtosPriority
-<LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
-<LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Calls]<UL><LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;makeFreeRtosPriority
+<LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
+<LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 <LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
 </UL>
 
-<P><STRONG><a name="[253]"></a>pid_clear</STRONG> (Thumb, 74 bytes, Stack size 0 bytes, pid.o(i.pid_clear))
+<P><STRONG><a name="[252]"></a>pid_clear</STRONG> (Thumb, 74 bytes, Stack size 0 bytes, pid.o(i.pid_clear))
 <BR><BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gimbal_pid_calculate
 </UL>
 
 <P><STRONG><a name="[1bf]"></a>pvPortMalloc</STRONG> (Thumb, 306 bytes, Stack size 24 bytes, heap_4.o(i.pvPortMalloc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 212<LI>Call Chain = pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; SEGGER_SYSVIEW_OnTaskStartReady &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
-<LI><a href="#[26d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvHeapInit
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<BR>[Calls]<UL><LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[26d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
+<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvHeapInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LQR_Init
-<LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 
-<P><STRONG><a name="[26a]"></a>pxPortInitialiseStack</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, port.o(i.pxPortInitialiseStack))
-<BR><BR>[Called By]<UL><LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<P><STRONG><a name="[269]"></a>pxPortInitialiseStack</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, port.o(i.pxPortInitialiseStack))
+<BR><BR>[Called By]<UL><LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
 <P><STRONG><a name="[1da]"></a>rc_deadline_limit</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, bsp_dr16.o(i.rc_deadline_limit))
@@ -3808,12 +3817,12 @@ Global Symbols
 <P><STRONG><a name="[1d9]"></a>rc_lost_time_refresh</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, bsp_dr16.o(i.rc_lost_time_refresh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = rc_lost_time_refresh
 </UL>
-<BR>[Calls]<UL><LI><a href="#[270]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
+<BR>[Calls]<UL><LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_DataProcess
 </UL>
 
-<P><STRONG><a name="[255]"></a>sliding_mean_filter</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, filter.o(i.sliding_mean_filter))
+<P><STRONG><a name="[254]"></a>sliding_mean_filter</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, filter.o(i.sliding_mean_filter))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = sliding_mean_filter
 </UL>
 <BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gimbal_pid_calculate
@@ -3832,82 +3841,82 @@ Global Symbols
 <LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_acosf
 </UL>
 
-<P><STRONG><a name="[25e]"></a>uxListRemove</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, list.o(i.uxListRemove))
+<P><STRONG><a name="[25d]"></a>uxListRemove</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, list.o(i.uxListRemove))
 <BR><BR>[Called By]<UL><LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
-<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
-<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 <LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[262]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
 
-<P><STRONG><a name="[275]"></a>vApplicationGetIdleTaskMemory</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, freertos.o(i.vApplicationGetIdleTaskMemory))
-<BR><BR>[Called By]<UL><LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<P><STRONG><a name="[274]"></a>vApplicationGetIdleTaskMemory</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, freertos.o(i.vApplicationGetIdleTaskMemory))
+<BR><BR>[Called By]<UL><LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 
-<P><STRONG><a name="[26b]"></a>vListInitialise</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, list.o(i.vListInitialise))
-<BR><BR>[Called By]<UL><LI><a href="#[262]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseTaskLists
-<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<P><STRONG><a name="[26a]"></a>vListInitialise</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, list.o(i.vListInitialise))
+<BR><BR>[Called By]<UL><LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseTaskLists
 </UL>
 
-<P><STRONG><a name="[269]"></a>vListInitialiseItem</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, list.o(i.vListInitialiseItem))
-<BR><BR>[Called By]<UL><LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<P><STRONG><a name="[268]"></a>vListInitialiseItem</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, list.o(i.vListInitialiseItem))
+<BR><BR>[Called By]<UL><LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
-<P><STRONG><a name="[260]"></a>vListInsert</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, list.o(i.vListInsert))
+<P><STRONG><a name="[25f]"></a>vListInsert</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, list.o(i.vListInsert))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = vListInsert
 </UL>
-<BR>[Called By]<UL><LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
+<BR>[Called By]<UL><LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
 
-<P><STRONG><a name="[25f]"></a>vListInsertEnd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, list.o(i.vListInsertEnd))
+<P><STRONG><a name="[25e]"></a>vListInsertEnd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, list.o(i.vListInsertEnd))
 <BR><BR>[Called By]<UL><LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
-<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 <LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
 
 <P><STRONG><a name="[fa]"></a>vPortEnterCritical</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, port.o(i.vPortEnterCritical))
 <BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gimbal_Task
-<LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
-<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[262]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 
 <P><STRONG><a name="[fc]"></a>vPortExitCritical</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, port.o(i.vPortExitCritical))
 <BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gimbal_Task
-<LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
-<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[262]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 
-<P><STRONG><a name="[265]"></a>vPortFree</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, heap_4.o(i.vPortFree))
+<P><STRONG><a name="[264]"></a>vPortFree</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, heap_4.o(i.vPortFree))
 <BR><BR>[Stack]<UL><LI>Max Depth = 204<LI>Call Chain = vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; SEGGER_SYSVIEW_OnTaskStartReady &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<BR>[Calls]<UL><LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[26d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
+<BR>[Called By]<UL><LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
 </UL>
 
 <P><STRONG><a name="[27a]"></a>vPortSetupTimerInterrupt</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, port.o(i.vPortSetupTimerInterrupt))
-<BR><BR>[Called By]<UL><LI><a href="#[276]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<BR><BR>[Called By]<UL><LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 </UL>
 
-<P><STRONG><a name="[271]"></a>vPortValidateInterruptPriority</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, port.o(i.vPortValidateInterruptPriority))
+<P><STRONG><a name="[270]"></a>vPortValidateInterruptPriority</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, port.o(i.vPortValidateInterruptPriority))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = vPortValidateInterruptPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortGetIPSR
+<BR>[Calls]<UL><LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortGetIPSR
 </UL>
 <BR>[Called By]<UL><LI><a href="#[244]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCountFromISR
 </UL>
@@ -3915,10 +3924,10 @@ Global Symbols
 <P><STRONG><a name="[ff]"></a>vTaskDelay</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, tasks.o(i.vTaskDelay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 204<LI>Call Chain = vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; SEGGER_SYSVIEW_OnTaskStartReady &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
-<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<BR>[Calls]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32
+<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
 <BR>[Called By]<UL><LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_Task
@@ -3932,34 +3941,34 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSVIEW_DeleteTask
-<LI><a href="#[274]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
-<LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
-<LI><a href="#[273]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_ShrinkId
+<LI><a href="#[272]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_ShrinkId
 <LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32
-<LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSVIEW_DeleteTask
+<LI><a href="#[273]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
+<LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
 </UL>
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Task
 </UL>
 
-<P><STRONG><a name="[259]"></a>vTaskStartScheduler</STRONG> (Thumb, 176 bytes, Stack size 32 bytes, tasks.o(i.vTaskStartScheduler))
+<P><STRONG><a name="[258]"></a>vTaskStartScheduler</STRONG> (Thumb, 176 bytes, Stack size 32 bytes, tasks.o(i.vTaskStartScheduler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 332<LI>Call Chain = vTaskStartScheduler &rArr; xTaskCreateStatic &rArr; prvAddNewTaskToReadyList &rArr; SYSVIEW_AddTask &rArr; SYSVIEW_SendTaskInfo &rArr; SEGGER_SYSVIEW_SendTaskInfo &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationGetIdleTaskMemory
-<LI><a href="#[276]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<BR>[Calls]<UL><LI><a href="#[274]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationGetIdleTaskMemory
+<LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnTaskStartExec
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnIdle
-<LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
+<LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
 <LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
 </UL>
-<BR>[Called By]<UL><LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
+<BR>[Called By]<UL><LI><a href="#[257]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
 </UL>
 
-<P><STRONG><a name="[26c]"></a>vTaskSuspendAll</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, tasks.o(i.vTaskSuspendAll))
+<P><STRONG><a name="[26b]"></a>vTaskSuspendAll</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, tasks.o(i.vTaskSuspendAll))
 <BR><BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[1bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[265]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 </UL>
 
 <P><STRONG><a name="[9f]"></a>vTaskSwitchContext</STRONG> (Thumb, 148 bytes, Stack size 8 bytes, tasks.o(i.vTaskSwitchContext))
@@ -3972,65 +3981,65 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
 </UL>
 
-<P><STRONG><a name="[276]"></a>xPortStartScheduler</STRONG> (Thumb, 330 bytes, Stack size 16 bytes, port.o(i.xPortStartScheduler))
+<P><STRONG><a name="[275]"></a>xPortStartScheduler</STRONG> (Thumb, 330 bytes, Stack size 16 bytes, port.o(i.xPortStartScheduler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xPortStartScheduler
 </UL>
 <BR>[Calls]<UL><LI><a href="#[27a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortSetupTimerInterrupt
 <LI><a href="#[27b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__asm___6_port_c_39a90d8d__prvEnableVFP
 <LI><a href="#[27c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__asm___6_port_c_39a90d8d__prvStartFirstTask
 </UL>
-<BR>[Called By]<UL><LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<BR>[Called By]<UL><LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 
 <P><STRONG><a name="[1fe]"></a>xQueueGenericCreate</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, queue.o(i.xQueueGenericCreate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 244<LI>Call Chain = xQueueGenericCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; SEGGER_SYSVIEW_OnTaskStartReady &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewQueue
+<LI><a href="#[265]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewQueue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Safe_Task
 </UL>
 
-<P><STRONG><a name="[267]"></a>xQueueGenericReset</STRONG> (Thumb, 146 bytes, Stack size 16 bytes, queue.o(i.xQueueGenericReset))
+<P><STRONG><a name="[266]"></a>xQueueGenericReset</STRONG> (Thumb, 146 bytes, Stack size 16 bytes, queue.o(i.xQueueGenericReset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 180<LI>Call Chain = xQueueGenericReset &rArr; xTaskRemoveFromEventList &rArr; SEGGER_SYSVIEW_OnTaskStartReady &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 <LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
+<LI><a href="#[26a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
 </UL>
-<BR>[Called By]<UL><LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewQueue
+<BR>[Called By]<UL><LI><a href="#[265]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewQueue
 </UL>
 
-<P><STRONG><a name="[25c]"></a>xTaskCreate</STRONG> (Thumb, 100 bytes, Stack size 72 bytes, tasks.o(i.xTaskCreate))
+<P><STRONG><a name="[25b]"></a>xTaskCreate</STRONG> (Thumb, 100 bytes, Stack size 72 bytes, tasks.o(i.xTaskCreate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 316<LI>Call Chain = xTaskCreate &rArr; prvAddNewTaskToReadyList &rArr; SYSVIEW_AddTask &rArr; SYSVIEW_SendTaskInfo &rArr; SEGGER_SYSVIEW_SendTaskInfo &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
-<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[265]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadCreate
 </UL>
 
-<P><STRONG><a name="[25b]"></a>xTaskCreateStatic</STRONG> (Thumb, 186 bytes, Stack size 56 bytes, tasks.o(i.xTaskCreateStatic))
+<P><STRONG><a name="[25a]"></a>xTaskCreateStatic</STRONG> (Thumb, 186 bytes, Stack size 56 bytes, tasks.o(i.xTaskCreateStatic))
 <BR><BR>[Stack]<UL><LI>Max Depth = 300<LI>Call Chain = xTaskCreateStatic &rArr; prvAddNewTaskToReadyList &rArr; SYSVIEW_AddTask &rArr; SYSVIEW_SendTaskInfo &rArr; SEGGER_SYSVIEW_SendTaskInfo &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
-<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<BR>[Calls]<UL><LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadCreate
-<LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 
-<P><STRONG><a name="[270]"></a>xTaskGetTickCount</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, tasks.o(i.xTaskGetTickCount))
+<P><STRONG><a name="[26f]"></a>xTaskGetTickCount</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, tasks.o(i.xTaskGetTickCount))
 <BR><BR>[Called By]<UL><LI><a href="#[1d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rc_lost_time_refresh
 </UL>
 
 <P><STRONG><a name="[244]"></a>xTaskGetTickCountFromISR</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, tasks.o(i.xTaskGetTickCountFromISR))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = xTaskGetTickCountFromISR &rArr; vPortValidateInterruptPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[271]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortValidateInterruptPriority
+<BR>[Calls]<UL><LI><a href="#[270]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortValidateInterruptPriority
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_cbGetTime
 </UL>
@@ -4038,42 +4047,42 @@ Global Symbols
 <P><STRONG><a name="[202]"></a>xTaskIncrementTick</STRONG> (Thumb, 290 bytes, Stack size 24 bytes, tasks.o(i.xTaskIncrementTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 172<LI>Call Chain = xTaskIncrementTick &rArr; SEGGER_SYSVIEW_OnTaskStartReady &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnTaskStartReady
-<LI><a href="#[274]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
-<LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnTaskStartReady
+<LI><a href="#[273]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<BR>[Called By]<UL><LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
 <P><STRONG><a name="[27d]"></a>xTaskRemoveFromEventList</STRONG> (Thumb, 134 bytes, Stack size 16 bytes, tasks.o(i.xTaskRemoveFromEventList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = xTaskRemoveFromEventList &rArr; SEGGER_SYSVIEW_OnTaskStartReady &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnTaskStartReady
-<LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnTaskStartReady
 </UL>
-<BR>[Called By]<UL><LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<BR>[Called By]<UL><LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
 </UL>
 
-<P><STRONG><a name="[26f]"></a>xTaskResumeAll</STRONG> (Thumb, 230 bytes, Stack size 16 bytes, tasks.o(i.xTaskResumeAll))
+<P><STRONG><a name="[26e]"></a>xTaskResumeAll</STRONG> (Thumb, 230 bytes, Stack size 16 bytes, tasks.o(i.xTaskResumeAll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 188<LI>Call Chain = xTaskResumeAll &rArr; xTaskIncrementTick &rArr; SEGGER_SYSVIEW_OnTaskStartReady &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 <LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnTaskStartReady
 <LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[274]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
-<LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[273]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[1bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[265]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 </UL>
 
-<P><STRONG><a name="[254]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f_clz.o(x$fpl$d2f))
+<P><STRONG><a name="[253]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f_clz.o(x$fpl$d2f))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gimbal_pid_calculate
@@ -4182,7 +4191,7 @@ Global Symbols
 <LI><a href="#[27e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
 </UL>
 
-<P><STRONG><a name="[251]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
+<P><STRONG><a name="[250]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2d
 </UL>
 <BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gimbal_pid_calculate
@@ -4310,15 +4319,16 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Virtual_Task
 </UL>
 
-<P><STRONG><a name="[236]"></a>virtual_task_init</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, virtual_task.o(i.virtual_task_init))
+<P><STRONG><a name="[236]"></a>virtual_task_init</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, virtual_task.o(i.virtual_task_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = virtual_task_init &rArr; fifo_s_create &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_referee_Address
-<LI><a href="#[278]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_Gimbal_yaw_point
-<LI><a href="#[277]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_Gimbal_pitch_point
+<LI><a href="#[277]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_Gimbal_yaw_point
+<LI><a href="#[276]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_Gimbal_pitch_point
 <LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fifo_s_create
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_imu_control_point
-<LI><a href="#[279]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_gimbal_behaviour_point
+<LI><a href="#[279]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_gimbal_pitch_point
+<LI><a href="#[278]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_gimbal_behaviour_point
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
 </UL>
@@ -4342,18 +4352,10 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gimbal_behaviour_react
 </UL>
 
-<P><STRONG><a name="[24c]"></a>float_min_distance</STRONG> (Thumb, 172 bytes, Stack size 24 bytes, gimbal_behaviour.o(i.float_min_distance))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = float_min_distance
-</UL>
-<BR>[Calls]<UL><LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_float_constrain
-</UL>
-<BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gimbal_pid_calculate
-</UL>
-
-<P><STRONG><a name="[256]"></a>torque_to_voltage_6020</STRONG> (Thumb, 84 bytes, Stack size 24 bytes, gimbal_behaviour.o(i.torque_to_voltage_6020))
+<P><STRONG><a name="[255]"></a>torque_to_voltage_6020</STRONG> (Thumb, 84 bytes, Stack size 24 bytes, gimbal_behaviour.o(i.torque_to_voltage_6020))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = torque_to_voltage_6020
 </UL>
-<BR>[Calls]<UL><LI><a href="#[257]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;abs_limit
+<BR>[Calls]<UL><LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;abs_limit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gimbal_pid_calculate
 </UL>
@@ -4387,14 +4389,14 @@ Local Symbols
 <P><STRONG><a name="[c6]"></a>Calibrate_MPU_Offset</STRONG> (Thumb, 1324 bytes, Stack size 64 bytes, bmi088driver.o(i.Calibrate_MPU_Offset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = Calibrate_MPU_Offset &rArr; BMI088_read_muli_reg &rArr; BMI088_read_write_byte &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_GYRO_NS_L
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_GetTimeline_s
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Delay
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_read_write_byte
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_GYRO_NS_L
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_GYRO_NS_H
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_ACCEL_NS_L
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_ACCEL_NS_H
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_read_muli_reg
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_GetTimeline_s
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Delay
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_read_write_byte
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088_init
@@ -4667,106 +4669,106 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[18d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 </UL>
 
-<P><STRONG><a name="[266]"></a>prvInitialiseNewQueue</STRONG> (Thumb, 50 bytes, Stack size 24 bytes, queue.o(i.prvInitialiseNewQueue))
+<P><STRONG><a name="[265]"></a>prvInitialiseNewQueue</STRONG> (Thumb, 50 bytes, Stack size 24 bytes, queue.o(i.prvInitialiseNewQueue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 204<LI>Call Chain = prvInitialiseNewQueue &rArr; xQueueGenericReset &rArr; xTaskRemoveFromEventList &rArr; SEGGER_SYSVIEW_OnTaskStartReady &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32x3
-<LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<LI><a href="#[266]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
 </UL>
 
-<P><STRONG><a name="[25d]"></a>prvAddCurrentTaskToDelayedList</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, tasks.o(i.prvAddCurrentTaskToDelayedList))
+<P><STRONG><a name="[25c]"></a>prvAddCurrentTaskToDelayedList</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, tasks.o(i.prvAddCurrentTaskToDelayedList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
-<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
+<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 
-<P><STRONG><a name="[261]"></a>prvAddNewTaskToReadyList</STRONG> (Thumb, 186 bytes, Stack size 16 bytes, tasks.o(i.prvAddNewTaskToReadyList))
+<P><STRONG><a name="[260]"></a>prvAddNewTaskToReadyList</STRONG> (Thumb, 186 bytes, Stack size 16 bytes, tasks.o(i.prvAddNewTaskToReadyList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 244<LI>Call Chain = prvAddNewTaskToReadyList &rArr; SYSVIEW_AddTask &rArr; SYSVIEW_SendTaskInfo &rArr; SEGGER_SYSVIEW_SendTaskInfo &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
 <LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSVIEW_AddTask
 <LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnTaskStartReady
 <LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnTaskCreate
-<LI><a href="#[262]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseTaskLists
-<LI><a href="#[25f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseTaskLists
 </UL>
-<BR>[Called By]<UL><LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
-<LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Called By]<UL><LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
+<LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 
-<P><STRONG><a name="[263]"></a>prvCheckTasksWaitingTermination</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, tasks.o(i.prvCheckTasksWaitingTermination))
+<P><STRONG><a name="[262]"></a>prvCheckTasksWaitingTermination</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, tasks.o(i.prvCheckTasksWaitingTermination))
 <BR><BR>[Stack]<UL><LI>Max Depth = 220<LI>Call Chain = prvCheckTasksWaitingTermination &rArr; prvDeleteTCB &rArr; vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; SEGGER_SYSVIEW_OnTaskStartReady &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
-<LI><a href="#[25e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
 </UL>
 <BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
 </UL>
 
-<P><STRONG><a name="[264]"></a>prvDeleteTCB</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, tasks.o(i.prvDeleteTCB))
+<P><STRONG><a name="[263]"></a>prvDeleteTCB</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, tasks.o(i.prvDeleteTCB))
 <BR><BR>[Stack]<UL><LI>Max Depth = 212<LI>Call Chain = prvDeleteTCB &rArr; vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; SEGGER_SYSVIEW_OnTaskStartReady &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[265]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<BR>[Calls]<UL><LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
-<LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<LI><a href="#[262]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
 </UL>
 
 <P><STRONG><a name="[83]"></a>prvIdleTask</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, tasks.o(i.prvIdleTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 220<LI>Call Chain = prvIdleTask &rArr; prvCheckTasksWaitingTermination &rArr; prvDeleteTCB &rArr; vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick &rArr; SEGGER_SYSVIEW_OnTaskStartReady &rArr; _SendPacket &rArr; _HandleIncomingPacket &rArr; SEGGER_RTT_ReadNoLock &rArr; _DoInit &rArr; __aeabi_memclr4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[263]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<BR>[Calls]<UL><LI><a href="#[262]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> tasks.o(i.vTaskStartScheduler)
 </UL>
-<P><STRONG><a name="[268]"></a>prvInitialiseNewTask</STRONG> (Thumb, 180 bytes, Stack size 56 bytes, tasks.o(i.prvInitialiseNewTask))
+<P><STRONG><a name="[267]"></a>prvInitialiseNewTask</STRONG> (Thumb, 180 bytes, Stack size 56 bytes, tasks.o(i.prvInitialiseNewTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = prvInitialiseNewTask
 </UL>
-<BR>[Calls]<UL><LI><a href="#[26a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pxPortInitialiseStack
-<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialiseItem
+<BR>[Calls]<UL><LI><a href="#[268]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialiseItem
+<LI><a href="#[269]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pxPortInitialiseStack
 </UL>
-<BR>[Called By]<UL><LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
-<LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Called By]<UL><LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
+<LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 
-<P><STRONG><a name="[262]"></a>prvInitialiseTaskLists</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, tasks.o(i.prvInitialiseTaskLists))
+<P><STRONG><a name="[261]"></a>prvInitialiseTaskLists</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, tasks.o(i.prvInitialiseTaskLists))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = prvInitialiseTaskLists
 </UL>
-<BR>[Calls]<UL><LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
+<BR>[Calls]<UL><LI><a href="#[26a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
 </UL>
-<BR>[Called By]<UL><LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<BR>[Called By]<UL><LI><a href="#[260]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 
-<P><STRONG><a name="[274]"></a>prvResetNextTaskUnblockTime</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, tasks.o(i.prvResetNextTaskUnblockTime))
+<P><STRONG><a name="[273]"></a>prvResetNextTaskUnblockTime</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, tasks.o(i.prvResetNextTaskUnblockTime))
 <BR><BR>[Called By]<UL><LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
+<LI><a href="#[26e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 <LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 </UL>
 
-<P><STRONG><a name="[25a]"></a>makeFreeRtosPriority</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, cmsis_os.o(i.makeFreeRtosPriority))
+<P><STRONG><a name="[259]"></a>makeFreeRtosPriority</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, cmsis_os.o(i.makeFreeRtosPriority))
 <BR><BR>[Called By]<UL><LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadCreate
 </UL>
 
-<P><STRONG><a name="[26d]"></a>prvHeapInit</STRONG> (Thumb, 98 bytes, Stack size 12 bytes, heap_4.o(i.prvHeapInit))
+<P><STRONG><a name="[26c]"></a>prvHeapInit</STRONG> (Thumb, 98 bytes, Stack size 12 bytes, heap_4.o(i.prvHeapInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = prvHeapInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 </UL>
 
-<P><STRONG><a name="[26e]"></a>prvInsertBlockIntoFreeList</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, heap_4.o(i.prvInsertBlockIntoFreeList))
+<P><STRONG><a name="[26d]"></a>prvInsertBlockIntoFreeList</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, heap_4.o(i.prvInsertBlockIntoFreeList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = prvInsertBlockIntoFreeList
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[265]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 </UL>
 
 <P><STRONG><a name="[82]"></a>prvTaskExitError</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, port.o(i.prvTaskExitError))
@@ -4952,14 +4954,14 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[1e5]"></a>_PreparePacket</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, segger_sysview.o(i._PreparePacket))
-<BR><BR>[Called By]<UL><LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordVoid
+<BR><BR>[Called By]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32x3
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32x2
+<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordVoid
 <LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnTaskStartReady
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnTaskStartExec
 <LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnTaskCreate
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnIdle
-<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32x3
-<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32x2
-<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32
 <LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_Warn
 <LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_Stop
 <LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_Start
@@ -4977,14 +4979,14 @@ Local Symbols
 <LI><a href="#[23d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_TrySendOverflowPacket
 <LI><a href="#[23b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_HandleIncomingPacket
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordVoid
+<BR>[Called By]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32x3
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32x2
+<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordVoid
 <LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnTaskStartReady
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnTaskStartExec
 <LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnTaskCreate
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_OnIdle
-<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32x3
-<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32x2
-<LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_RecordU32
 <LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_Warn
 <LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_Stop
 <LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_SYSVIEW_Start
