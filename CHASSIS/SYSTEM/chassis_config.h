@@ -30,9 +30,9 @@
 
 #define MOTOR_3508_CURRENT_LIMIT 10000 //3508最大电流值
 
-#define YAW_ZERO_OFFSET 5960 //yaw归中编码值
+#define YAW_ZERO_OFFSET 446 //yaw归中编码值
 
-//#define GIMBAL_MOTION_PREDICT  //云台运动控制,在跟随模式yaw轴运动时,底盘会先于云台转动,减少云台与地盘之间的相互干扰,依赖于IMU
+
 //#define POWER_CONTROL //功耗控制，依赖于裁判系统 还有bug
 #define ACCEL_CONTROL //加速度控制,依赖于IMU
 #define USE_IMU //陀螺仪

@@ -137,9 +137,12 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	PidInitMode(&chassis_data_init_f->Chassis_speedX_Pid, OutputFilter, CHASSIS_FIRST_ORDER_FILTER_K, 0);
 	PidInitMode(&chassis_data_init_f->Chassis_speedY_Pid, OutputFilter, CHASSIS_FIRST_ORDER_FILTER_K, 0);
 
-	// 底盘旋转跟随pid
+	// 底盘旋转pid
+	PidInit(&chassis_data_init_f->chassis_yaw_pid, 1.0f , 0 ,0 ,Deadzone);
+	PidInitMode(&chassis_data_init_f->chassis_yaw_pid, Deadzone, 3.0f, 0);
+	
 	PidInit(&chassis_data_init_f->chassis_rotate_pid, CHASSIS_SPIN_FOLLOW_KP, CHASSIS_SPIN_FOLLOW_KI, CHASSIS_SPIN_FOLLOW_KD, Deadzone | ChangingIntegrationRate | Integral_Limit);
-	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, Deadzone, 5.0f, 0);
+	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, Deadzone, 3.0f, 0);
 	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, ChangingIntegrationRate, 180.0f, 0.5f);
 	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, Integral_Limit, 1000, 0);	
 	
@@ -154,11 +157,10 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 
 	// 加速度限制pid
 	PidInit(&chassis_data_init_f->chassis_accel_control.Chassis_accel_x_pid, 0.35f, 0, 0, Output_Limit);
-	PidInit(&chassis_data_init_f->chassis_accel_control.Chassis_accel_y_pid, 0.35f, 0, 0, Output_Limit | OutputFilter | InputFilter);
+	PidInit(&chassis_data_init_f->chassis_accel_control.Chassis_accel_y_pid, 0.35f, 0, 0, Output_Limit | OutputFilter);
 	PidInitMode(&chassis_data_init_f->chassis_accel_control.Chassis_accel_x_pid, Output_Limit, 1.0f, 0);
 	PidInitMode(&chassis_data_init_f->chassis_accel_control.Chassis_accel_y_pid, Output_Limit, 1.0f, 0);
 	PidInitMode(&chassis_data_init_f->chassis_accel_control.Chassis_accel_y_pid, OutputFilter, 1.0f, 0);
-	PidInitMode(&chassis_data_init_f->chassis_accel_control.Chassis_accel_y_pid, InputFilter, 1.0f, 0);
 
 	first_order_filter_init(&chassis_data_init_f->Chassis_speedX_filter, 0.9);
 	first_order_filter_init(&chassis_data_init_f->Chassis_speedY_filter, 0.9);

@@ -151,6 +151,7 @@ typedef struct
 
 	pid_parameter_t Chassis_speedX_Pid; //底盘速度xpid
 	pid_parameter_t Chassis_speedY_Pid; //底盘速度ypid
+	pid_parameter_t chassis_yaw_pid;    //yaw位置pid
 	pid_parameter_t chassis_rotate_pid; //旋转pid
 	
 	first_order_filter_type_t Chassis_speedX_filter;

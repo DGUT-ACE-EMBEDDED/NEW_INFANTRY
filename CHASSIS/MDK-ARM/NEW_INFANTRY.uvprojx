@@ -478,6 +478,11 @@
               <FileType>1</FileType>
               <FilePath>..\ACE-ECF\Bsp\Src\CRC.c</FilePath>
             </File>
+            <File>
+              <FileName>rm_cilent_ui.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ACE-ECF\Bsp\Src\rm_cilent_ui.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -527,6 +532,11 @@
               <FileName>imu_task.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TASK\imu_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>Ui_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\Ui_task.c</FilePath>
             </File>
           </Files>
         </Group>

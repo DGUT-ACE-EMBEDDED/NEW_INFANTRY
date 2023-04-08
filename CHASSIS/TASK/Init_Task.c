@@ -11,6 +11,7 @@
 #include "Task_Safe.h"
 #include "chassis_task.h"
 #include "imu_task.h"
+#include "Ui_task.h"
 /* ************************freertos******************** */
 #include "freertos.h"
 #include "task.h"
@@ -52,8 +53,8 @@ void Init_Task(void const *argument)
 	TASK_CHASSISHandle = osThreadCreate(osThread(CHASSIS_TASK), NULL);
 
 	//创建UI任务
-	//		osThreadDef(UI_TASK, UI_Task, osPriorityLow, 0, 256);
-	//		UI_TASKHandle = osThreadCreate(osThread(UI_TASK), NULL);
+	osThreadDef(UI_TASK, UI_Task, osPriorityLow, 0, 256);
+	UI_TASKHandle = osThreadCreate(osThread(UI_TASK), NULL);
 	
 	#ifdef USE_IMU
 	osThreadDef(IMU_TASK, imu_Task, osPriorityNormal, 0, 512);
