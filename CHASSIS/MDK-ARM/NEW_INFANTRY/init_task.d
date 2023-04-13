@@ -84,7 +84,7 @@ new_infantry\init_task.o: ..\IMU\BMI088Middleware.h
 new_infantry\init_task.o: ..\IMU\kalman_filter.h
 new_infantry\init_task.o: ../ACE-ECF/Algorithm/inc/maths.h
 new_infantry\init_task.o: ..\IMU\QuaternionEKF.h
-new_infantry\init_task.o: ..\IMU\user_lib.h
+new_infantry\init_task.o: ../ACE-ECF/Algorithm/inc/user_lib.h
 new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 new_infantry\init_task.o: ..\IMU\bsp_dwt.h
 new_infantry\init_task.o: ../ACE-ECF/Bsp/Inc/bsp_pwm.h

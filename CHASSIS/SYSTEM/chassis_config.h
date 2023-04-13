@@ -28,7 +28,7 @@
 #define MOUSE_YAW_SPEED 0.011f   //鼠标yaw轴速度增益
 #define RC_YAW_SPEED 0.0003f     //遥控器yaw轴速度增益
 
-#define MOTOR_3508_CURRENT_LIMIT 10000 //3508最大电流值
+#define MOTOR_3508_CURRENT_LIMIT 15000 //3508最大电流值
 
 #define YAW_ZERO_OFFSET 446 //yaw归中编码值
 
@@ -56,7 +56,7 @@
 #define CHASSIS_LB_MOTOR_KD 0.5f
 
 //底盘速度pid
-#define CHASSIS_PSEED_X_KP 6.0f
+#define CHASSIS_PSEED_X_KP 8.0f
 #define CHASSIS_PSEED_X_KI 0.0f
 #define CHASSIS_PSEED_X_KD 10.8f
 
@@ -73,7 +73,7 @@
 #define CHASSIS_FIRST_ORDER_FILTER_K 0.0410f // 越小越平稳，灵敏度越低；越高输出不稳，但灵敏度更高
 
 //小陀螺的旋转速度
-#define CHASSIS_ROTATION_SPEED 30               
+#define CHASSIS_ROTATION_SPEED 100               
 
 
 #endif

@@ -103,6 +103,7 @@ int main(void)
   MX_USART6_UART_Init();
   MX_TIM10_Init();
   MX_TIM4_Init();
+  MX_TIM8_Init();
   /* USER CODE BEGIN 2 */
   /* systemview ≥ı ºªØ */
   SEGGER_SYSVIEW_Conf();

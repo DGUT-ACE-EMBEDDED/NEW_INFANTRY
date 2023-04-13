@@ -21,7 +21,7 @@ static void chassis_state_react(chassis_control_t *chassis_state_react_f);
 static void chassis_prevent_motion_distortion(chassis_control_t *chassis_prevent_motion_distortion_f);
 static void chassis_get_gimbal_differece_angle(chassis_control_t *chassis_get_gimbal_differece_angle_f);
 static void chassis_accel_control_calculate(chassis_control_t *chassis_accel_control_calculate_f);
-
+static void chassis_speed_gain_cal(chassis_control_t *chassis_speed_gain_cal_f);
 void Task_Chassis(void const *argument)
 {
 	Chassis_Init(&Chassis_Control);
@@ -35,7 +35,7 @@ void Task_Chassis(void const *argument)
 		taskENTER_CRITICAL(); // 进入临界区
 		Chassis_Work(&Chassis_Control);
 		taskEXIT_CRITICAL(); // 退出临界区
-		can1_cap_setmsg(50);
+		can1_cap_setmsg(Chassis_Control.referee_p->Robot_Status.chassis_power_limit - 2);
 		can1_chassis_setmsg(Chassis_Control.Chassis_Motor[0].give_current,
 							Chassis_Control.Chassis_Motor[1].give_current,
 							Chassis_Control.Chassis_Motor[2].give_current,
@@ -68,6 +68,9 @@ void Chassis_Work(chassis_control_t *Chassis_Control_f)
 	// 底盘状态选择
 	chassis_state_choose(Chassis_Control_f);
 
+	//根据超电设置speed gain
+	chassis_speed_gain_cal(Chassis_Control_f);
+	
 	// 根据底盘状态计算电机输出量
 	chassis_state_react(Chassis_Control_f);
 
@@ -221,14 +224,14 @@ void chassis_state_react(chassis_control_t *chassis_state_react_f)
 	switch (chassis_state_react_f->chassis_state)
 	{
 	case CHASSIS_LOCK_POSITION:
-		//		//位置速度环串级pid
-		//		motor_position_speed_pid_calculate(chassis_state_react_f);
+		//位置速度环串级pid
+		motor_position_speed_pid_calculate(chassis_state_react_f);
 
 		// 运动分解
-		chassis_motion_decomposition(chassis_state_react_f);
+//		chassis_motion_decomposition(chassis_state_react_f);
 
-		// 电机pid速度计算
-		motor_speed_pid_calculate(chassis_state_react_f);
+//		// 电机pid速度计算
+//		motor_speed_pid_calculate(chassis_state_react_f);
 		break;
 	case CHASSIS_SPEED:
 		// 运动分解
@@ -301,4 +304,15 @@ void chassis_get_gimbal_differece_angle(chassis_control_t *chassis_get_gimbal_di
 {
 	chassis_get_gimbal_differece_angle_f->Chassis_Gimbal_Diference_Angle = ((float)(chassis_get_gimbal_differece_angle_f->yaw_motor_encoder->Encode_Actual_Val - YAW_ZERO_OFFSET) * 360.0f / 8192.0f);
 	chassis_get_gimbal_differece_angle_f->Chassis_Gimbal_Diference_Angle = loop_fp32_constrain(chassis_get_gimbal_differece_angle_f->Chassis_Gimbal_Diference_Angle, -180.0f, 180.0f);
+}
+void chassis_speed_gain_cal(chassis_control_t *chassis_speed_gain_cal_f)
+{
+	if(chassis_speed_gain_cal_f->super_cap_c->Capacitance_voltage > 10.0f)//有超级电容
+	{
+		chassis_speed_gain_cal_f->chassis_speed_gain = chassis_speed_gain_cal_f->super_cap_c->Capacitance_voltage / 20.0f;//超电电压十多到二十多伏，分母越大，速度约激进
+	}
+	else
+	{
+		chassis_speed_gain_cal_f->chassis_speed_gain = 1.0f;
+	}
 }

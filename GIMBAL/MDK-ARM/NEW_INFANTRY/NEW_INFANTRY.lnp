@@ -86,6 +86,7 @@
 "new_infantry\segger_sysview_config_freertos.o"
 "new_infantry\segger_sysview_freertos.o"
 "..\Drivers\CMSIS\Lib\ARM\arm_cortexM4lf_math.lib"
+"../Middlewares/ST/ARM/DSP/Lib/arm_cortexM4l_math.lib"
 --strict --scatter "NEW_INFANTRY\NEW_INFANTRY.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
