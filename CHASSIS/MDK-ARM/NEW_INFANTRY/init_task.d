@@ -2,12 +2,12 @@ new_infantry\init_task.o: ..\TASK\Init_Task.c
 new_infantry\init_task.o: ..\TASK\Init_Task.h
 new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-new_infantry\init_task.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stddef.h
-new_infantry\init_task.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stdint.h
+new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stddef.h
+new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdint.h
 new_infantry\init_task.o: ..\SYSTEMVIEW\SEGGER_SYSVIEW_FreeRTOS.h
 new_infantry\init_task.o: ..\SYSTEMVIEW\SEGGER_SYSVIEW.h
 new_infantry\init_task.o: ..\SYSTEMVIEW\SEGGER.h
-new_infantry\init_task.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stdarg.h
+new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdarg.h
 new_infantry\init_task.o: ..\SYSTEMVIEW\Global.h
 new_infantry\init_task.o: ..\SYSTEMVIEW\SEGGER_SYSVIEW_ConfDefaults.h
 new_infantry\init_task.o: ..\SYSTEMVIEW\SEGGER_SYSVIEW_Conf.h
@@ -27,7 +27,7 @@ new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/eve
 new_infantry\init_task.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 new_infantry\init_task.o: ../ACE-ECF/Bsp/Inc/bsp_referee.h
 new_infantry\init_task.o: ../ACE-ECF/Bsp/Inc/CRC.h
-new_infantry\init_task.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\string.h
+new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\string.h
 new_infantry\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 new_infantry\init_task.o: ../Core/Inc/stm32f4xx_hal_conf.h
 new_infantry\init_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
@@ -64,9 +64,9 @@ new_infantry\init_task.o: ../Core/Inc/main.h
 new_infantry\init_task.o: ../SYSTEM/chassis_struct_variables.h
 new_infantry\init_task.o: ../ACE-ECF/Algorithm/inc/struct_typedef.h
 new_infantry\init_task.o: ../SYSTEM/chassis_config.h
-new_infantry\init_task.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stdlib.h
-new_infantry\init_task.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stdio.h
-new_infantry\init_task.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stdbool.h
+new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdlib.h
+new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdio.h
+new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdbool.h
 new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 new_infantry\init_task.o: ../ACE-ECF/Bsp/Inc/bsp_dr16.h
 new_infantry\init_task.o: ../Core/Inc/usart.h
@@ -75,7 +75,7 @@ new_infantry\init_task.o: ../ACE-ECF/Algorithm/inc/pid.h
 new_infantry\init_task.o: ../ACE-ECF/Algorithm/inc/filter.h
 new_infantry\init_task.o: ../Middlewares/ST/ARM/DSP/Inc/arm_math.h
 new_infantry\init_task.o: ../Drivers/CMSIS/Include/core_cm4.h
-new_infantry\init_task.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\math.h
+new_infantry\init_task.o: D:\keil\core\ARM\ARMCC\Bin\..\include\math.h
 new_infantry\init_task.o: ../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h
 new_infantry\init_task.o: ../TASK/imu_task.h
 new_infantry\init_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h

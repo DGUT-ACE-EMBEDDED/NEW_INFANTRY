@@ -129,17 +129,17 @@ void chassis_state_choose(chassis_control_t *chassis_state_choose_f)
     }
     if (last_state != chassis_state_choose_f->chassis_state)
     {
-//        EncoderValZero(chassis_state_choose_f->Motor_encoder[0]);
-//        EncoderValZero(chassis_state_choose_f->Motor_encoder[1]);
-//        EncoderValZero(chassis_state_choose_f->Motor_encoder[2]);
-//        EncoderValZero(chassis_state_choose_f->Motor_encoder[3]);
-//        pid_clear(&chassis_state_choose_f->motor_Position_Pid[0]);
-//        pid_clear(&chassis_state_choose_f->motor_Position_Pid[1]);
-//        pid_clear(&chassis_state_choose_f->motor_Position_Pid[2]);
-//        pid_clear(&chassis_state_choose_f->motor_Position_Pid[3]);
-//        pid_clear(&chassis_state_choose_f->Chassis_speedX_Pid);
-//        pid_clear(&chassis_state_choose_f->Chassis_speedY_Pid);
-//        pid_clear(&chassis_state_choose_f->chassis_rotate_pid);
+        EncoderValZero(chassis_state_choose_f->Motor_encoder[0]);
+        EncoderValZero(chassis_state_choose_f->Motor_encoder[1]);
+        EncoderValZero(chassis_state_choose_f->Motor_encoder[2]);
+        EncoderValZero(chassis_state_choose_f->Motor_encoder[3]);
+        pid_clear(&chassis_state_choose_f->motor_Position_Pid[0]);
+        pid_clear(&chassis_state_choose_f->motor_Position_Pid[1]);
+        pid_clear(&chassis_state_choose_f->motor_Position_Pid[2]);
+        pid_clear(&chassis_state_choose_f->motor_Position_Pid[3]);
+        pid_clear(&chassis_state_choose_f->Chassis_speedX_Pid);
+        pid_clear(&chassis_state_choose_f->Chassis_speedY_Pid);
+        pid_clear(&chassis_state_choose_f->chassis_rotate_pid);
     }
 
     if (chassis_state_choose_f->Chassis_RC->rc.s2 == RC_SW_DOWN)

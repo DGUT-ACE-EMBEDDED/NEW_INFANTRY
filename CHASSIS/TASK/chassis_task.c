@@ -24,15 +24,25 @@ static void chassis_accel_control_calculate(chassis_control_t *chassis_accel_con
 static void chassis_speed_gain_cal(chassis_control_t *chassis_speed_gain_cal_f);
 void Task_Chassis(void const *argument)
 {
+	volatile static int can_switch_send =0;
 	Chassis_Init(&Chassis_Control);
 	vTaskDelay(5);
 
 	while (1)
 	{
-		can2_chassis_to_gimbal(Chassis_Control.Chassis_RC);
-		can2_chassis_to_gimbal_referee(Chassis_Control.referee_p);
-
 		taskENTER_CRITICAL(); // 进入临界区
+		if(can_switch_send)
+		{
+			can_switch_send = 0;
+			can2_chassis_to_gimbal_referee(Chassis_Control.referee_p);
+			can2_chassis_to_gimbal(Chassis_Control.Chassis_RC);
+		}
+		else
+		{
+			can_switch_send = 1;
+			can2_chassis_to_gimbal(Chassis_Control.Chassis_RC);
+			can2_chassis_to_gimbal_referee(Chassis_Control.referee_p);
+		}
 		Chassis_Work(&Chassis_Control);
 		taskEXIT_CRITICAL(); // 退出临界区
 		can1_cap_setmsg(Chassis_Control.referee_p->Robot_Status.chassis_power_limit - 2);
@@ -141,11 +151,11 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	PidInitMode(&chassis_data_init_f->Chassis_speedY_Pid, OutputFilter, CHASSIS_FIRST_ORDER_FILTER_K, 0);
 
 	// 底盘旋转pid
-	PidInit(&chassis_data_init_f->chassis_yaw_pid, 1.0f , 0 ,0 ,Deadzone);
+	PidInit(&chassis_data_init_f->chassis_yaw_pid, 1.3f , 0 ,0 ,Deadzone);
 	PidInitMode(&chassis_data_init_f->chassis_yaw_pid, Deadzone, 3.0f, 0);
 	
 	PidInit(&chassis_data_init_f->chassis_rotate_pid, CHASSIS_SPIN_FOLLOW_KP, CHASSIS_SPIN_FOLLOW_KI, CHASSIS_SPIN_FOLLOW_KD, Deadzone | ChangingIntegrationRate | Integral_Limit);
-	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, Deadzone, 3.0f, 0);
+	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, Deadzone, 0.0f, 0);
 	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, ChangingIntegrationRate, 180.0f, 0.5f);
 	PidInitMode(&chassis_data_init_f->chassis_rotate_pid, Integral_Limit, 1000, 0);	
 	
@@ -315,4 +325,8 @@ void chassis_speed_gain_cal(chassis_control_t *chassis_speed_gain_cal_f)
 	{
 		chassis_speed_gain_cal_f->chassis_speed_gain = 1.0f;
 	}
+}
+chassis_control_t *Get_Chassis_Control_p(void)
+{
+	return &Chassis_Control;
 }

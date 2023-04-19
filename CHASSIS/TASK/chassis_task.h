@@ -13,5 +13,5 @@
 
 
 void Task_Chassis(void const *argument);
-
+chassis_control_t *Get_Chassis_Control_p(void);
 #endif

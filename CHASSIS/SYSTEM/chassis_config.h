@@ -30,7 +30,7 @@
 
 #define MOTOR_3508_CURRENT_LIMIT 15000 //3508最大电流值
 
-#define YAW_ZERO_OFFSET 446 //yaw归中编码值
+#define YAW_ZERO_OFFSET 2500 //yaw归中编码值
 
 
 //#define POWER_CONTROL //功耗控制，依赖于裁判系统 还有bug

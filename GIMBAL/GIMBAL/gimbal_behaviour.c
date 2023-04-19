@@ -50,6 +50,30 @@ void gimbal_behaviour_choose(gimbal_control_t *gimbal_behaviour_choose_f)
     if (last_behaviour != rc_behaviour)
     {
         gimbal_behaviour_choose_f->gimbal_behaviour = rc_behaviour;
+			if(gimbal_behaviour_choose_f->gimbal_behaviour == GIMBAL_AUTOBUFF || gimbal_behaviour_choose_f->gimbal_behaviour == GIMBAL_AUTOATTACK )
+			{
+					//TODO:注意安全
+					double *k = gimbal_behaviour_choose_f->Yaw_c.motor_lqr.k;
+					*k = -12.96227766016838;
+					k++;
+					*k = -0.66667065322830;
+					k = gimbal_behaviour_choose_f->Pitch_c.motor_lqr.k;
+					*k = -25.0;
+					k++;
+					*k = -1.5;
+			}
+			else
+			{
+					//TODO:注意安全
+					double *k = gimbal_behaviour_choose_f->Yaw_c.motor_lqr.k;
+					*k = -7.96227766016838;
+					k++;
+					*k = -0.50467065322830;
+					k = gimbal_behaviour_choose_f->Pitch_c.motor_lqr.k;
+					*k = -6.0;
+					k++;
+					*k = -0.3;
+			}
     }
 
     // 键鼠
@@ -71,6 +95,22 @@ void gimbal_behaviour_choose(gimbal_control_t *gimbal_behaviour_choose_f)
     if (last_behaviour != kb_behaviour)
     {
         gimbal_behaviour_choose_f->gimbal_behaviour = kb_behaviour;
+						if(gimbal_behaviour_choose_f->gimbal_behaviour == GIMBAL_AUTOBUFF || gimbal_behaviour_choose_f->gimbal_behaviour == GIMBAL_AUTOATTACK )
+			{
+					//TODO:注意安全
+					double *k = gimbal_behaviour_choose_f->Yaw_c.motor_lqr.k;
+					*k = -12.96227766016838;
+					k++;
+					*k = -0.66667065322830;
+			}
+			else
+			{
+					//TODO:注意安全
+					double *k = gimbal_behaviour_choose_f->Yaw_c.motor_lqr.k;
+					*k = -7.96227766016838;
+					k++;
+					*k = -0.50467065322830;
+			}
     }
 }
 
@@ -81,6 +121,7 @@ void gimbal_behaviour_react(gimbal_control_t *gimbal_behaviour_react_f)
 
     Gimbal_yaw -= gimbal_behaviour_react_f->Gimbal_RC->mouse.x * MOUSE_YAW_SPEED;
     Gimbal_yaw -= gimbal_behaviour_react_f->Gimbal_RC->rc.ch[0] * RC_YAW_SPEED;
+
     switch (gimbal_behaviour_react_f->gimbal_behaviour)
     {
     case GIMBAL_MANUAL:
@@ -165,11 +206,7 @@ void gimbal_pid_calculate(gimbal_control_t *gimbal_pid_calculate_f)
 						LQR_Data_Update(&gimbal_pid_calculate_f->Pitch_c.motor_lqr, pitch_system_state);
 						if(gimbal_pid_calculate_f->gimbal_behaviour == GIMBAL_AUTOATTACK || gimbal_pid_calculate_f->gimbal_behaviour == GIMBAL_AUTOBUFF)//自瞄时使用i
 						{
-							//TODO:注意安全
-							double *k = gimbal_pid_calculate_f->Pitch_c.motor_lqr.k;
-							*k = -12.96227766016838;
-							k++;
-							*k = -0.66667065322830;
+
 				#if(PITCH_ANGLE_SENSOR == PITCH_USE_ENCODER)
 							PidCalculate(&gimbal_pid_calculate_f->Pitch_c.qitch_lqr_only_i_pid, Gimbal_pitch, gimbal_pid_calculate_f->Pitch_c.pitch_motor.actPositon_360 );
 						}
@@ -178,10 +215,6 @@ void gimbal_pid_calculate(gimbal_control_t *gimbal_pid_calculate_f)
 						}
 						else
 						{
-							double *k = gimbal_pid_calculate_f->Pitch_c.motor_lqr.k;
-							*k = -7.96227766016838;
-							k++;
-							*k = -0.50467065322830;
 							pid_clear(&gimbal_pid_calculate_f->Pitch_c.qitch_lqr_only_i_pid);
 						}
 						LQR_Calculate(&gimbal_pid_calculate_f->Pitch_c.motor_lqr);

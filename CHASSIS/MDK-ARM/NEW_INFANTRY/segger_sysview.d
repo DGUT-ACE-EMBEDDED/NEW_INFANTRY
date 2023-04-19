@@ -1,7 +1,7 @@
 new_infantry\segger_sysview.o: ..\SYSTEMVIEW\SEGGER_SYSVIEW.c
-new_infantry\segger_sysview.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\string.h
-new_infantry\segger_sysview.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stdlib.h
-new_infantry\segger_sysview.o: D:\KEIL5\Core\ARM\ARMCC\Bin\..\include\stdarg.h
+new_infantry\segger_sysview.o: D:\keil\core\ARM\ARMCC\Bin\..\include\string.h
+new_infantry\segger_sysview.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdlib.h
+new_infantry\segger_sysview.o: D:\keil\core\ARM\ARMCC\Bin\..\include\stdarg.h
 new_infantry\segger_sysview.o: ..\SYSTEMVIEW\SEGGER_SYSVIEW_Int.h
 new_infantry\segger_sysview.o: ..\SYSTEMVIEW\SEGGER_SYSVIEW.h
 new_infantry\segger_sysview.o: ..\SYSTEMVIEW\SEGGER.h

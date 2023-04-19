@@ -27,12 +27,12 @@
 
 #ifndef INC_FREERTOS_H
 #define INC_FREERTOS_H
-
+#include "SEGGER_SYSVIEW_FreeRTOS.h"
 /*
  * Include the generic headers required for the FreeRTOS port being used.
  */
 #include <stddef.h>
-#include "SEGGER_SYSVIEW_FreeRTOS.h"
+
 /*
  * If stdint.h cannot be located then:
  *   + If using GCC ensure the -nostdint options is *not* being used.

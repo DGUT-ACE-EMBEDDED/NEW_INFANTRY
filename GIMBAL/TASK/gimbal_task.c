@@ -27,6 +27,8 @@
 #include "bsp_Motor_Encoder.h"
 #include "bsp_referee.h"
 
+extern TIM_HandleTypeDef htim8;
+
 gimbal_control_t Gimbal_Control;
 
 static void Gimbal_Work(gimbal_control_t *Gimbal_Work_f);
@@ -83,9 +85,10 @@ void Gimbal_Init(gimbal_control_t *Gimbal_Init_f)
     Gimbal_Init_f->Yaw_c.yaw_motor_encoder = Encoder_Init(GM6020, 2);
 
 		#if(PITCH_CONTROLER == PITCH_USE_LQR)
-		PidInit(&Gimbal_Init_f->Pitch_c.qitch_lqr_only_i_pid, 0, 15.0f, 0, Integral_Limit );
-    PidInitMode(&Gimbal_Init_f->Pitch_c.qitch_lqr_only_i_pid, Integral_Limit, 250, 0);
-//		PidInitMode(&Gimbal_Init_f->Pitch_c.qitch_lqr_only_i_pid, ChangingIntegrationRate, 5, 0);
+		PidInit(&Gimbal_Init_f->Pitch_c.qitch_lqr_only_i_pid, 0, 25.0f, 0, Integral_Limit | ChangingIntegrationRate | Separated_Integral);
+    PidInitMode(&Gimbal_Init_f->Pitch_c.qitch_lqr_only_i_pid, Integral_Limit, 350, 0);
+		PidInitMode(&Gimbal_Init_f->Pitch_c.qitch_lqr_only_i_pid, ChangingIntegrationRate, 3, 0);
+		PidInitMode(&Gimbal_Init_f->Pitch_c.qitch_lqr_only_i_pid, Separated_Integral, 3.0f, -3.0f);
 		
 		LQR_Init(&Gimbal_Init_f->Pitch_c.motor_lqr, 2, 1, k_pitch_lqr);
 		#elif(PITCH_CONTROLER == PITCH_USE_PID)
@@ -102,8 +105,11 @@ void Gimbal_Init(gimbal_control_t *Gimbal_Init_f)
     PidInitMode(&Gimbal_Init_f->Pitch_c.pitch_motor_position_pid, StepIn, 30, 0);
 		#endif
 		#if(YAW_CONTROLER == YAW_USE_LQR)
-		PidInit(&Gimbal_Init_f->Yaw_c.yaw_lqr_only_i_pid, 0, 7.5f, 0, Integral_Limit );
-    PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_lqr_only_i_pid, Integral_Limit, 250, 0);
+		PidInit(&Gimbal_Init_f->Yaw_c.yaw_lqr_only_i_pid, 0, 15, 0, Integral_Limit | ChangingIntegrationRate | Separated_Integral);
+    PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_lqr_only_i_pid, Integral_Limit, 350, 0);
+		PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_lqr_only_i_pid, ChangingIntegrationRate, 4, 0);
+		PidInitMode(&Gimbal_Init_f->Yaw_c.yaw_lqr_only_i_pid, Separated_Integral, 4.0f, -4.0f);
+		
 		LQR_Init(&Gimbal_Init_f->Yaw_c.motor_lqr, 2, 1, k_yaw_lqr);
 		#elif(YAW_CONTROLER == YAW_USE_PID)
     // YÖá

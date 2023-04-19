@@ -150,7 +150,7 @@ typedef struct
 	pid_parameter_t fire_motor_position_pid;
 	
 //	bool full_automatic;
-	bool feed_buttle;
+	volatile bool replenish_flag;
 	
 	const RC_ctrl_t *fire_rc;
 	const REFEREE_t *referee;

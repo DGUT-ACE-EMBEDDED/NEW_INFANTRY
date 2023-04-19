@@ -23,7 +23,7 @@
 #ifndef __GIMBAL_CONFIG_H
 #define __GIMBAL_CONFIG_H
 
-//#define FIRE_WORK
+#define FIRE_WORK
 
 //#define VIRTUAL_DELAY_COMPENSATE
 
@@ -77,4 +77,14 @@
 #define RC_YAW_SPEED 0.0003f     //遥控器yaw轴速度增益
 #define RC_PITCH_SPEED 0.0005f   //遥控器pitch轴速度增益
 
+/**********************火控相关**********************/
+#define FIRE_SPEED_0 0
+#define FIRE_SPEED_15 4510
+#define FIRE_SPEED_18 5000
+#define FIRE_SPEED_22 5550
+#define FIRE_SPEED_30 7300
+
+#define REPLENISH_OFF  0x4940
+#define REPLENISH_HALF 0x4820
+#define REPLENISH_ON   0x4700
 #endif
