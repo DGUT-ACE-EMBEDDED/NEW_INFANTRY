@@ -137,6 +137,11 @@ typedef struct
 
 typedef struct
 {
+	bool replenish_flag;
+}Gimbal_data_t;
+
+typedef struct
+{
 	RC_ctrl_t *Chassis_RC; //底盘遥控数据
 
 	chassis_behaviour_e behaviour; //底盘模式
@@ -167,7 +172,7 @@ typedef struct
 	Supercapacitor_receive_t *super_cap_c; //超电
 	fp32 chassis_speed_gain;			   //速度因子
 	REFEREE_t *referee_p;
-	
+	const Gimbal_data_t *gimbal_data_p;
 	#ifdef USE_IMU
 	const INS_t *Imu_c;
 	float chassis_no_follow_yaw;

@@ -27,7 +27,23 @@ Project File Date:  04/14/2023
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\keil\core\ARM\ARMCC\Bin'
 Build target 'NEW_INFANTRY'
-"NEW_INFANTRY\NEW_INFANTRY.axf" - 0 Error(s), 0 Warning(s).
+compiling Init_Task.c...
+compiling can1_send.c...
+compiling can2_receive.c...
+compiling chassis_task.c...
+..\TASK\chassis_task.c(29): warning:  #550-D: variable "currentTime"  was set but never used
+  		static TickType_t currentTime;
+..\TASK\chassis_task.c(213): warning:  #177-D: function "chassis_accel_control_calculate"  was declared but never referenced
+  void chassis_accel_control_calculate(chassis_control_t *chassis_accel_control_calculate_f)
+..\TASK\chassis_task.c: 2 warnings, 0 errors
+compiling Ui_task.c...
+compiling can1_receive.c...
+compiling can2_send.c...
+compiling chassis_behaviour.c...
+linking...
+Program Size: Code=39484 RO-data=5204 RW-data=276 ZI-data=40396  
+FromELF: creating hex file...
+"NEW_INFANTRY\NEW_INFANTRY.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -51,7 +67,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.5.0
       Include file:  CMSIS\Core\Include\tz_context.h
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:01:14
 </pre>
 </body>
 </html>

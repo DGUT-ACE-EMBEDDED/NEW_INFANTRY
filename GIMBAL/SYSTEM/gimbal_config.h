@@ -68,8 +68,8 @@
 #define GIMBAL_YAW_visual_S_I 0.0f
 #define GIMBAL_YAW_visual_S_D 0.0f
 /**********************云台pitch角度限制**********************/
-#define PITCH_ANGLE_LIMIT_UP 39.0f
-#define PITCH_ANGLE_LIMIT_DOWN -29.0f
+#define PITCH_ANGLE_LIMIT_UP 30.0f
+#define PITCH_ANGLE_LIMIT_DOWN -18.0f
 
 /**********************键盘鼠标遥控速度设置**********************/
 #define MOUSE_YAW_SPEED 0.011f   //鼠标yaw轴速度增益
@@ -79,7 +79,7 @@
 
 /**********************火控相关**********************/
 #define FIRE_SPEED_0 0
-#define FIRE_SPEED_15 4510
+#define FIRE_SPEED_15 4520
 #define FIRE_SPEED_18 5000
 #define FIRE_SPEED_22 5550
 #define FIRE_SPEED_30 7300

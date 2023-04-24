@@ -6,10 +6,14 @@ extern CAN_HandleTypeDef hcan2;
 extern chassis_control_t Chassis_Control;
 /*--------------------±‰¡ø-----------------------*/
 static motor6020_measure_t yaw_motor_measure;
-
+static Gimbal_data_t Gimbal_data;
 motor6020_measure_t *get_yaw_motor_measure_point(void)
 {
 	return &yaw_motor_measure;
+}
+Gimbal_data_t *get_gimbal_data_p(void)
+{
+	return &Gimbal_data;
 }
 /**
  * @brief		can2¬À≤®∆˜≈‰÷√
@@ -63,6 +67,11 @@ void chassis_can2_callback(CAN_HandleTypeDef *hcan)
 //				);
 //				break;
 //			}
+			case 0x501:
+			{
+				Gimbal_data.replenish_flag = Rx_Data[0];
+				break;
+			}
 			case 0x206: // Y÷·
 			{
 				yaw_motor_measure.position = (int16_t)(Rx_Data[0] << 8 | Rx_Data[1]);

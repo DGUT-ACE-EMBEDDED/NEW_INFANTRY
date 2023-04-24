@@ -47,10 +47,12 @@ void chassis_behaviour_choose(chassis_control_t *Chassis_behaviour_f)
     //如果挡位发生改变，设置对应的模式
     if (last_behaviour != rc_behaviour)
     {
+			#ifdef USE_IMU
 			if(rc_behaviour == CHASSIS_NO_FOLLOW)
 			{
 				Chassis_behaviour_f->chassis_no_follow_yaw = Chassis_behaviour_f->Imu_c->Yaw;
 			}
+			#endif
        Chassis_behaviour_f->behaviour = rc_behaviour;
     }
 
@@ -79,10 +81,12 @@ void chassis_behaviour_choose(chassis_control_t *Chassis_behaviour_f)
     //如果模式发生改变，设置对应的模式
     if (last_behaviour != kb_behaviour)
     {
+			#ifdef USE_IMU
 			if(kb_behaviour == CHASSIS_NO_FOLLOW)
 			{
 				Chassis_behaviour_f->chassis_no_follow_yaw = Chassis_behaviour_f->Imu_c->Yaw;
 			}
+			#endif
       Chassis_behaviour_f->behaviour = kb_behaviour;
     }
 }
@@ -220,7 +224,7 @@ void f_CHASSIS_NO_FOLLOW(chassis_control_t *Chassis_behaviour_react_f)
 		#ifdef USE_IMU
 		Chassis_yaw_angle =  float_min_distance(loop_fp32_constrain(Chassis_behaviour_react_f->chassis_no_follow_yaw,-180.0f,180.0f),loop_fp32_constrain(Chassis_behaviour_react_f->Imu_c->Yaw,-180.0f,180.0f),-180.0f,180.0f);
 		#else
-		Chassis_yaw_angle =0
+		Chassis_yaw_angle =0;
 		#endif
 }
 void f_CHASSIS_ROTATION(chassis_control_t *Chassis_behaviour_react_f)

@@ -104,10 +104,11 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	/* systemview ≥ı ºªØ */
 	SEGGER_SYSVIEW_Conf();
-	
+	#ifdef USE_IMU
   DWT_Init(168);
   while (BMI088_init(&hspi1, 1) != BMI088_NO_ERROR)
     ;
+	#endif
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

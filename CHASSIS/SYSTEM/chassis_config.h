@@ -28,14 +28,14 @@
 #define MOUSE_YAW_SPEED 0.011f   //鼠标yaw轴速度增益
 #define RC_YAW_SPEED 0.0003f     //遥控器yaw轴速度增益
 
-#define MOTOR_3508_CURRENT_LIMIT 15000 //3508最大电流值
+#define MOTOR_3508_CURRENT_LIMIT 16000 //3508最大电流值
 
-#define YAW_ZERO_OFFSET 2500 //yaw归中编码值
+#define YAW_ZERO_OFFSET 457 //yaw归中编码值
 
 
 //#define POWER_CONTROL //功耗控制，依赖于裁判系统 还有bug
-#define ACCEL_CONTROL //加速度控制,依赖于IMU
-#define USE_IMU //陀螺仪
+//#define ACCEL_CONTROL //加速度控制,依赖于IMU
+//#define USE_IMU //陀螺仪
 
 /************底盘pid************/
 //电机电流环pid

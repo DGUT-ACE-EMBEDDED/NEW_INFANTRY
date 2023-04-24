@@ -1,6 +1,6 @@
 Dependencies for Project 'NEW_INFANTRY', Target 'NEW_INFANTRY': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\NEW_INFANTRY\NEW_INFANTRY.map)(0x643FE7F9)()
+F (.\NEW_INFANTRY\NEW_INFANTRY.map)(0x6442CBCA)()
 F (../Core/Src/main.c)(0x643FDFEE)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\main.o --omf_browse new_infantry\main.crf --depend new_infantry\main.d)
 I (../Core/Inc/main.h)(0x638DF29E)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x6329AAE3)
@@ -472,7 +472,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x6329AAE3)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h)(0x6329AAE3)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h)(0x6329AAE3)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h)(0x6329AAE3)
-F (..\SYSTEM\gimbal_config.h)(0x643EA38F)()
+F (..\SYSTEM\gimbal_config.h)(0x64414459)()
 F (..\SYSTEM\gimbal_struct_variables.h)(0x643EA040)()
 F (..\SYSTEM\safe_check.c)(0x63F9C35C)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\safe_check.o --omf_browse new_infantry\safe_check.crf --depend new_infantry\safe_check.d)
 I (..\SYSTEM\safe_check.h)(0x63F9BAE0)
@@ -795,7 +795,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x6329AA95)
-I (../ACE-ECF/Algorithm/inc/lqr.h)(0x641E670A)
+I (../ACE-ECF/Algorithm/inc/lqr.h)(0x6442C73D)
 I (../ACE-ECF/Algorithm/inc/mat.h)(0x641E670A)
 I (../ACE-ECF/Algorithm/inc/filter.h)(0x6399CFEE)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
@@ -890,7 +890,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x6329AA95)
-I (../ACE-ECF/Algorithm/inc/lqr.h)(0x641E670A)
+I (../ACE-ECF/Algorithm/inc/lqr.h)(0x6442C73D)
 I (../ACE-ECF/Algorithm/inc/mat.h)(0x641E670A)
 I (../ACE-ECF/Algorithm/inc/filter.h)(0x6399CFEE)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
@@ -905,7 +905,7 @@ I (../IMU/bsp_dwt.h)(0x638DF29E)
 I (../ACE-ECF/Bsp/Inc/bsp_pwm.h)(0x638DF2B1)
 I (../Core/Inc/tim.h)(0x643828F0)
 I (../Core/Inc/can.h)(0x638DF29E)
-F (..\COMMUNICATION\can2_receive.c)(0x643ECD43)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\can2_receive.o --omf_browse new_infantry\can2_receive.crf --depend new_infantry\can2_receive.d)
+F (..\COMMUNICATION\can2_receive.c)(0x644269C3)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\can2_receive.o --omf_browse new_infantry\can2_receive.crf --depend new_infantry\can2_receive.d)
 I (..\COMMUNICATION\can2_receive.h)(0x63C0C22F)
 I (..\COMMUNICATION\can1_receive.h)(0x63C0C22F)
 I (../Core/Inc/can.h)(0x638DF29E)
@@ -984,7 +984,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x6329AA95)
-I (../ACE-ECF/Algorithm/inc/lqr.h)(0x641E670A)
+I (../ACE-ECF/Algorithm/inc/lqr.h)(0x6442C73D)
 I (../ACE-ECF/Algorithm/inc/mat.h)(0x641E670A)
 I (../ACE-ECF/Algorithm/inc/filter.h)(0x6399CFEE)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
@@ -1001,8 +1001,8 @@ I (../Core/Inc/tim.h)(0x643828F0)
 I (../TASK/Task_Safe.h)(0x63F77D13)
 I (../TASK/Init_Task.h)(0x638DF29E)
 I (../SYSTEM/safe_check.h)(0x63F9BAE0)
-F (..\COMMUNICATION\can2_send.c)(0x643828F0)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\can2_send.o --omf_browse new_infantry\can2_send.crf --depend new_infantry\can2_send.d)
-I (..\COMMUNICATION\can2_send.h)(0x643828F0)
+F (..\COMMUNICATION\can2_send.c)(0x6441002F)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\can2_send.o --omf_browse new_infantry\can2_send.crf --depend new_infantry\can2_send.d)
+I (..\COMMUNICATION\can2_send.h)(0x64410012)
 I (../SYSTEM/gimbal_struct_variables.h)(0x643EA040)
 I (../Core/Inc/main.h)(0x638DF29E)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x6329AAE3)
@@ -1078,7 +1078,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x6329AA95)
-I (../ACE-ECF/Algorithm/inc/lqr.h)(0x641E670A)
+I (../ACE-ECF/Algorithm/inc/lqr.h)(0x6442C73D)
 I (../ACE-ECF/Algorithm/inc/mat.h)(0x641E670A)
 I (../ACE-ECF/Algorithm/inc/filter.h)(0x6399CFEE)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
@@ -1093,7 +1093,8 @@ I (../IMU/bsp_dwt.h)(0x638DF29E)
 I (../ACE-ECF/Bsp/Inc/bsp_pwm.h)(0x638DF2B1)
 I (../Core/Inc/tim.h)(0x643828F0)
 I (../Core/Inc/can.h)(0x638DF29E)
-F (..\TASK\gimbal_task.c)(0x643A381C)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\gimbal_task.o --omf_browse new_infantry\gimbal_task.crf --depend new_infantry\gimbal_task.d)
+I (../SYSTEM/gimbal_config.h)(0x64414459)
+F (..\TASK\gimbal_task.c)(0x6442C73D)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\gimbal_task.o --omf_browse new_infantry\gimbal_task.crf --depend new_infantry\gimbal_task.d)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
 I (../USB_DEVICE/App/usbd_cdc_if.h)(0x638DF29E)
 I (../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h)(0x6329AA93)
@@ -1177,7 +1178,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x6329AA95)
-I (../ACE-ECF/Algorithm/inc/lqr.h)(0x641E670A)
+I (../ACE-ECF/Algorithm/inc/lqr.h)(0x6442C73D)
 I (../ACE-ECF/Algorithm/inc/mat.h)(0x641E670A)
 I (../ACE-ECF/Algorithm/inc/filter.h)(0x6399CFEE)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
@@ -1191,14 +1192,14 @@ I (../ACE-ECF/Algorithm/inc/user_lib.h)(0x643829A4)
 I (../IMU/bsp_dwt.h)(0x638DF29E)
 I (../ACE-ECF/Bsp/Inc/bsp_pwm.h)(0x638DF2B1)
 I (../Core/Inc/tim.h)(0x643828F0)
-I (../SYSTEM/gimbal_config.h)(0x643EA38F)
+I (../SYSTEM/gimbal_config.h)(0x64414459)
 I (..\TASK\fire_Task.h)(0x643EA258)
 I (..\TASK\virtual_task.h)(0x6401FEFC)
 I (../COMMUNICATION/can1_receive.h)(0x63C0C22F)
 I (../Core/Inc/can.h)(0x638DF29E)
 I (../COMMUNICATION/can2_receive.h)(0x63C0C22F)
 I (../COMMUNICATION/can1_send.h)(0x63C0C396)
-I (../COMMUNICATION/can2_send.h)(0x643828F0)
+I (../COMMUNICATION/can2_send.h)(0x64410012)
 I (../GIMBAL/gimbal_behaviour.h)(0x63A3094B)
 I (../GIMBAL/gimbal_auto.h)(0x63A29C4B)
 F (..\TASK\Init_Task.c)(0x643EA040)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\init_task.o --omf_browse new_infantry\init_task.crf --depend new_infantry\init_task.d)
@@ -1228,7 +1229,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x6329AA95)
 I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x6329AA92)
-I (../SYSTEM/gimbal_config.h)(0x643EA38F)
+I (../SYSTEM/gimbal_config.h)(0x64414459)
 I (../COMMUNICATION/can1_receive.h)(0x63C0C22F)
 I (../Core/Inc/can.h)(0x638DF29E)
 I (../Core/Inc/main.h)(0x638DF29E)
@@ -1281,7 +1282,7 @@ I (D:\keil\core\ARM\ARMCC\include\stdlib.h)(0x638CD5B8)
 I (D:\keil\core\ARM\ARMCC\include\math.h)(0x60252378)
 I (D:\keil\core\ARM\ARMCC\include\errno.h)(0x60252376)
 I (../ACE-ECF/Algorithm/inc/linux_list.h)(0x638DF2B0)
-I (../ACE-ECF/Algorithm/inc/lqr.h)(0x641E670A)
+I (../ACE-ECF/Algorithm/inc/lqr.h)(0x6442C73D)
 I (../ACE-ECF/Algorithm/inc/mat.h)(0x641E670A)
 I (../ACE-ECF/Algorithm/inc/filter.h)(0x6399CFEE)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
@@ -1301,7 +1302,7 @@ I (../SYSTEM/safe_check.h)(0x63F9BAE0)
 I (..\TASK\gimbal_task.h)(0x643828F2)
 I (..\TASK\fire_Task.h)(0x643EA258)
 I (..\TASK\virtual_task.h)(0x6401FEFC)
-F (..\TASK\Task_Safe.c)(0x643FE7F6)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\task_safe.o --omf_browse new_infantry\task_safe.crf --depend new_infantry\task_safe.d)
+F (..\TASK\Task_Safe.c)(0x644263DA)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\task_safe.o --omf_browse new_infantry\task_safe.crf --depend new_infantry\task_safe.d)
 I (..\TASK\Task_Safe.h)(0x63F77D13)
 I (../Core/Inc/main.h)(0x638DF29E)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x6329AAE3)
@@ -1441,7 +1442,7 @@ I (../IMU/bsp_dwt.h)(0x638DF29E)
 I (../ACE-ECF/Bsp/Inc/bsp_pwm.h)(0x638DF2B1)
 I (../Core/Inc/tim.h)(0x643828F0)
 I (../ACE-ECF/Algorithm/inc/pid.h)(0x643E864A)
-F (..\TASK\fire_task.c)(0x643EC4DE)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\fire_task.o --omf_browse new_infantry\fire_task.crf --depend new_infantry\fire_task.d)
+F (..\TASK\fire_task.c)(0x6442792D)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\fire_task.o --omf_browse new_infantry\fire_task.crf --depend new_infantry\fire_task.d)
 I (..\TASK\fire_Task.h)(0x643EA258)
 I (../SYSTEM/gimbal_struct_variables.h)(0x643EA040)
 I (../Core/Inc/main.h)(0x638DF29E)
@@ -1518,7 +1519,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x6329AA95)
-I (../ACE-ECF/Algorithm/inc/lqr.h)(0x641E670A)
+I (../ACE-ECF/Algorithm/inc/lqr.h)(0x6442C73D)
 I (../ACE-ECF/Algorithm/inc/mat.h)(0x641E670A)
 I (../ACE-ECF/Algorithm/inc/filter.h)(0x6399CFEE)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
@@ -1533,7 +1534,7 @@ I (../IMU/bsp_dwt.h)(0x638DF29E)
 I (../ACE-ECF/Bsp/Inc/bsp_pwm.h)(0x638DF2B1)
 I (../Core/Inc/tim.h)(0x643828F0)
 I (..\TASK\gimbal_task.h)(0x643828F2)
-I (../SYSTEM/gimbal_config.h)(0x643EA38F)
+I (../SYSTEM/gimbal_config.h)(0x64414459)
 I (../COMMUNICATION/can1_receive.h)(0x63C0C22F)
 I (../Core/Inc/can.h)(0x638DF29E)
 I (../COMMUNICATION/can1_send.h)(0x63C0C396)
@@ -1614,7 +1615,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x6329AA95)
-I (../ACE-ECF/Algorithm/inc/lqr.h)(0x641E670A)
+I (../ACE-ECF/Algorithm/inc/lqr.h)(0x6442C73D)
 I (../ACE-ECF/Algorithm/inc/mat.h)(0x641E670A)
 I (../ACE-ECF/Algorithm/inc/filter.h)(0x6399CFEE)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
@@ -1630,7 +1631,7 @@ I (../ACE-ECF/Bsp/Inc/bsp_pwm.h)(0x638DF2B1)
 I (../Core/Inc/tim.h)(0x643828F0)
 I (..\TASK\virtual_task.h)(0x6401FEFC)
 I (..\TASK\gimbal_task.h)(0x643828F2)
-I (../SYSTEM/gimbal_config.h)(0x643EA38F)
+I (../SYSTEM/gimbal_config.h)(0x64414459)
 I (../USB_DEVICE/App/usbd_cdc_if.h)(0x638DF29E)
 I (../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h)(0x6329AA93)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h)(0x6329AA93)
@@ -1638,7 +1639,7 @@ I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h)(0x6329AA93)
 I (../USB_DEVICE/Target/usbd_conf.h)(0x638DF29E)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h)(0x6329AA93)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h)(0x6329AA93)
-F (..\GIMBAL\gimbal_behaviour.c)(0x643A2A3E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\gimbal_behaviour.o --omf_browse new_infantry\gimbal_behaviour.crf --depend new_infantry\gimbal_behaviour.d)
+F (..\GIMBAL\gimbal_behaviour.c)(0x6442CBC5)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\gimbal_behaviour.o --omf_browse new_infantry\gimbal_behaviour.crf --depend new_infantry\gimbal_behaviour.d)
 I (..\GIMBAL\gimbal_behaviour.h)(0x63A3094B)
 I (../SYSTEM/gimbal_struct_variables.h)(0x643EA040)
 I (../Core/Inc/main.h)(0x638DF29E)
@@ -1715,7 +1716,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x6329AA95)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x6329AA95)
-I (../ACE-ECF/Algorithm/inc/lqr.h)(0x641E670A)
+I (../ACE-ECF/Algorithm/inc/lqr.h)(0x6442C73D)
 I (../ACE-ECF/Algorithm/inc/mat.h)(0x641E670A)
 I (../ACE-ECF/Algorithm/inc/filter.h)(0x6399CFEE)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)
@@ -1730,7 +1731,7 @@ I (../IMU/bsp_dwt.h)(0x638DF29E)
 I (../ACE-ECF/Bsp/Inc/bsp_pwm.h)(0x638DF2B1)
 I (../Core/Inc/tim.h)(0x643828F0)
 I (../TASK/gimbal_task.h)(0x643828F2)
-I (../SYSTEM/gimbal_config.h)(0x643EA38F)
+I (../SYSTEM/gimbal_config.h)(0x64414459)
 I (../TASK/virtual_task.h)(0x6401FEFC)
 F (..\IMU\BMI088driver.c)(0x638DF29E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\bmi088driver.o --omf_browse new_infantry\bmi088driver.crf --depend new_infantry\bmi088driver.d)
 I (..\IMU\BMI088driver.h)(0x638DF29E)
@@ -2080,8 +2081,8 @@ I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x6329AA92)
 I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x6329AA92)
 I (D:\keil\core\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\keil\core\ARM\ARMCC\include\math.h)(0x60252378)
-F (..\ACE-ECF\Algorithm\src\lqr.c)(0x6424409D)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\lqr.o --omf_browse new_infantry\lqr.crf --depend new_infantry\lqr.d)
-I (../ACE-ECF/Algorithm/inc/lqr.h)(0x641E670A)
+F (..\ACE-ECF\Algorithm\src\lqr.c)(0x6442C73D)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ../ACE-ECF/Algorithm/inc -I ../ACE-ECF/Bsp/Inc -I ../COMMUNICATION -I ../GIMBAL -I ../SYSTEM -I ../TASK -I ../IMU -I ../SYSTEMVIEW-I.\RTE\_NEW_INFANTRY-ID:\keil\package\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil\package\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="535" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o new_infantry\lqr.o --omf_browse new_infantry\lqr.crf --depend new_infantry\lqr.d)
+I (../ACE-ECF/Algorithm/inc/lqr.h)(0x6442C73D)
 I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x6329AA8E)
 I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x6329AA8E)
 I (../Drivers/CMSIS/Include/core_cm4.h)(0x6329AA92)
@@ -2320,7 +2321,7 @@ I (../ACE-ECF/Bsp/Inc/bsp_Motor_Encoder.h)(0x643828F7)
 I (../ACE-ECF/Bsp/Inc/bsp_referee.h)(0x63E64B79)
 I (../ACE-ECF/Bsp/Inc/CRC.h)(0x63E64E2A)
 I (../ACE-ECF/Algorithm/inc/pid.h)(0x643E864A)
-I (../ACE-ECF/Algorithm/inc/lqr.h)(0x641E670A)
+I (../ACE-ECF/Algorithm/inc/lqr.h)(0x6442C73D)
 I (../ACE-ECF/Algorithm/inc/mat.h)(0x641E670A)
 I (../ACE-ECF/Algorithm/inc/filter.h)(0x6399CFEE)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6329A963)

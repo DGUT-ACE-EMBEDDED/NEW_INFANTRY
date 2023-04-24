@@ -96,3 +96,4 @@ new_infantry\can2_send.o: ../IMU/bsp_dwt.h
 new_infantry\can2_send.o: ../ACE-ECF/Bsp/Inc/bsp_pwm.h
 new_infantry\can2_send.o: ../Core/Inc/tim.h
 new_infantry\can2_send.o: ../Core/Inc/can.h
+new_infantry\can2_send.o: ../SYSTEM/gimbal_config.h

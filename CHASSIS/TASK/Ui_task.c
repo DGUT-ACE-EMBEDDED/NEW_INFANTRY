@@ -21,8 +21,8 @@ chassis_control_t *Chassis_Control_p = NULL;
 Graph_Data diff_ang;
 
 Float_Data CAP_VOLTAGE;
-String_Data CH_MODE;
-
+String_Data CH_MODE,voltage,replenish;
+		
 static void ui_init(void);           //ui初始化
 static void print_mode(void);        //底盘模式显示
 static void print_chassis_gimbal_angle(void);
@@ -57,7 +57,7 @@ void UI_Task(void const * argument)
 
 
 	
-/**
+/** 
   * @brief      ui初始化
   * @param[in]  void
   * @retval     void    
@@ -65,7 +65,6 @@ void UI_Task(void const * argument)
   */
 static void ui_init(void)
 {
-		String_Data voltage;
 		
 		/*--------------------电容ui加入--------------------*/
 		Char_Draw(&voltage, "078", UI_Graph_ADD, 7, UI_Color_Green, 20, 4, 1080, 300, "Voltage:");
@@ -83,6 +82,13 @@ static void ui_init(void)
 		/*--------------------底盘模式ui加入--------------------*/
 		Char_Draw(&CH_MODE, "093", UI_Graph_ADD, 8, UI_Color_Main, 25, 5, 80, 880-80, chassis_mode_ui[Chassis_Control_p->behaviour]);
 		My_Char_Refresh(CH_MODE);
+	
+		/*--------------------云台补弹ui加入--------------------*/
+		if(Chassis_Control_p->gimbal_data_p->replenish_flag)
+			Char_Draw(&replenish, "002", UI_Graph_ADD, 7, UI_Color_Green, 20, 4, 80, 600, "replenish:");
+		else
+			Char_Draw(&replenish, "002", UI_Graph_ADD, 7, UI_Color_Orange, 20, 4, 80, 600, "replenish:");
+		My_Char_Refresh(replenish);
 }
 
 /**
@@ -93,7 +99,11 @@ static void print_mode(void)
 	//底盘
     Char_Draw(&CH_MODE, "093", UI_Graph_Change, 8, UI_Color_Main, 25, 5, 80, 880-80, chassis_mode_ui[Chassis_Control_p->behaviour]);
     My_Char_Refresh(CH_MODE);
-	
+		if(Chassis_Control_p->gimbal_data_p->replenish_flag)
+			Char_Draw(&replenish, "002", UI_Graph_Change, 7, UI_Color_Green, 20, 4, 80, 600, "replenish:");
+		else
+			Char_Draw(&replenish, "002", UI_Graph_Change, 7, UI_Color_Orange, 20, 4, 80, 600, "replenish:");
+		My_Char_Refresh(replenish);
 	//云台
 //	GI_MODE.Graph_Control.end_angle = strlen(gimbal_mode_ui[re_gimbal_behaviour()]);
 //	strcpy(GI_MODE.show_Data, gimbal_mode_ui[re_gimbal_behaviour()]);

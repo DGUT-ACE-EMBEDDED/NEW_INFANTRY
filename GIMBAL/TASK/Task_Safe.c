@@ -181,9 +181,9 @@ int heap_free_size()
 void Safe_Task(void const *argument)
 {
     stack_base = *stack_base_p;
-    safe_message_queue rec_message;
+//    safe_message_queue rec_message;
 //   	static TickType_t currentTime;
-    safe_task_queue = xQueueCreate(10, sizeof(safe_message_queue));
+//    safe_task_queue = xQueueCreate(10, sizeof(safe_message_queue));
 
 //   	currentTime = xTaskGetTickCount();
     HAL_TIM_Base_Start(&htim4);
@@ -192,33 +192,33 @@ void Safe_Task(void const *argument)
 //    Protect_object_create(300, "pÖá");
 
     /*------------can2----------*/
-    Protect_object_create(100, (uint8_t*)"referee");
-    Protect_object_create(100, (uint8_t*)"rc");
+//    Protect_object_create(100, (uint8_t*)"referee");
+//    Protect_object_create(100, (uint8_t*)"rc");
 //    Protect_object_create(100, "yÖá");
 
     while (1)
     {
-				uint8_t error_object_flag = 0;
+//				uint8_t error_object_flag = 0;
 			
         stack_now = __get_MSP();
         stack_free = 0x2000 - (stack_base - stack_now);
         heap_free = heap_free_size();
 
-        Lost_check_all();
-        while (xQueueReceive(safe_task_queue, &rec_message, 0) == pdTRUE)
-        {
-            if (rec_message.error == safe_ERROR)
-            {
-                error_object_flag = 1;
-            }
-        }
-        if (error_object_flag)
-        {
+//        Lost_check_all();
+//        while (xQueueReceive(safe_task_queue, &rec_message, 0) == pdTRUE)
+//        {
+//            if (rec_message.error == safe_ERROR)
+//            {
+//                error_object_flag = 1;
+//            }
+//        }
+//        if (error_object_flag)
+//        {
 					static TickType_t last_note_systick = 0;
 					static int music_num = 0;
-					if(xTaskGetTickCount() - last_note_systick >Music[music_num+1]*43)
+					if(xTaskGetTickCount() - last_note_systick >Music[music_num+1]*73)
 						buzzer_off();
-					if(xTaskGetTickCount() - last_note_systick >Music[music_num+1]*50)
+					if(xTaskGetTickCount() - last_note_systick >Music[music_num+1]*80)
 					{	
 						last_note_systick = xTaskGetTickCount();
 						music_num+=2;		
@@ -236,11 +236,11 @@ void Safe_Task(void const *argument)
 //						if(note_list[note_list_num] == -1.0f)
 //						note_list_num = 0;
 //					}
-        }
-        else
-        {
-            buzzer_off();
-        }
+//        }
+//        else
+//        {
+//            buzzer_off();
+//        }
 
         vTaskDelay(1);
     }

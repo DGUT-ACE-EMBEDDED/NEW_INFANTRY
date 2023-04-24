@@ -34,11 +34,11 @@ gimbal_control_t Gimbal_Control;
 static void Gimbal_Work(gimbal_control_t *Gimbal_Work_f);
 static void Gimbal_Init(gimbal_control_t *Gimbal_Init_f);
 #if(PITCH_CONTROLER == PITCH_USE_LQR)
-double k_pitch_lqr[2] = {-5.94183025734807, -0.3};
+float k_pitch_lqr[2] = {-5.94183025734807, -0.3};
 #endif
 #if(YAW_CONTROLER == YAW_USE_LQR)
-double k_yaw_lqr[2] = {-7.96227766016838, -0.50467065322830};
-//double k_yaw_lqr[2] = {-12.96227766016838, -0.66667065322830};
+float k_yaw_lqr[2] = {-7.96227766016838, -0.50467065322830};
+//float k_yaw_lqr[2] = {-12.96227766016838, -0.66667065322830};
 #endif
 /**
  * @brief  云台主任务
@@ -53,6 +53,11 @@ void Gimbal_Task(void const *argument)
 //    currentTime = xTaskGetTickCount();
     while (1)
     {
+			if(xTaskGetTickCount() > chassis_rc_lost_time() )
+			{
+				RC_DataReload();
+			}
+			can2_gimbal_to_chassis();
 			taskENTER_CRITICAL();         // 进入临界区
 			Gimbal_Work(&Gimbal_Control); // 云台状态控制    //云台工作
 			taskEXIT_CRITICAL();              // 退出临界区

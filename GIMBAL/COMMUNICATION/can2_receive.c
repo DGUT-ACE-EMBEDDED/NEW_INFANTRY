@@ -62,7 +62,8 @@ void chassis_can2_callback(CAN_HandleTypeDef *hcan)
 		switch (Rxmessage.StdId)
 		{
 		case 0x433:
-			Lost_time_fresh_by_name((uint8_t*)"rc");
+			rc_lost_time_refresh();
+//			Lost_time_fresh_by_name((uint8_t*)"rc");
 			rc_ctl->mouse.x = ((Rx_Data[0] << 8) | Rx_Data[1]);
 			rc_ctl->mouse.y = ((Rx_Data[2] << 8) | Rx_Data[3]);
 			rc_ctl->mouse.press_l = Rx_Data[4];
@@ -70,7 +71,8 @@ void chassis_can2_callback(CAN_HandleTypeDef *hcan)
 			rc_ctl->rc.ch[4] = ((Rx_Data[7] << 8) | Rx_Data[6]);
 			break;
 		case 0x411:
-			Lost_time_fresh_by_name((uint8_t*)"rc");
+			rc_lost_time_refresh();
+//			Lost_time_fresh_by_name((uint8_t*)"rc");
 			rc_ctl->rc.ch[0] = ((Rx_Data[0] << 8) | Rx_Data[1]);
 			rc_ctl->rc.ch[1] = ((Rx_Data[2] << 8) | Rx_Data[3]);
 			rc_ctl->rc.s2 = Rx_Data[4];
@@ -89,7 +91,7 @@ void chassis_can2_callback(CAN_HandleTypeDef *hcan)
 		}
 		case 0x422:
 		{
-			Lost_time_fresh_by_name((uint8_t*)"referee");
+//			Lost_time_fresh_by_name((uint8_t*)"referee");
 			referee.Robot_Status.shooter_id1_17mm_cooling_limit = (int16_t)(Rx_Data[0] << 8 | Rx_Data[1]);
 			referee.Power_Heat.shooter_id1_17mm_cooling_heat = (int16_t)(Rx_Data[2] << 8 | Rx_Data[3]);
 			referee.Robot_Status.shooter_id1_17mm_speed_limit = (int16_t)(Rx_Data[4]);

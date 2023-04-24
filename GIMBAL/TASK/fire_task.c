@@ -54,7 +54,7 @@ gimbal_fire_control_t *fire_task_init(void)
 	//弹仓盖舵机PWM
 	HAL_TIM_Base_Start(&htim8);
 	HAL_TIM_PWM_Start(&htim8,TIM_CHANNEL_2);
-	htim8.Instance->CCR2 = REPLENISH_HALF;
+	htim8.Instance->CCR2 = REPLENISH_OFF;
 	
 	// 获得拨弹指针
 	fire_task_init_p->right_motor.motor_measure = get_right_motor_measure_point();
@@ -142,7 +142,7 @@ void fire_behaviour_choose(gimbal_fire_control_t *fire_behaviour_choose_f)
 }
 void fire_pid_calculate(gimbal_fire_control_t *fire_pid_calculate_f)
 {
-	if (((fire_pid_calculate_f->fire_rc->mouse.press_l != 0) || (fire_pid_calculate_f->fire_rc->rc.ch[4] > 0)) && ((fire_pid_calculate_f->referee->Power_Heat.shooter_id1_17mm_cooling_heat + 25 <= fire_pid_calculate_f->referee->Robot_Status.shooter_id1_17mm_cooling_limit) || (fire_pid_calculate_f->referee->Robot_Status.shooter_id1_17mm_cooling_limit == 0)))
+	if (((fire_pid_calculate_f->fire_rc->mouse.press_l != 0) || (fire_pid_calculate_f->fire_rc->rc.ch[4] > 0)) && ((fire_pid_calculate_f->referee->Power_Heat.shooter_id1_17mm_cooling_heat + 30 <= fire_pid_calculate_f->referee->Robot_Status.shooter_id1_17mm_cooling_limit) || (fire_pid_calculate_f->referee->Robot_Status.shooter_id1_17mm_cooling_limit == 0)))
 	{
 		//		if (fire_pid_calculate_f->full_automatic) // 全自动开环控制
 		//		{

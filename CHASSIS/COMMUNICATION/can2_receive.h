@@ -12,6 +12,7 @@
 //motor_measure_t *get_yaw_gimbal_motor_measure_point(void);
 //uint32_t gimbal_rc_lost_time(void);
 motor6020_measure_t *get_yaw_motor_measure_point(void);
+Gimbal_data_t *get_gimbal_data_p(void);
 	
 extern void CAN2_filter_config(void);
 extern void CAN2_Data_Receive(CAN_HandleTypeDef *hcan);

@@ -22,27 +22,36 @@ static void chassis_prevent_motion_distortion(chassis_control_t *chassis_prevent
 static void chassis_get_gimbal_differece_angle(chassis_control_t *chassis_get_gimbal_differece_angle_f);
 static void chassis_accel_control_calculate(chassis_control_t *chassis_accel_control_calculate_f);
 static void chassis_speed_gain_cal(chassis_control_t *chassis_speed_gain_cal_f);
+static void delay_us(uint32_t nTimer);
 void Task_Chassis(void const *argument)
 {
 	volatile static int can_switch_send =0;
+		static TickType_t currentTime;
+
+	currentTime = xTaskGetTickCount(); //获取当前系统时间
 	Chassis_Init(&Chassis_Control);
 	vTaskDelay(5);
 
 	while (1)
 	{
-		taskENTER_CRITICAL(); // 进入临界区
-		if(can_switch_send)
+		delay_us(500);
+		can_switch_send++;
+		if(can_switch_send==1)
+		{
+//			can2_chassis_to_gimbal_referee(Chassis_Control.referee_p);
+			can2_chassis_to_gimbal(Chassis_Control.Chassis_RC);
+		}
+		else if(can_switch_send == 2)
+		{
+			can2_chassis_to_gimbal(Chassis_Control.Chassis_RC);
+		}
+		else if(can_switch_send == 3)
 		{
 			can_switch_send = 0;
-			can2_chassis_to_gimbal_referee(Chassis_Control.referee_p);
-			can2_chassis_to_gimbal(Chassis_Control.Chassis_RC);
-		}
-		else
-		{
-			can_switch_send = 1;
-			can2_chassis_to_gimbal(Chassis_Control.Chassis_RC);
+//			can2_chassis_to_gimbal(Chassis_Control.Chassis_RC);
 			can2_chassis_to_gimbal_referee(Chassis_Control.referee_p);
 		}
+		taskENTER_CRITICAL(); // 进入临界区
 		Chassis_Work(&Chassis_Control);
 		taskEXIT_CRITICAL(); // 退出临界区
 		can1_cap_setmsg(Chassis_Control.referee_p->Robot_Status.chassis_power_limit - 2);
@@ -51,7 +60,7 @@ void Task_Chassis(void const *argument)
 							Chassis_Control.Chassis_Motor[2].give_current,
 							Chassis_Control.Chassis_Motor[3].give_current);
 
-		// vTaskDelayUntil(&currentTime, 1);//绝对延时 vTaskDelay(2)
+		 //vTaskDelayUntil(&currentTime, 1);//绝对延时 vTaskDelay(2)
 		vTaskDelay(1);
 	}
 }
@@ -110,6 +119,8 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	chassis_data_init_f->super_cap_c = get_supercap_control_point();
 	// 获取裁判系统的指针
 	chassis_data_init_f->referee_p = Get_referee_Address();
+	
+	chassis_data_init_f->gimbal_data_p = get_gimbal_data_p();
 
 #ifdef USE_IMU
 	chassis_data_init_f->Imu_c = get_imu_control_point();
@@ -168,16 +179,17 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	PidInit(&chassis_data_init_f->powerbuff_pid, 1.0 / 55.0, 0.0, 0.0, NULL);
 #endif
 
+#ifdef ACCEL_CONTROL
 	// 加速度限制pid
 	PidInit(&chassis_data_init_f->chassis_accel_control.Chassis_accel_x_pid, 0.35f, 0, 0, Output_Limit);
 	PidInit(&chassis_data_init_f->chassis_accel_control.Chassis_accel_y_pid, 0.35f, 0, 0, Output_Limit | OutputFilter);
 	PidInitMode(&chassis_data_init_f->chassis_accel_control.Chassis_accel_x_pid, Output_Limit, 1.0f, 0);
 	PidInitMode(&chassis_data_init_f->chassis_accel_control.Chassis_accel_y_pid, Output_Limit, 1.0f, 0);
 	PidInitMode(&chassis_data_init_f->chassis_accel_control.Chassis_accel_y_pid, OutputFilter, 1.0f, 0);
-
+#endif
 	first_order_filter_init(&chassis_data_init_f->Chassis_speedX_filter, 0.9);
 	first_order_filter_init(&chassis_data_init_f->Chassis_speedY_filter, 0.9);
-
+#ifdef ACCEL_CONTROL
 	first_order_filter_init(&chassis_data_init_f->chassis_accel_control.motor_accel_filter_fliter[0], 1.0f);
 	first_order_filter_init(&chassis_data_init_f->chassis_accel_control.motor_accel_filter_fliter[1], 1.0f);
 	first_order_filter_init(&chassis_data_init_f->chassis_accel_control.motor_accel_filter_fliter[2], 1.0f);
@@ -188,17 +200,19 @@ static void Chassis_Init(chassis_control_t *chassis_data_init_f)
 	sliding_mean_filter_init(&chassis_data_init_f->chassis_accel_control.motor_accel_sliding_fliter[1]);
 	sliding_mean_filter_init(&chassis_data_init_f->chassis_accel_control.motor_accel_sliding_fliter[2]);
 	sliding_mean_filter_init(&chassis_data_init_f->chassis_accel_control.motor_accel_sliding_fliter[3]);
-
+#endif
 	chassis_data_init_f->behaviour = CHASSIS_NO_FOLLOW;
 
 	// 速度因子
 	chassis_data_init_f->chassis_speed_gain = 1.0f;
-
+#ifdef ACCEL_CONTROL
 	chassis_data_init_f->chassis_accel_control.accel_x = 0;
 	chassis_data_init_f->chassis_accel_control.accel_y = 0;
+#endif
 }
 void chassis_accel_control_calculate(chassis_control_t *chassis_accel_control_calculate_f)
 {
+	#ifdef ACCEL_CONTROL
 		chassis_accel_control_calculate_f->chassis_accel_control.motor_accel[0] = chassis_accel_control_calculate_f->Motor_encoder[0]->AccSpeed  / 0.001f / CHASSIS_MOTOR_REDUCATION_RATIO / 60.0f * 2.0f * PI * WHEEL_RADIUS;
 		chassis_accel_control_calculate_f->chassis_accel_control.motor_accel[1] = chassis_accel_control_calculate_f->Motor_encoder[1]->AccSpeed  / 0.001f / CHASSIS_MOTOR_REDUCATION_RATIO / 60.0f * 2.0f * PI * WHEEL_RADIUS;
 		chassis_accel_control_calculate_f->chassis_accel_control.motor_accel[2] = chassis_accel_control_calculate_f->Motor_encoder[2]->AccSpeed  / 0.001f / CHASSIS_MOTOR_REDUCATION_RATIO / 60.0f * 2.0f * PI * WHEEL_RADIUS;
@@ -228,6 +242,7 @@ void chassis_accel_control_calculate(chassis_control_t *chassis_accel_control_ca
 		
 		chassis_accel_control_calculate_f->chassis_accel_control.error_accel_x = user_abs(chassis_accel_control_calculate_f->chassis_accel_control.theory_accel_x) - user_abs(chassis_accel_control_calculate_f->chassis_accel_control.accel_x);
 		chassis_accel_control_calculate_f->chassis_accel_control.error_accel_y = user_abs(chassis_accel_control_calculate_f->chassis_accel_control.theory_accel_y) - user_abs(chassis_accel_control_calculate_f->chassis_accel_control.accel_y);
+#endif
 }
 void chassis_state_react(chassis_control_t *chassis_state_react_f)
 {
@@ -302,8 +317,8 @@ void motor_speed_pid_calculate(chassis_control_t *Chassis_pid_calculate_f)
 	//	Chassis_pid_calculate_f->Chassis_Motor[1].pid_output = Chassis_pid_calculate_f->Chassis_Motor[1].pid_output - acc_lim_x_out +acc_lim_y_out;
 	//	Chassis_pid_calculate_f->Chassis_Motor[2].pid_output = Chassis_pid_calculate_f->Chassis_Motor[2].pid_output + acc_lim_x_out -acc_lim_y_out;
 	//	Chassis_pid_calculate_f->Chassis_Motor[3].pid_output = Chassis_pid_calculate_f->Chassis_Motor[3].pid_output + acc_lim_x_out +acc_lim_y_out;
-	value_limit(acc_lim_x_out, -1.0f, 0.0f);
-	value_limit(acc_lim_y_out, -1.0f, 0.0f);
+	value_limit(acc_lim_x_out, -0.7f, 0.0f);
+	value_limit(acc_lim_y_out, -0.7f, 0.0f);
 	Chassis_pid_calculate_f->Chassis_Motor[0].pid_output = Chassis_pid_calculate_f->Chassis_Motor[0].pid_output * (1.0f + acc_lim_x_out) / 1.0f * (1.0f + acc_lim_y_out) / 1.0f;
 	Chassis_pid_calculate_f->Chassis_Motor[1].pid_output = Chassis_pid_calculate_f->Chassis_Motor[1].pid_output * (1.0f + acc_lim_x_out) / 1.0f * (1.0f + acc_lim_y_out) / 1.0f;
 	Chassis_pid_calculate_f->Chassis_Motor[2].pid_output = Chassis_pid_calculate_f->Chassis_Motor[2].pid_output * (1.0f + acc_lim_x_out) / 1.0f * (1.0f + acc_lim_y_out) / 1.0f;
@@ -330,3 +345,23 @@ chassis_control_t *Get_Chassis_Control_p(void)
 {
 	return &Chassis_Control;
 }
+void delay_us(uint32_t nTimer)
+{
+	uint32_t i=0;	
+	for(i=0;i<nTimer;i++)
+	{		
+	__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();		
+	__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();		
+	__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();		
+	__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();		
+	__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();	
+	__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();		
+	__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();		
+	__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();		
+	__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();		
+	__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();	
+	__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();			
+	__NOP();__NOP();__NOP();
+	}
+}
+
