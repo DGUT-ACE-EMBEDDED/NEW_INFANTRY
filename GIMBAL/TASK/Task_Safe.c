@@ -224,7 +224,7 @@ void Safe_Task(void const *argument)
 						music_num+=2;		
 						if(Music[music_num] == 0xff)
 							music_num = 0;
-						buzzer_test(83, 1000000 / note_list[Music[music_num]]);
+//						buzzer_test(83, 1000000 / note_list[Music[music_num]]);
 					}
 					
 //					static int note_list_num = 0;
