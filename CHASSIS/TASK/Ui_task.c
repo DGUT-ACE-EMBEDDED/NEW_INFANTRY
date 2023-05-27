@@ -99,12 +99,11 @@ static void print_mode(void)
 	//底盘
     Char_Draw(&CH_MODE, "093", UI_Graph_Change, 8, UI_Color_Main, 25, 5, 80, 880-80, chassis_mode_ui[Chassis_Control_p->behaviour]);
     My_Char_Refresh(CH_MODE);
-	if(Chassis_Control_p->gimbal_data_p->replenish_flag)
-		Char_Draw(&replenish, "002", UI_Graph_Change, 7, UI_Color_Green, 20, 4, 80, 600, "replenish:");
-	else
-		Char_Draw(&replenish, "002", UI_Graph_Change, 7, UI_Color_Orange, 20, 4, 80, 600, "replenish:");
-	My_Char_Refresh(replenish);
-	
+		if(Chassis_Control_p->gimbal_data_p->replenish_flag)
+			Char_Draw(&replenish, "002", UI_Graph_Change, 7, UI_Color_Green, 20, 4, 80, 600, "replenish:");
+		else
+			Char_Draw(&replenish, "002", UI_Graph_Change, 7, UI_Color_Orange, 20, 4, 80, 600, "replenish:");
+		My_Char_Refresh(replenish);
 	//云台
 //	GI_MODE.Graph_Control.end_angle = strlen(gimbal_mode_ui[re_gimbal_behaviour()]);
 //	strcpy(GI_MODE.show_Data, gimbal_mode_ui[re_gimbal_behaviour()]);
@@ -122,7 +121,7 @@ static void print_cap_voltage(void)
     My_Graph_Refresh((Graph_Data *)&CAP_VOLTAGE);
 }
 /**
-  * @brief      底盘云台角度显示
+  * @brief      地盘云台角度显示
   */
 static void print_chassis_gimbal_angle(void)
 {
@@ -131,5 +130,3 @@ static void print_chassis_gimbal_angle(void)
 		Arc_Draw(&diff_ang,"001",UI_Graph_Change ,6 ,UI_Color_Main ,start_angle,end_angle,5,MAX_X/2,MAX_Y/2,200,200);
 		My_Graph_Refresh(&diff_ang);
 }
-
-
